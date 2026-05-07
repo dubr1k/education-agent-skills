@@ -58,15 +58,25 @@ That is one use case. The same library can power school-wide curriculum audits, 
 
 ## Using the Library
 
-### Claude.ai, Claude Desktop, or Cowork (easiest)
+### CoWork (native plugin — easiest)
 
-Add the MCP server URL under Settings → Connectors:
+Go to **Customize → (+) Add Plugin** and paste the GitHub URL:
+
+```
+https://github.com/GarethManning/claude-education-skills
+```
+
+CoWork reads `.claude-plugin/plugin.json` and installs all 124 skills automatically.
+
+### Claude.ai or Claude Desktop (via MCP server)
+
+Add the MCP server URL under **Settings → Connectors**:
 
 ```
 https://mcp-server-sigma-sooty.vercel.app/mcp
 ```
 
-That's it. On first use: click the **+** icon in the message bar → select **Connectors** → find Claude Education Skills and toggle it on. After that, skills activate automatically in every conversation — no manual activation needed.
+On first use: click the **+** icon in the message bar → select **Connectors** → find Claude Education Skills and toggle it on. Skills activate automatically in every conversation — no manual activation needed.
 
 ### Claude Code (local via npx)
 
@@ -94,6 +104,12 @@ Or add it permanently to your Claude Code config:
 ```
 /plugin marketplace add GarethManning/claude-education-skills
 /plugin install claude-education-skills
+```
+
+Or install directly from the repo URL:
+
+```
+claude plugin install https://github.com/GarethManning/claude-education-skills
 ```
 
 Skills load with progressive disclosure — metadata only until a skill is actually needed.
