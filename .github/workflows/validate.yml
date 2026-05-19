@@ -12,9 +12,10 @@ jobs:
         run: pip install pyyaml
       - name: Count skills
         run: |
-          COUNT=$(find skills/ -name "SKILL.md" | wc -l)
-          echo "Skills found: $COUNT"
-          [ "$COUNT" -eq 147 ] || (echo "Expected 147 skills, found $COUNT" && exit 1)
+          FOUND=$(find skills/ -name "SKILL.md" | wc -l | tr -d ' ')
+          EXPECTED=$(python3 -c "import json; print(json.load(open('registry.json'))['total_skills'])")
+          echo "Skills found: $FOUND (registry expects: $EXPECTED)"
+          [ "$FOUND" -eq "$EXPECTED" ] || (echo "Skill count mismatch: filesystem has $FOUND, registry has $EXPECTED — run: python3 scripts/generate-registry.py" && exit 1)
       - name: Validate YAML frontmatter
         run: python3 scripts/validate-skills.py
       - name: Validate registry.json
