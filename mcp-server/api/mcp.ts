@@ -1,6 +1,7 @@
 import { createServer } from "../src/server.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getAuthorizedTokenPrefix, getUnauthorizedResponse } from "../src/http-auth.js";
+import { publicBaseUrl } from "../src/oauth.js";
 import type { LoadedSkill } from "../src/types.js";
 import type { IncomingMessage, ServerResponse } from "node:http";
 
@@ -33,7 +34,8 @@ export default async function handler(
   });
 
   if (!tokenPrefix) {
-    const unauthorized = getUnauthorizedResponse(req.url ?? "/mcp", req.method);
+    const baseUrl = publicBaseUrl(req);
+    const unauthorized = getUnauthorizedResponse(`${baseUrl}/mcp`, req.method, `${baseUrl}/.well-known/oauth-protected-resource/mcp`);
     for (const [key, value] of Object.entries(unauthorized.headers)) {
       res.setHeader(key, value);
     }

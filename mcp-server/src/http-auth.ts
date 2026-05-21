@@ -1,4 +1,5 @@
 import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { HOSTED_MCP_ACCESS_SIGNUP_URL } from "./access.js";
 
 export type AuthEnv = Record<string, string | undefined>;
 
@@ -24,22 +25,26 @@ export function hasConfiguredAuth(env: AuthEnv = process.env): boolean {
   );
 }
 
-export function getUnauthorizedResponse(originUrl: string, method = "POST"): HttpAuthResponse {
+export function getUnauthorizedResponse(originUrl: string, method = "POST", metadataUrl?: string): HttpAuthResponse {
   const isGet = method.toUpperCase() === "GET";
+  const challenge = metadataUrl
+    ? `Bearer resource_metadata="${metadataUrl}"`
+    : `Bearer realm="education-agent-skills", error="invalid_token", error_description="Hosted MCP access token required"`;
   return {
     status: 401,
     headers: {
       "content-type": "application/json; charset=utf-8",
       "cache-control": "no-store",
-      "www-authenticate": `Bearer realm="education-agent-skills", error="invalid_token", error_description="Hosted MCP access token required"`,
+      "www-authenticate": challenge,
       "x-mcp-auth": isGet ? "required-fast-fail" : "required",
     },
     body: JSON.stringify({
       error: "Hosted MCP access token required",
       message:
-        "This hosted MCP endpoint now requires an access token. Request one via the hosted access form, or use the free local/plugin installation options.",
-      requestAccess: "https://docs.google.com/forms/d/e/1FAIpQLSdW1EdcmtjSPPq68Hx-bdth5hO2KNyjhAwEV9Ld0EwWL1Gr8Q/viewform",
+        "This hosted MCP endpoint requires OAuth authorization in Claude.ai. Request an access token, then paste it into the browser authorization screen when Claude connects.",
+      requestAccess: HOSTED_MCP_ACCESS_SIGNUP_URL,
       resource: originUrl,
+      resourceMetadata: metadataUrl,
     }),
   };
 }

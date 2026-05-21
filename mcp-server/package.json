@@ -14,6 +14,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "vercel-build": "npm run build",
     "postbuild": "cp src/skills.json dist/skills.json",
     "bundle-skills": "tsx scripts/bundle-skills.ts",
     "start": "node dist/index.js",
