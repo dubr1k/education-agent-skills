@@ -29,6 +29,7 @@ DOMAIN_LABELS = {
     "wellbeing-motivation-agency": "Wellbeing, Motivation & Agency",
     "historical-thinking": "Historical Thinking",
     "inclusive-design": "Inclusive Design",
+    "student-learning": "Student-Facing Learning Skills",
 }
 
 

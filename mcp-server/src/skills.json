@@ -14483,6 +14483,1056 @@
   },
   {
     "metadata": {
+      "name": "ai-claim-checker",
+      "description": "After any AI-generated explanation, require the learner to identify one place it could be wrong, one thing to check, and one source to consult. Builds epistemic vigilance — treats AI output as a claim to evaluate, not truth to absorb.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "light",
+      "skill_id": "student-learning/ai-claim-checker",
+      "skill_name": "AI Claim Checker",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Long & Magerko (2020) — What is AI literacy? Competencies and design considerations",
+        "Efimova & Nygren (2026) — Epistemic vigilance in the age of generative AI",
+        "UNESCO / Miao & Cukurova (2024) — AI Competency Framework for Students",
+        "Roe et al. (2024) — Critical AI literacy framework for secondary education",
+        "Wineburg et al. (2022) — Lateral reading: reading less and learning more"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "ai_generated_content",
+            "type": "string",
+            "description": "The AI-generated explanation, claim, or answer that the learner should evaluate"
+          },
+          {
+            "field": "topic",
+            "type": "string",
+            "description": "The subject area or topic the content relates to"
+          }
+        ],
+        "optional": [
+          {
+            "field": "subject_area",
+            "type": "string",
+            "description": "Academic subject — helps calibrate what verification sources are appropriate"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "verification",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "not_applicable",
+        "ai_support_type": "question",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/explain-first-interrogator",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper"
+      ],
+      "tags": [
+        "AI-literacy",
+        "epistemic-vigilance",
+        "critical-thinking",
+        "verification",
+        "source-checking"
+      ]
+    },
+    "prompt": "",
+    "description": "After any AI-generated explanation, require the learner to identify one place it could be wrong, one thing to check, and one source to consult. Builds epistemic vigilance — treats AI output as a claim to evaluate, not truth to absorb.",
+    "toolName": "ai-claim-checker"
+  },
+  {
+    "metadata": {
+      "name": "confidence-calibration-check",
+      "description": "Capture confidence ratings before and after a learning attempt to identify overconfidence and underconfidence patterns. Use when a student wants to understand how well they actually know something versus how well they think they know it.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "light",
+      "skill_id": "student-learning/confidence-calibration-check",
+      "skill_name": "Confidence Calibration Check",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Bjork & Bjork (2011) — Making things hard on yourself: the illusion of competence via re-reading",
+        "Koriat & Bjork (2005) — Illusions of competence in monitoring one's knowledge during study",
+        "Thiede et al. (2003) — Accuracy of metacognitive monitoring affects learning of texts",
+        "Dunning & Kruger (1999) — Unskilled and unaware of it: how difficulties in recognising one's own incompetence lead to inflated self-assessments",
+        "Hacker et al. (2008) — Test prediction and performance in a classroom context"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "topic_or_question",
+            "type": "string",
+            "description": "The specific concept or question the calibration check is built around"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "Course or study context"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_calibration_data",
+            "type": "array",
+            "description": "Previous confidence ratings and accuracy scores from this session or prior sessions"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "calibration",
+        "student_attempt_required": true,
+        "confidence_before": true,
+        "confidence_after": true,
+        "hint_level_reached": "not_applicable",
+        "error_type": "not_applicable",
+        "ai_support_type": "question | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/explain-first-interrogator",
+        "student-learning/ai-claim-checker",
+        "student-learning/srl-session-wrapper",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "tags": [
+        "metacognition",
+        "calibration",
+        "confidence",
+        "self-monitoring",
+        "overconfidence"
+      ]
+    },
+    "prompt": "",
+    "description": "Capture confidence ratings before and after a learning attempt to identify overconfidence and underconfidence patterns. Use when a student wants to understand how well they actually know something versus how well they think they know it.",
+    "toolName": "confidence-calibration-check"
+  },
+  {
+    "metadata": {
+      "name": "explain-first-interrogator",
+      "description": "Require the learner to explain a concept in their own words before the AI evaluates or extends it. Ensures the AI works from the learner's understanding rather than providing an explanation from scratch.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/explain-first-interrogator",
+      "skill_name": "Explain-First Interrogator",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "strong",
+      "evidence_sources": [
+        "Chi et al. (1994) — Eliciting self-explanations improves understanding",
+        "Chi et al. (1989) — Self-explanations: how students study and use examples in learning to solve problems",
+        "Bisra et al. (2018) — Inducing self-explanation: a meta-analysis (64 reports, g = 0.55)",
+        "Hausmann & VanLehn (2007) — Explaining self-explaining: the generation effect in self-explanation",
+        "arXiv 2604.00142 (2026) — LLM-supported self-explanation improving transfer performance"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "topic_or_problem",
+            "type": "string",
+            "description": "The concept, question, or problem the student is working on"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "Brief context: course, level, or goal for the session"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_sessions",
+            "type": "array",
+            "description": "Evidence from previous sessions"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage for calibrating language and expectations"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "self_explanation",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "conceptual | procedural | strategic | not_applicable",
+        "ai_support_type": "question | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "passed | failed | skipped",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/stuck-and-error-diagnosis-coach",
+        "student-learning/transfer-bridge",
+        "student-learning/teach-back-evaluator"
+      ],
+      "tags": [
+        "self-explanation",
+        "metacognition",
+        "reasoning",
+        "gate",
+        "Chi"
+      ]
+    },
+    "prompt": "",
+    "description": "Require the learner to explain a concept in their own words before the AI evaluates or extends it. Ensures the AI works from the learner's understanding rather than providing an explanation from scratch.",
+    "toolName": "explain-first-interrogator"
+  },
+  {
+    "metadata": {
+      "name": "fading-manager",
+      "description": "Track performance across sessions and reduce scaffolding as competence grows. Makes fading visible — the learner knows when scaffolds are removed and why. Use for sustained learning engagement where independence is the goal.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/fading-manager",
+      "skill_name": "Fading Manager",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Collins, Brown & Newman (1989) — Cognitive apprenticeship: teaching the crafts of reading, writing, and mathematics",
+        "Pea (2004) — The social and technological dimensions of scaffolding and related theoretical concepts for learning, education, and human activity",
+        "Wood, Bruner & Ross (1976) — The role of tutoring in problem solving",
+        "Zimmerman (2000) — Attaining self-regulation: a social cognitive perspective",
+        "Belland (2014) — Scaffolding: definition, current debates, and future directions"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "topic_or_skill",
+            "type": "string",
+            "description": "The topic or skill being tracked across sessions"
+          },
+          {
+            "field": "session_history",
+            "type": "array",
+            "description": "Performance data from prior sessions: hint levels, unassisted check results, retrieval quality, confidence calibration accuracy"
+          }
+        ],
+        "optional": [
+          {
+            "field": "current_scaffold_level",
+            "type": "integer",
+            "description": "Current scaffolding level (0–4): 0 = no scaffolding, 4 = full scaffolding. If not provided, inferred from session history."
+          },
+          {
+            "field": "independence_target",
+            "type": "string",
+            "description": "What independent capability looks like for this topic — the target end state"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "not_applicable",
+        "student_attempt_required": false,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "not_applicable",
+        "ai_support_type": "question | consolidation",
+        "reflection_captured": true,
+        "transfer_check": "passed | failed | not_applicable",
+        "unassisted_followup": "completed | not_scheduled",
+        "assistance_tag": "scaffolded | unassisted"
+      },
+      "chains_well_with": [
+        "student-learning/progressive-hint-ladder",
+        "student-learning/srl-session-wrapper",
+        "student-learning/unassisted-evidence-checkpoint",
+        "student-learning/weekly-agency-review"
+      ],
+      "tags": [
+        "fading",
+        "cognitive-apprenticeship",
+        "scaffolding",
+        "independence",
+        "graduated-autonomy"
+      ]
+    },
+    "prompt": "",
+    "description": "Track performance across sessions and reduce scaffolding as competence grows. Makes fading visible — the learner knows when scaffolds are removed and why. Use for sustained learning engagement where independence is the goal.",
+    "toolName": "fading-manager"
+  },
+  {
+    "metadata": {
+      "name": "productive-failure-protocol",
+      "description": "Stage exploration before instruction on complex problems. The learner produces two attempted approaches before consolidation — which builds on those attempts, not from scratch. Use for genuinely hard problems where struggle produces deeper learning.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/productive-failure-protocol",
+      "skill_name": "Productive Failure Protocol",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "strong",
+      "evidence_sources": [
+        "Kapur (2008) — Productive failure",
+        "Kapur (2014) — Productive failure in learning math",
+        "Kapur (2016) — Examining productive failure, productive success, unproductive failure, and unproductive success",
+        "Sinha & Kapur (2021) — When problem solving followed by instruction works: evidence for productive failure",
+        "Loibl & Rummel (2014) — Knowing what you don't know makes failure productive"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "problem_or_challenge",
+            "type": "string",
+            "description": "The novel or complex problem the learner will explore — should be genuinely challenging and benefit from multiple approaches"
+          },
+          {
+            "field": "target_concept",
+            "type": "string",
+            "description": "The underlying concept or principle the problem is designed to elicit understanding of"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "Course, level, and relevant prior knowledge"
+          }
+        ],
+        "optional": [
+          {
+            "field": "exploration_time",
+            "type": "string",
+            "description": "How much time the learner has for the exploration phase"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "first_attempt",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "conceptual | strategic | representational",
+        "ai_support_type": "question | consolidation | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "passed | failed | skipped",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/progressive-hint-ladder",
+        "student-learning/stuck-and-error-diagnosis-coach",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper"
+      ],
+      "tags": [
+        "productive-failure",
+        "exploration",
+        "Kapur",
+        "desirable-difficulty",
+        "consolidation"
+      ]
+    },
+    "prompt": "",
+    "description": "Stage exploration before instruction on complex problems. The learner produces two attempted approaches before consolidation — which builds on those attempts, not from scratch. Use for genuinely hard problems where struggle produces deeper learning.",
+    "toolName": "productive-failure-protocol"
+  },
+  {
+    "metadata": {
+      "name": "progressive-hint-ladder",
+      "description": "Provide graduated assistance from abstract conceptual nudge to concrete procedural step, with reflection required before each escalation. Teaches help-seeking as a skill and prevents direct-answer shortcuts.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/progressive-hint-ladder",
+      "skill_name": "Progressive Hint Ladder",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "strong",
+      "evidence_sources": [
+        "VanLehn (2011) — The relative effectiveness of human tutoring, ITS, and other tutoring systems (d = 0.76 for ITS with step-level help)",
+        "Aleven & Koedinger (2002) — An effective metacognitive strategy: learning by doing and explaining with a computer-based tutor",
+        "Koedinger & Aleven (2007) — Exploring the assistance dilemma in experiments with cognitive tutors",
+        "Karabenick & Berger (2013) — Help seeking as a self-regulated learning strategy",
+        "Wood et al. (1976) — The role of tutoring in problem solving: scaffolding theory"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "problem_or_task",
+            "type": "string",
+            "description": "The problem the student is stuck on — ideally with their attempted work so far"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "Course, topic, and level"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_hint_level",
+            "type": "integer",
+            "description": "Hint level reached in prior attempts at this or a similar problem (0–5)"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage for calibrating language"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "first_attempt",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "0-5",
+        "error_type": "conceptual | procedural | strategic | not_applicable",
+        "ai_support_type": "question | hint | parallel_example",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/stuck-and-error-diagnosis-coach",
+        "student-learning/productive-failure-protocol",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "tags": [
+        "hints",
+        "scaffolding",
+        "help-seeking",
+        "ITS",
+        "assistance-dilemma"
+      ]
+    },
+    "prompt": "",
+    "description": "Provide graduated assistance from abstract conceptual nudge to concrete procedural step, with reflection required before each escalation. Teaches help-seeking as a skill and prevents direct-answer shortcuts.",
+    "toolName": "progressive-hint-ladder"
+  },
+  {
+    "metadata": {
+      "name": "retrieve-first-gate",
+      "description": "Before any explanation or answer, require the learner to produce a free-recall attempt and confidence rating. Use when a student wants help understanding or reviewing a topic — this skill ensures the AI works from what the learner already knows.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/retrieve-first-gate",
+      "skill_name": "Retrieve-First Gate",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "strong",
+      "evidence_sources": [
+        "Roediger & Karpicke (2006) — Test-enhanced learning: taking memory tests improves long-term retention",
+        "Dunlosky et al. (2013) — Improving students' learning with effective learning techniques: practice testing rated high utility",
+        "Bjork & Bjork (2011) — Making things hard on yourself, but in a good way: desirable difficulties",
+        "Karpicke & Roediger (2008) — The critical importance of retrieval for learning",
+        "Rowland (2014) — The effect of testing versus restudy on retention: a meta-analysis (d = 0.50)"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "topic",
+            "type": "string",
+            "description": "What the student is trying to learn or review"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "Brief context: course, assignment, or self-directed goal"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_sessions",
+            "type": "array",
+            "description": "Evidence from previous sessions (from context engine or Second Brain)"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage for calibrating language complexity"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "retrieval",
+        "student_attempt_required": true,
+        "confidence_before": true,
+        "confidence_after": true,
+        "hint_level_reached": "not_applicable",
+        "error_type": "conceptual | procedural | not_applicable",
+        "ai_support_type": "question | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/explain-first-interrogator",
+        "student-learning/confidence-calibration-check",
+        "student-learning/transfer-bridge",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "tags": [
+        "retrieval",
+        "memory",
+        "metacognition",
+        "gate",
+        "testing-effect"
+      ]
+    },
+    "prompt": "",
+    "description": "Before any explanation or answer, require the learner to produce a free-recall attempt and confidence rating. Use when a student wants help understanding or reviewing a topic — this skill ensures the AI works from what the learner already knows.",
+    "toolName": "retrieve-first-gate"
+  },
+  {
+    "metadata": {
+      "name": "srl-session-wrapper",
+      "description": "Wrap a learning session in a plan → monitor → reflect cycle. Use at the start of any substantial study session to set goals, mid-session to check strategy, and at session end to consolidate what changed. Builds self-regulated learning as a habit.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "light",
+      "skill_id": "student-learning/srl-session-wrapper",
+      "skill_name": "SRL Session Wrapper",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Zimmerman (2000) — Attaining self-regulation: a social cognitive perspective",
+        "Bannert (2007) — Metakognition beim Lernen mit Hypermedien (metacognitive prompting in hypermedia learning)",
+        "Bannert (2009) — Promoting self-regulated learning through prompts",
+        "Winne & Hadwin (1998) — Studying as self-regulated learning (COPES framework)",
+        "Frontiers in Education meta-analysis (2025) — AI-supported self-regulated learning"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "subject_or_topic",
+            "type": "string",
+            "description": "What the learner is studying in this session"
+          },
+          {
+            "field": "session_type",
+            "type": "string",
+            "description": "opening | mid-session | closing | full-wrap — which phase of the wrapper to run"
+          }
+        ],
+        "optional": [
+          {
+            "field": "session_goal_from_opening",
+            "type": "string",
+            "description": "The goal set in the opening phase — required for mid-session and closing phases"
+          },
+          {
+            "field": "session_duration_target",
+            "type": "string",
+            "description": "How long the learner plans to study"
+          },
+          {
+            "field": "prior_sessions",
+            "type": "array",
+            "description": "Goals and outcomes from previous sessions"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "not_applicable",
+        "student_attempt_required": false,
+        "confidence_before": true,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "not_applicable",
+        "ai_support_type": "question",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/confidence-calibration-check",
+        "student-learning/unassisted-evidence-checkpoint",
+        "student-learning/weekly-agency-review",
+        "student-learning/fading-manager"
+      ],
+      "tags": [
+        "SRL",
+        "metacognition",
+        "self-regulation",
+        "Zimmerman",
+        "planning",
+        "reflection"
+      ]
+    },
+    "prompt": "",
+    "description": "Wrap a learning session in a plan → monitor → reflect cycle. Use at the start of any substantial study session to set goals, mid-session to check strategy, and at session end to consolidate what changed. Builds self-regulated learning as a habit.",
+    "toolName": "srl-session-wrapper"
+  },
+  {
+    "metadata": {
+      "name": "stuck-and-error-diagnosis-coach",
+      "description": "When a learner gets something wrong or feels stuck, require them to diagnose the problem before receiving help. Ensures help targets the actual cognitive breakdown, not just the surface error.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/stuck-and-error-diagnosis-coach",
+      "skill_name": "Stuck & Error Diagnosis Coach",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Karabenick & Berger (2013) — Help seeking as a self-regulated learning strategy",
+        "VanLehn (2011) — The relative effectiveness of human tutoring, intelligent tutoring systems, and other tutoring systems",
+        "Hattie & Timperley (2007) — The power of feedback: process and self-regulation levels",
+        "Ohlsson (1996) — Learning from performance errors",
+        "Siegler (2002) — Microgenetic studies of self-explanation"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "stuck_point_or_error",
+            "type": "string",
+            "description": "What the student got wrong or where they are stuck — their attempted work or description of the block"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "The task, problem, or concept they were working on"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_attempts",
+            "type": "array",
+            "description": "Previous attempts at the same or related problems"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "diagnosis",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "conceptual | procedural | strategic | representational",
+        "ai_support_type": "question | hint | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/progressive-hint-ladder",
+        "student-learning/confidence-calibration-check",
+        "student-learning/productive-failure-protocol",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "tags": [
+        "error-diagnosis",
+        "stuck",
+        "metacognition",
+        "help-seeking",
+        "feedback"
+      ]
+    },
+    "prompt": "",
+    "description": "When a learner gets something wrong or feels stuck, require them to diagnose the problem before receiving help. Ensures help targets the actual cognitive breakdown, not just the surface error.",
+    "toolName": "stuck-and-error-diagnosis-coach"
+  },
+  {
+    "metadata": {
+      "name": "teach-back-evaluator",
+      "description": "The learner teaches the concept to the AI, which plays a curious novice peer and identifies gaps through authentic questions. Use when the learner wants to test their understanding — teaching forces a different kind of organisation than studying.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/teach-back-evaluator",
+      "skill_name": "Teach-Back Evaluator",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Biswas et al. (2016) — Betty's Brain: a computer-based learning environment that promotes science reasoning and metacognition",
+        "Biswas et al. (2008) — Learning by teaching a computer agent",
+        "Bargh & Schul (1980) — On the cognitive benefits of teaching",
+        "Roscoe & Chi (2007) — Understanding tutor learning: knowledge-building and knowledge-telling in peer tutors' explanations",
+        "Fiorella & Mayer (2013) — The relative benefits of learning by teaching and teaching expectancy"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "concept_to_teach",
+            "type": "string",
+            "description": "The concept the learner will teach to the AI"
+          },
+          {
+            "field": "context",
+            "type": "string",
+            "description": "Course and level — helps calibrate what depth is appropriate"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_understanding_level",
+            "type": "string",
+            "description": "Self-reported or assessed understanding level before the teach-back"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "self_explanation",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "conceptual | procedural | not_applicable",
+        "ai_support_type": "question | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/explain-first-interrogator",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper"
+      ],
+      "tags": [
+        "learning-by-teaching",
+        "protege-effect",
+        "teach-back",
+        "Biswas",
+        "peer-tutoring"
+      ]
+    },
+    "prompt": "",
+    "description": "The learner teaches the concept to the AI, which plays a curious novice peer and identifies gaps through authentic questions. Use when the learner wants to test their understanding — teaching forces a different kind of organisation than studying.",
+    "toolName": "teach-back-evaluator"
+  },
+  {
+    "metadata": {
+      "name": "transfer-bridge",
+      "description": "After the learner demonstrates understanding of a concept, present near-transfer and far-transfer challenges. Use to test whether learning is portable or task-specific — this is what separates understanding from familiarity.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/transfer-bridge",
+      "skill_name": "Transfer Bridge",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Bransford & Schwartz (1999) — Rethinking transfer: a simple proposal with multiple implications",
+        "Biswas et al. (2016) — Betty's Brain: computer-based learning environment that promotes science reasoning and metacognition",
+        "Kapur (2016) — Examining productive failure, productive success, unproductive failure, and unproductive success",
+        "Perkins & Salomon (1992) — Transfer of learning: contribution to the international encyclopaedia of education",
+        "Gick & Holyoak (1983) — Schema induction and analogical transfer"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "concept_just_learned",
+            "type": "string",
+            "description": "The concept or principle the learner has just demonstrated understanding of"
+          },
+          {
+            "field": "original_context",
+            "type": "string",
+            "description": "The context in which the concept was originally learned (subject, examples used)"
+          }
+        ],
+        "optional": [
+          {
+            "field": "near_transfer_domain",
+            "type": "string",
+            "description": "A domain for the near-transfer challenge — slightly different surface, same underlying principle"
+          },
+          {
+            "field": "far_transfer_domain",
+            "type": "string",
+            "description": "A domain for the far-transfer challenge — different surface AND different context"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage for calibrating challenge level"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "verification",
+        "student_attempt_required": true,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "conceptual | strategic | not_applicable",
+        "ai_support_type": "question | warm_start",
+        "reflection_captured": true,
+        "transfer_check": "passed | failed | skipped",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/explain-first-interrogator",
+        "student-learning/productive-failure-protocol",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "tags": [
+        "transfer",
+        "deep-learning",
+        "near-transfer",
+        "far-transfer",
+        "portable-understanding"
+      ]
+    },
+    "prompt": "",
+    "description": "After the learner demonstrates understanding of a concept, present near-transfer and far-transfer challenges. Use to test whether learning is portable or task-specific — this is what separates understanding from familiarity.",
+    "toolName": "transfer-bridge"
+  },
+  {
+    "metadata": {
+      "name": "unassisted-evidence-checkpoint",
+      "description": "After scaffolded practice, run an unassisted check — a problem with no AI help. Separates what the learner can do with support from what they can do independently. Critical for preventing phantom attainment.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "light",
+      "skill_id": "student-learning/unassisted-evidence-checkpoint",
+      "skill_name": "Unassisted Evidence Checkpoint",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "strong",
+      "evidence_sources": [
+        "Bastani et al. (2025) — Generative AI can harm learning (PNAS) — unguarded GPT-4 reduced unassisted performance by 17%",
+        "Koedinger & Aleven (2007) — Exploring the assistance dilemma in experiments with cognitive tutors",
+        "Kapur & Rummel (2012) — Productive failure and the nature of prior knowledge for learning",
+        "Roediger & Karpicke (2006) — Testing effect and independent retrieval",
+        "Bjork et al. (2013) — Self-regulated learning: beliefs, techniques, and illusions"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "topic_or_skill",
+            "type": "string",
+            "description": "The topic or skill that was just practised with scaffolding"
+          },
+          {
+            "field": "scaffolded_session_summary",
+            "type": "string",
+            "description": "Brief description of what was covered in the scaffolded session"
+          }
+        ],
+        "optional": [
+          {
+            "field": "prior_unassisted_results",
+            "type": "array",
+            "description": "Results from previous unassisted checkpoints on the same topic"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage for calibrating difficulty"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "verification",
+        "student_attempt_required": true,
+        "confidence_before": true,
+        "confidence_after": true,
+        "hint_level_reached": "0",
+        "error_type": "conceptual | procedural | strategic | none",
+        "ai_support_type": "none",
+        "reflection_captured": true,
+        "transfer_check": "passed | failed | skipped",
+        "unassisted_followup": "completed",
+        "assistance_tag": "unassisted"
+      },
+      "chains_well_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/confidence-calibration-check",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper",
+        "student-learning/weekly-agency-review"
+      ],
+      "tags": [
+        "unassisted",
+        "phantom-attainment",
+        "independence",
+        "evidence",
+        "Bastani"
+      ]
+    },
+    "prompt": "",
+    "description": "After scaffolded practice, run an unassisted check — a problem with no AI help. Separates what the learner can do with support from what they can do independently. Critical for preventing phantom attainment.",
+    "toolName": "unassisted-evidence-checkpoint"
+  },
+  {
+    "metadata": {
+      "name": "weekly-agency-review",
+      "description": "Review the week using accumulated session evidence — retrieval rates, hint depths, calibration accuracy, transfer and unassisted results. The learner identifies patterns and sets a strategy goal. Use weekly or after a multi-session period.",
+      "disable-model-invocation": false,
+      "user-invocable": true,
+      "effort": "medium",
+      "skill_id": "student-learning/weekly-agency-review",
+      "skill_name": "Weekly Agency Review",
+      "domain": "student-learning",
+      "domain_number": 20,
+      "version": "1.0",
+      "audience": "student",
+      "evidence_strength": "moderate",
+      "evidence_sources": [
+        "Zimmerman (2000) — Attaining self-regulation: forethought-performance-reflection cycle",
+        "Hattie (2009) — Visible Learning: metacognitive strategies (d ≈ 0.69)",
+        "Sitzmann & Ely (2011) — A meta-analysis of self-regulated learning in work-related training (d = 0.62)",
+        "Winne et al. (2019) — Learning analytics for self-regulated learning: theory and empirical practice",
+        "Azevedo et al. (2013) — Using trace methodology and sequential analysis to understand SRL processes"
+      ],
+      "input_schema": {
+        "required": [
+          {
+            "field": "review_period",
+            "type": "string",
+            "description": "The period being reviewed: 'this week', '2 weeks', 'this unit', etc."
+          },
+          {
+            "field": "subject_or_topics",
+            "type": "string",
+            "description": "What the learner has been studying during the review period"
+          }
+        ],
+        "optional": [
+          {
+            "field": "session_data",
+            "type": "array",
+            "description": "Structured evidence from prior sessions: confidence ratings, hint levels, retrieval quality, unassisted check results, transfer check results"
+          },
+          {
+            "field": "prior_strategy_goal",
+            "type": "string",
+            "description": "The strategy goal set in the previous weekly review"
+          },
+          {
+            "field": "upcoming_assessments",
+            "type": "string",
+            "description": "Any tests, exams, or deadlines in the next period"
+          },
+          {
+            "field": "developmental_band",
+            "type": "string",
+            "description": "Learner age or stage"
+          }
+        ]
+      },
+      "evidence_captured": {
+        "cognitive_gate": "not_applicable",
+        "student_attempt_required": false,
+        "confidence_before": false,
+        "confidence_after": false,
+        "hint_level_reached": "not_applicable",
+        "error_type": "not_applicable",
+        "ai_support_type": "question",
+        "reflection_captured": true,
+        "transfer_check": "not_applicable",
+        "unassisted_followup": "not_scheduled",
+        "assistance_tag": "scaffolded"
+      },
+      "chains_well_with": [
+        "student-learning/confidence-calibration-check",
+        "student-learning/srl-session-wrapper",
+        "student-learning/unassisted-evidence-checkpoint",
+        "student-learning/fading-manager"
+      ],
+      "tags": [
+        "SRL",
+        "metacognition",
+        "weekly-review",
+        "learning-analytics",
+        "agency"
+      ]
+    },
+    "prompt": "",
+    "description": "Review the week using accumulated session evidence — retrieval rates, hint depths, calibration accuracy, transfer and unassisted results. The learner identifies patterns and sets a strategy goal. Use weekly or after a multi-session period.",
+    "toolName": "weekly-agency-review"
+  },
+  {
+    "metadata": {
       "name": "agency-circles-for-systems-action",
       "description": "Map control, influence, and concern after systems analysis. Use when students need wise agency without being made responsible for everything.",
       "disable-model-invocation": false,

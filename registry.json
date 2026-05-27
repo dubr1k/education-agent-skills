@@ -1,8 +1,8 @@
 {
   "version": "2.0",
-  "generated": "2026-05-19T15:27:36.227435+00:00",
+  "generated": "2026-05-27T14:54:56.907578+00:00",
   "standard": "agent-skills-1.0",
-  "total_skills": 152,
+  "total_skills": 165,
   "domains": [
     {
       "id": "ai-learning-science",
@@ -88,6 +88,11 @@
       "id": "self-regulated-learning",
       "label": "Self-Regulated Learning",
       "skill_count": 5
+    },
+    {
+      "id": "student-learning",
+      "label": "Student-Facing Learning Skills",
+      "skill_count": 13
     },
     {
       "id": "systems-thinking",
@@ -4456,6 +4461,397 @@
         "input_field": null
       },
       "path": "skills/self-regulated-learning/study-strategy-selector/SKILL.md"
+    },
+    {
+      "id": "student-learning/ai-claim-checker",
+      "name": "ai-claim-checker",
+      "display_name": "AI Claim Checker",
+      "domain": "student-learning",
+      "description": "After any AI-generated explanation, require the learner to identify one place it could be wrong, one thing to check, and one source to consult. Builds epistemic vigilance \u2014 treats AI output as a claim to evaluate, not truth to absorb.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "AI-literacy",
+        "epistemic-vigilance",
+        "critical-thinking",
+        "verification",
+        "source-checking"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/explain-first-interrogator",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/ai-claim-checker/SKILL.md"
+    },
+    {
+      "id": "student-learning/confidence-calibration-check",
+      "name": "confidence-calibration-check",
+      "display_name": "Confidence Calibration Check",
+      "domain": "student-learning",
+      "description": "Capture confidence ratings before and after a learning attempt to identify overconfidence and underconfidence patterns. Use when a student wants to understand how well they actually know something versus how well they think they know it.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "metacognition",
+        "calibration",
+        "confidence",
+        "self-monitoring",
+        "overconfidence"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/explain-first-interrogator",
+        "student-learning/ai-claim-checker",
+        "student-learning/srl-session-wrapper",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/confidence-calibration-check/SKILL.md"
+    },
+    {
+      "id": "student-learning/explain-first-interrogator",
+      "name": "explain-first-interrogator",
+      "display_name": "Explain-First Interrogator",
+      "domain": "student-learning",
+      "description": "Require the learner to explain a concept in their own words before the AI evaluates or extends it. Ensures the AI works from the learner's understanding rather than providing an explanation from scratch.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "self-explanation",
+        "metacognition",
+        "reasoning",
+        "gate",
+        "Chi"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/stuck-and-error-diagnosis-coach",
+        "student-learning/transfer-bridge",
+        "student-learning/teach-back-evaluator"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/explain-first-interrogator/SKILL.md"
+    },
+    {
+      "id": "student-learning/fading-manager",
+      "name": "fading-manager",
+      "display_name": "Fading Manager",
+      "domain": "student-learning",
+      "description": "Track performance across sessions and reduce scaffolding as competence grows. Makes fading visible \u2014 the learner knows when scaffolds are removed and why. Use for sustained learning engagement where independence is the goal.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "fading",
+        "cognitive-apprenticeship",
+        "scaffolding",
+        "independence",
+        "graduated-autonomy"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/progressive-hint-ladder",
+        "student-learning/srl-session-wrapper",
+        "student-learning/unassisted-evidence-checkpoint",
+        "student-learning/weekly-agency-review"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/fading-manager/SKILL.md"
+    },
+    {
+      "id": "student-learning/productive-failure-protocol",
+      "name": "productive-failure-protocol",
+      "display_name": "Productive Failure Protocol",
+      "domain": "student-learning",
+      "description": "Stage exploration before instruction on complex problems. The learner produces two attempted approaches before consolidation \u2014 which builds on those attempts, not from scratch. Use for genuinely hard problems where struggle produces deeper learning.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "productive-failure",
+        "exploration",
+        "Kapur",
+        "desirable-difficulty",
+        "consolidation"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/progressive-hint-ladder",
+        "student-learning/stuck-and-error-diagnosis-coach",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/productive-failure-protocol/SKILL.md"
+    },
+    {
+      "id": "student-learning/progressive-hint-ladder",
+      "name": "progressive-hint-ladder",
+      "display_name": "Progressive Hint Ladder",
+      "domain": "student-learning",
+      "description": "Provide graduated assistance from abstract conceptual nudge to concrete procedural step, with reflection required before each escalation. Teaches help-seeking as a skill and prevents direct-answer shortcuts.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "hints",
+        "scaffolding",
+        "help-seeking",
+        "ITS",
+        "assistance-dilemma"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/stuck-and-error-diagnosis-coach",
+        "student-learning/productive-failure-protocol",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/progressive-hint-ladder/SKILL.md"
+    },
+    {
+      "id": "student-learning/retrieve-first-gate",
+      "name": "retrieve-first-gate",
+      "display_name": "Retrieve-First Gate",
+      "domain": "student-learning",
+      "description": "Before any explanation or answer, require the learner to produce a free-recall attempt and confidence rating. Use when a student wants help understanding or reviewing a topic \u2014 this skill ensures the AI works from what the learner already knows.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "retrieval",
+        "memory",
+        "metacognition",
+        "gate",
+        "testing-effect"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/explain-first-interrogator",
+        "student-learning/confidence-calibration-check",
+        "student-learning/transfer-bridge",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/retrieve-first-gate/SKILL.md"
+    },
+    {
+      "id": "student-learning/srl-session-wrapper",
+      "name": "srl-session-wrapper",
+      "display_name": "SRL Session Wrapper",
+      "domain": "student-learning",
+      "description": "Wrap a learning session in a plan \u2192 monitor \u2192 reflect cycle. Use at the start of any substantial study session to set goals, mid-session to check strategy, and at session end to consolidate what changed. Builds self-regulated learning as a habit.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "SRL",
+        "metacognition",
+        "self-regulation",
+        "Zimmerman",
+        "planning",
+        "reflection"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/confidence-calibration-check",
+        "student-learning/unassisted-evidence-checkpoint",
+        "student-learning/weekly-agency-review",
+        "student-learning/fading-manager"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/srl-session-wrapper/SKILL.md"
+    },
+    {
+      "id": "student-learning/stuck-and-error-diagnosis-coach",
+      "name": "stuck-and-error-diagnosis-coach",
+      "display_name": "Stuck & Error Diagnosis Coach",
+      "domain": "student-learning",
+      "description": "When a learner gets something wrong or feels stuck, require them to diagnose the problem before receiving help. Ensures help targets the actual cognitive breakdown, not just the surface error.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "error-diagnosis",
+        "stuck",
+        "metacognition",
+        "help-seeking",
+        "feedback"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/progressive-hint-ladder",
+        "student-learning/confidence-calibration-check",
+        "student-learning/productive-failure-protocol",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/stuck-and-error-diagnosis-coach/SKILL.md"
+    },
+    {
+      "id": "student-learning/teach-back-evaluator",
+      "name": "teach-back-evaluator",
+      "display_name": "Teach-Back Evaluator",
+      "domain": "student-learning",
+      "description": "The learner teaches the concept to the AI, which plays a curious novice peer and identifies gaps through authentic questions. Use when the learner wants to test their understanding \u2014 teaching forces a different kind of organisation than studying.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "learning-by-teaching",
+        "protege-effect",
+        "teach-back",
+        "Biswas",
+        "peer-tutoring"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/explain-first-interrogator",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/teach-back-evaluator/SKILL.md"
+    },
+    {
+      "id": "student-learning/transfer-bridge",
+      "name": "transfer-bridge",
+      "display_name": "Transfer Bridge",
+      "domain": "student-learning",
+      "description": "After the learner demonstrates understanding of a concept, present near-transfer and far-transfer challenges. Use to test whether learning is portable or task-specific \u2014 this is what separates understanding from familiarity.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "transfer",
+        "deep-learning",
+        "near-transfer",
+        "far-transfer",
+        "portable-understanding"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/explain-first-interrogator",
+        "student-learning/productive-failure-protocol",
+        "student-learning/unassisted-evidence-checkpoint"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/transfer-bridge/SKILL.md"
+    },
+    {
+      "id": "student-learning/unassisted-evidence-checkpoint",
+      "name": "unassisted-evidence-checkpoint",
+      "display_name": "Unassisted Evidence Checkpoint",
+      "domain": "student-learning",
+      "description": "After scaffolded practice, run an unassisted check \u2014 a problem with no AI help. Separates what the learner can do with support from what they can do independently. Critical for preventing phantom attainment.",
+      "disable_model_invocation": false,
+      "evidence_strength": "strong",
+      "tags": [
+        "unassisted",
+        "phantom-attainment",
+        "independence",
+        "evidence",
+        "Bastani"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/retrieve-first-gate",
+        "student-learning/confidence-calibration-check",
+        "student-learning/transfer-bridge",
+        "student-learning/srl-session-wrapper",
+        "student-learning/weekly-agency-review"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/unassisted-evidence-checkpoint/SKILL.md"
+    },
+    {
+      "id": "student-learning/weekly-agency-review",
+      "name": "weekly-agency-review",
+      "display_name": "Weekly Agency Review",
+      "domain": "student-learning",
+      "description": "Review the week using accumulated session evidence \u2014 retrieval rates, hint depths, calibration accuracy, transfer and unassisted results. The learner identifies patterns and sets a strategy goal. Use weekly or after a multi-session period.",
+      "disable_model_invocation": false,
+      "evidence_strength": "moderate",
+      "tags": [
+        "SRL",
+        "metacognition",
+        "weekly-review",
+        "learning-analytics",
+        "agency"
+      ],
+      "teacher_time": "",
+      "chains_with": [
+        "student-learning/confidence-calibration-check",
+        "student-learning/srl-session-wrapper",
+        "student-learning/unassisted-evidence-checkpoint",
+        "student-learning/fading-manager"
+      ],
+      "chain_edges": {
+        "receives_from": [],
+        "feeds_into": [],
+        "output_field": null,
+        "input_field": null
+      },
+      "path": "skills/student-learning/weekly-agency-review/SKILL.md"
     },
     {
       "id": "systems-thinking/agency-circles-for-systems-action",
