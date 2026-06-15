@@ -1,12 +1,12 @@
 {
-  "name": "education-agent-skills-mcp",
+  "name": "academic-skills-ru-mcp",
   "version": "0.1.0",
-  "description": "MCP server exposing the Education Agent Skills Library as callable tools",
+  "description": "MCP server exposing the bilingual RU/EN Academic Skills library as callable tools",
   "license": "CC-BY-SA-4.0",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "education-agent-skills": "./dist/cli.js"
+    "academic-skills-ru": "./dist/cli.js"
   },
   "files": [
     "dist",

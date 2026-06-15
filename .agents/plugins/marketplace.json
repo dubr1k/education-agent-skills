@@ -1,8 +1,8 @@
 {
-  "name": "education-agent-skills",
+  "name": "academic-skills-ru",
   "plugins": [
     {
-      "name": "education-agent-skills",
+      "name": "academic-skills-ru",
       "source": {
         "source": "local",
         "path": "./../.."
@@ -13,8 +13,8 @@
       },
       "category": "Education",
       "interface": {
-        "displayName": "Education Agent Skills",
-        "shortDescription": "165 evidence-based skills for curriculum design, lesson planning, and assessment"
+        "displayName": "Academic Skills RU",
+        "shortDescription": "165 bilingual RU/EN skills for curriculum design, lesson planning, and assessment"
       }
     }
   ]

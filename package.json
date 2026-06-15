@@ -1,7 +1,7 @@
 {
-  "name": "education-agent-skills",
+  "name": "academic-skills-ru",
   "version": "1.0.0",
-  "description": "## Install",
+  "description": "Bilingual RU/EN fork of Education Agent Skills",
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test"

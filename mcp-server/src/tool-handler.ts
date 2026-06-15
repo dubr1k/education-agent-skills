@@ -2,21 +2,96 @@ import type { LoadedSkill } from "./types.js";
 
 type ToolResult = { content: Array<{ type: "text"; text: string }> };
 
+const DOMAIN_SEARCH_TERMS: Record<string, string> = {
+  "ai-learning-science": "ии искусственный интеллект обучение тьютор подсказки feedback обратная связь",
+  "ai-literacy": "ии грамотность промпт hallucination галлюцинации проверка фактов критика",
+  "curriculum-alignment": "фгос фоп программа стандарты ктп планирование соответствие аудит",
+  "curriculum-assessment": "оценивание рубрика критерии проект урок модуль программа диагностика",
+  "eal-language-development": "русский как неродной рки иностранный язык мигранты билингвы словарь речь",
+  "environmental-experiential-learning": "практика проект среда природа исследование опыт вне класса",
+  "explicit-instruction": "явное обучение объяснение моделирование практика проверка понимания урок",
+  "global-cross-cultural-pedagogies": "культура межкультурный локальный контекст место сообщество",
+  "historical-thinking": "история источник документ контекстуализация подтверждение чтение",
+  "inclusive-design": "инклюзия овз доступность барьеры универсальный дизайн",
+  "literacy-critical-thinking": "чтение письмо текст аргументация критическое мышление медиаграмотность",
+  "memory-learning-science": "память повторение retrieval извлечение интервальное когнитивная нагрузка",
+  "montessori-alternative-approaches": "монтессори альтернативная школа смешанный возраст среда самостоятельность",
+  "original-frameworks": "авторская методика рамка оркестратор дизайн прогрессия",
+  "professional-learning": "педагог учитель наставничество методическое объединение повышение квалификации",
+  "questioning-discussion": "вопросы дискуссия обсуждение сократовский диалог разговор",
+  "self-regulated-learning": "саморегуляция метакогниция цель ошибка стратегия учебная самостоятельность",
+  "student-learning": "ученик учащийся студент самостоятельная учеба подсказки проверка понимания",
+  "systems-thinking": "система причинность влияние рычаги модель айсберг",
+  "wellbeing-motivation-agency": "благополучие мотивация субъектность принадлежность травма восстановительные практики",
+};
+
+const RU_QUERY_ALIASES: Array<{ pattern: RegExp; terms: string[] }> = [
+  { pattern: /^(учен|учащ|студент|школьник)/u, terms: ["student", "learner"] },
+  { pattern: /^(учител|педагог|преподав)/u, terms: ["teacher", "educator"] },
+  { pattern: /^(урок|заняти)/u, terms: ["lesson", "instruction", "teaching"] },
+  { pattern: /^(план|модул|раздел|ктп|программ)/u, terms: ["planning", "unit", "curriculum", "sequence"] },
+  { pattern: /^(оцен|критери|рубри|балл|егэ|огэ|впр)/u, terms: ["assessment", "rubric", "criteria", "feedback", "formative"] },
+  { pattern: /^(чтен|текст|пониман|грамотн)/u, terms: ["reading", "text", "comprehension", "literacy"] },
+  { pattern: /^(письм|эссе|сочинен|аргумент)/u, terms: ["writing", "argument", "essay", "scaffold"] },
+  { pattern: /^(рки|неродн|иностран|билинг|мигрант|язык|лексик|словар)/u, terms: ["eal", "language", "multilingual", "vocabulary", "sentence"] },
+  { pattern: /^(поддерж|опор|скаффолд|шаблон|рамк)/u, terms: ["scaffold", "support", "sentence-frame"] },
+  { pattern: /^(памят|повтор|запомин|извлеч|ретрив)/u, terms: ["memory", "retrieval", "practice", "spacing"] },
+  { pattern: /^(мотивац|субъект|агент|самостоятель)/u, terms: ["motivation", "agency", "self-regulated"] },
+  { pattern: /^(инклюз|овз|доступ|барьер)/u, terms: ["inclusive", "udl", "barrier"] },
+  { pattern: /^(ии|нейросет|чатгпт|gpt|ai)/u, terms: ["ai", "prompt", "chatgpt"] },
+  { pattern: /^(истори|источник|документ)/u, terms: ["history", "historical", "source", "document"] },
+  { pattern: /^(дискус|обсужден|вопрос|диалог)/u, terms: ["discussion", "question", "dialogue"] },
+  { pattern: /^(ошиб|застр|сложн|непоним)/u, terms: ["error", "stuck", "misconception", "diagnosis"] },
+];
+
+function normalizeSearchText(value: string): string {
+  return value.toLocaleLowerCase("ru-RU").replace(/ё/g, "е");
+}
+
+function tokenizeSearchText(value: string): string[] {
+  return normalizeSearchText(value).match(/[\p{L}\p{N}-]+/gu) ?? [];
+}
+
+function termsForToken(token: string): string[] {
+  const terms = new Set([token]);
+  for (const alias of RU_QUERY_ALIASES) {
+    if (alias.pattern.test(token)) {
+      for (const term of alias.terms) terms.add(term);
+    }
+  }
+  return [...terms];
+}
+
+function searchableSkillText(skill: LoadedSkill): string {
+  return normalizeSearchText([
+    skill.metadata.skill_name,
+    skill.metadata.skill_id,
+    skill.metadata.domain,
+    DOMAIN_SEARCH_TERMS[skill.metadata.domain] ?? "",
+    skill.description,
+    ...skill.metadata.tags,
+  ].join(" "));
+}
+
+function tokenMatchesSkill(token: string, haystack: string): boolean {
+  return termsForToken(token).some((term) => haystack.includes(normalizeSearchText(term)));
+}
+
 export function assemblePrompt(skill: LoadedSkill, args: Record<string, unknown>): string {
   let prompt = skill.prompt;
 
-  // Replace {{placeholder}} tokens with provided values
+  // Заменяем {{placeholder}} на переданные значения.
   for (const [key, value] of Object.entries(args)) {
     const placeholder = new RegExp(`\\{\\{${key}\\}\\}`, "gi");
     const strValue = Array.isArray(value) ? JSON.stringify(value) : String(value);
     prompt = prompt.replace(placeholder, strValue);
   }
 
-  // Strip any remaining {{placeholders}} for optional params not provided
+  // Убираем оставшиеся {{placeholders}} для optional параметров.
   prompt = prompt.replace(/\{\{[^}]+\}\}/g, "[not provided]");
 
-  // Build an input summary for any placeholders that weren't in the template
-  // (some prompts use different placeholder conventions)
+  // Собираем краткий ввод для параметров, которых не было в template.
+  // Некоторые prompts используют отличающиеся соглашения по placeholders.
   const inputSummary = Object.entries(args)
     .map(([key, value]) => {
       const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -25,7 +100,7 @@ export function assemblePrompt(skill: LoadedSkill, args: Record<string, unknown>
     })
     .join("\n");
 
-  return `${prompt}\n\n---\n\n## Teacher Input\n\n${inputSummary}`;
+  return `${prompt}\n\n---\n\n## Ввод пользователя / Teacher Input\n\n${inputSummary}`;
 }
 
 export function handleListSkills(
@@ -47,7 +122,7 @@ export function handleListSkills(
     lines.push(`## ${d}\n`);
     for (const s of domainSkills) {
       lines.push(
-        `- **${s.metadata.skill_name}** (${s.toolName})\n  Evidence: ${s.metadata.evidence_strength} | Time: ${s.metadata.teacher_time} | Tags: ${s.metadata.tags.join(", ")}`,
+        `- **${s.metadata.skill_name}** (${s.toolName})\n  Доказательность: ${s.metadata.evidence_strength} | Время: ${s.metadata.teacher_time} | Теги: ${s.metadata.tags.join(", ")}`,
       );
     }
     lines.push("");
@@ -64,7 +139,7 @@ export function handleGetSkillDetails(
   const skill = skillsById.get(skillId);
 
   if (!skill) {
-    return { content: [{ type: "text", text: `Skill not found: ${skillId}` }] };
+    return { content: [{ type: "text", text: `Навык не найден: ${skillId}` }] };
   }
 
   const m = skill.metadata;
@@ -90,7 +165,7 @@ export function handleFindSkills(
   skills: LoadedSkill[],
   args: Record<string, unknown>,
 ): ToolResult {
-  const query = typeof args.query === "string" ? args.query.toLowerCase() : "";
+  const query = typeof args.query === "string" ? args.query : "";
   const domain = typeof args.domain === "string" ? args.domain : "";
   const evidenceStrength = typeof args.evidence_strength === "string" ? args.evidence_strength : "";
   const tag = typeof args.tag === "string" ? args.tag.toLowerCase() : "";
@@ -107,26 +182,20 @@ export function handleFindSkills(
     results = results.filter((s) => s.metadata.tags.some((t) => t.toLowerCase().includes(tag)));
   }
   if (query) {
+    const queryTokens = tokenizeSearchText(query).filter((w) => w.length > 2);
     results = results.filter((s) => {
-      const haystack = [
-        s.metadata.skill_name,
-        s.metadata.skill_id,
-        s.description,
-        ...s.metadata.tags,
-      ]
-        .join(" ")
-        .toLowerCase();
-      return query.split(/\s+/).every((word) => haystack.includes(word));
+      const haystack = searchableSkillText(s);
+      return queryTokens.every((word) => tokenMatchesSkill(word, haystack));
     });
   }
 
   if (results.length === 0) {
-    return { content: [{ type: "text", text: "No skills matched your search." }] };
+    return { content: [{ type: "text", text: "Подходящие навыки не найдены." }] };
   }
 
   const lines = results.map(
     (s) =>
-      `- **${s.metadata.skill_name}** (${s.toolName})\n  ${s.description}\n  Evidence: ${s.metadata.evidence_strength} | Domain: ${s.metadata.domain}`,
+      `- **${s.metadata.skill_name}** (${s.toolName})\n  ${s.description}\n  Доказательность: ${s.metadata.evidence_strength} | Домен: ${s.metadata.domain}`,
   );
 
   return { content: [{ type: "text", text: lines.join("\n\n") }] };
@@ -144,26 +213,15 @@ export function handleSuggestSkills(
     };
   }
 
-  // Build a keyword-scored ranking
-  const words = description
-    .toLowerCase()
-    .replace(/[^\w\s]/g, "")
-    .split(/\s+/)
-    .filter((w) => w.length > 2);
+  // Строим keyword ranking с русскими и английскими совпадениями.
+  const words = tokenizeSearchText(description).filter((w) => w.length > 2);
 
   const scored = skills.map((skill) => {
-    const haystack = [
-      skill.metadata.skill_name,
-      skill.description,
-      ...skill.metadata.tags,
-      skill.metadata.domain.replace(/-/g, " "),
-    ]
-      .join(" ")
-      .toLowerCase();
+    const haystack = searchableSkillText(skill);
 
     let score = 0;
     for (const word of words) {
-      if (haystack.includes(word)) score++;
+      if (tokenMatchesSkill(word, haystack)) score++;
     }
     return { skill, score };
   });
@@ -172,13 +230,13 @@ export function handleSuggestSkills(
   const top = scored.slice(0, 5).filter((s) => s.score > 0);
 
   if (top.length === 0) {
-    // Fall back: return a catalogue summary so the user can browse
+    // Резервный сценарий: возвращаем список доменов для ручной навигации.
     const domains = [...new Set(skills.map((s) => s.metadata.domain))].sort();
     return {
       content: [
         {
           type: "text",
-          text: `No strong matches found. Try browsing by domain using list_skills. Available domains:\n${domains.map((d) => `- ${d}`).join("\n")}`,
+          text: `Сильных совпадений не найдено. Попробуйте посмотреть домены через list_skills. Available domains:\n${domains.map((d) => `- ${d}`).join("\n")}`,
         },
       ],
     };
@@ -189,16 +247,16 @@ export function handleSuggestSkills(
       s.metadata.tags.some((t) => t.toLowerCase().includes(w)),
     );
     const relevance = tagHits.length > 0
-      ? `Matches: ${tagHits.join(", ")}`
-      : `Relevant to your description`;
-    return `- **${s.metadata.skill_name}** (\`${s.toolName}\`)\n  ${s.description}\n  ${relevance} | Evidence: ${s.metadata.evidence_strength}`;
+      ? `Совпадения: ${tagHits.join(", ")}`
+      : `Подходит к описанной задаче`;
+    return `- **${s.metadata.skill_name}** (\`${s.toolName}\`)\n  ${s.description}\n  ${relevance} | Доказательность: ${s.metadata.evidence_strength}`;
   });
 
   return {
     content: [
       {
         type: "text",
-        text: `Based on: "${description}"\n\nSuggested skills:\n\n${lines.join("\n\n")}`,
+          text: `Запрос: "${description}"\n\nРекомендуемые навыки:\n\n${lines.join("\n\n")}`,
       },
     ],
   };

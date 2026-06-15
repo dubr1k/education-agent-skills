@@ -32,7 +32,7 @@ export function buildSkillToolDefinition(skill: LoadedSkill): McpToolDefinition 
     }
   }
 
-  const evidenceTag = metadata.evidence_strength ? ` [evidence: ${metadata.evidence_strength}]` : "";
+  const evidenceTag = metadata.evidence_strength ? ` [доказательность: ${metadata.evidence_strength}]` : "";
 
   return {
     name: toolName,
@@ -50,14 +50,14 @@ export function buildMetaToolDefinitions(): McpToolDefinition[] {
     {
       name: "list_skills",
       description:
-        "List all available education skills grouped by domain. Returns skill ID, name, evidence strength, tags, and estimated teacher time for each.",
+        "Показать все доступные образовательные навыки по доменам. Возвращает skill ID, название, уровень доказательности, теги и примерное время педагога.",
       inputSchema: {
         type: "object",
         properties: {
           domain: {
             type: "string",
             description:
-              "Optional: filter to a specific domain (e.g. 'memory-learning-science'). Omit for all domains.",
+              "Опционально: фильтр по домену (например, 'memory-learning-science'). Если не указан, будут показаны все домены.",
           },
         },
         required: [],
@@ -66,13 +66,13 @@ export function buildMetaToolDefinitions(): McpToolDefinition[] {
     {
       name: "get_skill_details",
       description:
-        "Get full metadata for a specific skill including evidence sources, input/output schemas, and chaining information.",
+        "Получить полные метаданные навыка: источники доказательности, схемы ввода/вывода и связи с другими навыками.",
       inputSchema: {
         type: "object",
         properties: {
           skill_id: {
             type: "string",
-            description: "The skill ID (e.g. 'memory-learning-science/cognitive-load-analyser')",
+            description: "Skill ID (например, 'memory-learning-science/cognitive-load-analyser')",
           },
         },
         required: ["skill_id"],
@@ -81,25 +81,25 @@ export function buildMetaToolDefinitions(): McpToolDefinition[] {
     {
       name: "find_skills",
       description:
-        "Search skills by tag, domain, evidence strength, or free text across skill names and descriptions.",
+        "Искать навыки по тегу, домену, уровню доказательности или свободному тексту в названиях и описаниях.",
       inputSchema: {
         type: "object",
         properties: {
           query: {
             type: "string",
-            description: "Free text search across skill names, descriptions, and tags",
+            description: "Свободный поиск по названиям, описаниям и тегам навыков",
           },
           domain: {
             type: "string",
-            description: "Filter by domain",
+            description: "Фильтр по домену",
           },
           evidence_strength: {
             type: "string",
-            description: "Filter by evidence strength: strong | moderate | emerging | original | practitioner",
+            description: "Фильтр по уровню доказательности: strong | moderate | emerging | original | practitioner",
           },
           tag: {
             type: "string",
-            description: "Filter by tag",
+            description: "Фильтр по тегу",
           },
         },
         required: [],
@@ -108,14 +108,14 @@ export function buildMetaToolDefinitions(): McpToolDefinition[] {
     {
       name: "suggest_skills",
       description:
-        "Describe what you're trying to do in plain English and get 3-5 relevant skills recommended with explanations of why each is relevant. The entry point for users who don't know what skills exist.",
+        "Опишите педагогическую задачу обычным русским или английским языком и получите 3-5 релевантных навыков с пояснениями.",
       inputSchema: {
         type: "object",
         properties: {
           problem_description: {
             type: "string",
             description:
-              "Plain English description of what the teacher is trying to do (e.g. 'My Year 9 students keep forgetting content from earlier in the term')",
+              "Описание задачи педагога обычным языком (например, 'ученики 8 класса быстро забывают материал прошлых тем')",
           },
         },
         required: ["problem_description"],

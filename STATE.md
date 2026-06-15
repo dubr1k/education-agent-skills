@@ -1,29 +1,36 @@
-# State — Education Agent Skills Library
+# State — Academic Skills RU
 
-## Last updated: 2026-05-27
+## Last updated: 2026-06-16
 
 ## What was done this session
 
-Built and shipped Domain 20: Student-Facing Learning Skills — 13 new skills in a new domain `student-learning`.
+Started the bilingual RU/EN fork adaptation without breaking upstream skill compatibility.
 
-All 13 skills: retrieve-first-gate, explain-first-interrogator, progressive-hint-ladder, confidence-calibration-check, stuck-and-error-diagnosis-coach, ai-claim-checker, transfer-bridge, teach-back-evaluator, productive-failure-protocol, srl-session-wrapper, unassisted-evidence-checkpoint, weekly-agency-review, fading-manager.
+- Renamed package/plugin identity to `academic-skills-ru` where runtime manifests need to avoid collisions.
+- Kept upstream-compatible `skill_id`, folder names, tool names, tags, and chaining identifiers.
+- Added Russian domain labels to `scripts/generate-registry.py` and regenerated `registry.json`.
+- Added Russian/bilingual MCP tool titles, descriptions, wrapper instructions, and output labels.
+- Added Unicode-aware RU/EN search tokenization and Russian query aliases for `suggest_skills` / `find_skills`.
+- Added `docs/RU_LOCALIZATION.md` with compatibility invariants, glossary, and adaptation priorities.
+- Updated root and MCP package lockfiles after package renaming.
+- Rebuilt `mcp-server/src/skills.json`.
 
 ## What was verified
 
-- All 20 Playwright tests pass (was 18 before, 2 new skills-library tests were already in suite)
-- registry.json regenerated: 165 skills, 20 domains
-- mcp-server/src/skills.json rebundled: 165 skills
-- Committed and pushed: d84b8f4
+- `cd mcp-server && npm run build`
+- `cd mcp-server && npm test` — 21 passed
+- `npx playwright test` — 20 passed
+- Russian `suggest_skills` test added while preserving the existing plain-English query test.
 
 ## Current library state
 
-- 165 skills across 20 domains
-- Domain 20 is new and different from Domains 1–19: student-facing live interaction patterns, not educator-facing artefact generation
-- Domain 20 introduces `evidence_captured` YAML schema extension for structured learning evidence
-- `generate-registry.py` updated with "student-learning" in DOMAIN_LABELS
+- 165 skills across 20 domains.
+- Runtime/discovery layer is now bilingual RU/EN.
+- Actual `SKILL.md` bodies are still mostly upstream English and need staged Russian-context adaptation.
+- `student-learning` remains the first priority domain for content adaptation.
 
 ## What's next
 
-- Downstream: Kaku's Tutor Agent and Hippo can now reference Domain 20 skills
-- Consider building a cross-domain orchestrator skill that chains Domain 20 skills (e.g., 20-01 → 20-04 → 20-11 sequence)
-- QA evaluator session (separate Claude invocation) recommended before production use of Domain 20 skills
+- Adapt `student-learning` SKILL.md files for Russian output and examples while preserving evidence citations.
+- Add more Russian aliases/tests for curriculum, assessment, ФГОС/ФОП, ОГЭ/ЕГЭ, РКИ, ОВЗ.
+- Localize `docs/CODEX.md`, `docs/HERMES.md`, and MCP server docs after runtime behaviour stabilizes.

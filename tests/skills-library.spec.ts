@@ -7,7 +7,7 @@ const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
 
-// Helper: collect all SKILL.md paths
+// Вспомогательная функция: собрать все пути SKILL.md.
 function getAllSkillPaths(): string[] {
   const paths: string[] = [];
   const domains = fs.readdirSync(SKILLS_DIR);
@@ -25,7 +25,7 @@ function getAllSkillPaths(): string[] {
   return paths.sort();
 }
 
-// Helper: parse YAML frontmatter from a SKILL.md file
+// Вспомогательная функция: разобрать YAML frontmatter из SKILL.md.
 function parseFrontmatter(filePath: string): Record<string, unknown> {
   const content = fs.readFileSync(filePath, "utf-8");
   if (!content.startsWith("---")) throw new Error(`No frontmatter: ${filePath}`);
@@ -198,8 +198,8 @@ test.describe("Plugin Manifest Validation", () => {
   });
 
   test("plugin.json is valid JSON", () => {
-    expect(plugin.name).toBe("education-agent-skills");
-    expect(plugin.version).toBe("2.1.0");
+    expect(plugin.name).toBe("academic-skills-ru");
+    expect(plugin.version).toBe("2.2.0");
   });
 
   test("plugin.json skills directory exists", () => {

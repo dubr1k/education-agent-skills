@@ -1,7 +1,7 @@
-# Education Agent Skills Library — Claude Code Entry Point
+# Academic Skills RU — Claude Code Entry Point
 
 ## What this is
-165 evidence-based education skills across 20 domains for curriculum design, lesson planning, assessment, and student-facing AI learning support. CC BY-SA 4.0. Works in Claude Code, Claude.ai (via MCP), OpenAI Codex, and Hermes Agent. Includes a live MCP server at mcp-server-sigma-sooty.vercel.app/mcp, a CoWork plugin (.claude-plugin/), a Codex plugin (.codex-plugin/), and Hermes selected-install guidance.
+Bilingual RU/EN fork of 165 evidence-based education skills across 20 domains for curriculum design, lesson planning, assessment, and student-facing AI learning support. CC BY-SA 4.0. Works in Claude Code, Claude.ai (via MCP), OpenAI Codex, and Hermes Agent. Keeps upstream skill identifiers stable while adding Russian runtime metadata, search aliases, docs, and context adaptation.
 
 ## Stack
 TypeScript (77.9%), Python (16.7%). Playwright for testing. Skills are structured markdown (SKILL.md) with YAML frontmatter. MCP server in mcp-server/ subdirectory. CI via GitHub Actions.
@@ -29,6 +29,8 @@ ai-learning-science, ai-literacy, curriculum-alignment, curriculum-assessment, e
 
 ## Key conventions
 - Every skill must cite named research — no skills without evidence grounding
+- Russian adaptation must preserve English compatibility: do not rename `skill_id`, folder names, tool names, or chaining identifiers unless a migration plan and tests are included
+- New code comments and user-facing additions should be in Russian or bilingual RU/EN when English compatibility matters
 - Evidence strength rated: strong, moderate, emerging, or original (honestly labelled)
 - YAML schema headers mandatory: skill_id, domain, evidence_strength, evidence_sources, input_schema, output_schema, chains_well_with
 - Skills live in skills/<domain>/<skill-name>/SKILL.md

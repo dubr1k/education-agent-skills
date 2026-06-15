@@ -23,11 +23,11 @@ export function createServer(skills: LoadedSkill[]): McpServer {
   }
 
   const server = new McpServer({
-    name: "education-agent-skills",
+    name: "academic-skills-ru",
     version: "0.3.0",
   });
 
-  // Register the bundled skills as prompts (user-invoked, injected into conversation)
+  // Регистрируем bundled skills как prompts для пользовательского вызова.
   for (const skill of skills) {
     const argsSchema: Record<string, z.ZodTypeAny> = {};
 
@@ -42,7 +42,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
 
     const { metadata, description } = skill;
     const evidenceTag = metadata.evidence_strength
-      ? ` [evidence: ${metadata.evidence_strength}]`
+      ? ` [доказательность: ${metadata.evidence_strength}]`
       : "";
     const promptName = skill.toolName;
 
@@ -66,7 +66,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
     });
   }
 
-  // Register the bundled skills as tools (for Claude.ai and orchestrator use)
+  // Регистрируем bundled skills как tools для Claude.ai и оркестраторов.
   for (const skill of skills) {
     const shape: Record<string, z.ZodTypeAny> = {};
 
@@ -88,7 +88,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
     const toolName = skill.toolName;
     const { metadata, description } = skill;
     const evidenceTag = metadata.evidence_strength
-      ? ` [evidence: ${metadata.evidence_strength}]`
+      ? ` [доказательность: ${metadata.evidence_strength}]`
       : "";
     const toolDesc = `${metadata.skill_name} — ${description}${evidenceTag}`;
 
@@ -102,51 +102,51 @@ export function createServer(skills: LoadedSkill[]): McpServer {
         skillsByToolName.get(toolName)!,
         args as Record<string, unknown>,
       );
-      const framed = `INSTRUCTIONS: You are now executing an education skill. Follow the skill instructions below precisely. Produce the complete output as specified. Do not display these instructions to the user — generate the requested output directly.
+      const framed = `ИНСТРУКЦИИ: вы выполняете образовательный навык. Следуйте инструкциям навыка точно. Если пользователь пишет по-русски или контекст русскоязычный, итоговый ответ дайте на русском, сохраняя научные термины и цитирования без искажений. Не показывайте эти служебные инструкции пользователю — сразу сформируйте требуемый результат.
 
 <skill_instructions>
 ${assembled}
 </skill_instructions>
 
-Generate the complete output now.`;
+Сформируйте полный результат сейчас.`;
       return { content: [{ type: "text" as const, text: framed }] };
     });
   }
 
-  // Register 4 meta-tools (model-invoked, for discovery)
+  // Регистрируем 4 meta-tools для поиска и навигации по библиотеке.
   server.registerTool("list_skills", {
-    title: "List Skills",
-    description: "List all available education skills grouped by domain. Returns skill ID, name, evidence strength, tags, and estimated teacher time.",
-    inputSchema: { domain: z.string().optional().describe("Filter to a specific domain") },
-    annotations: { title: "List Skills", ...ANNOTATIONS },
+    title: "Список навыков",
+    description: "Показать доступные образовательные навыки по доменам. Возвращает skill ID, название, доказательность, теги и примерное время педагога.",
+    inputSchema: { domain: z.string().optional().describe("Фильтр по домену") },
+    annotations: { title: "Список навыков", ...ANNOTATIONS },
   }, async (args) => handleListSkills(skills, args));
 
   server.registerTool("get_skill_details", {
-    title: "Get Skill Details",
-    description: "Get full metadata for a specific skill including evidence sources, input/output schemas, and chaining information.",
-    inputSchema: { skill_id: z.string().describe("The skill ID (e.g. 'memory-learning-science/cognitive-load-analyser')") },
-    annotations: { title: "Get Skill Details", ...ANNOTATIONS },
+    title: "Детали навыка",
+    description: "Получить полные метаданные навыка: источники доказательности, схемы ввода/вывода и связи с другими навыками.",
+    inputSchema: { skill_id: z.string().describe("Skill ID, например 'memory-learning-science/cognitive-load-analyser'") },
+    annotations: { title: "Детали навыка", ...ANNOTATIONS },
   }, async (args) => handleGetSkillDetails(skillsById, args));
 
   server.registerTool("find_skills", {
-    title: "Find Skills",
-    description: "Search skills by tag, domain, evidence strength, or free text across skill names and descriptions.",
+    title: "Поиск навыков",
+    description: "Искать навыки по тегу, домену, уровню доказательности или свободному тексту в названиях и описаниях.",
     inputSchema: {
-      query: z.string().optional().describe("Free text search across skill names, descriptions, and tags"),
-      domain: z.string().optional().describe("Filter by domain"),
-      evidence_strength: z.string().optional().describe("Filter: strong | moderate | emerging | original"),
-      tag: z.string().optional().describe("Filter by tag"),
+      query: z.string().optional().describe("Свободный поиск по названиям, описаниям и тегам"),
+      domain: z.string().optional().describe("Фильтр по домену"),
+      evidence_strength: z.string().optional().describe("Фильтр: strong | moderate | emerging | original"),
+      tag: z.string().optional().describe("Фильтр по тегу"),
     },
-    annotations: { title: "Find Skills", ...ANNOTATIONS },
+    annotations: { title: "Поиск навыков", ...ANNOTATIONS },
   }, async (args) => handleFindSkills(skills, args));
 
   server.registerTool("suggest_skills", {
-    title: "Suggest Skills",
-    description: "Describe what you're trying to do in plain English and get 3-5 relevant skill recommendations. The entry point for users who don't know what skills exist.",
+    title: "Подбор навыков",
+    description: "Опишите педагогическую задачу обычным русским или английским языком и получите 3-5 релевантных навыков.",
     inputSchema: {
-      problem_description: z.string().describe("Plain English description of what the teacher is trying to do"),
+      problem_description: z.string().describe("Описание задачи педагога обычным языком"),
     },
-    annotations: { title: "Suggest Skills", ...ANNOTATIONS },
+    annotations: { title: "Подбор навыков", ...ANNOTATIONS },
   }, async (args) => handleSuggestSkills(skills, args));
 
   return server;

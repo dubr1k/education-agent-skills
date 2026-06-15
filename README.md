@@ -1,11 +1,13 @@
-# Education Agent Skills Library
+# Academic Skills RU
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
 [![Skills](https://img.shields.io/badge/skills-165-blue)](https://github.com/GarethManning/education-agent-skills)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Last Commit](https://img.shields.io/github/last-commit/GarethManning/education-agent-skills)](https://github.com/GarethManning/education-agent-skills/commits/main)
 
-An open-source library of 165 evidence-based pedagogical skills across 20 domains — works in Claude Code, Claude.ai (via MCP), OpenAI Codex, and Hermes Agent, and is engineered for AI agent orchestration. Domains 1–19 are teacher and designer-facing. Domain 20 is the first student-facing domain: live AI interaction patterns that shape how AI responds to learners during study sessions.
+Русскоязычный bilingual fork библиотеки **Education Agent Skills Library**: 165 evidence-based pedagogical skills across 20 domains. Цель fork — сохранить англоязычную совместимость upstream и добавить рабочий русскоязычный контекст для Codex, Claude, Hermes и MCP.
+
+Технические `skill_id`, folder names, tags and chaining metadata intentionally stay upstream-compatible. Русский слой добавляется через runtime metadata, поиск, документацию, локализованные domain labels и постепенную адаптацию самих `SKILL.md`.
 
 > [!IMPORTANT]
 > **Hosted MCP access now requires an auth token.**

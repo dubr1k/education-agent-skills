@@ -109,6 +109,22 @@ test.describe("MCP Server — suggest_skills", () => {
     expect(skillMatches!.length).toBeLessThanOrEqual(5);
   });
 
+  test("returns relevant results for a Russian query", async () => {
+    const result = await client.callTool({
+      name: "suggest_skills",
+      arguments: {
+        problem_description:
+          "Ученики плохо понимают учебный текст, нужна поддержка для билингвальных учащихся и русского как неродного",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+    const skillMatches = text.match(/- \*\*[^*]+\*\*/g);
+    expect(skillMatches).toBeTruthy();
+    expect(skillMatches!.length).toBeGreaterThanOrEqual(3);
+    expect(skillMatches!.length).toBeLessThanOrEqual(5);
+    expect(text).toMatch(/Language|Reading|Vocabulary|Scaffold/i);
+  });
+
   test("returns domain fallback when no matches found", async () => {
     const result = await client.callTool({
       name: "suggest_skills",
@@ -145,9 +161,9 @@ test.describe("MCP Server — skill tools", () => {
     });
     const text = (result.content as Array<{ type: string; text: string }>)[0].text;
 
-    expect(text).toContain("INSTRUCTIONS: You are now executing an education skill");
+    expect(text).toContain("ИНСТРУКЦИИ: вы выполняете образовательный навык");
     expect(text).toContain("<skill_instructions>");
-    expect(text).toContain("Generate the complete output now.");
+    expect(text).toContain("Сформируйте полный результат сейчас.");
     expect(text).toContain("Cognitive Load Theory");
     expect(text).toContain("mitosis");
     expect(text).toContain("Year 9 novice");
@@ -193,10 +209,10 @@ test.describe("MCP Server — skill prompts", () => {
 
     const text = result.messages[0].content as { type: string; text: string };
     expect(text.type).toBe("text");
-    // Should contain the expert role framing from the prompt
+    // Должен содержать экспертную роль из prompt.
     expect(text.text).toContain("Cognitive Load Theory");
-    // Should contain the teacher input section with substituted values
-    expect(text.text).toContain("## Teacher Input");
+    // Должен содержать секцию ввода с подставленными значениями.
+    expect(text.text).toContain("## Ввод пользователя / Teacher Input");
     expect(text.text).toContain("mitosis");
     expect(text.text).toContain("Year 9 novice");
   });
@@ -227,19 +243,19 @@ test.describe("MCP Server — SKILLS_FILTER", () => {
       SKILLS_FILTER: "memory-learning-science,explicit-instruction",
     });
 
-    // Skill tools + 4 meta-tools, filtered
+    // Инструменты навыков плюс 4 мета-инструмента после фильтрации.
     const { tools } = await client.listTools();
     const metaTools = ["list_skills", "get_skill_details", "find_skills", "suggest_skills"];
     const skillTools = tools.filter((t) => !metaTools.includes(t.name));
     expect(skillTools.length).toBeGreaterThan(0);
     expect(skillTools.length).toBeLessThan(131);
 
-    // Prompts should be filtered too
+    // Подсказки тоже должны фильтроваться.
     const { prompts } = await client.listPrompts();
     expect(prompts.length).toBeGreaterThan(0);
     expect(prompts.length).toBeLessThan(131);
 
-    // Verify via list_skills that only filtered domains appear
+    // Проверяем через list_skills, что видны только отфильтрованные домены.
     const result = await client.callTool({ name: "list_skills", arguments: {} });
     const text = (result.content as Array<{ type: string; text: string }>)[0].text;
 
