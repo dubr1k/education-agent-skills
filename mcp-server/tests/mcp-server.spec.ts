@@ -251,6 +251,156 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("self-regulated-learning");
     expect(text).toMatch(/Error Analysis Protocol|Goal-Setting Protocol Designer|Metacognitive Prompt Library|Self-Regulation Scaffold Generator|Study Strategy Selector/);
   });
+
+  test("finds wellbeing-motivation-agency skills from Russian wellbeing language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "wellbeing-motivation-agency",
+        query:
+          "благополучие мотивация субъектность принадлежность травма восстановительные практики самоэффективность эмоциональная грамотность",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("wellbeing-motivation-agency");
+    expect(text).toMatch(/Agency Scaffold Generator|Belonging & Classroom Culture Designer|Trauma-Informed Practice Designer|Self-Efficacy Builder Sequence|RULER Emotional Literacy Sequence/);
+  });
+
+  test("finds historical-thinking skills from Russian source-analysis language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "historical-thinking",
+        query:
+          "история исторический источник документ контекстуализация сопоставление авторство происхождение источника ЕГЭ ОГЭ DBQ",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("historical-thinking");
+    expect(text).toMatch(/Sourcing Skill Builder|Contextualisation Skill Builder|Corroboration Skill Builder|Document-Based Lesson Designer|Historical Thinking Assessment Designer/);
+  });
+
+  test("finds systems-thinking skills from Russian systems language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "systems-thinking",
+        query:
+          "системное мышление причинно-следственные связи петли обратной связи рычаги влияния ментальные модели айсберг",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("systems-thinking");
+    expect(text).toMatch(/Systems Awareness Iceberg|Mental Model Mapper|Leverage and Response Design|Ladder of Inference Reflection|Agency Circles for Systems Action/);
+  });
+
+  test("finds montessori-alternative-approaches skills from Russian Montessori language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "montessori-alternative-approaches",
+        query:
+          "Монтессори подготовленная среда трехступенчатый урок самостоятельность смешанный возраст наблюдение",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("montessori-alternative-approaches");
+    expect(text).toMatch(/Prepared Environment Designer|Three-Part Lesson Designer|Mixed-Age Learning Task Designer|Uninterrupted Work Cycle Designer/);
+  });
+
+  test("finds professional-learning skills from Russian teacher-development language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "professional-learning",
+        query:
+          "педагог учитель методическое объединение наставничество наблюдение урока рефлексия коучинг повышение квалификации",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("professional-learning");
+    expect(text).toMatch(/Lesson Observation Protocol Designer|Instructional Coaching Conversation Guide|Lesson Study Cycle Designer|Reflective Practice Prompt Generator|Professional Development Session Designer/);
+  });
+
+  test("finds environmental-experiential-learning skills from Russian outdoor inquiry language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "environmental-experiential-learning",
+        query:
+          "экологическое образование опытное обучение outdoor learning fieldwork проектная деятельность локальная среда природа",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("environmental-experiential-learning");
+    expect(text).toMatch(/Ecological Inquiry Anchor Designer|Outdoor Learning Sequence Designer|Experiential Learning Cycle Designer|Service Learning Project Designer|Biophilic Learning Environment Designer/);
+  });
+
+  test("finds ai-learning-science skills from Russian AI tutoring language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "ai-learning-science",
+        query:
+          "ИИ искусственный интеллект нейросеть ChatGPT тьюторинг подсказки обратная связь learning analytics",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("ai-learning-science");
+    expect(text).toMatch(/Intelligent Tutoring Dialogue Designer|Adaptive Hint Sequence Designer|AI Feedback Design Principles|Learning Analytics Interpretation Guide|Formative Assessment Loop Designer/);
+  });
+
+  test("finds ai-literacy skills from Russian AI-literacy language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "ai-literacy",
+        query:
+          "ИИ грамотность промпты галлюцинации проверка фактов надежность критическая оценка AI-output",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("ai-literacy");
+    expect(text).toMatch(/AI Output Critical Audit Designer|AI Hallucination Fact-Check Protocol|Prompt Literacy Sequence Designer|AI Learning Boundary Mapper|Disciplinary AI Literacy Sequence Designer/);
+  });
+
+  test("finds original-frameworks skills from Russian framework language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "original-frameworks",
+        query:
+          "авторская рамка методика orchestration проектирование обучения developmental bands SEEDS H3Uni progressions",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("original-frameworks");
+    expect(text).toMatch(/Compassionate Systems Awareness Orchestrator|Developmental Band System Designer|SEEDS Regenerative Inquiry Cycle|Three Horizons Learning Transition Mapper|Assessment Design Orchestrator/);
+  });
+
+  test("finds global-cross-cultural-pedagogies skills from Russian culturally responsive language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "global-cross-cultural-pedagogies",
+        query:
+          "культурно релевантное обучение межкультурный контекст локальное сообщество place-based inquiry variation theory Reggio Ubuntu",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("global-cross-cultural-pedagogies");
+    expect(text).toMatch(/Culturally Responsive Teaching Designer|Place-Based Inquiry Anchor|Variation Theory Task Designer|Reggio Documentation Protocol|Ubuntu Collective Knowledge Task Designer/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -563,6 +713,197 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("саморегуляция");
     expect(text).toContain("метакогниция");
     expect(text).toContain("8 класс");
+  });
+
+  test("includes Russian wellbeing-motivation-agency context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "trauma-informed-practice-designer",
+      arguments: {
+        classroom_situation:
+          "После конфликта ученик резко реагирует на замечания, класс тревожится, нужна предсказуемость и восстановительные практики",
+        student_level: "6 класс",
+        available_support: "психолог, социальный педагог, классный руководитель",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("травма-информированный подход");
+    expect(text).toContain("психолога");
+    expect(text).toContain("6 класс");
+  });
+
+  test("includes Russian historical-thinking context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "sourcing-skill-builder",
+      arguments: {
+        historical_topic:
+          "Причины реформ Петра I: работа с указом, письмом современника и фрагментом учебника",
+        student_level: "8 класс",
+        current_challenge:
+          "Ученики читают документ без анализа авторства и происхождения источника",
+        curriculum_framework: "ОГЭ/ЕГЭ: аргументация с опорой на исторический источник",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("авторство и происхождение источника");
+    expect(text).toContain("ОГЭ/ЕГЭ");
+    expect(text).toContain("8 класс");
+  });
+
+  test("includes Russian systems-thinking context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "systems-awareness-iceberg",
+      arguments: {
+        focal_event:
+          "В классе повторяется ситуация: ученики молчат на обсуждении, хотя письменные ответы сильные",
+        context:
+          "7 класс, литература, нужно увидеть структуры, ментальные модели и петли обратной связи",
+        student_level: "7 класс",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("системное мышление");
+    expect(text).toContain("петли обратной связи");
+    expect(text).toContain("7 класс");
+  });
+
+  test("includes Russian Montessori context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "prepared-environment-designer",
+      arguments: {
+        current_environment:
+          "Класс начальной школы: материалы лежат высоко, дети постоянно спрашивают разрешение, стены перегружены плакатами",
+        improvement_goals:
+          "Создать подготовленную среду для самостоятельности, спокойных переходов и наблюдения",
+        student_level: "2 класс",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("подготовленная среда");
+    expect(text).toContain("Монтессори");
+    expect(text).toContain("2 класс");
+  });
+
+  test("includes Russian professional-learning context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "lesson-observation-protocol-designer",
+      arguments: {
+        observation_focus:
+          "Проверка понимания на уроке: как учитель собирает evidence от всех учеников, а не только от активных",
+        observation_purpose:
+          "Формирующее наблюдение урока в цикле наставничества и методического объединения",
+        teacher_context: "молодой педагог, 2 год работы",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("наблюдение урока");
+    expect(text).toContain("методист");
+    expect(text).toContain("look-fors");
+  });
+
+  test("includes Russian environmental-experiential context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "ecological-inquiry-anchor-designer",
+      arguments: {
+        local_ecosystem:
+          "Школьный двор: клумбы, старые деревья, участок с мхом и следами птиц после дождя",
+        curriculum_objective:
+          "5 класс, биология: наблюдение за живыми системами, взаимосвязи и экологическое образование",
+        student_level: "5 класс",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("экологическое образование");
+    expect(text).toContain("школьный двор");
+    expect(text).toContain("5 класс");
+  });
+
+  test("includes Russian ai-learning-science context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "intelligent-tutoring-dialogue-designer",
+      arguments: {
+        learning_objective:
+          "Понять, почему умножение на дробь меньше 1 уменьшает число",
+        anticipated_difficulties:
+          "Ученики используют правило 'умножение всегда увеличивает' и ждут готовую подсказку от ИИ-тьютора",
+        student_level: "6 класс",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("тьюторинг");
+    expect(text).toContain("проверка фактов");
+    expect(text).toContain("6 класс");
+  });
+
+  test("includes Russian ai-literacy context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "ai-output-critical-audit-designer",
+      arguments: {
+        ai_output_sample:
+          "ChatGPT уверенно объясняет исторический факт без источников и с возможной галлюцинацией",
+        student_level: "9 класс",
+        subject_area: "история",
+        task_context: "критическая оценка AI-output и проверка фактов",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("галлюцинации");
+    expect(text).toContain("критическая оценка AI-output");
+    expect(text).toContain("9 класс");
+  });
+
+  test("includes Russian original-frameworks context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "compassionate-systems-awareness-orchestrator",
+      arguments: {
+        starting_point:
+          "Повторяющийся конфликт вокруг школьного проекта: нужно не обвинять участников, а увидеть систему",
+        context:
+          "8 класс, классный руководитель хочет использовать systems-awareness-iceberg и agency-circles",
+        intended_use: "student lesson",
+        student_level: "8 класс",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("systems-awareness-iceberg");
+    expect(text).toContain("agency-circles");
+    expect(text).toContain("8 класс");
+  });
+
+  test("includes Russian global-cross-cultural context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "culturally-responsive-teaching-designer",
+      arguments: {
+        lesson_content:
+          "7 класс, обществознание: аргументация о роли локального сообщества и культурных практик",
+        student_community:
+          "Многоязычный класс: русскоязычные ученики, билингвальные семьи, мигрантский опыт, сильные связи с районом",
+        subject_area: "обществознание",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("культурно релевантное обучение");
+    expect(text).toContain("локальное сообщество");
+    expect(text).toContain("7 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

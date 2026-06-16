@@ -120,6 +120,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Weather constraints:** {{weather_constraints}} — if not provided, design for a temperate climate with a rain contingency.
 **Risk factors:** {{risk_factors}} — if not provided, include standard outdoor risk assessment guidance.
 
+**Russian / bilingual context:** If the teacher works in Russian or a bilingual RU/EN setting, keep useful English labels (Outdoor learning, fieldwork, risk-benefit assessment, preparation → encounter → reflection) and explain them in Russian. Design for экологическое образование and learning outside the classroom: школьный двор, local nature, parks, observation, measurement, research, project activity, and reflection linked to curriculum goals. Make safety outside the classroom explicit: boundaries, weather, equipment, adult roles, traffic, water, terrain, allergies, and student needs.
+
 Return your output in this exact format:
 
 ## Outdoor Learning Sequence: [Learning Objective]

@@ -342,6 +342,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, design the LTs to work across subjects.
 **Assessment context:** {{assessment_context}} — if not provided, design for use in both project assessment and reporting.
 
+**Russian / bilingual context:** If authoring for Russian or bilingual RU/EN use, keep LT, KUD, Know/Understand/Do, Type 1/Type 2/Type 3, and Band A-F labels in English with Russian explanations. Align learning targets cautiously to ФГОС/ФОП subject, meta-subject, and personal outcomes where relevant, but preserve the framework's competency logic, developmental bands, progression language, and student-facing "I can..." structure rather than replacing it with official wording alone.
+
 Return your output in this exact format:
 
 ## Learning Target Set: [Competency Name]

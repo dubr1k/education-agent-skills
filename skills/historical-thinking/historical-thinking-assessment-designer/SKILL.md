@@ -134,6 +134,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Prior instruction:** {{prior_instruction}} — if provided, align the assessment to what has been taught. If not, design tasks that can function as baseline diagnostics.
 **Curriculum framework:** {{curriculum_framework}}
 
+Russian / bilingual context: If assessing Russian or bilingual students, accept Russian responses and use paired labels for target skills: sourcing / авторство и происхождение источника, close reading / внимательное чтение документа, contextualisation / контекстуализация, corroboration / сопоставление источников, and causation / причинность. In ОГЭ/ЕГЭ history, DBQ, or историческое эссе contexts, assess whether students use источники as evidence for reasoning, not whether they merely reproduce memorised content.
+
 Design the following:
 
 1. **Assessment tasks:** For each task:

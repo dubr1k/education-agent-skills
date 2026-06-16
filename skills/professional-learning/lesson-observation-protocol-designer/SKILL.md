@@ -116,6 +116,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Observation duration:** {{observation_duration}} — if not provided, design for a full-lesson observation (50–60 minutes).
 **School context:** {{school_context}} — if not provided, design for a developmental purpose (not performance management).
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, посещение урока, наблюдение урока, анализ урока, методическое объединение, наставничество, coaching/коучинг, reflective practice/рефлексивная практика, повышение квалификации, PLC/профессиональное обучающееся сообщество, or работу с данными, design the protocol for formative school-based professional learning. Preserve useful English labels such as look-fors, evidence, feedback conversation, and next steps, but explain them in Russian. Distinguish observation evidence from judgement, and make the post-observation conversation practical for a coach, mentor, peer, or методист.
+
 Return your output in this exact format:
 
 ## Observation Protocol: [Focus Area]

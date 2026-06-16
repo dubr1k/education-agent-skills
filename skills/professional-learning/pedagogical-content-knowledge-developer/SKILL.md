@@ -127,6 +127,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum framework:** {{curriculum_framework}} — if provided, connect the PCK development to the framework's requirements.
 **Knowledge architecture output:** {{knowledge_architecture_output}} — if provided, use the epistemic diagnosis to focus the PCK development on the knowledge types most prominent in this curriculum.
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, предметное обучение, методическое объединение, наставничество, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, coaching/коучинг, PLC/профессиональное обучающееся сообщество, повышение квалификации, работу с данными, ФГОС, ФОП, or рабочую программу, develop PCK for the Russian classroom context. Preserve useful English labels such as PCK, content representations, misconceptions, pedagogical moves, and student thinking, but explain them in Russian. Connect recommendations to practical teacher learning: observing student responses, analysing work/data, discussing with colleagues, and refining instruction through school-based professional learning.
+
 ## Process
 
 Follow these seven steps precisely. Each step produces a named section in the output.

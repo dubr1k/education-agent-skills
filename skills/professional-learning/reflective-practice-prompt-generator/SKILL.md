@@ -111,6 +111,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Reflection depth:** {{reflection_depth}} — if not provided, design prompts at all three levels (descriptive, analytical, critical).
 **Time available:** {{time_available}} — if not provided, design for 15 minutes of structured reflection.
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, рефлексию урока, анализ урока, дневник педагога, наставничество, методическое объединение, coaching/коучинг, PLC/профессиональное обучающееся сообщество, lesson observation/наблюдение урока, повышение квалификации, работу с данными, or school-based professional learning, generate prompts in Russian by default. Preserve useful English labels such as reflective practice, critical incident, evidence, student learning, and next action, but explain them in Russian. Keep reflection professional and action-oriented: connect teacher perceptions to evidence from students, observation, work samples, and next instructional decisions.
+
 Return your output in this exact format:
 
 ## Reflection Prompts: [Experience Summary]

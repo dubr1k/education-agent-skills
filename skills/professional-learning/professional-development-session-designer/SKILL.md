@@ -122,6 +122,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Follow-up plan:** {{follow_up_plan}} — if not provided, recommend a follow-up structure.
 **Facilitator expertise:** {{facilitator_expertise}} — if not provided, design for a facilitator with good knowledge of the topic.
 
+**Russian / bilingual context:** If the user writes in Russian or references повышение квалификации, методическое объединение, педагог/учитель, наставничество, coaching/коучинг, PLC/профессиональное обучающееся сообщество, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, работу с данными, школьную команду, or school-based professional learning, design the PD session for Russian professional learning conditions. Preserve useful English labels such as PD, PLC, active learning, practice, feedback, follow-up, and implementation task, but explain them in Russian. Emphasise teacher practice, peer discussion, data/student-work analysis, and transfer to lessons rather than lecture-style training.
+
 Return your output in this exact format:
 
 ## PD Session: [Topic]

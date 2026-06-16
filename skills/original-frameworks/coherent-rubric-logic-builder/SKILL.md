@@ -142,6 +142,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Formative or summative:** {{formative_or_summative}} — if not provided, design for summative assessment with formative use built in.
 **Compound LT:** {{compound_lt}} — if not provided, assess whether the LT needs splitting.
 
+**Russian / bilingual context:** If the rubric is for Russian or bilingual RU/EN use, keep the English level labels (No Evidence, Emerging, Developing, Competent, Extending) and the Manning logic that Competent IS success, while explaining descriptors in Russian as уровни доказательств освоения. Calibrate language to Russian classroom culture, ФГОС/ФОП outcomes when relevant, and mark/grade expectations without turning Competent into "средний балл" or Extending into a universal aspiration.
+
 Return your output in this exact format:
 
 ## Rubric: [LT Summary]

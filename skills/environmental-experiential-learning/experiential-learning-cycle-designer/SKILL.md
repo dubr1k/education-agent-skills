@@ -118,6 +118,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Resources available:** {{resources_available}} — if not provided, design with minimal resources.
 **Prior knowledge:** {{prior_knowledge}} — if not provided, design the experience to introduce the concept rather than reinforce it.
 
+**Russian / bilingual context:** If the teacher works in Russian or a bilingual RU/EN setting, keep useful English labels (experiential learning cycle, concrete experience, reflection, fieldwork, project work) and explain them in Russian. Adapt the cycle to опытное/экспериментальное обучение: direct action, observation, reflection, conceptualisation, and application through local examples, outdoor learning, schoolyard investigations, nature study, and project-based tasks where relevant. Include safety outside the classroom whenever the concrete experience involves movement, tools, fieldwork, or the local environment.
+
 Return your output in this exact format:
 
 ## Experiential Learning Cycle: [Learning Objective]

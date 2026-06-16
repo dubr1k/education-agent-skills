@@ -122,6 +122,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Available time:** {{available_time}} — if not provided, recommend the appropriate time based on severity.
 **School policy:** {{school_policy}} — if not provided, design a standalone restorative process.
 
+**Russian / bilingual context:** If the user writes in Russian or references восстановительные практики, примирительную беседу, круг, конфликт, травлю, дисциплину, вред, ответственность, or школьную службу примирения, return the protocol in Russian by default while preserving useful English labels such as restorative chat, restorative conference, restorative circle, harm, repair, and agreement with Russian explanations. Use language that protects safety and dignity: восстановить отношения and исправить причиненный вред does not mean отменить ответственность. Include trauma-informed readiness checks and belonging/принадлежность for everyone affected.
+
 Apply these principles:
 
 1. **The core restorative questions (Zehr, 2002; Hopkins, 2004):**

@@ -31,6 +31,16 @@
 | hinge question | диагностический вопрос, hinge question |
 | self-regulated learning | саморегуляция, учебная самостоятельность |
 | metacognition | метакогниция, мониторинг понимания, мышление о мышлении |
+| wellbeing / SEL | благополучие, социально-эмоциональное обучение, психологическая безопасность |
+| student agency | субъектность, ученическая самостоятельность, право выбора |
+| trauma-informed practice | травма-информированный подход, безопасность, предсказуемость, ко-регуляция |
+| restorative practice | восстановительные практики, восстановительный разговор, восстановительные вопросы |
+| historical thinking | историческое мышление, работа с историческим источником |
+| sourcing / corroboration | авторство и происхождение источника / сопоставление источников |
+| systems thinking | системное мышление, петли обратной связи, рычаги влияния, ментальные модели |
+| prepared environment | подготовленная среда, Монтессори-среда |
+| professional learning | профессиональное развитие педагогов, наставничество, методическое объединение |
+| AI literacy | ИИ-грамотность, промпт-грамотность, проверка фактов, галлюцинации |
 
 ## Приоритет адаптации skills
 
@@ -44,18 +54,28 @@
 
 Полностью адаптированные runtime-домены:
 
-- `student-learning`
-- `memory-learning-science`
-- `explicit-instruction`
-- `curriculum-assessment`
+- `ai-learning-science`
+- `ai-literacy`
 - `curriculum-alignment`
+- `curriculum-assessment`
 - `eal-language-development`
+- `environmental-experiential-learning`
+- `explicit-instruction`
+- `global-cross-cultural-pedagogies`
+- `historical-thinking`
 - `inclusive-design`
 - `literacy-critical-thinking`
+- `memory-learning-science`
+- `montessori-alternative-approaches`
+- `original-frameworks`
+- `professional-learning`
 - `questioning-discussion`
 - `self-regulated-learning`
+- `student-learning`
+- `systems-thinking`
+- `wellbeing-motivation-agency`
 
-Для этих доменов русские запросы должны работать через `find_skills` / `suggest_skills`, а bundled MCP prompts содержат явный `Russian / bilingual context` слой. Английские `skill_id`, tool names, tags и chaining metadata остаются неизменными.
+Все 165 skills во всех 20 доменах содержат явный `Russian / bilingual context` слой в bundled MCP prompts. Русские запросы должны работать через `find_skills` / `suggest_skills`; английские `skill_id`, tool names, tags и chaining metadata остаются неизменными.
 
 ## Примеры русских запросов
 
@@ -96,6 +116,34 @@
 }
 ```
 
+```json
+{
+  "domain": "wellbeing-motivation-agency",
+  "query": "благополучие мотивация субъектность принадлежность травма восстановительные практики самоэффективность эмоциональная грамотность"
+}
+```
+
+```json
+{
+  "domain": "historical-thinking",
+  "query": "история исторический источник документ контекстуализация сопоставление авторство происхождение источника ЕГЭ ОГЭ DBQ"
+}
+```
+
+```json
+{
+  "domain": "systems-thinking",
+  "query": "системное мышление причинно-следственные связи петли обратной связи рычаги влияния ментальные модели айсберг"
+}
+```
+
+```json
+{
+  "domain": "ai-literacy",
+  "query": "ИИ грамотность промпты галлюцинации проверка фактов надежность критическая оценка AI-output"
+}
+```
+
 `suggest_skills`:
 
 ```json
@@ -114,10 +162,18 @@
 
 Для `self-regulated-learning` ожидаемый маршрут: error analysis, goal-setting protocol, metacognitive prompts, self-regulation scaffolds и evidence-based study strategy selection.
 
+Для `wellbeing-motivation-agency` ожидаемый маршрут: belonging/classroom culture, trauma-informed practice, restorative protocols, self-efficacy, RULER emotional literacy и PERMA/wellbeing-learning связи.
+
+Для `historical-thinking` ожидаемый маршрут: sourcing, close reading, contextualisation, corroboration, document-based lesson design и assessment of historical thinking.
+
+Для `systems-thinking` ожидаемый маршрут: systems-awareness iceberg, mental model mapping, leverage/response design, ladder of inference и agency circles.
+
+Для `ai-literacy` ожидаемый маршрут: AI output audit, hallucination fact-checking, prompt literacy, learning boundaries, disciplinary AI literacy и Socratic AI dialogue.
+
 ## Проверка после изменений
 
 ```bash
-conda run -n base python scripts/generate-registry.py
+PYTHONPATH=/tmp/educational-skills-pyyaml python3 scripts/generate-registry.py
 cd mcp-server && npm run bundle-skills && npm run build && npm test
 cd ..
 npx playwright test

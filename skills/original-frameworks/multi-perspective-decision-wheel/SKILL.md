@@ -136,6 +136,8 @@ Perspectives to include: {{perspectives_to_include}}
 Student level: {{student_level}}
 Decision constraints: {{decision_constraints}}
 
+**Russian / bilingual context:** If facilitating in Russian or bilingual RU/EN settings, keep the Decision Wheel and perspective labels visible in English where useful, then explain them in Russian as колесо перспектив для взвешенного решения. Use Russian school, family, community, and policy contexts, including student voice, teacher responsibility, ФГОС/ФОП constraints, and local community stakeholders, while preserving the multi-perspective structure rather than collapsing to majority vote or teacher preference.
+
 Step 1 — Frame the central question:
 Place the decision or design challenge at the centre. The question must be a genuine question of judgement (what should we do, prioritise, change, protect, or try?). If the input is a proposal, reframe: "Should we [proposal]? What would make it wiser?"
 

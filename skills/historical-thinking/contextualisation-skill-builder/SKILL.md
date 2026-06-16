@@ -131,6 +131,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum framework:** {{curriculum_framework}}
 **Prior instruction:** {{prior_instruction}}
 
+Russian / bilingual context: If working in Russian, use contextualisation / контекстуализация as a bilingual label and explain it as connecting an исторический источник or документ to конкретная историческая ситуация, эпоха, причины и последствия. In Russian schooling contexts, including ОГЭ/ЕГЭ history, distinguish recalling background facts from using them to interpret the source and to support a DBQ-style answer or историческое эссе.
+
 Design the following:
 
 1. **Contextualisation progression:** What contextualisation looks like at three levels:

@@ -4,31 +4,29 @@
 
 ## What was done this session
 
-Continued the bilingual RU/EN fork adaptation without breaking upstream skill compatibility.
+Completed the staged bilingual RU/EN adaptation pass across the remaining skill domains without changing upstream-compatible IDs, folder names, tool names, tags, chains, or YAML metadata.
 
-- Adapted all 5 `self-regulated-learning` skills with Russian / bilingual runtime context for self-regulation, metacognition, goal-setting, study strategies, monitoring understanding, independent work, and error analysis.
-- Kept upstream-compatible `skill_id`, folder names, tool names, tags, chaining identifiers, and YAML metadata.
-- Expanded Russian `find_skills` / `suggest_skills` aliases for self-regulated learning terms: `саморегуляция`, `метакогниция`, `постановка целей`, `учебные стратегии`, `мониторинг понимания`, `самостоятельная работа`, `анализ ошибок`.
-- Added MCP QA coverage for Russian self-regulated-learning discovery and bundled prompt context.
-- Updated `docs/RU_LOCALIZATION.md` and `README.md` with Russian-language self-regulated-learning examples and current adaptation status.
+- Adapted 97 `SKILL.md` files across 10 domains: `ai-learning-science`, `ai-literacy`, `environmental-experiential-learning`, `global-cross-cultural-pedagogies`, `historical-thinking`, `montessori-alternative-approaches`, `original-frameworks`, `professional-learning`, `systems-thinking`, and `wellbeing-motivation-agency`.
+- Added one `Russian / bilingual context` runtime paragraph inside each adapted prompt.
+- Expanded Russian `find_skills` / `suggest_skills` terms for AI tutoring, AI literacy, ecological and experiential learning, cross-cultural pedagogy, historical thinking, Montessori, original frameworks, professional learning, systems thinking, wellbeing, motivation, agency, trauma-informed practice, and restorative practice.
+- Added MCP QA coverage for Russian discovery and bundled prompt context for all newly adapted domains.
 - Regenerated `registry.json` and rebuilt `mcp-server/src/skills.json`.
 
 ## What was verified
 
-- `conda run -n base python scripts/generate-registry.py` — 165 skills / 20 domains
-- `cd mcp-server && npm run bundle-skills && npm run build && npm test` — 44 passed
-- `npx playwright test` — 22 passed
-- `npm test` — 22 passed
+- `PYTHONPATH=/tmp/educational-skills-pyyaml python3 scripts/generate-registry.py` — 165 skills / 20 domains
+- `cd mcp-server && npm run bundle-skills && npm run build` — OK
+- Targeted MCP RU tests for the new domain wave — 20 passed
+- `git diff --check` for touched skill domains and shared files — clean
 
 ## Current library state
 
 - 165 skills across 20 domains.
-- Runtime/discovery layer is now bilingual RU/EN.
-- Adapted content domains now include `student-learning`, `memory-learning-science`, `explicit-instruction`, `curriculum-assessment`, `curriculum-alignment`, `eal-language-development`, `inclusive-design`, `literacy-critical-thinking`, `questioning-discussion`, and `self-regulated-learning`.
-- Remaining `SKILL.md` bodies still need staged Russian-context adaptation.
+- Runtime/discovery layer is bilingual RU/EN.
+- All 20 content domains now contain explicit `Russian / bilingual context` prompt guidance.
+- English `skill_id`, tool names, folder names, tags, evidence citations, and chaining metadata remain stable for upstream compatibility.
 
 ## What's next
 
-- Adapt `wellbeing-motivation-agency` SKILL.md files for Russian wellbeing, motivation, student agency, belonging, trauma-informed, and restorative practice contexts.
-- Add QA tests for Russian `find_skills` and bundled prompt context for `wellbeing-motivation-agency`.
-- Continue updating Russian docs as each domain becomes adapted.
+- Run full MCP/root test suites after this final documentation update.
+- Commit and push the completed adaptation wave to `main`.

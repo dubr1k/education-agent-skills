@@ -112,6 +112,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, design for general academic use.
 **Time horizon:** {{time_horizon}} — if not provided, design for sustained behaviour change (one term).
 
+**Russian / bilingual context:** If the user writes in Russian or references привычки, саморегуляцию, цель, намерение, прокрастинацию, тревогу перед контрольной, выгорание, or учебную рутину, return the plan in Russian by default while preserving useful English labels such as implementation intention, if-then plan, WOOP, cue, and coping plan with Russian explanations. Use the student-facing form "Если [ситуация], то я [конкретное действие]" and hopeful goal language: small doable actions, realistic obstacles, and monitoring that builds agency/субъектность rather than guilt.
+
 Apply these principles:
 
 1. **Craft the if-then plan (Gollwitzer, 1999):**

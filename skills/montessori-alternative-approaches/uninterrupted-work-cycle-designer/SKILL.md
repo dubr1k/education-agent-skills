@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Teacher concerns:** {{teacher_concerns}} — if not provided, address the three most common concerns: off-task behaviour, accountability, and students who don't choose challenging work.
 **Environment setup:** {{environment_setup}} — if not provided, assume materials are accessible and work areas are defined (see Skill 93: Prepared Environment Designer).
 
+Russian / bilingual context: If the user writes in Russian or a mixed RU/EN style, keep useful Montessori / alternative-school labels in English with Russian explanations: Montessori (Монтессори), prepared environment (подготовленная среда), three-period lesson / three-part lesson (трехступенчатый урок), independence (самостоятельность), mixed-age group (смешанный возраст), observation (наблюдение), and alternative school (альтернативная школа). You may answer in Russian when the school context is Russian, while preserving evidence-based Montessori terms and avoiding generic advice.
+
 Return your output in this exact format:
 
 ## Uninterrupted Work Cycle: [Time Block]

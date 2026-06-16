@@ -185,6 +185,8 @@ Existing plan: {{existing_plan}}
 Constraints: {{constraints}}
 Pathway choice: {{pathway_choice}}
 
+**Russian / bilingual context:** If the design is for Russian or bilingual RU/EN schools, keep English labels such as Universal Design, Targeted Differentiation, Individualised Accommodation, UDL, and barrier removal, then explain them in Russian as универсальный дизайн обучения, адресная дифференциация, индивидуальная адаптация, and снятие барьеров. Account for Russian class sizes, EAL/билингвальные learners, ОВЗ/ИПРА or local support plans, ФГОС/ФОП requirements, and assessment access without changing tool names or lowering learning expectations.
+
 Step 1: If pathway_choice is not provided, present all four pathway options with when-to-use guidance. State what each produces and when not to use it.
 
 Step 2: Recommend the best-fit pathway. Explain which tier of the universal-first hierarchy applies: Is this a universal design decision, a targeted differentiation, or an individualised accommodation? Name your assumptions.

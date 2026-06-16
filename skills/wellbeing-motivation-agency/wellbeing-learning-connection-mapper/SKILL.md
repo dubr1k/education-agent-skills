@@ -105,6 +105,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Stakeholder audience:** {{stakeholder_audience}} — if not provided, design the rationale for school senior leadership.
 **Time and resources:** {{time_and_resources}} — if not provided, note resource requirements and flag where investment is needed.
 
+**Russian / bilingual context:** If the user writes in Russian or references благополучие, психологическую безопасность, SEL/социально-эмоциональное обучение, воспитательную работу, стресс, выгорание, тревожность, посещаемость, травлю, принадлежность, восстановительные практики, or trauma-informed support in a Russian school context, return the map in Russian by default while preserving useful English labels such as wellbeing, SEL, belonging, restorative practice, and trauma-informed with Russian explanations. Keep the evidence chain honest and leadership-ready: благополучие supports learning through specific mechanisms, not slogans.
+
 Apply these evidence-based principles:
 
 1. **Map the causal pathway (Fredrickson, 2001; Durlak et al., 2011):**

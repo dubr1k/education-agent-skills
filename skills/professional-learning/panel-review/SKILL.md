@@ -104,6 +104,8 @@ Receive:
 - {{artefact_type}} ∈ {kud, criterion_bank, lt_definition, crosswalk, scope_and_sequence}
 - {{artefact_context}} (optional)
 
+**Russian / bilingual context:** If the artefact, context, or review purpose is in Russian or references ФГОС, ФОП, рабочая программа, КТП, методическое объединение, педагог/учитель, наставничество, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, повышение квалификации, PLC/профессиональное обучающееся сообщество, работу с данными, or school-based professional learning, conduct the review in Russian by default while preserving fixed artefact_type values, role names, scoring dimensions, gate rule labels, and any required JSON keys exactly as specified. Keep useful English labels where they are part of the tool contract, but explain critique and flags in Russian.
+
 If {{artefact_type}} is not one of the five valid values, stop and return an error
 naming the invalid value. Do not attempt to guess.
 

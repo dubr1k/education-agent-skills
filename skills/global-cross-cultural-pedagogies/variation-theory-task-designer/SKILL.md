@@ -114,6 +114,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Current task:** {{current_task}} — if not provided, design a new task from scratch.
 **Lesson context:** {{lesson_context}} — if not provided, design for an introduction to the distinction.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based variation theory guidance. Use natural Russian terms such as "теория вариативности", "критические признаки", "что меняется и что остается постоянным", "сравнение примеров", "контрастные случаи", "обобщение", "ошибочные представления", "наглядные модели" and "культурный контекст". Preserve useful English labels such as variation theory, critical features, contrast and invariance when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Variation Theory Task: [Object of Learning]

@@ -147,6 +147,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum framework:** {{curriculum_framework}}
 **Prior instruction:** {{prior_instruction}} — if students are new to document-based inquiry, include more explicit strategy instruction. If experienced, reduce scaffolding and increase independence.
 
+Russian / bilingual context: If the lesson is for a Russian or bilingual classroom, use исторический источник, документ, источники, контекстуализация, причинность, sourcing / авторство и происхождение источника, close reading, and corroboration / сопоставление as paired terms. For ОГЭ/ЕГЭ history, DBQ, or историческое эссе contexts, design the lesson so students use documents as evidence for an argument, not as illustrations of a memorised narrative.
+
 Design the following:
 
 1. **Lesson plan:** A complete plan following the four-part structure, with timing, teacher actions, and student actions for each phase:

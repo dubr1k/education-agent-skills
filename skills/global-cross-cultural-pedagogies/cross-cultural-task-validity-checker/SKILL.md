@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, address the practice in general terms.
 **Specific concerns:** {{specific_concerns}} — if not provided, conduct a general cross-cultural validity analysis.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based cross-cultural validity guidance. Use natural Russian terms such as "межкультурная валидность", "культурная предвзятость", "WEIRD assumptions", "языковой барьер", "социокультурный контекст", "локальное сообщество", "многоязычные учащиеся", "доступность задания" and "валидность оценки". Preserve useful English labels such as cross-cultural validity, cultural bias, construct-irrelevant variance and WEIRD when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Cross-Cultural Validity Check: [Practice Name]

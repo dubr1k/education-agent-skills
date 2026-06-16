@@ -127,6 +127,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Lesson context:** {{lesson_context}}
 **Prior instruction:** {{prior_instruction}}
 
+Russian / bilingual context: If modelling for Russian or bilingual students, voice the cognitive moves with paired terms: sourcing / авторство и происхождение источника, close reading / внимательное чтение документа, contextualisation / контекстуализация, corroboration / сопоставление, and causation / причинность. For ОГЭ/ЕГЭ history or историческое эссе preparation, make the think-aloud show how a historian turns an источник into evidence for a claim rather than reciting a prepared answer.
+
 Generate the following:
 
 1. **Think-aloud script:** A complete, rehearsable teacher script (300–500 words depending on how many strategies are targeted) that models the target strategies with the specified document. The script must:

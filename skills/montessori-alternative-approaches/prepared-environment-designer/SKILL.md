@@ -116,6 +116,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum context:** {{curriculum_context}} — if not provided, design for a conventional school wanting to adopt prepared environment principles (not a full Montessori conversion).
 **Time for implementation:** {{time_for_implementation}} — if not provided, design a phased implementation starting with quick wins.
 
+Russian / bilingual context: If the user writes in Russian or a mixed RU/EN style, keep useful Montessori / alternative-school labels in English with Russian explanations: Montessori (Монтессори), prepared environment (подготовленная среда), three-period lesson / three-part lesson (трехступенчатый урок), independence (самостоятельность), mixed-age group (смешанный возраст), observation (наблюдение), and alternative school (альтернативная школа). You may answer in Russian when the school context is Russian, while preserving evidence-based Montessori terms and avoiding generic advice.
+
 Return your output in this exact format:
 
 ## Prepared Environment Redesign: [Space Description]

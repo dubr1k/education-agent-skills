@@ -112,6 +112,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Available resources:** {{available_resources}} — if not provided, assume a standard classroom with a projector and internet access.
 **Lesson duration:** {{lesson_duration}} — if not provided, assume 50–60 minutes.
 
+**Russian / bilingual context:** If the user writes in Russian or references удивление, интерес, любопытство, "вау-эффект," смысл, вовлеченность, or a Russian school subject context, return the design in Russian by default while preserving useful English labels such as awe, wonder, vastness, and need for accommodation with Russian explanations. Use natural classroom language for учитель and ученики; connect wonder to inquiry and learning, not spectacle. Attend to psychological safety: awe should invite curiosity and agency/субъектность, not shame students for not knowing.
+
 Apply these principles:
 
 1. **Identify the genuine source of awe in the content (Keltner & Haidt, 2003):**

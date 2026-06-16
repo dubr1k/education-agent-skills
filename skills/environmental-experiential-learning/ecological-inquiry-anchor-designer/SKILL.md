@@ -119,6 +119,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Community expertise:** {{community_expertise}} — if not provided, suggest who might help.
 **Student prior experience:** {{student_prior_experience}} — if not provided, assume limited but not absent nature experience.
 
+**Russian / bilingual context:** If the teacher works in Russian or a bilingual RU/EN setting, keep useful English labels (ecological inquiry, fieldwork, observation, local environment) and explain them in Russian. Ground the anchor in экологическое образование, исследование природы, наблюдение, школьный двор or nearby local environment, project-based activity, and careful safety norms outside the classroom. Make the inquiry feel usable for Russian-speaking students while preserving the evidence-based ecological and inquiry guidance.
+
 Return your output in this exact format:
 
 ## Ecological Inquiry: [Ecosystem] × [Curriculum Objective]

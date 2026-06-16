@@ -118,6 +118,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Team context:** {{team_context}} — if not provided, design for a solo practitioner with suggestions for team use.
 **Available tools:** {{available_tools}} — if not provided, design for camera and notebook (minimum tools).
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based Reggio documentation guidance. Use natural Russian terms such as "Reggio Emilia", "педагогическая документация", "наблюдение", "детские высказывания", "следы learning", "портфолио", "семья", "локальное сообщество", "рефлексия педагога" and "голос ребенка". Preserve useful English labels such as pedagogical documentation, hundred languages of children and learning traces when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Documentation Protocol: [Learning Experience]

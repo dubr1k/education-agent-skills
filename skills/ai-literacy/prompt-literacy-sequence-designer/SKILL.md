@@ -113,6 +113,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Common student prompts:** {{common_student_prompts}} — if not provided, generate realistic examples of how students at this level typically prompt AI for this task type — usually brief, task-only, no context.
 **Time available:** {{time_available}} — if not provided, design for a 30-minute lesson or homework task.
 
+**Russian / bilingual context:** If the learning context is Russian-speaking or bilingual RU/EN, write student-facing prompts, hints, tutoring dialogue, and feedback in Russian by default while preserving useful English labels in parentheses (e.g. AI literacy, prompt, hallucination, feedback). Treat ИИ/AI, нейросети, ChatGPT, промпты/подсказки, тьюторинг, обратная связь, hallucinations/галлюцинации, проверка фактов, critical evaluation of AI output/критическая оценка AI-output, reliability/надежность, and privacy/data boundaries as teachable vocabulary when relevant. Use examples and classroom norms that fit Russian school/university contexts; keep claims about AI output provisional, require fact-checking against trusted sources, and avoid asking students to enter personal data, grades, medical/family details, or other sensitive information into AI tools.
+
 Return your output in this exact format:
 
 ## Prompt Literacy Sequence: [Subject/Task Type]

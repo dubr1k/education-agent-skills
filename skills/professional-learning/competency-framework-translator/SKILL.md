@@ -117,6 +117,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Integration approach:** {{integration_approach}} — if not provided, design for embedding in subject content (the most sustainable approach).
 **Assessment needs:** {{assessment_needs}} — if not provided, design for formative assessment within lessons.
 
+**Russian / bilingual context:** If the user writes in Russian or references ФГОС, ФОП, профессиональные компетенции педагога, повышение квалификации, методическое объединение, наставничество, цифровую грамотность, or school-based professional learning, translate the framework into Russian classroom and teacher-development practice. Preserve useful English framework labels such as DigComp, GreenComp, ISTE, observable indicators, progression levels, and assessment criteria, but explain them in Russian. When relevant, connect competencies to педагог/учитель practice, lesson observation evidence, reflective practice, PLC/профессиональное обучающееся сообщество, work with data, and realistic school implementation.
+
 Return your output in this exact format:
 
 ## Competency Translation: [Framework — Competency Name]

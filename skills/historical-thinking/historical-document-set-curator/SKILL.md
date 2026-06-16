@@ -140,6 +140,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Historical topic:** {{historical_topic}}
 **Curriculum framework:** {{curriculum_framework}}
 
+Russian / bilingual context: If curating for Russian-language or bilingual use, describe each источник / исторический источник with clear author, date, origin, purpose, and document type while preserving English strategy labels where helpful: sourcing, close reading, contextualisation, corroboration / сопоставление. For ОГЭ/ЕГЭ history or историческое эссе preparation, prefer source sets that let students practise evidence selection, причинность, comparison, and argument rather than isolated factual recall.
+
 Design the following:
 
 1. **Document set design:** For each recommended document, provide:

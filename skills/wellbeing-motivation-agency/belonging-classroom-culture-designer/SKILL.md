@@ -112,6 +112,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Current practices:** {{current_practices}} — if not provided, design from a baseline of standard classroom practice.
 **Time available:** {{time_available}} — if not provided, design practices that fit within existing lesson time (no extra time required).
 
+**Russian / bilingual context:** If the user writes in Russian or references принадлежность, принятие, классный климат, травлю, изоляцию, новеньких, билингвов, детей мигрантов, ОВЗ, инклюзию, or адаптацию в классе, return the practices in Russian by default while preserving useful English labels such as belonging and belonging uncertainty with Russian explanations. Use respectful, non-stigmatising teacher/student language: "ученик пока не чувствует себя своим" rather than deficit labels. Design cues that signal safety, dignity, competence, and "люди вроде тебя здесь учатся и успешны."
+
 Apply these evidence-based principles:
 
 1. **Normalise difficulty (Walton & Cohen, 2011):**

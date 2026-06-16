@@ -117,6 +117,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Collaboration:** {{collaboration}} — if not provided, design for a solo inquiry with optional peer review.
 **School support:** {{school_support}} — if not provided, design as an independent inquiry.
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, исследование урока, педагогическое исследование, методическое объединение, наставничество, coaching/коучинг, PLC/профессиональное обучающееся сообщество, повышение квалификации, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, работу с данными, or school-based professional learning, design the inquiry in Russian for a realistic school context. Preserve useful English labels such as inquiry question, baseline, intervention, evidence, data plan, and sharing plan, but explain them in Russian. Treat data as manageable evidence from student work, observations, assessments, surveys, and collegial review, not as a university-scale research burden.
+
 Return your output in this exact format:
 
 ## Teacher Inquiry: [Question]

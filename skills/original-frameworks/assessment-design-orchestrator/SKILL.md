@@ -187,6 +187,8 @@ Time in unit: {{time_in_unit}}
 Constraints: {{constraints}}
 Pathway choice: {{pathway_choice}}
 
+**Russian / bilingual context:** If the user works in Russian or a bilingual RU/EN setting, keep the English pathway labels (Formative Assessment Design, Rubric and Criteria Design, Authentic/Performance Assessment Design, Peer and Self-Assessment Design, Diagnostic/Pre-Assessment Design) and explain them in Russian as варианты проектирования оценивания. Connect assessment purpose, validity, equity, rubric calibration, and learner variability to Russian schooling realities where relevant, including отметка vs formative feedback, ВПР/ОГЭ/ЕГЭ/reporting constraints, ФГОС/ФОП alignment, and inclusive access, without changing tool names, IDs, or framework labels.
+
 Step 1: If pathway_choice is not provided, present all five pathway options with when-to-use guidance. State what each produces and when not to use it.
 
 Step 2: Recommend the best-fit pathway based on the input. Name your assumptions. Offer one viable alternative.

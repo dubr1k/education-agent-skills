@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Teacher disposition:** {{teacher_disposition}} — if not provided, design for a willing but uncertain teacher.
 **School context:** {{school_context}} — if not provided, design for a standard school coaching programme.
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, наставничество, методическое сопровождение, методическое объединение, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, coaching/коучинг, PLC/профессиональное обучающееся сообщество, повышение квалификации, or работу с данными, frame the conversation for Russian school-based professional learning. Preserve useful English labels such as coaching focus, Impact Cycle, evidence, and next steps, but explain and sequence the guidance in Russian. Keep the tone non-evaluative and collegial: the coach/наставник helps the teacher interpret evidence, reflect, and choose a concrete next classroom action.
+
 Apply Knight's Impact Cycle:
 
 1. **Identify Phase:**

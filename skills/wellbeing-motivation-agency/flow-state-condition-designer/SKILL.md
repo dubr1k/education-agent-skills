@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Lesson duration:** {{lesson_duration}} — if not provided, assume 50–60 minutes.
 **Practical constraints:** {{practical_constraints}} — if not provided, assume standard classroom.
 
+**Russian / bilingual context:** If the user writes in Russian or references вовлеченность, состояние потока, концентрацию, стресс, скуку, тревожность, прокрастинацию, or differentiated challenge in a Russian classroom, return the design in Russian by default while preserving useful English labels such as flow, challenge-skill balance, immediate feedback, and clear goals with Russian explanations. Use teacher-facing terms like посильный вызов, быстрый сигнал обратной связи, личный прогресс, and avoid public comparison that threatens belonging/принадлежность or self-efficacy/самоэффективность.
+
 Apply these flow conditions:
 
 1. **Clear goals (Csikszentmihalyi, 1990):**

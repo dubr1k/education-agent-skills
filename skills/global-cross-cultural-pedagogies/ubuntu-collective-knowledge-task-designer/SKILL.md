@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Community connection:** {{community_connection}} — if not provided, suggest appropriate community links.
 **Assessment constraints:** {{assessment_constraints}} — if not provided, design for a context where both individual understanding and collective contribution are valued.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based Ubuntu and collective knowledge guidance. Use natural Russian terms such as "Ubuntu", "коллективное знание", "сообщество класса", "взаимная ответственность", "совместное рассуждение", "роль каждого участника", "групповая работа", "локальное сообщество" and "культурные практики сотрудничества". Preserve useful English labels such as Ubuntu, collective knowledge and communal learning when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Ubuntu Collective Knowledge Task: [Learning Objective]

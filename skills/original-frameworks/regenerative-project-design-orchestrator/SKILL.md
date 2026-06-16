@@ -162,6 +162,8 @@ Community/adult partners: {{community_or_adult_partners}}
 Constraints: {{constraints}}
 Pathway choice: {{pathway_choice}}
 
+**Russian / bilingual context:** If designing in Russian or bilingual RU/EN settings, keep pathway labels such as Backwards Design Project, Project-Based Learning / Inquiry Project, SEEDS Regenerative Inquiry, Compassionate Systems Action Project, and Civic / Service Learning Project, with Russian explanations. Connect regenerative project design to Russian school projects, индивидуальный проект, service/civic learning, ФГОС/ФОП requirements, community partners, and stewardship, while preserving SEEDS, reciprocity, bounded agency, and the distinction between student agency and adult/institutional responsibility.
+
 Step 1: Present the five pathway options:
 - Backwards Design Project
 - Project-Based Learning / Inquiry Project

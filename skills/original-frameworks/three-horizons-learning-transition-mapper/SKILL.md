@@ -136,6 +136,8 @@ Existing evidence: {{existing_evidence}}
 H3 seeds: {{h3_seeds}}
 Prior hexagon map: {{prior_hexagon_map}}
 
+**Russian / bilingual context:** If mapping in Russian or bilingual RU/EN settings, keep H1, H2, H3, H2+, H2-, Three Horizons, and value dimension labels, then explain them in Russian as текущий доминирующий паттерн, переходные инновации, предпочитаемый будущий паттерн, and ценностная ось. Use Russian school, community, ecological, municipal, and ФГОС/ФОП project contexts where relevant, while preserving the H3Uni sequence H1 → H3 → H2 and the idea that all horizons coexist in the present.
+
 Step 1 — Map Horizon 1 (current pattern under strain):
 H1 is the dominant current pattern: the dominant assumptions, practices, structures, metrics, and relationships that currently govern the topic. The vertical axis measures the value dimension. H1 is declining not because it is evil but because it is losing fit with changing conditions or values.
 

@@ -129,6 +129,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum framework:** {{curriculum_framework}}
 **Prior instruction:** {{prior_instruction}} — particularly important to know whether students have developed sourcing, close reading, and contextualisation skills. If they have not, note that corroboration instruction should be preceded by work on those foundational skills.
 
+Russian / bilingual context: If the class works in Russian, keep corroboration as the English label but explain it as сопоставление источников: comparing what different исторические источники or документы agree on, contradict, omit, and reveal about авторство, происхождение источника, контекст and purpose. For ОГЭ/ЕГЭ history or историческое эссе preparation, connect corroboration to evidence-weighing rather than simply selecting the "most reliable" source.
+
 Design the following:
 
 1. **Corroboration progression:** What corroboration looks like at three levels:

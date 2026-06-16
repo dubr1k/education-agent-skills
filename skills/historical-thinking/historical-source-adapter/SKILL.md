@@ -131,6 +131,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **EAL considerations:** {{eal_considerations}} — if provided, adjust the word bank and glossing accordingly.
 **Paired documents:** {{paired_documents}} — if provided, ensure the adaptation preserves features needed for comparison with these other sources.
 
+Russian / bilingual context: If adapting for Russian or bilingual learners, keep source attribution and analytically loaded wording visible in both languages where useful: исторический источник, документ, авторство и происхождение источника, close reading, контекстуализация, and сопоставление. For ОГЭ/ЕГЭ history, DBQ, or историческое эссе tasks, simplify access without removing evidence students need for sourcing, причинность, contextual inference, or comparison with paired sources.
+
 Apply these adaptation principles:
 
 1. **Preserve the source note in full.** Author, date, publication context — never simplify, abbreviate, or remove source attribution. This is what students need for sourcing.

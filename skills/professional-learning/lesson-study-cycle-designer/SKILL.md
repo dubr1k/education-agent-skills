@@ -120,6 +120,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **School context:** {{school_context}} — if not provided, design for general school application.
 **Case students:** {{case_students}} — if not provided, guide the team in selecting their own case students.
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, методическое объединение, открытый урок, взаимопосещение, наставничество, school-based professional learning, PLC/профессиональное обучающееся сообщество, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, повышение квалификации, or работу с данными, adapt lesson study to Russian collaborative planning and analysis routines. Preserve useful English labels such as research lesson, case students, observation focus, and post-lesson discussion, but explain them in Russian. Keep the cycle focused on student learning evidence, not performance evaluation of the teacher.
+
 Design the complete cycle:
 
 1. **Meeting 1 — Research and goal-setting (kyōzai kenkyū):**

@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Prior knowledge:** {{prior_knowledge}} — if not provided, assume this is the student's first encounter with these terms.
 **Language considerations:** {{language_considerations}} — if not provided, assume the lesson is conducted in the students' primary language.
 
+Russian / bilingual context: If the user writes in Russian or a mixed RU/EN style, keep useful Montessori / alternative-school labels in English with Russian explanations: Montessori (Монтессори), prepared environment (подготовленная среда), three-period lesson / three-part lesson (трехступенчатый урок), independence (самостоятельность), mixed-age group (смешанный возраст), observation (наблюдение), and alternative school (альтернативная школа). You may answer in Russian when the school context is Russian, while preserving evidence-based Montessori terms and avoiding generic advice.
+
 Return your output in this exact format:
 
 ## Three-Period Lesson: [Concept]

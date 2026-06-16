@@ -122,6 +122,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Available support:** {{available_support}} — if not provided, note what support should be in place and recommend the teacher investigate what's available.
 **Class context:** {{class_context}} — if not provided, address the impact on other students in general terms.
 
+**Russian / bilingual context:** If the user writes in Russian or references травма-информированный подход, неблагоприятный опыт детства, ПТСР, стресс, тревожность, саморегуляцию, безопасность, предсказуемость, ОВЗ, ПМПК, психолога, or социального педагога, return the practices in Russian by default while preserving useful English labels such as trauma-informed, dysregulation, co-regulation, fight/flight/freeze/fawn, and restorative consequence with Russian explanations. Be clear that this is classroom support, not therapy or diagnosis; use compassionate boundaries, protect the whole class, and recommend specialist referral when risk or need exceeds the teacher's role.
+
 Apply these principles:
 
 1. **Safety first (Perry, 2006):**

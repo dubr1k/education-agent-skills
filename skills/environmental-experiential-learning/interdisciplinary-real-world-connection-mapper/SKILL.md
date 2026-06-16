@@ -118,6 +118,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Time frame:** {{time_frame}} — if not provided, design for a 2-week unit.
 **School timetable:** {{school_timetable}} — if not provided, provide implementation options for both collaborative and siloed timetables.
 
+**Russian / bilingual context:** If the teacher works in Russian or a bilingual RU/EN setting, keep useful English labels (interdisciplinary connection, real-world context, project-based learning, fieldwork) and explain them in Russian. Map links through локальная среда, природа, школьный двор, community issues, ecological education, observation, research, service learning, and project activity so students see how school subjects connect to real places and problems. Note safety outside the classroom when connections involve outdoor learning, field visits, community work, or data collection.
+
 Return your output in this exact format:
 
 ## Interdisciplinary Connection Map: [Problem]

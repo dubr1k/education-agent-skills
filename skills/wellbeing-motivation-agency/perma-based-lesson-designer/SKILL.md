@@ -112,6 +112,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Lesson duration:** {{lesson_duration}} — if not provided, assume 50–60 minutes.
 **Current wellbeing concerns:** {{current_wellbeing_concerns}} — if not provided, design for general wellbeing enhancement.
 
+**Russian / bilingual context:** If the user writes in Russian or references благополучие, психологическое здоровье, стресс, выгорание, тревожность, смысл, отношения, достижение, or воспитательную работу, return the lesson adaptation in Russian by default while preserving the PERMA labels with Russian explanations: Positive Emotion/положительные эмоции, Engagement/вовлеченность, Relationships/отношения, Meaning/смысл, Accomplishment/достижение. Keep wellbeing integrated into learning, not added as forced positivity; use teacher/student-facing language that supports dignity, belonging/принадлежность, and agency/субъектность.
+
 Apply these principles:
 
 1. **Positive Emotion (Seligman, 2011):**

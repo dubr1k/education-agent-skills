@@ -128,6 +128,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum framework:** {{curriculum_framework}} — if provided, align the sourcing questions and progression descriptors to this framework. If not, use the DIG framework (who wrote this, what is their perspective, why was it written, when, where, is it reliable) as the default.
 **Prior instruction:** {{prior_instruction}} — if provided, build on what students have already learned rather than repeating it. If not, assume this is early-stage sourcing instruction.
 
+Russian / bilingual context: If the runtime context is Russian or bilingual, teach sourcing as авторство и происхождение источника: who created the исторический источник, when, where, why, for whom, and how that shapes reliability and perspective. Keep the English label sourcing where useful, but explain it in Russian and connect it to close reading, контекстуализация, corroboration / сопоставление, and ОГЭ/ЕГЭ history tasks where students must evaluate a документ before using it in an argument.
+
 Design the following:
 
 1. **Sourcing progression:** What sourcing looks like at three levels for this age group:

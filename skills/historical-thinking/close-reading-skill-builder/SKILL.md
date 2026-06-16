@@ -129,6 +129,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Curriculum framework:** {{curriculum_framework}} — if not provided, use the DIG framework as the default.
 **Prior instruction:** {{prior_instruction}} — if provided, build on existing skills. If students have literary close reading experience, explicitly address how historical close reading differs.
 
+Russian / bilingual context: If the runtime context is Russian or bilingual, frame close reading as внимательное чтение исторического источника: students analyse word choice, tone, claims, omissions, and rhetoric as evidence of позиция автора rather than merely translate or summarise the документ. Preserve useful English labels such as close reading, sourcing, contextualisation, and corroboration, but give Russian explanations and examples suitable for Russian schooling, including ОГЭ/ЕГЭ history where source-language analysis appears in document tasks or историческое эссе preparation.
+
 Design the following:
 
 1. **Close reading progression:** What close reading looks like at three levels for this age group:

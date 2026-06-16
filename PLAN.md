@@ -48,24 +48,26 @@
 - Усилен русский `find_skills` для `self-regulated-learning`: доменный индекс и aliases теперь покрывают саморегуляцию, метакогницию, цели, учебные стратегии, мониторинг понимания, самостоятельную работу и анализ ошибок.
 - Добавлены QA tests для русского `find_skills` по self-regulated-learning и проверки, что RU self-regulated-learning контекст попадает в bundled MCP prompts.
 - Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил self-regulated-learning статус, терминологию и русский пример `find_skills`; `README.md` уточнил фокус домена.
+- Параллельной волной адаптированы оставшиеся домены: `wellbeing-motivation-agency` (12), `historical-thinking` (10), `systems-thinking` (8), `montessori-alternative-approaches` (4), `global-cross-cultural-pedagogies` (9), `professional-learning` (10), `environmental-experiential-learning` (6), `ai-learning-science` (14), `ai-literacy` (7) и `original-frameworks` (17).
+- Всего в этой волне 97 `SKILL.md` получили `Russian / bilingual context` runtime-слой без изменения YAML metadata, `skill_id`, folder names, tags, tool names или chaining identifiers.
+- Усилен русский `find_skills` для новой волны: добавлены термины и aliases для благополучия/мотивации/субъектности, исторического источника, системного мышления, Монтессори, профессионального развития педагогов, экологического inquiry, AI tutoring, AI literacy, original frameworks и cross-cultural pedagogies.
+- Добавлены MCP QA tests для русского `find_skills` и bundled prompt context по всем 10 доменам новой волны.
 - Последняя проверка 2026-06-16:
-  - `conda run -n base python scripts/generate-registry.py` — OK, `165 skills, 20 domains`.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `44 passed`.
-  - `npx playwright test` — OK, root `22 passed`.
-  - `npm test` — OK, root `22 passed`.
+  - `PYTHONPATH=/tmp/educational-skills-pyyaml python3 scripts/generate-registry.py` — OK, `165 skills, 20 domains`.
+  - `cd mcp-server && npm run bundle-skills && npm run build` — OK.
+  - Targeted MCP RU tests по новой волне — OK, `20 passed`.
+  - `git diff --check` по touched domains/shared files — OK.
 
 ## Ближайший фокус
 
-1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `wellbeing-motivation-agency`, потому что следующий русский слой должен покрыть благополучие, мотивацию, субъектность, принадлежность, травма-информированный подход и восстановительные практики.
-   - Следующий кандидат после него: `professional-learning`.
-   - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
-   - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
+1. Полный adaptation pass по `SKILL.md` завершен: все 165 skills во всех 20 доменах содержат явный RU/EN runtime-контекст.
+   - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields при любой дальнейшей полировке.
+   - Не ослаблять evidence guidance и не русифицировать совместимые technical IDs.
 
 2. После каждого пакета изменений выполнять:
 
 ```bash
-conda run -n base python scripts/generate-registry.py
+PYTHONPATH=/tmp/educational-skills-pyyaml python3 scripts/generate-registry.py
 cd mcp-server && npm run bundle-skills && npm run build && npm test
 cd ..
 npx playwright test
@@ -73,4 +75,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `wellbeing-motivation-agency`: пройти его `SKILL.md`, добавить русскоязычный слой для благополучия, мотивации, субъектности, принадлежности, травма-информированного подхода и восстановительных практик, не меняя совместимые английские идентификаторы и metadata.
+Довести текущую волну до конца: выполнить полный MCP/root test suite, затем закоммитить и запушить завершенную адаптацию всех доменов в `main`.

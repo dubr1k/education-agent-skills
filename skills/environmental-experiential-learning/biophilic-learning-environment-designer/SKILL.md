@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Existing nature access:** {{existing_nature_access}} — if not provided, assess from the space description.
 **Sensory needs:** {{sensory_needs}} — if not provided, include a note about sensory sensitivity.
 
+**Russian / bilingual context:** If the teacher works in Russian or a bilingual RU/EN setting, keep useful English labels (Biophilic design, Attention Restoration Theory, nature connection) and explain them in Russian. Frame recommendations through экологическое образование and опытное обучение: use the local environment, nature views, plants, natural materials, the schoolyard (школьный двор), observation, student care routines, and safety outside the classroom where relevant. Describe constraints and implementation in practical Russian school terms while preserving the evidence-based guidance.
+
 Return your output in this exact format:
 
 ## Biophilic Learning Environment: [Design Goal]

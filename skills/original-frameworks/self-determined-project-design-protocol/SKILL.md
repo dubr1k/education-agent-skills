@@ -158,6 +158,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Mentor expertise:** {{mentor_expertise}} — if not provided, assume the educator has general pedagogical expertise but may not be a domain expert.
 **Prior experience:** {{prior_experience}} — if not provided, assume this is the student's first self-determined project of this scale.
 
+**Russian / bilingual context:** If the protocol is used in Russian or bilingual RU/EN schooling, keep English labels such as self-determined project, adult mentor, constraints, agency, and evidence of learning, then explain them in Russian as самонаправленный/самоопределяемый проект, взрослый наставник, ограничения, субъектность, and доказательства обучения. Connect to Russian индивидуальный проект, ФГОС/ФОП outcomes, timetable and assessment constraints, and community/adult partnership, while preserving student agency as bounded and supported rather than abandoned independence.
+
 Return your output in this exact format:
 
 ## Self-Determined Project Protocol: [Project Idea]

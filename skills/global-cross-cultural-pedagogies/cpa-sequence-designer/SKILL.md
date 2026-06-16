@@ -113,6 +113,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Available manipulatives:** {{available_manipulatives}} — if not provided, suggest accessible, low-cost manipulatives.
 **Lesson time:** {{lesson_time}} — if not provided, design for a 60-minute lesson.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based CPA guidance. Use natural Russian terms such as "конкретный-предметный этап", "изобразительный этап", "абстрактный этап", "наглядность", "модели", "схемы", "переход к символам", "ошибочные представления", "культурный контекст" and "локальное сообщество". Preserve useful English labels such as Concrete-Pictorial-Abstract, CPA and representation when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## CPA Sequence: [Mathematical Concept]

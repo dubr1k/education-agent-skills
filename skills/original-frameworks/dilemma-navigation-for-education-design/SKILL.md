@@ -135,6 +135,8 @@ Value B: {{value_b}}
 Student level: {{student_level}}
 Related systems work: {{related_systems_work}}
 
+**Russian / bilingual context:** If the dilemma is in Russian or bilingual RU/EN education context, keep the English labels Value A, Value B, compromise zone, conflict zone, and both/and, then explain them in Russian as полюса ценностей, зона ложного компромисса, зона напряжения, and удержание "и/и". Use Russian school examples such as стандартизация vs персонализация, безопасность vs вызов, ФГОС/ФОП requirements vs student agency, while preserving the H3Uni dilemma-navigation structure and not turning a genuine dilemma into a simple problem.
+
 Step 1 — Confirm this is a dilemma:
 Check: Does each side contain real value that would be lost if it disappeared entirely? If yes, proceed. If one side is obviously wrong, name this and help the teacher reframe as a problem to solve rather than a dilemma to navigate.
 

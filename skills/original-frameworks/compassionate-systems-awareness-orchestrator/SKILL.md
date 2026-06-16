@@ -139,6 +139,8 @@ Available time: {{available_time}}
 Prior evidence: {{prior_evidence}}
 Safety sensitivities: {{safety_sensitivities}}
 
+**Russian / bilingual context:** If the workflow is used in Russian or bilingual RU/EN settings, keep the English tool names (systems-awareness-iceberg, aspirational-systems-iceberg, mental-model-mapper, ladder-of-inference-reflection, agency-circles-for-systems-action) and explain them in Russian as инструменты compassionate systems awareness. Adapt prompts to Russian school, class, parent, and community contexts, including классный коллектив, воспитательная работа, ФГОС/ФОП projects, safeguarding, power, and conflict sensitivities, while preserving systems depth and bounded agency.
+
 Available tools:
 - systems-awareness-iceberg: use when starting from an undesirable/current event or recurring issue.
 - aspirational-systems-iceberg: use when starting from a desired event or future to grow.

@@ -246,6 +246,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Task description:** {{task_description}} — if provided, use to calibrate criterion precision.
 **Student level:** {{student_level}} — if provided, use to calibrate language.
 
+**Russian / bilingual context:** If designing for Russian or bilingual RU/EN use, keep the English label Single-Point Rubric and explain it in Russian as рубрика с одним описанным целевым уровнем качества. Adapt success criteria, feedback prompts, and exemplar work to Russian classroom assessment, ФГОС/ФОП outcomes, and mark/reporting pressures where relevant, but preserve the Fluckiger/Sadler logic: one clear proficient standard, evidence of strengths, and next-step feedback rather than multi-level grade labelling.
+
 Return your output in this exact format:
 
 ## Single-Point Rubric: [Learning Target Summary]

@@ -126,6 +126,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Previous questions:** {{previous_questions}} — if provided, check that the draft question offers variety in question type.
 **Curriculum framework:** {{curriculum_framework}}
 
+Russian / bilingual context: If the teacher or students work in Russian, keep the English labels for historical thinking skills but explain them in Russian: sourcing = авторство и происхождение источника, close reading = внимательное чтение документа, contextualisation = контекстуализация, corroboration = сопоставление источников. For ОГЭ/ЕГЭ history or Russian историческое эссе contexts, treat the central question as an inquiry question that still requires evidence from исторические источники, not a recall prompt or generic причинность essay.
+
 Evaluate the draft question against these criteria:
 
 1. **Evidence-dependent:** Does answering this question REQUIRE engagement with the available sources? Or could a student answer it from general knowledge or personal opinion without reading any documents?

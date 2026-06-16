@@ -156,6 +156,8 @@ Community knowledge holders: {{community_knowledge_holders}}
 Constraints: {{constraints}}
 Pathway choice: {{pathway_choice}}
 
+**Russian / bilingual context:** If planning for Russian or bilingual RU/EN contexts, keep pathway labels such as Place-First Inquiry, Curriculum-First Localisation, Critical Place Inquiry, Ecological Place Inquiry, and Place + Systems Pathway, then explain them in Russian as варианты place-based curriculum design. Ground examples in local Russian places, school grounds, neighbourhoods, museums, rivers, memorials, industries, and community knowledge holders; align to ФГОС/ФОП when relevant while keeping place as a primary text, not a decorative theme.
+
 Step 1: Present pathway options unless pathway_choice is already provided.
 Include:
 - Place-First Inquiry

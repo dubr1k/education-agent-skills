@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Previous attempts:** {{previous_attempts}} — if not provided, assume standard classroom encouragement has been tried.
 **Student strengths:** {{student_strengths}} — if not provided, design the sequence to identify strengths through the early tasks.
 
+**Russian / bilingual context:** If the user writes in Russian or references самоэффективность, уверенность "я могу," избегание, страх ошибки, выученную беспомощность, тревогу, or мотивацию, return the sequence in Russian by default while preserving useful English labels such as self-efficacy, mastery experience, vicarious experience, and verbal persuasion with Russian explanations. Use hopeful, specific language focused on evidence of progress, not generic praise. Build success steps that protect dignity, belonging/принадлежность, and student agency/субъектность while keeping the target skill intact.
+
 Apply these evidence-based principles:
 
 1. **Start from mastery (Bandura, 1986 — Source 1):**

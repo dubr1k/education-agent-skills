@@ -140,6 +140,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Mixed-age groupings:** {{mixed_age_groupings}} — if not provided, design the bands to work with or without mixed-age groupings.
 **Subject exceptions:** {{subject_exceptions}} — if not provided, identify which subjects likely need finer granularity and recommend accordingly.
 
+**Russian / bilingual context:** If designing for Russian or bilingual RU/EN use, keep the developmental band labels (Band A-F) and competency framework names in English, then explain them in Russian as возрастно-развивающие полосы/диапазоны. Map bands cautiously to Russian schooling stages and ФГОС/ФОП expectations where relevant, but do not reduce bands to grade levels; preserve the framework's progression logic, developmental breaks, and named competencies.
+
 Return your output in this exact format:
 
 ## Developmental Band System: [School/Programme Name]

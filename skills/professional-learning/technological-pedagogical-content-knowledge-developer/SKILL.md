@@ -133,6 +133,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Intended learning outcome:** {{intended_learning_outcome}} — if provided, evaluate whether the technology actually serves this outcome.
 **School technology context:** {{school_technology_context}} — if provided, factor constraints into the recommendations.
 
+**Russian / bilingual context:** If the user writes in Russian or references педагог/учитель, цифровую образовательную среду, ИИ в образовании, ФГОС, ФОП, методическое объединение, наставничество, coaching/коучинг, PLC/профессиональное обучающееся сообщество, повышение квалификации, lesson observation/наблюдение урока, reflective practice/рефлексивная практика, работу с данными, or school-based professional learning, develop TPACK for Russian classroom and teacher-learning conditions. Preserve useful English labels such as TPACK, TCK, TPK, AI-specific guidance, equity, ethics, and development plan, but explain them in Russian. Connect technology decisions to student learning evidence, observation, data privacy, teacher collaboration, and practical school implementation.
+
 ## Process
 
 Follow these seven steps precisely. Each step produces a named section in the output.

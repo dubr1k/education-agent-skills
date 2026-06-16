@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **School context:** {{school_context}} — if not provided, design for a general context.
 **Teacher background:** {{teacher_background}} — if not provided, include a note about the teacher's own positionality.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based culturally responsive guidance. Use natural Russian terms such as "культурно релевантное обучение", "межкультурный контекст", "культурные практики", "локальное сообщество", "местный контекст", "жизненный опыт учащихся", "многоязычный класс", "критическое сознание" and "социальная справедливость". Preserve useful English labels such as culturally responsive teaching, culturally sustaining pedagogy, CRT, funds of knowledge, place-based inquiry, variation theory, Reggio and Ubuntu when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Culturally Responsive Lesson: [Content]

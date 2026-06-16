@@ -118,6 +118,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Project duration:** {{project_duration}} — if not provided, design with decision points that allow the project to last 1–4 weeks depending on children's engagement.
 **Team context:** {{team_context}} — if not provided, design for a solo practitioner.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based emergent project guidance. Use natural Russian terms such as "проект, возникающий из интересов детей", "наблюдение", "документирование", "локальное сообщество", "культурные практики", "исследовательская активность", "материалы открытого типа", "детская инициатива" and "совместное планирование". Preserve useful English labels such as emergent curriculum, Reggio Emilia, project scaffold and documentation when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Emergent Project: [Interest]

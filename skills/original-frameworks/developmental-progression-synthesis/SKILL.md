@@ -236,6 +236,8 @@ The following optional parameters may or may not be provided. Use whatever is gi
 
 **Audience:** {{audience}} — if not specified, default to "teachers".
 
+**Russian / bilingual context:** If synthesising for Russian or bilingual RU/EN documentation, keep KUD, LT, Type 1/Type 2/Type 3, Band A-F, and competency names as English labels with Russian explanations. Describe developmental progressions as траектории развития across bands, connect them to Russian programme-guide, ФГОС/ФОП, and assessment-language needs where relevant, and preserve the T2 performance vs T3 observation distinction rather than translating it into ordinary marks or subject results.
+
 Return your output in this exact format:
 
 ## Developmental Progression Synthesis

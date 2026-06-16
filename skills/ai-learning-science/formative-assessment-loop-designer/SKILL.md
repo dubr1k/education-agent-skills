@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Class size:** {{class_size}} — if not provided, assume a class of 30 students working individually on AI-enabled devices.
 **Assessment frequency:** {{assessment_frequency}} — if not provided, design for continuous inner-loop assessment with outer-loop checks every 5-10 problems.
 
+**Russian / bilingual context:** If the learning context is Russian-speaking or bilingual RU/EN, write student-facing prompts, hints, tutoring dialogue, and feedback in Russian by default while preserving useful English labels in parentheses (e.g. AI literacy, prompt, hallucination, feedback). Treat ИИ/AI, нейросети, ChatGPT, промпты/подсказки, тьюторинг, обратная связь, hallucinations/галлюцинации, проверка фактов, critical evaluation of AI output/критическая оценка AI-output, reliability/надежность, and privacy/data boundaries as teachable vocabulary when relevant. Use examples and classroom norms that fit Russian school/university contexts; keep claims about AI output provisional, require fact-checking against trusted sources, and avoid asking students to enter personal data, grades, medical/family details, or other sensitive information into AI tools.
+
 Return your output in this exact format:
 
 ## Formative Assessment Loop: [Learning Objective]

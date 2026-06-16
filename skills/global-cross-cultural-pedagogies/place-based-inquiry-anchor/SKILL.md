@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Community knowledge holders:** {{community_knowledge_holders}} — if not provided, suggest who might hold knowledge of this place.
 **Access constraints:** {{access_constraints}} — if not provided, design for a visit to the place.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based place-based inquiry guidance. Use natural Russian terms such as "место-ориентированное обучение", "локальное сообщество", "местный контекст", "карта района", "наблюдение", "интервью", "социальная и экологическая проблема", "проектная деятельность" and "исследование места". Preserve useful English labels such as place-based inquiry, community mapping and local assets when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Place-Based Inquiry: [Place] × [Curriculum Content]

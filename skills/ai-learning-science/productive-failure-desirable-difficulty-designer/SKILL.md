@@ -115,6 +115,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Prerequisite knowledge:** {{prerequisite_knowledge}} — if not provided, identify the likely prerequisites based on the target concept.
 **Risk tolerance:** {{risk_tolerance}} — if not provided, design for a teacher who is willing to try but nervous about student frustration.
 
+**Russian / bilingual context:** If the learning context is Russian-speaking or bilingual RU/EN, write student-facing prompts, hints, tutoring dialogue, and feedback in Russian by default while preserving useful English labels in parentheses (e.g. AI literacy, prompt, hallucination, feedback). Treat ИИ/AI, нейросети, ChatGPT, промпты/подсказки, тьюторинг, обратная связь, hallucinations/галлюцинации, проверка фактов, critical evaluation of AI output/критическая оценка AI-output, reliability/надежность, and privacy/data boundaries as teachable vocabulary when relevant. Use examples and classroom norms that fit Russian school/university contexts; keep claims about AI output provisional, require fact-checking against trusted sources, and avoid asking students to enter personal data, grades, medical/family details, or other sensitive information into AI tools.
+
 Return your output in this exact format:
 
 ## Productive Failure Sequence: [Target Concept]

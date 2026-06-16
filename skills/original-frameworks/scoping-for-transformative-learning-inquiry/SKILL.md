@@ -135,6 +135,8 @@ Focal actor or system: {{focal_actor_or_system}}
 Purpose: {{purpose}}
 Time available: {{time_available}}
 
+**Russian / bilingual context:** If scoping in Russian or bilingual RU/EN education contexts, keep English labels such as focal actor, transactional environment, contextual environment, time horizon, and boundary decisions, then explain them in Russian as фокусный субъект/система, среда прямых взаимодействий, контекстная среда, временной горизонт, and границы исследования. Use Russian school, municipal, ecological, cultural, and ФГОС/ФОП project contexts where relevant, and keep the scope specific enough for real inquiry rather than broad themes like "общество" or "экология".
+
 Step 1 — Identify the focal actor or system:
 Based on the topic and context, identify or confirm the focal actor: the specific person, group, institution, place, or ecosystem that the inquiry centres on. If the input is vague (e.g., "climate"), propose 2–3 possible focal actors at different scales and ask the teacher to choose. Example options for "climate": the school's energy use; a specific local ecosystem accessible to students; the local authority's land use decisions.
 

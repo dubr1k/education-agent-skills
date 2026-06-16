@@ -147,6 +147,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Parent input:** {{parent_input}} — if provided, use to inform the synthesis.
 **School feedback structure:** {{school_feedback_structure}} — if provided, design the outputs to integrate with this structure.
 
+**Russian / bilingual context:** If designing for Russian or bilingual RU/EN settings, keep English labels such as Type 3, observation indicators, multi-informant evidence, and developmental conversation, with Russian explanations as диспозиционное знание, наблюдаемые проявления, and многоканальные свидетельства. Adapt examples to Russian schooling, classroom observation, воспитательная работа, portfolios, ФГОС/ФОП personal/meta-subject outcomes, and parent communication, without reducing dispositions to conduct grades or one-off rubric scores.
+
 Apply these evidence-based principles:
 
 1. **Observation Protocol design (Krechevsky et al., 2013; Domitrovich et al., 2017):**

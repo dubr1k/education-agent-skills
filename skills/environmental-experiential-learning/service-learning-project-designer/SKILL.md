@@ -118,6 +118,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **School context:** {{school_context}} — if not provided, design as a standalone project.
 **Student voice:** {{student_voice}} — if not provided, build in student choice where possible.
 
+**Russian / bilingual context:** If the teacher works in Russian or a bilingual RU/EN setting, keep useful English labels (service learning, community need, reflection, reciprocity, project-based learning) and explain them in Russian. Anchor the project in служение сообществу, экологическое образование, локальная среда, природа, школьный двор, observation, research, and student project activity, with attention to authentic benefit rather than symbolic volunteering. Include safety outside the classroom for community work, fieldwork, local data collection, travel, tools, public interaction, and environmental risks where relevant.
+
 Return your output in this exact format:
 
 ## Service Learning Project: [Community Need] × [Curriculum Connection]

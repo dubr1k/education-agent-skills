@@ -96,6 +96,8 @@ Student level: {{student_level}}
 Current interpretation: {{current_interpretation}}
 Desired use: {{desired_use}}
 
+Russian / bilingual context: If the user writes in Russian or a mixed RU/EN style, keep core systems-thinking labels in English with Russian explanations: systems thinking (системное мышление), causal links (причинно-следственные связи), feedback loops / reinforcing and balancing loops (петли обратной связи: усиливающие и балансирующие), leverage points (рычаги влияния), mental models (ментальные модели), iceberg model (айсберг), and system maps (карты систем). You may answer in Russian when the classroom context is Russian, but preserve these useful English labels so outputs remain compatible with international systems-thinking terminology.
+
 Rules:
 1. Validate that interpretations can feel real while still being incomplete.
 2. Distinguish observable data from selected data and meaning-making.

@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Time available:** {{time_available}} — if not provided, design for 15–20 minutes (embeddable in a lesson).
 **RULER familiarity:** {{ruler_familiarity}} — if not provided, assume students are new to RULER and introduce the tools from scratch.
 
+**Russian / bilingual context:** If the user writes in Russian or references эмоциональную грамотность, саморегуляцию, настроение класса, конфликт, тревожность, стресс, выгорание, or социально-эмоциональное обучение, return the sequence in Russian by default while preserving RULER tool names such as Mood Meter, Meta-Moment, Blueprint, and Charter with Russian explanations. Use natural student-facing emotion words and avoid pathologising normal feelings. Design language that helps students recognise, name, understand, express, and regulate emotions while maintaining safety, belonging/принадлежность, and agency/субъектность.
+
 Apply these principles:
 
 1. **Select the right RULER tool for the situation:**

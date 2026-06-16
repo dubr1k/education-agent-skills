@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, design for a class at the stated agency level.
 **Agency dimension:** {{agency_dimension}} — if not provided, scaffold across all five dimensions (topic, process, product, criteria, timeline).
 
+**Russian / bilingual context:** If the user writes in Russian or references субъектность, ученическая самостоятельность, учебная автономия, голос ученика, выбор, ответственность, or self-regulated learning in a Russian-medium classroom, return the scaffold in Russian by default while preserving useful English labels such as agency, autonomy support, and self-regulation with brief Russian explanations. Frame agency as supported субъектность: meaningful bounded choices inside the learning objective, not "делайте что хотите." Use teacher/student-facing language that builds competence, belonging/принадлежность, and safe recovery from poor choices without removing student ownership.
+
 Apply these evidence-based principles:
 
 1. **Five dimensions of agency (adapted from Zimmerman, 2002; Deci & Ryan, 2000):**

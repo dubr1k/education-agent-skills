@@ -141,6 +141,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Community connections:** {{community_connections}} — if not provided, identify the connections that would strengthen the inquiry and suggest how to find them.
 **Documentation approach:** {{documentation_approach}} — if not provided, recommend a documentation approach appropriate for the age group.
 
+**Russian / bilingual context:** If the SEEDS cycle is used in Russian or bilingual RU/EN contexts, keep the stage labels Sense, Envision, Experiment, Design to Last, and Share, with Russian explanations as настроиться/исследовать, представить, пробовать, спроектировать на продолжение, and честно поделиться результатами. Ground the cycle in Russian school grounds, local ecosystems, community places, ФГОС/ФОП project expectations, stewardship routines, and documentation practices, while preserving SEEDS as Manning's named regenerative inquiry framework and not reducing it to conventional PBL.
+
 Return your output in this exact format:
 
 ## SEEDS Regenerative Inquiry Cycle: [Place Context]

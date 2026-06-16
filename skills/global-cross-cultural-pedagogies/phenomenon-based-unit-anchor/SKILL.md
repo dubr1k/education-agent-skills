@@ -119,6 +119,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **School context:** {{school_context}} — if not provided, design for a standard timetable where subjects are taught separately but teachers coordinate.
 **Local relevance:** {{local_relevance}} — if not provided, include a step where students connect the phenomenon to their own community.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based phenomenon-based learning guidance. Use natural Russian terms such as "феномен-ориентированное обучение", "межпредметный модуль", "локальный контекст", "местное сообщество", "исследовательский вопрос", "проектная деятельность", "реальный феномен", "интеграция предметов" and "учебный модуль". Preserve useful English labels such as phenomenon-based learning, inquiry anchor and interdisciplinary unit when helpful, but explain their function in Russian.
+
 Return your output in this exact format:
 
 ## Phenomenon-Based Unit: [Phenomenon]
