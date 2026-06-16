@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Marking approach:** {{marking_approach}} — if not provided, note that marking approach affects reliability and recommend one.
 **Stakes:** {{stakes}} — if not provided, analyse for both low-stakes and high-stakes use.
 
+**Russian / bilingual context:** If the assessment is described in Russian or references ФГОС, ФОП, ОГЭ, ЕГЭ, ВПР, диагностическая работа, контрольная работа, проверочная работа, зачёт, КИМ, критерии, or рубрика, interpret these as local curriculum and assessment constraints. Keep the validity analysis grounded in Messick, Kane, Wiliam, Brookhart, and Stobart; do not replace validity with compliance checking. If the user writes in Russian, return the output in Russian while preserving technical terms in parentheses where helpful (construct validity, reliability, consequential validity).
+
 Analyse across these dimensions:
 
 1. **Construct validity (Messick, 1989):**

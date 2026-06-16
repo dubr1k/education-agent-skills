@@ -126,6 +126,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Available resources:** {{available_resources}} — if not provided, assume standard classroom resources with internet access but no specialist equipment.
 **Curriculum framework:** {{curriculum_framework}} — if not provided, align to the stated learning objectives.
 
+**Russian / bilingual context:** If the request is in Russian or references проектная деятельность, исследовательская работа, индивидуальный проект, ФГОС, ФОП, КТП, функциональная грамотность, защита проекта, продукт проекта, or социальный партнёр, design the brief so it fits local project formats while preserving PBL evidence principles. Do not let product aesthetics, presentation confidence, or compliance paperwork displace substantive learning. If the user writes in Russian, return the student-facing brief and teacher guide in Russian.
+
 Apply these evidence-based PBL design principles:
 
 1. **Design a driving question (Krajcik & Shin, 2014):**

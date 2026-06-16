@@ -129,6 +129,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Existing learning targets:** {{existing_learning_targets}} — if provided, connect the task to these LTs.
 **Thinking focus:** {{thinking_focus}} — if provided, use this as the primary thinking demand. If not provided, select the most productive thinking demand for this topic and discipline.
 
+**Russian / bilingual context:** If the request is in Russian or references ФГОС, ФОП, функциональная грамотность, критическое мышление, читательская грамотность, естественно-научная грамотность, ОГЭ, ЕГЭ, ВПР, проектная деятельность, or исследовательская работа, treat these as local framing constraints. Do not produce generic "развивать критическое мышление" activities; specify discipline-specific reasoning standards in Russian for the subject. If the user writes in Russian, return the task in Russian and keep key disciplinary terms precise.
+
 ## Process
 
 Follow these seven steps precisely. Each step produces a named section in the output.

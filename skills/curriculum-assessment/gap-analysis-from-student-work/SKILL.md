@@ -109,6 +109,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, infer from the work and criteria.
 **Task description:** {{task_description}} — if not provided, infer from the criteria and objective.
 
+**Russian / bilingual context:** If the student work, criteria, or objective are in Russian or reference ОГЭ, ЕГЭ, ВПР, критерии оценивания, рубрика, контрольная работа, диагностическая работа, изложение, сочинение, решение задачи, or ФГОС/ФОП outcomes, analyse the work against the stated criteria without converting the response into a grade unless asked. Classify gaps as conceptual, procedural, or communication even when the local marking scheme uses points. If the request is in Russian, write the analysis and feedback script in Russian.
+
 Apply these evidence-based principles:
 
 1. **Identify strengths first (Hattie & Timperley, 2007):**

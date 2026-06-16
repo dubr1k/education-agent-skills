@@ -128,6 +128,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Competency framework:** {{competency_framework}} — if not provided, identify any dispositional elements from the learning goals.
 **Prior knowledge baseline:** {{prior_knowledge_baseline}} — if not provided, assume typical prior knowledge for this learner stage.
 
+**Russian / bilingual context:** If the curriculum input is in Russian or references ФГОС, ФОП, рабочая программа, КТП, планируемые результаты, предметные/метапредметные/личностные результаты, УУД, функциональная грамотность, проектная/исследовательская деятельность, or профильное обучение, map these into the three knowledge types without renaming official categories. Treat Russian compliance documents as source text for epistemic diagnosis, not as a substitute for diagnosis. If the user writes in Russian, return the analysis in Russian while preserving the three labels Hierarchical / Horizontal / Dispositional alongside Russian explanations.
+
 Apply the following framework. You MUST use the exact three knowledge types defined below. Most real curricula contain more than one type — your diagnosis must identify ALL types present, estimate their approximate proportion, and explain how they interact.
 
 ## The Three Knowledge Types

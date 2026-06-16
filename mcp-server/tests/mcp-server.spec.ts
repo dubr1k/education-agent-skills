@@ -120,6 +120,20 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("Unassisted Evidence Checkpoint");
     expect(text).toContain("student-learning");
   });
+
+  test("finds curriculum-assessment skills from Russian planning language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "curriculum-assessment",
+        query: "ФГОС рабочая программа КТП планируемые результаты критерии",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("curriculum-assessment");
+    expect(text).toMatch(/Backwards Design Unit Planner|Scope and Sequence Designer|Competency Unpacker|Criterion-Referenced Rubric Generator/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -266,6 +280,24 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("Cognitive Load Theory");
     expect(text).toContain("mitosis");
     expect(text).toContain("Year 9 novice");
+  });
+
+  test("includes Russian curriculum context in bundled curriculum-assessment prompts", async () => {
+    const result = await client.callTool({
+      name: "backwards-design-unit-planner",
+      arguments: {
+        desired_outcomes:
+          "ФГОС: сформировать планируемые результаты по теме дроби и подготовить критерии оценивания",
+        student_level: "7 класс",
+        unit_duration: "6 уроков",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("ФГОС");
+    expect(text).toContain("КТП");
+    expect(text).toContain("7 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

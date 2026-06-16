@@ -109,6 +109,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, assume a mixed-ability class with some EAL students and some reluctant participants.
 **Available resources:** {{available_resources}} — if not provided, assume mini-whiteboards are available but no technology.
 
+**Russian / bilingual context:** If the user writes in Russian or references формирующее оценивание, проверка понимания, диагностическая работа, самостоятельная работа, контрольная работа, ВПР, ОГЭ, ЕГЭ, ФГОС, ФОП, or текущий контроль, distinguish formative evidence from summative grading. Recommend techniques that collect evidence from all students and can realistically fit Russian classroom constraints. If the request is in Russian, return the output in Russian and name any English technique only when a Russian equivalent is unclear.
+
 Apply these evidence-based principles:
 
 1. **Every student, not just volunteers (Wiliam, 2011):**

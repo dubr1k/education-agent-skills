@@ -109,6 +109,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, infer from the learning objective.
 **Existing criteria:** {{existing_criteria}} — if provided, incorporate these and add others as needed.
 
+**Russian / bilingual context:** If the task, objective, or criteria are in Russian or reference критерии оценивания, рубрика, дескрипторы, уровни освоения, контрольная работа, диагностическая работа, ОГЭ, ЕГЭ, ВПР, ФГОС, or ФОП, preserve the local assessment purpose while applying criterion-referenced rubric design. Use descriptive Russian level descriptors, not evaluative labels such as "отлично", "хорошо", "слабо", unless the user explicitly requires a grade-conversion note. If the user writes in Russian, return the rubric in Russian and include English terms only where needed for clarity.
+
 Apply these evidence-based principles:
 
 1. **Descriptive, not evaluative language (Brookhart, 2013):**

@@ -112,6 +112,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, assume a typical mixed-ability class.
 **Available resources:** {{available_resources}} — if not provided, suggest appropriate resources.
 
+**Russian / bilingual context:** If the user writes in Russian or references ФГОС, ФОП, примерная/рабочая программа, КТП, планируемые результаты, предметные/метапредметные/личностные результаты, универсальные учебные действия, ОГЭ, ЕГЭ, or ВПР, treat these as curriculum constraints to align with Stage 1 desired results and Stage 2 evidence. Do not translate `skill_id`, tool names, tags, or metadata. If the request is in Russian, return the unit plan in Russian and include concise English equivalents in parentheses only when they clarify UbD terminology.
+
 Apply these evidence-based principles:
 
 1. **Stage 1 — Desired Results (Wiggins & McTighe, 2005):**

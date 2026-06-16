@@ -123,6 +123,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Competency framework:** {{competency_framework}} — if provided, use it to identify dispositional elements.
 **Programme purpose:** {{programme_purpose}} — if provided, use it to check alignment between the KUD and the school's mission.
 
+**Russian / bilingual context:** If the curriculum input is in Russian or references ФГОС, ФОП, рабочая программа, КТП, планируемые результаты, предметные/метапредметные/личностные результаты, УУД, функциональная грамотность, компетенции, or воспитательные результаты, map the Russian categories into Know / Understand / Do without renaming the official source wording. Preserve compatibility with local documentation while making the assessment route explicit. If the user writes in Russian, return the KUD chart in Russian and keep Know / Understand / Do labels alongside Russian equivalents.
+
 ## The Three Knowledge Types
 
 You MUST classify every KUD element as one of these three types. The classification determines the assessment route.

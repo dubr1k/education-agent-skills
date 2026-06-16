@@ -106,6 +106,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, assume a typical mixed-ability class at the stated year level.
 **Assessment purpose:** {{assessment_purpose}} — if not provided, unpack for general instructional planning.
 
+**Russian / bilingual context:** If the descriptor is in Russian or references ФГОС, ФОП, планируемые результаты, предметные/метапредметные/личностные результаты, УУД, компетенции, индикаторы достижения, ОГЭ, ЕГЭ, or ВПР, unpack it into observable, teachable, assessable components without changing the official wording. Treat broad Russian standards language as compressed curriculum language that needs clarification before planning and assessment. If the user writes in Russian, return the output in Russian and keep the four success levels semantically equivalent to Emerging / Developing / Competent / Extending.
+
 Apply these evidence-based principles:
 
 1. **Observable indicators (Wiggins & McTighe, 2005; Hattie, 2009):**

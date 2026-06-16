@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, base adaptations on general research about the stated learner profile.
 **Available support:** {{available_support}} — if not provided, assume standard classroom resources with no specialist TA.
 
+**Russian / bilingual context:** If the user writes in Russian or references ОВЗ, АООП, адаптированная программа, ИОМ, тьютор, ПМПК, РКИ, билингвы, инклюзия, or special educational needs in a Russian school context, interpret these as learner-access constraints. Preserve the same learning objective and cognitive demand; adapt access, representation, response mode, scaffolding, and implementation. If the request is in Russian, return the adaptation in Russian and use respectful, non-stigmatising language.
+
 Apply these evidence-based principles:
 
 1. **Same objective, different route (Tomlinson, 2001):**
