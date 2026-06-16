@@ -38,11 +38,12 @@
 - Усилен русский `find_skills` для `memory-learning-science`: доменный индекс и aliases теперь покрывают retrieval practice, spaced practice, interleaving, cognitive load, working memory, dual coding, feedback, elaborative interrogation и worked examples.
 - Добавлены QA tests для русского `find_skills` по memory-learning-science и проверки, что RU memory-learning-science контекст попадает в bundled MCP prompts.
 - Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` и `README.md` получили memory-learning-science примеры и обновленный статус адаптированных доменов.
+- Основной `README.md` переведен в русский local-first guide для `Educational Skills RU`: установка ведет на fork `dubr1k/education-agent-skills`, удалены англоязычные upstream onboarding sections, сохранены совместимые английские technical IDs и добавлен русский обзор доменов/архитектуры/MCP.
+- Добавлены README QA tests: root README должен содержать русские основные секции, все `README.md` должны ссылаться на fork и не должны возвращать upstream install URLs / hosted signup flow.
 - Последняя проверка 2026-06-16:
-  - `conda run -n base python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `40 passed`.
-  - `npx playwright test` — OK, root `20 passed`.
-  - `npm test` — OK, root `20 passed`.
+  - `npx playwright test tests/skills-library.spec.ts --grep 'Documentation Validation'` — OK, docs `2 passed`.
+  - `npm test` — OK, root `22 passed`.
+  - `cd mcp-server && npm test` — OK, MCP `40 passed`.
 
 ## Ближайший фокус
 

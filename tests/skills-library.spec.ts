@@ -238,6 +238,12 @@ test.describe("Documentation Validation", () => {
   test("README install guide uses the fork repository", () => {
     const readme = fs.readFileSync(README_PATH, "utf-8");
 
+    expect(readme).toContain("## Быстрый старт");
+    expect(readme).toContain("## Для кого");
+    expect(readme).toContain("## Зачем это нужно");
+    expect(readme).not.toContain("## Get Started");
+    expect(readme).not.toContain("## Who This Is For");
+    expect(readme).not.toContain("## Why This Exists");
     expect(readme).toContain("https://github.com/dubr1k/education-agent-skills");
     expect(readme).toContain("git clone https://github.com/dubr1k/education-agent-skills.git");
     expect(readme).toContain("claude plugin install https://github.com/dubr1k/education-agent-skills");

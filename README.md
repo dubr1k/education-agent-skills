@@ -5,25 +5,27 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Last Commit](https://img.shields.io/github/last-commit/dubr1k/education-agent-skills)](https://github.com/dubr1k/education-agent-skills/commits/main)
 
-Русскоязычный bilingual fork библиотеки **Education Agent Skills Library**: 165 evidence-based pedagogical skills across 20 domains. Цель fork — сохранить англоязычную совместимость upstream и добавить рабочий русскоязычный контекст для Codex, Claude, Hermes и MCP.
+**Educational Skills RU** — русскоязычный RU/EN fork библиотеки Education Agent Skills Library: 165 доказательно обоснованных педагогических skills в 20 доменах. Цель fork — сохранить совместимость с upstream на уровне `skill_id`, folder names, tags и chaining metadata, но добавить рабочий русский слой для Codex, Claude, Hermes, MCP и ручного использования.
 
-Технические `skill_id`, folder names, tags and chaining metadata intentionally stay upstream-compatible. Русский слой добавляется через runtime metadata, поиск, документацию, локализованные domain labels и постепенную адаптацию самих `SKILL.md`.
+Русский слой добавляется через документацию, runtime metadata, поиск, локализованные domain labels, query aliases и постепенную адаптацию самих `SKILL.md`. Технические идентификаторы остаются английскими намеренно: это сохраняет переносимость skills между агентами и совместимость с upstream-экосистемой.
 
-## Get Started
+## Быстрый старт
 
-Works locally with Claude Code, OpenAI Codex, Hermes Agent, and any tool that supports the Agent Skills standard.
+Устанавливайте именно этот fork:
 
-Install this fork from `https://github.com/dubr1k/education-agent-skills`. The setup below is local-first and specific to **Educational Skills RU**.
+```text
+https://github.com/dubr1k/education-agent-skills
+```
 
-### Claude
+### Claude Code
 
-**Claude Code CLI** — install the fork directly from GitHub:
+Установка напрямую из fork:
 
 ```bash
 claude plugin install https://github.com/dubr1k/education-agent-skills
 ```
 
-Or install from a local clone:
+Или из локального клона:
 
 ```bash
 git clone https://github.com/dubr1k/education-agent-skills.git
@@ -33,7 +35,7 @@ claude plugin install "$PWD"
 
 ### OpenAI Codex
 
-Recommended local setup:
+Рекомендуемый локальный вариант:
 
 ```bash
 git clone https://github.com/dubr1k/education-agent-skills.git
@@ -41,26 +43,26 @@ cd education-agent-skills
 codex plugin marketplace add "$PWD"
 ```
 
-The repository includes a Codex plugin manifest at `.codex-plugin/plugin.json` pointing to `./skills/`, plus a local marketplace helper at `.agents/plugins/marketplace.json`. After installing/enabling the local plugin, restart Codex.
+В repo есть Codex plugin manifest `.codex-plugin/plugin.json`, который указывает на `./skills/`, и локальный marketplace helper `.agents/plugins/marketplace.json`. После установки или обновления локального plugin перезапустите Codex.
 
-For one or two individual skills, copy them into your global Codex skills directory:
+Если нужны только отдельные skills:
 
 ```bash
 mkdir -p ~/.codex/skills
 cp -r skills/<domain>/<skill-name> ~/.codex/skills/
 ```
 
-Example:
+Пример:
 
 ```bash
 cp -r skills/memory-learning-science/spaced-practice-scheduler ~/.codex/skills/
 ```
 
-Full Codex guide: [docs/CODEX.md](docs/CODEX.md).
+Подробный гайд: [docs/CODEX.md](docs/CODEX.md).
 
 ### Hermes Agent
 
-Hermes users should keep this repository as the canonical source, then install only the skills they actually need locally.
+Hermes лучше использовать с выборочной локальной установкой нужных skills, а не с полной установкой всех 165 skills:
 
 ```bash
 hermes skills tap add dubr1k/education-agent-skills
@@ -69,173 +71,122 @@ hermes skills install \
   --category education --yes
 ```
 
-Recommended starting point: install selected skills or a small starter pack rather than all 165 skills. That keeps your local Hermes index useful instead of noisy.
+Подробный гайд и стартовые наборы skills: [docs/HERMES.md](docs/HERMES.md).
 
-Full Hermes guide: [docs/HERMES.md](docs/HERMES.md).
+### Любой Agent Skills-совместимый инструмент
 
-### Any Agent Skills-compatible tool
+Скопируйте нужные папки из `skills/` в директорию skills вашего агента. Каждый skill — это обычная папка с `SKILL.md`; зависимости и build step для ручного использования не нужны.
 
-Copy skill folders from `skills/` into your agent's skills directory. Each skill is a folder containing `SKILL.md` with name/description frontmatter — no dependencies, no build step.
+### Ручное использование без установки
 
-### Manual (no setup)
+1. Откройте любой `SKILL.md` внутри `skills/`.
+2. Скопируйте prompt/instructions.
+3. Вставьте в AI-инструмент и добавьте контекст класса, темы, возраста, ограничений и желаемого результата.
 
-1. Open any skill file in the repository (under `skills/`)
-2. Copy the prompt block
-3. Paste it into any AI and fill in the fields for your class or context
+## Для кого
 
----
+- Учителя, которым нужны доказательно обоснованные уроки, задания, scaffolds и проверки понимания без часов поиска литературы.
+- Преподаватели вузов, которым нужна практичная педагогическая поддержка без отдельной подготовки в didactics.
+- Методисты, curriculum designers, завучи и руководители образовательных программ.
+- Разработчики EdTech и AI tools, которым нужен структурированный педагогический knowledge layer.
+- Исследователи образования, которым важно видеть, как evidence превращается в AI-mediated practice.
+- Ученики и студенты в student-facing сценариях, где AI должен помогать думать, а не просто отдавать готовый ответ.
 
-## Feedback & Contributions
+## Зачем это нужно
 
-I'd love to hear your thoughts. If you have suggestions, find bugs, or want to contribute:
+AI быстро входит в образование. Он может улучшать обучение, снижать нагрузку учителя и давать ученикам качественную поддержку — но только если в основе лежит не набор привычек, а проверенная педагогическая evidence base.
 
-- Email: gareth.manning@gmail.com
-- X: https://x.com/worldteacherman
-- LinkedIn: https://www.linkedin.com/in/gareth-manning-a404b387/
-- Open a Pull Request or Issue on GitHub
+Эта библиотека собирает prompts как reusable skills: каждый skill содержит named research, ограничения, typed inputs/outputs и ожидаемый формат результата. Fork добавляет русский контекст: ФГОС/ФОП-совместимые формулировки там, где это уместно, русскоязычные query aliases, естественные термины для учителя и ученика, а также примеры запросов на русском.
 
----
+Важно: prompts сами по себе не заявляются как эмпирически валидированные AI-интервенции. Они кодируют исследовательски обоснованные педагогические подходы и должны использоваться профессионально, с проверкой результата человеком.
 
-**I'm an educator — [start here](#try-it-now)**
-No setup required. Use the plugin, a local skill install, or manual copy-paste and start teaching.
+## Попробовать
 
-**I'm a developer or AI builder — [start here](#architecture)**
-YAML schemas, typed inputs and outputs, chaining metadata, [local MCP server](#mcp-server).
+### Через установленный runtime
 
----
+После установки в Claude, Codex или Hermes напишите задачу обычным языком.
 
-## Who This Is For
+Русский пример:
 
-- **Classroom teachers** who want evidence-based lesson and assessment design without hours of research
-- **University lecturers and professors** who received little or no teacher training and want practical, research-grounded support for their teaching
-- **Curriculum designers and heads of learning** building programmes, units, and assessments
-- **School leaders in innovative and alternative education contexts** — international schools, Montessori, project-based, democratic and nature-based schools
-- **Innovators reimagining education** — people building new school models, alternative programmes, and next-generation learning environments. Evidence-based constraints don't limit creative redesign of education; they deepen it.
-- **EdTech developers and AI builders** who need a structured, programmatically accessible education knowledge layer
-- **Education researchers** interested in how evidence translates into AI-mediated practice
+> Ученики 8 класса читают сложный учебный текст по обществознанию, путают факт и мнение, и им нужно подготовить аргументированное сочинение с оценкой источников.
 
----
+Runtime может подобрать literacy и critical-thinking skills: анализ сложности текста, поддержку понимания, scaffold аргумента, оценку достоверности источников и медиаграмотность. При русском input outputs должны использовать естественные термины: `учебный текст`, `сочинение`, `эссе`, `развернутый ответ`, `анализ источников`, `медиаграмотность`.
 
-## Why This Exists
+Пример для урока:
 
-AI is arriving in education fast. Whether it improves learning outcomes or simply scales mediocre practice depends almost entirely on what it is built on.
+> Нужно объяснить ученикам 7 класса линейные уравнения: короткое объяснение, моделирование решения, управляемая практика, самостоятельная практика и проверка понимания.
 
-Most AI education tools are built on convention, habit, and assumption — on what educators have always done, rather than on what the research says actually works. Learning styles. Rigid lesson structures. Wellbeing programmes disconnected from learning theory. As AI expands in education, so does the risk of scaling ineffective practice.
+Это может маршрутизироваться в explicit instruction skills: lesson opening, I Do / We Do / You Do, think-aloud modelling, practice sequencing и checking for understanding. Русские outputs должны использовать `явное обучение`, `объяснение`, `моделирование`, `управляемая практика`, `самостоятельная практика`, `проверка понимания`, `коррекция ошибок`.
 
-This library exists to build something different: a credible, rigorous foundation for AI in education. One that is anchored in named research, honest about its limitations, and designed especially for the educators working at the frontier — building the next generation of schools, not optimising existing ones.
+Пример для учебных стратегий:
 
-The potential is real. Personalised, evidence-grounded learning support at a scale that was never previously possible. But only if what is powering it is the actual evidence.
+> Нужно спланировать повторение по теме клетки: практика извлечения из памяти, интервальное повторение, чередование вопросов и короткая обратная связь по ошибкам.
 
-The benefit is not only personalised learning. It is teaching quality and workload. An educator who would otherwise spend hours researching, designing, and second-guessing gets structured, evidence-grounded support in minutes — which means more time for the parts of teaching that only a human can do.
+Это может подключить retrieval practice, spaced practice, interleaving, cognitive load, dual coding, feedback rewriting и elaborative interrogation.
 
-That is one use case. The same library can power school-wide curriculum audits, personalised professional development pathways for teachers, or orchestrated end-of-term assessment reviews. The skills are the foundation. The architecture below describes the layers that make this possible.
+### Вручную
 
----
+Откройте `skills/memory-learning-science/spaced-practice-scheduler/SKILL.md` и передайте, например:
 
-## Try It Now
+- Темы: строение клетки, транспорт через мембрану, деление клетки, ферменты, биологические молекулы.
+- Срок: 8 недель.
+- Уроков в неделю: 3.
 
-### With a runtime install (recommended)
+AI вернет план повторения с расширяющимися интервалами, retrieval activities и практическими действиями при обнаружении пробелов.
 
-Install the skills in Claude, Codex, or Hermes, then tell your agent what you need in plain language. The relevant skills can be selected automatically or searched locally.
+## Чем отличается
 
-**Example:** Say *"I'm planning a Year 9 science unit on cells — 6 weeks, 3 lessons a week."*
+**Evidence — главный фильтр.** Каждый skill ссылается на named research: авторов, годы, тип findings и практический вывод. Подходы без надежной evidence base, например learning styles/VAK, вынесены в [EXCLUSIONS.md](docs/EXCLUSIONS.md).
 
-Claude runs the **Backwards Design Unit Planner**, the **Spaced Practice Scheduler**, and the **Retrieval Practice Generator** in parallel. In under 90 seconds you get a complete lesson-by-lesson plan with spaced retrieval built in, evidence-grounded sequencing, and ready-to-use formative assessment activities — all calibrated to the timeline and topic list you provided.
+**Evidence strength размечается явно.**
 
-**Русский пример:** скажите *"Ученики 8 класса читают сложный учебный текст по обществознанию, путают факт и мнение, и им нужно подготовить аргументированное сочинение с оценкой источников."*
+| Рейтинг | Что означает |
+|---|---|
+| **Strong** | Несколько meta-analysis или systematic reviews с согласованными выводами |
+| **Moderate** | Хорошая experimental evidence, но с контекстными ограничениями |
+| **Emerging** | Перспективная база, но меньше replication или practitioner translation |
+| **Original** | Авторская practitioner framework; не заявляется как research-backed |
 
-The bilingual runtime can route this to literacy and critical thinking skills such as text complexity analysis, reading comprehension support, argument scaffolding, source credibility evaluation, and media literacy. The skills keep English-compatible IDs and tool names, but Russian teacher/student-facing outputs should use natural terms such as `учебный текст`, `сочинение`, `эссе`, `развернутый ответ`, `анализ источников` and `медиаграмотность` when the input is Russian.
+**Сразу рассчитано на orchestration.** YAML frontmatter, typed input/output schemas, chaining metadata и composable outputs встроены в каждый skill.
 
-**Русский пример для урока:** скажите *"Нужно объяснить ученикам 7 класса линейные уравнения: короткое объяснение, моделирование решения, управляемая практика, самостоятельная практика и проверка понимания."*
+**Русская адаптация не ломает совместимость.** IDs, folder names и API names остаются английскими, а русский слой живет в metadata, search, docs и постепенно адаптированных instructions.
 
-The bilingual runtime can route this to explicit instruction skills such as lesson opening design, I Do / We Do / You Do sequencing, think-aloud modelling, practice problem sequencing, and checking-for-understanding protocols. Russian outputs should use natural terms such as `явное обучение`, `объяснение`, `моделирование`, `управляемая практика`, `самостоятельная практика`, `проверка понимания` and `коррекция ошибок`.
+## 20 доменов
 
-**Русский пример для учебных стратегий:** скажите *"Нужно спланировать повторение по теме клетки: практика извлечения из памяти, интервальное повторение, чередование вопросов и короткая обратная связь по ошибкам."*
+| # | Домен | Skills | Фокус |
+|---|---|---:|---|
+| 1 | Memory & Learning Science | 8 | Retrieval practice, spacing, interleaving, cognitive load, dual coding, feedback |
+| 2 | Self-Regulated Learning & Metacognition | 5 | Саморегуляция, metacognitive prompts, goal-setting, выбор стратегий |
+| 3 | Explicit & Direct Instruction | 5 | Явное обучение, gradual release, проверка понимания, think-alouds |
+| 4 | Questioning, Discussion & Dialogue | 5 | Сократические вопросы, обсуждения, dialogic teaching, hinge questions |
+| 5 | Literacy, Writing & Critical Thinking | 7 | Чтение, письмо, аргументация, source evaluation, media literacy |
+| 6 | EAL/D & Language Development | 5 | Language demands, vocabulary tiering, sentence frames, sheltered instruction |
+| 7 | Curriculum Design & Assessment | 13 | Backwards design, rubrics, assessment validity, formative assessment, PBL |
+| 8 | Wellbeing, Motivation & Student Agency | 12 | Мотивация, self-efficacy, belonging, agency scaffolds |
+| 9 | Professional Learning & Teacher Development | 10 | Lesson observation, reflective practice, PD design, работа с данными |
+| 10 | Global & Cross-Cultural Pedagogies | 9 | Variation theory, culturally responsive teaching, place-based inquiry |
+| 11 | Environmental & Experiential Learning | 6 | Outdoor learning, ecological inquiry, experiential cycles, service learning |
+| 12 | AI Learning Science | 14 | Adaptive hints, AI feedback, tutoring dialogue, learning analytics |
+| 13 | AI Literacy | 7 | Аудит AI-output, hallucination checks, prompt literacy, reliability |
+| 14 | Montessori & Alternative Evidence-Based Approaches | 4 | Three-part lessons, prepared environment, mixed-age learning |
+| 15 | Original Frameworks | 17 | SEEDS, H3Uni, developmental bands, project design, composite orchestrators |
+| 16 | Curriculum Alignment | 4 | Coverage audit, KUD chart, developmental band translation, scope and sequence |
+| 17 | Historical Thinking | 10 | Sourcing, close reading, contextualisation, corroboration, DBQ |
+| 18 | Systems Thinking | 8 | Iceberg models, leverage, mental models, systems wellbeing |
+| 19 | Inclusive Design | 3 | UDL auditing, options design, proactive barrier anticipation |
+| 20 | Student-Facing Learning Skills | 13 | Hints, stuck/error diagnosis, teach-back, SRL wrapper, fading manager |
 
-The bilingual runtime can route this to learning science skills such as retrieval practice generation, spaced practice scheduling, interleaving, cognitive load analysis, dual coding, feedback rewriting, elaborative interrogation, and worked-example fading. Russian outputs should use natural terms such as `практика извлечения из памяти`, `интервальное повторение`, `чередование`, `когнитивная нагрузка`, `двойное кодирование`, `обратная связь` and `объяснительные вопросы`.
+## Архитектура
 
-### Without the plugin (manual)
+Библиотека — Layer 1 в трехслойной системе. Подробное описание Context Engine (Layer 2), Orchestrator (Layer 3), схем и design rationale лежит в [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-No API key. No technical setup. No dependencies.
+### YAML schema
 
-1. Open any skill file in the repository (under `skills/`)
-2. Copy the prompt block
-3. Paste it into any AI and fill in the fields for your class or context
+Каждый skill начинается с machine-readable YAML header: `skill_id`, `domain`, `evidence_strength`, `evidence_sources`, `input_schema`, `output_schema`, chaining metadata и tags. Полный формат можно посмотреть в любом `SKILL.md` или в [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-**Example:** Open `skills/memory-learning-science/spaced-practice-scheduler/SKILL.md` and provide:
+### MCP-сервер
 
-- Topics: Cell structure, Cell transport, Cell division, Enzymes, Biological molecules
-- Timeline: 8-week term, starting 3 February
-- Lessons per week: 3
-
-Claude returns a complete week-by-week schedule showing when to teach new content and when to revisit previous topics at expanding intervals — with specific retrieval activities for each review slot. The schedule follows Cepeda et al.'s (2006) meta-analysis on optimal spacing intervals, includes interleaving across topics, and comes with practical guidance on what to do when review reveals gaps.
-
----
-
-## What Makes This Different
-
-**Evidence is the filter — including knowing what to exclude.**
-Every skill is grounded in named research: specific authors, specific studies, specific findings. Frameworks that lack empirical support — including learning styles, VAK, and other widely-circulated but poorly-evidenced approaches — are not included. The library documents exactly what was excluded and why in [EXCLUSIONS.md](docs/EXCLUSIONS.md). For any school or faculty trying to separate evidence from convention, that document is worth reading on its own.
-
-**Evidence strength is rated transparently.**
-
-| Rating | What it means |
-|--------|--------------|
-| **Strong** | Multiple meta-analyses or systematic reviews with consistent findings |
-| **Moderate** | Solid experimental evidence with some contextual variation |
-| **Emerging** | Promising research base with limited replication or practitioner translation |
-| **Original** | Practitioner framework; clearly labelled, not claimed as research-backed |
-
-Where original frameworks are included (Domain 14), they are labelled honestly. One important limitation: the skills encode research-grounded prompts, but the prompts themselves have not been empirically validated as AI interventions. That work is ongoing.
-
-**Built by an educator with 20 years of international school experience.**
-The pedagogical judgements embedded in every prompt, every output structure, and every known-limitations section reflect real classroom and curriculum design practice — not a reading of the literature.
-
-**Designed for orchestration from day one.**
-YAML schema headers, typed input and output fields, chaining metadata, and composable outputs are built into every skill. This is not a prompt collection with metadata bolted on. It is a skill library engineered for programmatic use.
-
----
-
-## The 20 Domains
-
-> **Note on Domain 20:** Domains 1–19 are teacher and designer-facing — they generate plans, rubrics, scaffolds, and assessments. Domain 20 is different: these skills run live during a student's study session, shaping how AI responds to a learner in real time. The governing principle is the same across all 20 domains — evidence-grounded — but the user, the output, and the invocation pattern are all different. See [Domain 20 skills](skills/student-learning/) for details.
-
-| # | Domain | Skills | Focus |
-|---|--------|--------|-------|
-| 1 | **Memory & Learning Science** | 8 | Retrieval practice, spacing, interleaving, cognitive load, dual coding, elaborative interrogation, feedback |
-| 2 | **Self-Regulated Learning & Metacognition** | 5 | Self-regulation scaffolds, metacognitive prompts, goal-setting, study strategy selection, error analysis |
-| 3 | **Explicit & Direct Instruction** | 5 | Gradual release sequences, checking for understanding, lesson openings, think-alouds, practice design |
-| 4 | **Questioning, Discussion & Dialogue** | 5 | Socratic questioning, discussion protocols, dialogic teaching moves, hinge questions |
-| 5 | **Literacy, Writing & Critical Thinking** | 7 | Argument structure, disciplinary writing, reading comprehension, source evaluation, text complexity, media literacy, critical thinking |
-| 6 | **EAL/D & Language Development** | 5 | Language demand analysis, vocabulary tiering, scaffolded task modification, sentence frames, sheltered instruction |
-| 7 | **Curriculum Design & Assessment** | 13 | Backwards design, competency unpacking, rubric generation, assessment validity, formative assessment, differentiation, gap analysis, learning progressions, PBL, threshold concept translation |
-| 8 | **Wellbeing, Motivation & Student Agency** | 12 | Motivation diagnostics, self-efficacy, wellbeing-learning connections, agency scaffolds, belonging, and related practices |
-| 9 | **Professional Learning & Teacher Development** | 10 | Lesson observation, reflective practice, PD session design, data interpretation, and related practices |
-| 10 | **Global & Cross-Cultural Pedagogies** | 9 | Variation theory, CPA sequences, phenomenon-based learning, culturally responsive teaching, Ubuntu, place-based inquiry, Reggio documentation, emergent projects, cross-cultural validity |
-| 11 | **Environmental & Experiential Learning** | 6 | Outdoor learning, biophilic design, ecological inquiry, experiential learning cycles, interdisciplinary connections, service learning |
-| 12 | **AI Learning Science** | 14 | Adaptive hints, erroneous examples, digital worked examples, spacing algorithms, AI feedback, tutoring dialogue, learning analytics, collaborative learning, cognitive tutoring, self-explanation, metacognitive monitoring, productive failure, worked example transitions, formative assessment loops |
-| 13 | **AI Literacy** | 7 | AI output auditing, hallucination fact-checking, prompt literacy, expertise interrogation, learning boundary mapping, AI Socratic dialogue, disciplinary AI reliability |
-| 14 | **Montessori & Alternative Evidence-Based Approaches** | 4 | Three-part lessons, prepared environment design, mixed-age learning, uninterrupted work cycles |
-| 15 | **Original Frameworks** | 17 | SEEDS regenerative inquiry, H3Uni systems methods (scoping, Three Horizons, dilemma navigation, multi-perspective decision wheel), developmental band systems, learning target authoring, rubric logic, self-determined project design, dispositional assessment, single-point rubrics; composite orchestrators (assessment design, inclusive design, place-based curriculum, regenerative project design, compassionate systems awareness) |
-| 16 | **Curriculum Alignment** | 4 | Coverage audit, KUD chart authoring, developmental band translation, scope and sequence |
-| 17 | **Historical Thinking** | 10 | Sourcing, close reading, contextualisation, corroboration, document-based lesson design, document set curation, source adaptation, strategy modelling, assessment design, central question evaluation |
-| 18 | **Systems Thinking** | 8 | Systems awareness iceberg, aspirational iceberg, hexagon complexity mapper, leverage and response design, mental model mapper, agency circles for systems action, ladder of inference, systems wellbeing impact |
-| 19 | **Inclusive Design** | 3 | UDL lesson auditing, options design across engagement/representation/action, proactive barrier anticipation before delivery |
-| 20 | **Student-Facing Learning Skills** *(new)* | 13 | Retrieve-first gate, explain-first interrogator, progressive hint ladder, confidence calibration check, stuck & error diagnosis coach, AI claim checker, transfer bridge, teach-back evaluator, productive failure protocol, SRL session wrapper, unassisted evidence checkpoint, weekly agency review, fading manager |
-
----
-
-## Architecture
-
-This library is Layer 1 of a three-layer system. For the full design — including the Context Engine (Layer 2) and Orchestrator (Layer 3) — see [ARCHITECTURE.md](docs/ARCHITECTURE.md).
-
-### For developers: the YAML schema
-
-Every skill opens with a machine-readable YAML header including skill ID, domain, evidence strength, evidence sources, typed input/output schemas, chaining metadata, and tags. See any skill file under `skills/` for the full format, or [ARCHITECTURE.md](docs/ARCHITECTURE.md) for the schema reference.
-
-### MCP Server
-
-This fork includes MCP server source for local development or your own deployment.
+Fork включает исходники MCP-сервера для локальной разработки или собственного deployment.
 
 ```bash
 git clone https://github.com/dubr1k/education-agent-skills.git
@@ -246,7 +197,7 @@ npm run build
 npm start
 ```
 
-Then point an MCP-capable client at your local server according to that client's MCP configuration. A typical local configuration looks like this:
+Для локального stdio-подключения в MCP-capable client используйте примерно такую конфигурацию:
 
 ```json
 {
@@ -259,41 +210,42 @@ Then point an MCP-capable client at your local server according to that client's
 }
 ```
 
-The server exposes:
-- **169 tools** (165 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
-- **165 prompts** (for clients that surface MCP prompts)
+Сервер предоставляет:
 
-Source code and development instructions: [`mcp-server/`](mcp-server/)
+- **169 tools**: 165 skills + `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`.
+- **165 prompts** для клиентов, которые показывают MCP prompts.
 
----
+Source code и инструкции разработки: [mcp-server/](mcp-server/).
 
-## Contributing
+## Участие в разработке
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for inclusion criteria. The standard is high intentionally — every skill must be grounded in named evidence, honestly rated, and practically useful. The library's value depends on its rigour.
+Критерии включения описаны в [CONTRIBUTING.md](CONTRIBUTING.md). Планка высокая намеренно: каждый skill должен быть practically useful, честно ограничен и связан с named evidence.
 
-### Workflow for adding or revising a skill
-
-After creating or editing a `SKILL.md`, run these steps before committing:
+После добавления или изменения любого `SKILL.md`:
 
 ```bash
-# 1. Regenerate the registry
+# 1. Пересобрать registry
 python3 scripts/generate-registry.py
 
-# 2. Rebuild the MCP server bundle — required after every skill addition or revision
+# 2. Пересобрать MCP bundle
 cd mcp-server && npm run bundle-skills && cd ..
 
-# 3. Stage both generated files alongside the skill
+# 3. Добавить skill и generated файлы
 git add skills/<domain>/<skill-name>/SKILL.md registry.json mcp-server/src/skills.json
 ```
 
-**Why the bundle step matters:** the MCP server does not read `SKILL.md` files at runtime. It serves a pre-built snapshot at `mcp-server/src/skills.json`. If you add or revise a skill without rebuilding the bundle and committing the result, the change will not appear in the server output. CI will catch this and fail the build.
+Почему bundle обязателен: MCP-сервер читает не live `SKILL.md`, а snapshot `mcp-server/src/skills.json`. Если изменить skill без пересборки bundle, сервер не увидит изменение.
 
----
+## План русской адаптации
 
-## Credit
+Текущий статус и следующий пакет доменов ведутся в [PLAN.md](PLAN.md). Документ [docs/RU_LOCALIZATION.md](docs/RU_LOCALIZATION.md) фиксирует принципы русскоязычной адаптации: какие термины локализуем, какие IDs оставляем английскими и как сохраняем upstream compatibility.
 
-Built by [Gareth Manning](https://substack.com/@garethmanning) — educator, curriculum designer, and learning systems designer. 20 years of international education experience across 27 countries.
+## Авторы и происхождение
 
-## Licence
+Оригинальная библиотека создана [Gareth Manning](https://substack.com/@garethmanning), educator, curriculum designer и learning systems designer с 20 годами международного опыта.
 
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Open. Forkable. Share alike.
+Этот repository — русскоязычный fork `dubr1k/education-agent-skills`, адаптирующий runtime, документацию и skills для RU/EN использования.
+
+## Лицензия
+
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Открыто. Можно fork, адаптировать и распространять на тех же условиях.
