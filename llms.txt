@@ -1,4 +1,4 @@
-# Academic Skills RU
+# Educational Skills RU
 
 > A bilingual RU/EN fork of the Education Agent Skills Library: 165 evidence-based agent skills for curriculum design, lesson planning, assessment, inclusion, and student-facing AI learning support. Designed for direct educator use and programmatic AI agent access.
 

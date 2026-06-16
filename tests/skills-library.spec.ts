@@ -198,7 +198,8 @@ test.describe("Plugin Manifest Validation", () => {
   });
 
   test("plugin.json is valid JSON", () => {
-    expect(plugin.name).toBe("academic-skills-ru");
+    expect(plugin.name).toBe("educational-skills-ru");
+    expect(plugin.display_name).toBe("Educational Skills RU");
     expect(plugin.version).toBe("2.2.0");
   });
 

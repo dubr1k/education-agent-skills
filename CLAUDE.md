@@ -1,4 +1,4 @@
-# Academic Skills RU — Claude Code Entry Point
+# Educational Skills RU — Claude Code Entry Point
 
 ## What this is
 Bilingual RU/EN fork of 165 evidence-based education skills across 20 domains for curriculum design, lesson planning, assessment, and student-facing AI learning support. CC BY-SA 4.0. Works in Claude Code, Claude.ai (via MCP), OpenAI Codex, and Hermes Agent. Keeps upstream skill identifiers stable while adding Russian runtime metadata, search aliases, docs, and context adaptation.

@@ -1,4 +1,4 @@
-# State — Academic Skills RU
+# State — Educational Skills RU
 
 ## Last updated: 2026-06-16
 

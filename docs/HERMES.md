@@ -1,8 +1,8 @@
-# Hermes Agent setup for Academic Skills RU
+# Hermes Agent setup for Educational Skills RU
 
-Use this guide if you use [Hermes Agent](https://hermes-agent.nousresearch.com/) and want **Academic Skills RU** available locally.
+Use this guide if you use [Hermes Agent](https://hermes-agent.nousresearch.com/) and want **Educational Skills RU** available locally.
 
-Academic Skills RU is a bilingual RU/EN fork of the Education Agent Skills Library. The recommended Hermes path is **selected local installs**, not a full plugin. The repo remains the canonical, inspectable source of truth; Hermes installs selected `SKILL.md` folders from GitHub into your local runtime.
+Educational Skills RU is a bilingual RU/EN fork of the Education Agent Skills Library. The recommended Hermes path is **selected local installs**, not a full plugin. The repo remains the canonical, inspectable source of truth; Hermes installs selected `SKILL.md` folders from GitHub into your local runtime.
 
 Repository: https://github.com/dubr1k/education-agent-skills
 

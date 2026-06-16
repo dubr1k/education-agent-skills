@@ -1,4 +1,4 @@
-# Academic Skills RU
+# Educational Skills RU
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
 [![Skills](https://img.shields.io/badge/skills-165-blue)](https://github.com/GarethManning/education-agent-skills)

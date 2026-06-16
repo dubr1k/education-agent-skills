@@ -1,12 +1,12 @@
 {
-  "name": "academic-skills-ru",
+  "name": "educational-skills-ru",
   "version": "2.2.0",
   "description": "Bilingual RU/EN fork of 165 evidence-based education skills for curriculum design, lesson planning, assessment, and AI-assisted teaching.",
   "repository": "https://github.com/GarethManning/education-agent-skills",
   "license": "CC-BY-SA-4.0",
   "skills": "./skills/",
   "interface": {
-    "displayName": "Academic Skills RU",
+    "displayName": "Educational Skills RU",
     "shortDescription": "165 bilingual RU/EN education skills for curriculum, lessons, and assessment",
     "composerIcon": "./assets/education-agent-skills-icon.svg"
   }

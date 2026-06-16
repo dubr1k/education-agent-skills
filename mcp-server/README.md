@@ -1,6 +1,6 @@
-# Academic Skills RU MCP Server
+# Educational Skills RU MCP Server
 
-MCP server exposing the bilingual **Academic Skills RU** library as callable tools and prompts: 165 evidence-based education skills across 20 domains, plus 4 discovery tools.
+MCP server exposing the bilingual **Educational Skills RU** library as callable tools and prompts: 165 evidence-based education skills across 20 domains, plus 4 discovery tools.
 
 Production URL:
 

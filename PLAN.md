@@ -1,4 +1,4 @@
-# PLAN — Academic Skills RU
+# PLAN — Educational Skills RU
 
 ## Цель
 
@@ -7,7 +7,7 @@
 ## Уже сделано
 
 - Репозиторий склонирован и запушен в fork `dubr1k/education-agent-skills`.
-- Runtime/metadata слой переименован в `academic-skills-ru`.
+- Runtime/metadata слой переименован в `educational-skills-ru`.
 - MCP wrapper, meta-tools, registry domain labels и поиск адаптированы под RU/EN.
 - Добавлен Unicode-aware поиск и русские query aliases.
 - Добавлен документ `docs/RU_LOCALIZATION.md`.

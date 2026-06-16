@@ -1,6 +1,6 @@
-# Using Academic Skills RU in OpenAI Codex
+# Using Educational Skills RU in OpenAI Codex
 
-This guide explains how to use **Academic Skills RU**, a bilingual RU/EN fork of the Education Agent Skills Library, with OpenAI Codex without relying on the hosted MCP server.
+This guide explains how to use **Educational Skills RU**, a bilingual RU/EN fork of the Education Agent Skills Library, with OpenAI Codex without relying on the hosted MCP server.
 
 Repository: https://github.com/dubr1k/education-agent-skills
 

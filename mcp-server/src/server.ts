@@ -23,7 +23,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
   }
 
   const server = new McpServer({
-    name: "academic-skills-ru",
+    name: "educational-skills-ru",
     version: "0.3.0",
   });
 

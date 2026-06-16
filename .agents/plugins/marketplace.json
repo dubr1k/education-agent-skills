@@ -1,8 +1,8 @@
 {
-  "name": "academic-skills-ru",
+  "name": "educational-skills-ru",
   "plugins": [
     {
-      "name": "academic-skills-ru",
+      "name": "educational-skills-ru",
       "source": {
         "source": "local",
         "path": "./../.."
@@ -13,7 +13,7 @@
       },
       "category": "Education",
       "interface": {
-        "displayName": "Academic Skills RU",
+        "displayName": "Educational Skills RU",
         "shortDescription": "165 bilingual RU/EN skills for curriculum design, lesson planning, and assessment"
       }
     }
