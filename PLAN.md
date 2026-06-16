@@ -40,16 +40,21 @@
 - Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` и `README.md` получили memory-learning-science примеры и обновленный статус адаптированных доменов.
 - Основной `README.md` переведен в русский local-first guide для `Educational Skills RU`: установка ведет на fork `dubr1k/education-agent-skills`, удалены англоязычные upstream onboarding sections, сохранены совместимые английские technical IDs и добавлен русский обзор доменов/архитектуры/MCP.
 - Добавлены README QA tests: root README должен содержать русские основные секции, все `README.md` должны ссылаться на fork и не должны возвращать upstream install URLs / hosted signup flow.
+- Адаптирован домен `questioning-discussion`: 5 `SKILL.md` получили RU/EN runtime-контекст для вопросов, обсуждения, диалога, сократических вопросов, hinge questions, дискуссионных протоколов, perspective-taking и classroom talk без изменения YAML metadata.
+- Усилен русский `find_skills` для `questioning-discussion`: доменный индекс и aliases теперь покрывают вопросы, обсуждение, диалог, сократические вопросы, дискуссионные протоколы, classroom talk, accountable talk, hinge questions и perspective-taking.
+- Добавлены QA tests для русского `find_skills` по questioning-discussion и проверки, что RU questioning/discussion-контекст попадает в bundled MCP prompts.
+- Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил questioning-discussion статус, терминологию и русский пример `find_skills`; `README.md` уточнил фокус домена.
 - Последняя проверка 2026-06-16:
-  - `npx playwright test tests/skills-library.spec.ts --grep 'Documentation Validation'` — OK, docs `2 passed`.
+  - `conda run -n base python scripts/generate-registry.py` — OK, `165 skills, 20 domains`.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `42 passed`.
+  - `npx playwright test` — OK, root `22 passed`.
   - `npm test` — OK, root `22 passed`.
-  - `cd mcp-server && npm test` — OK, MCP `40 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `questioning-discussion`, потому что следующий русский слой должен покрыть вопросы, обсуждение, диалог, Socratic questioning, hinge questions и classroom talk.
-   - Следующий кандидат после него: `self-regulated-learning`.
+   - Приоритет: `self-regulated-learning`, потому что следующий русский слой должен покрыть саморегуляцию, метакогницию, постановку целей, выбор стратегий, мониторинг понимания и учебную самостоятельность.
+   - Следующий кандидат после него: `wellbeing-motivation-agency`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
@@ -64,4 +69,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `questioning-discussion`: пройти его `SKILL.md`, добавить русскоязычный слой для вопросов, обсуждения, диалога, сократических вопросов, hinge questions, дискуссионных протоколов и classroom talk, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `self-regulated-learning`: пройти его `SKILL.md`, добавить русскоязычный слой для саморегуляции, метакогниции, целей, учебных стратегий, мониторинга понимания и самостоятельной работы, не меняя совместимые английские идентификаторы и metadata.

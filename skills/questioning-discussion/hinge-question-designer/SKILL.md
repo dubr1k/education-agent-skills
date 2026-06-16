@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Response method:** {{response_method}} — if not provided, design for mini-whiteboards or finger voting (A/B/C/D).
 **Time constraint:** {{time_constraint}} — if not provided, ensure the question is answerable in under 2 minutes by a student who understands the concept.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based formative assessment guidance. Use natural Russian terms such as "диагностический вопрос", "hinge question", "проверка понимания", "мини-доски", "сигнальные карточки", "варианты ответа", "дистракторы", "типичные ошибки", "ошибочные представления", "формирующее оценивание" and "решение учителя". Preserve useful English labels such as hinge question, distractor, formative assessment and checking for understanding when helpful, but explain their function in Russian.
+
 Apply these evidence-based design principles:
 
 1. **One concept, one question (Wiliam, 2011):**

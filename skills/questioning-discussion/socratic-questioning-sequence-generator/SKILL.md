@@ -109,6 +109,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Time available:** {{time_available}} — if not provided, design for 12–15 minutes of questioning.
 **Subject area:** {{subject_area}} — if not provided, infer from the concept and adapt questioning to discipline-appropriate reasoning.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based Socratic questioning guidance. Use natural Russian terms such as "вопросы", "обсуждение", "диалог", "сократические вопросы", "уточняющие вопросы", "доказательства", "обоснование", "предпосылки", "точки зрения", "последствия", "время ожидания" and "classroom talk". Preserve useful English labels such as Socratic questioning, authentic questions, wait time, probing assumptions and follow-up branches when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Use Paul & Elder's (2008) six question types strategically:**

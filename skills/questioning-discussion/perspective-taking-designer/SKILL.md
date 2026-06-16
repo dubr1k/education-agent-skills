@@ -103,6 +103,8 @@ Age range: {{age_range}}
 Sensitivity notes: {{sensitivity_notes}}
 Prior knowledge: {{prior_knowledge}}
 
+Russian / bilingual context: If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based perspective-taking guidance. Use natural Russian terms such as "понимание перспектив", "учет позиции", "историческая эмпатия", "контекстуализация", "антипроекция", "многообразие точек зрения", "доказательства", "источники", "неопределенность", "обсуждение" and "диалог". Preserve useful English labels such as perspective-taking, anti-projection guardrails, historical empathy and contextual perspective-taking when helpful, but explain their function in Russian.
+
 Use these rules:
 
 1. DESIGN A FOUR-PHASE ACTIVITY SEQUENCE:

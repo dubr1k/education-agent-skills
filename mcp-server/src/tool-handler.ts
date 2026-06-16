@@ -18,7 +18,7 @@ const DOMAIN_SEARCH_TERMS: Record<string, string> = {
   "montessori-alternative-approaches": "монтессори альтернативная школа смешанный возраст среда самостоятельность",
   "original-frameworks": "авторская методика рамка оркестратор дизайн прогрессия",
   "professional-learning": "педагог учитель наставничество методическое объединение повышение квалификации",
-  "questioning-discussion": "вопросы дискуссия обсуждение сократовский диалог разговор",
+  "questioning-discussion": "вопросы дискуссия обсуждение дискуссионные протоколы сократовский сократические диалог разговор classroom talk accountable talk dialogic teaching hinge questions perspective taking teacher moves",
   "self-regulated-learning": "саморегуляция метакогниция цель ошибка стратегия учебная самостоятельность",
   "student-learning": "ученик учащийся студент самостоятельная учеба подсказки проверка понимания уверенность ошибка извлечение",
   "systems-thinking": "система причинность влияние рычаги модель айсберг",
@@ -56,7 +56,7 @@ const RU_QUERY_ALIASES: Array<{ pattern: RegExp; terms: string[] }> = [
   { pattern: /^(инклюз|овз|иом|адаптир|доступ|барьер)/u, terms: ["inclusive", "udl", "barrier", "adapted"] },
   { pattern: /^(ии|нейросет|чатгпт|gpt|ai)/u, terms: ["ai", "prompt", "chatgpt"] },
   { pattern: /^(истори|источник|документ)/u, terms: ["history", "historical", "source", "document"] },
-  { pattern: /^(дискус|обсужден|вопрос|диалог)/u, terms: ["discussion", "question", "dialogue"] },
+  { pattern: /^(дискус|обсужден|вопрос|диалог|разговор|сократ|протокол)/u, terms: ["discussion", "question", "dialogue", "Socratic", "protocol"] },
   { pattern: /^(ошиб|застр|сложн|непоним)/u, terms: ["error", "stuck", "misconception", "diagnosis"] },
 ];
 

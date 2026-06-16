@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, assume a typical class with a mix of confident speakers and reluctant contributors, and design structures that ensure all students participate.
 **Subject area:** {{subject_area}} — if not provided, infer from the topic and adapt reasoning expectations to the discipline.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based classroom discussion guidance. Use natural Russian terms such as "вопросы", "обсуждение", "диалог", "сократические вопросы", "дискуссионные протоколы", "учебная дискуссия", "речевые рамки", "аргументация", "обоснование", "контраргумент", "работа в парах" and "classroom talk". Preserve useful English labels such as Socratic seminar, Harkness discussion, fishbowl, think-pair-share, accountable talk and structured academic controversy when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Match protocol to purpose:**

@@ -221,6 +221,21 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("memory-learning-science");
     expect(text).toMatch(/Retrieval Practice Generator|Spaced Practice Scheduler|Interleaving Unit Planner|Cognitive Load Analyser|Dual Coding Designer|Feedback Quality Analyser|Elaborative Interrogation Question Generator/);
   });
+
+  test("finds questioning-discussion skills from Russian classroom talk language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "questioning-discussion",
+        query:
+          "вопросы обсуждение диалог сократические вопросы hinge questions дискуссионные протоколы classroom talk",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("questioning-discussion");
+    expect(text).toMatch(/Dialogic Teaching Move Generator|Discussion Protocol Selector|Hinge Question Designer|Perspective-Taking Activity Designer|Socratic Questioning Sequence Generator/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -494,6 +509,26 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("когнитивная нагрузка");
     expect(text).toContain("рабочая память");
     expect(text).toContain("6 класс");
+  });
+
+  test("includes Russian questioning-discussion context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "dialogic-teaching-move-generator",
+      arguments: {
+        student_response:
+          "Ученица говорит: 'Автор просто хотел показать, что герой плохой', и класс быстро соглашается",
+        learning_goal:
+          "Учащиеся должны обосновывать интерпретации и развивать ответы друг друга в диалоге",
+        subject_context:
+          "7 класс, литература, обсуждение поступка героя через сократические вопросы и classroom talk",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("сократические вопросы");
+    expect(text).toContain("дискуссионные протоколы");
+    expect(text).toContain("7 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

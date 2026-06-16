@@ -27,6 +27,8 @@
 | spaced practice | интервальное повторение |
 | worked example | разобранный пример |
 | scaffolding | учебная поддержка, опоры, постепенное снятие поддержки |
+| classroom talk / accountable talk | учебный разговор, ответственное обсуждение, речевые ходы |
+| hinge question | диагностический вопрос, hinge question |
 
 ## Приоритет адаптации skills
 
@@ -48,6 +50,7 @@
 - `eal-language-development`
 - `inclusive-design`
 - `literacy-critical-thinking`
+- `questioning-discussion`
 
 Для этих доменов русские запросы должны работать через `find_skills` / `suggest_skills`, а bundled MCP prompts содержат явный `Russian / bilingual context` слой. Английские `skill_id`, tool names, tags и chaining metadata остаются неизменными.
 
@@ -76,6 +79,13 @@
 }
 ```
 
+```json
+{
+  "domain": "questioning-discussion",
+  "query": "вопросы обсуждение диалог сократические вопросы hinge questions дискуссионные протоколы classroom talk"
+}
+```
+
 `suggest_skills`:
 
 ```json
@@ -89,6 +99,8 @@
 Для `explicit-instruction` ожидаемый маршрут: построение I Do / We Do / You Do последовательности, старт урока, think-aloud modelling, practice sequence и checking-for-understanding protocol.
 
 Для `memory-learning-science` ожидаемый маршрут: retrieval practice, spaced practice schedule, interleaving plan, cognitive load analysis, dual coding design, feedback rewrite, elaborative interrogation prompts и worked example fading.
+
+Для `questioning-discussion` ожидаемый маршрут: dialogic teaching moves, discussion protocol selection, hinge question design, perspective-taking activity design и Socratic questioning sequence.
 
 ## Проверка после изменений
 

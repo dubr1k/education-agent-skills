@@ -158,7 +158,7 @@ AI вернет план повторения с расширяющимися и
 | 1 | Memory & Learning Science | 8 | Retrieval practice, spacing, interleaving, cognitive load, dual coding, feedback |
 | 2 | Self-Regulated Learning & Metacognition | 5 | Саморегуляция, metacognitive prompts, goal-setting, выбор стратегий |
 | 3 | Explicit & Direct Instruction | 5 | Явное обучение, gradual release, проверка понимания, think-alouds |
-| 4 | Questioning, Discussion & Dialogue | 5 | Сократические вопросы, обсуждения, dialogic teaching, hinge questions |
+| 4 | Questioning, Discussion & Dialogue | 5 | Сократические вопросы, обсуждения, дискуссионные протоколы, classroom talk, hinge questions |
 | 5 | Literacy, Writing & Critical Thinking | 7 | Чтение, письмо, аргументация, source evaluation, media literacy |
 | 6 | EAL/D & Language Development | 5 | Language demands, vocabulary tiering, sentence frames, sheltered instruction |
 | 7 | Curriculum Design & Assessment | 13 | Backwards design, rubrics, assessment validity, formative assessment, PBL |
