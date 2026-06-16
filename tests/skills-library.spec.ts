@@ -7,6 +7,7 @@ const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
 const README_PATH = path.join(__dirname, "..", "README.md");
+const REPO_ROOT = path.join(__dirname, "..");
 
 // Вспомогательная функция: собрать все пути SKILL.md.
 function getAllSkillPaths(): string[] {
@@ -34,6 +35,24 @@ function parseFrontmatter(filePath: string): Record<string, unknown> {
   if (endIdx === -1) throw new Error(`No closing ---: ${filePath}`);
   const fmText = content.slice(3, endIdx);
   return yaml.parse(fmText) as Record<string, unknown>;
+}
+
+function getAllReadmePaths(dir = REPO_ROOT): string[] {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const paths: string[] = [];
+
+  for (const entry of entries) {
+    if (entry.name === "node_modules" || entry.name === ".git") continue;
+
+    const entryPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      paths.push(...getAllReadmePaths(entryPath));
+    } else if (entry.name === "README.md") {
+      paths.push(entryPath);
+    }
+  }
+
+  return paths.sort();
 }
 
 test.describe("Skill Discovery", () => {
@@ -226,6 +245,20 @@ test.describe("Documentation Validation", () => {
     expect(readme).not.toContain("GarethManning/education-agent-skills");
     expect(readme).not.toContain("mcp-server-sigma-sooty.vercel.app");
     expect(readme).not.toContain("Hosted MCP access signup");
+  });
+
+  test("all README files avoid upstream install instructions", () => {
+    const readmes = getAllReadmePaths();
+    expect(readmes.length).toBeGreaterThanOrEqual(2);
+
+    for (const readmePath of readmes) {
+      const readme = fs.readFileSync(readmePath, "utf-8");
+      expect(readme).toContain("https://github.com/dubr1k/education-agent-skills");
+      expect(readme).not.toContain("https://github.com/GarethManning/education-agent-skills");
+      expect(readme).not.toContain("GarethManning/education-agent-skills");
+      expect(readme).not.toContain("mcp-server-sigma-sooty.vercel.app");
+      expect(readme).not.toContain("Hosted MCP access signup");
+    }
   });
 });
 

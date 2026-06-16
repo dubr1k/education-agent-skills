@@ -66,9 +66,11 @@ Add to your `claude_desktop_config.json`:
 
 ## Run locally
 
-From this directory:
+Clone this fork and run the MCP server from the bundled snapshot:
 
 ```bash
+git clone https://github.com/dubr1k/education-agent-skills.git
+cd education-agent-skills/mcp-server
 npm install
 npm run bundle-skills
 npm run build
