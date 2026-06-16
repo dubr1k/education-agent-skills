@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Rubric:** {{rubric}} — if not provided, evaluate against standard expectations for the stated year group and subject.
 **Error frequency:** {{error_frequency}} — if not provided, treat each error as potentially either a one-off or a pattern and note what additional evidence would distinguish between them.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based error analysis and self-regulated learning guidance. Use natural Russian terms such as "саморегуляция", "метакогниция", "анализ ошибок", "ошибочные представления", "типичная ошибка", "причина ошибки", "мониторинг понимания", "самопроверка", "учебные стратегии" and "самостоятельная работа". Preserve useful English labels such as error analysis, misconception, procedural error, conceptual error, careless error and metacognitive monitoring when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Classify each error (Siegler, 2002; Tulis et al., 2016):**

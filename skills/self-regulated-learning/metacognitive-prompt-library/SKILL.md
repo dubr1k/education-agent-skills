@@ -100,6 +100,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, design for a typical class at the stated metacognitive development level.
 **Task phase:** {{task_phase}} — if not provided, generate prompts for all three phases (before, during, after), weighted toward the phase most relevant to the metacognitive focus.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based metacognition guidance. Use natural Russian terms such as "саморегуляция", "метакогниция", "метакогнитивные вопросы", "планирование", "мониторинг понимания", "контроль понимания", "самопроверка", "рефлексия", "выбор стратегии", "коррекция стратегии" and "самостоятельная работа". Preserve useful English labels such as metacognitive prompts, planning, monitoring, evaluation and self-regulated learning when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Distinguish metacognitive types (Flavell, 1979; Schraw, 1998):**

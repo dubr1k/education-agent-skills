@@ -44,17 +44,21 @@
 - Усилен русский `find_skills` для `questioning-discussion`: доменный индекс и aliases теперь покрывают вопросы, обсуждение, диалог, сократические вопросы, дискуссионные протоколы, classroom talk, accountable talk, hinge questions и perspective-taking.
 - Добавлены QA tests для русского `find_skills` по questioning-discussion и проверки, что RU questioning/discussion-контекст попадает в bundled MCP prompts.
 - Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил questioning-discussion статус, терминологию и русский пример `find_skills`; `README.md` уточнил фокус домена.
+- Адаптирован домен `self-regulated-learning`: 5 `SKILL.md` получили RU/EN runtime-контекст для саморегуляции, метакогниции, постановки целей, учебных стратегий, мониторинга понимания, самостоятельной работы и анализа ошибок без изменения YAML metadata.
+- Усилен русский `find_skills` для `self-regulated-learning`: доменный индекс и aliases теперь покрывают саморегуляцию, метакогницию, цели, учебные стратегии, мониторинг понимания, самостоятельную работу и анализ ошибок.
+- Добавлены QA tests для русского `find_skills` по self-regulated-learning и проверки, что RU self-regulated-learning контекст попадает в bundled MCP prompts.
+- Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил self-regulated-learning статус, терминологию и русский пример `find_skills`; `README.md` уточнил фокус домена.
 - Последняя проверка 2026-06-16:
   - `conda run -n base python scripts/generate-registry.py` — OK, `165 skills, 20 domains`.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `42 passed`.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `44 passed`.
   - `npx playwright test` — OK, root `22 passed`.
   - `npm test` — OK, root `22 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `self-regulated-learning`, потому что следующий русский слой должен покрыть саморегуляцию, метакогницию, постановку целей, выбор стратегий, мониторинг понимания и учебную самостоятельность.
-   - Следующий кандидат после него: `wellbeing-motivation-agency`.
+   - Приоритет: `wellbeing-motivation-agency`, потому что следующий русский слой должен покрыть благополучие, мотивацию, субъектность, принадлежность, травма-информированный подход и восстановительные практики.
+   - Следующий кандидат после него: `professional-learning`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
@@ -69,4 +73,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `self-regulated-learning`: пройти его `SKILL.md`, добавить русскоязычный слой для саморегуляции, метакогниции, целей, учебных стратегий, мониторинга понимания и самостоятельной работы, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `wellbeing-motivation-agency`: пройти его `SKILL.md`, добавить русскоязычный слой для благополучия, мотивации, субъектности, принадлежности, травма-информированного подхода и восстановительных практик, не меняя совместимые английские идентификаторы и metadata.

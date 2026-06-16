@@ -156,7 +156,7 @@ AI вернет план повторения с расширяющимися и
 | # | Домен | Skills | Фокус |
 |---|---|---:|---|
 | 1 | Memory & Learning Science | 8 | Retrieval practice, spacing, interleaving, cognitive load, dual coding, feedback |
-| 2 | Self-Regulated Learning & Metacognition | 5 | Саморегуляция, metacognitive prompts, goal-setting, выбор стратегий |
+| 2 | Self-Regulated Learning & Metacognition | 5 | Саморегуляция, метакогниция, постановка целей, учебные стратегии, мониторинг понимания |
 | 3 | Explicit & Direct Instruction | 5 | Явное обучение, gradual release, проверка понимания, think-alouds |
 | 4 | Questioning, Discussion & Dialogue | 5 | Сократические вопросы, обсуждения, дискуссионные протоколы, classroom talk, hinge questions |
 | 5 | Literacy, Writing & Critical Thinking | 7 | Чтение, письмо, аргументация, source evaluation, media literacy |

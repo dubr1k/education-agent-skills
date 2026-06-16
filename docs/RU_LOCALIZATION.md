@@ -29,6 +29,8 @@
 | scaffolding | учебная поддержка, опоры, постепенное снятие поддержки |
 | classroom talk / accountable talk | учебный разговор, ответственное обсуждение, речевые ходы |
 | hinge question | диагностический вопрос, hinge question |
+| self-regulated learning | саморегуляция, учебная самостоятельность |
+| metacognition | метакогниция, мониторинг понимания, мышление о мышлении |
 
 ## Приоритет адаптации skills
 
@@ -51,6 +53,7 @@
 - `inclusive-design`
 - `literacy-critical-thinking`
 - `questioning-discussion`
+- `self-regulated-learning`
 
 Для этих доменов русские запросы должны работать через `find_skills` / `suggest_skills`, а bundled MCP prompts содержат явный `Russian / bilingual context` слой. Английские `skill_id`, tool names, tags и chaining metadata остаются неизменными.
 
@@ -86,6 +89,13 @@
 }
 ```
 
+```json
+{
+  "domain": "self-regulated-learning",
+  "query": "саморегуляция метакогниция постановка целей учебные стратегии мониторинг понимания самостоятельная работа анализ ошибок"
+}
+```
+
 `suggest_skills`:
 
 ```json
@@ -101,6 +111,8 @@
 Для `memory-learning-science` ожидаемый маршрут: retrieval practice, spaced practice schedule, interleaving plan, cognitive load analysis, dual coding design, feedback rewrite, elaborative interrogation prompts и worked example fading.
 
 Для `questioning-discussion` ожидаемый маршрут: dialogic teaching moves, discussion protocol selection, hinge question design, perspective-taking activity design и Socratic questioning sequence.
+
+Для `self-regulated-learning` ожидаемый маршрут: error analysis, goal-setting protocol, metacognitive prompts, self-regulation scaffolds и evidence-based study strategy selection.
 
 ## Проверка после изменений
 

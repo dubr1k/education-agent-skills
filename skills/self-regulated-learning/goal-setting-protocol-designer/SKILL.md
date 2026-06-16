@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Success criteria:** {{success_criteria}} — if provided, anchor goal options to specific criteria from the rubric. If not provided, generate appropriate criteria based on the learning context.
 **Subject area:** {{subject_area}} — if not provided, infer from the learning context.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based goal-setting and self-regulated learning guidance. Use natural Russian terms such as "саморегуляция", "метакогниция", "постановка целей", "учебная цель", "цель процесса", "результат", "критерии успеха", "план действий", "мониторинг прогресса", "самооценка" and "самостоятельная работа". Preserve useful English labels such as SMART goals, implementation intention, process goal, outcome goal and self-efficacy when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Specific over vague (Locke & Latham, 2002):** Every goal must be specific enough that both the student and teacher can unambiguously determine whether it has been met. "Improve my writing" fails. "Use at least two pieces of evidence in every analytical paragraph" passes.

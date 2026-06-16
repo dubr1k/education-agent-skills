@@ -236,6 +236,21 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("questioning-discussion");
     expect(text).toMatch(/Dialogic Teaching Move Generator|Discussion Protocol Selector|Hinge Question Designer|Perspective-Taking Activity Designer|Socratic Questioning Sequence Generator/);
   });
+
+  test("finds self-regulated-learning skills from Russian self-regulation language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "self-regulated-learning",
+        query:
+          "саморегуляция метакогниция постановка целей учебные стратегии мониторинг понимания самостоятельная работа анализ ошибок",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("self-regulated-learning");
+    expect(text).toMatch(/Error Analysis Protocol|Goal-Setting Protocol Designer|Metacognitive Prompt Library|Self-Regulation Scaffold Generator|Study Strategy Selector/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -529,6 +544,25 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("сократические вопросы");
     expect(text).toContain("дискуссионные протоколы");
     expect(text).toContain("7 класс");
+  });
+
+  test("includes Russian self-regulated-learning context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "study-strategy-selector",
+      arguments: {
+        learning_task:
+          "Подготовиться к контрольной по биологии: термины, процессы и задания на объяснение",
+        student_level:
+          "8 класс, перечитывает конспект и не отслеживает понимание",
+        material_type: "смешанный материал: факты, понятия и применение",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("саморегуляция");
+    expect(text).toContain("метакогниция");
+    expect(text).toContain("8 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

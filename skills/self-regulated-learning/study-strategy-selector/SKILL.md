@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, assume the student uses common but ineffective strategies (re-reading, highlighting) and needs to be guided toward evidence-based alternatives.
 **Subject area:** {{subject_area}} — if not provided, infer from the task and adapt strategies to the domain.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based study strategy and self-regulated learning guidance. Use natural Russian terms such as "саморегуляция", "метакогниция", "учебные стратегии", "стратегии подготовки", "практика извлечения из памяти", "интервальное повторение", "чередование", "самопроверка", "мониторинг понимания", "план подготовки" and "самостоятельная работа". Preserve useful English labels such as retrieval practice, distributed practice, interleaving, self-testing and study strategy when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Rank strategies by Dunlosky et al.'s (2013) utility ratings:**

@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Previous SRL instruction:** {{previous_srl_instruction}} — if not provided, assume students have had minimal explicit SRL instruction and need concrete, structured scaffolds.
 **Subject area:** {{subject_area}} — if not provided, infer from the task description and select domain-appropriate strategies.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based self-regulated learning guidance. Use natural Russian terms such as "саморегуляция", "метакогниция", "планирование", "мониторинг понимания", "самооценка", "самопроверка", "выбор стратегии", "учебные стратегии", "самостоятельная работа", "снятие опор" and "учебная самостоятельность". Preserve useful English labels such as SRL, forethought, performance, self-reflection, scaffold and fading when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Scaffold all three phases (Zimmerman, 2002):**
