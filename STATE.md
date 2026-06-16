@@ -4,33 +4,32 @@
 
 ## What was done this session
 
-Started the bilingual RU/EN fork adaptation without breaking upstream skill compatibility.
+Continued the bilingual RU/EN fork adaptation without breaking upstream skill compatibility.
 
-- Renamed package/plugin identity to `academic-skills-ru` where runtime manifests need to avoid collisions.
-- Kept upstream-compatible `skill_id`, folder names, tool names, tags, and chaining identifiers.
-- Added Russian domain labels to `scripts/generate-registry.py` and regenerated `registry.json`.
-- Added Russian/bilingual MCP tool titles, descriptions, wrapper instructions, and output labels.
-- Added Unicode-aware RU/EN search tokenization and Russian query aliases for `suggest_skills` / `find_skills`.
-- Added `docs/RU_LOCALIZATION.md` with compatibility invariants, glossary, and adaptation priorities.
-- Updated root and MCP package lockfiles after package renaming.
-- Rebuilt `mcp-server/src/skills.json`.
+- Adapted all 7 `literacy-critical-thinking` skills with Russian / bilingual runtime context for reading, writing, argumentation, source analysis, media literacy, essays, extended responses, and critical thinking.
+- Kept upstream-compatible `skill_id`, folder names, tool names, tags, chaining identifiers, and YAML metadata.
+- Expanded Russian `find_skills` / `suggest_skills` aliases for literacy and critical thinking terms: `учебный текст`, `смысловое чтение`, `сочинение`, `эссе`, `развернутый ответ`, `анализ источников`, `достоверность`, `медиаграмотность`, `критическое мышление`.
+- Added MCP QA coverage for Russian literacy-critical-thinking discovery and bundled prompt context.
+- Updated `docs/RU_LOCALIZATION.md` and `README.md` with Russian-language literacy examples and current adaptation status.
+- Regenerated `registry.json` and rebuilt `mcp-server/src/skills.json`.
 
 ## What was verified
 
-- `cd mcp-server && npm run build`
-- `cd mcp-server && npm test` — 21 passed
+- `/tmp/academic-skills-ru-venv/bin/python scripts/generate-registry.py` — 165 skills / 20 domains
+- `cd mcp-server && npm run bundle-skills && npm run build && npm test` — 36 passed
 - `npx playwright test` — 20 passed
-- Russian `suggest_skills` test added while preserving the existing plain-English query test.
+- `npm test` — 20 passed
 
 ## Current library state
 
 - 165 skills across 20 domains.
 - Runtime/discovery layer is now bilingual RU/EN.
-- Actual `SKILL.md` bodies are still mostly upstream English and need staged Russian-context adaptation.
-- `student-learning` remains the first priority domain for content adaptation.
+- Runtime/discovery layer is bilingual RU/EN.
+- Adapted content domains now include `student-learning`, `curriculum-assessment`, `curriculum-alignment`, `eal-language-development`, `inclusive-design`, and `literacy-critical-thinking`.
+- Remaining `SKILL.md` bodies still need staged Russian-context adaptation.
 
 ## What's next
 
-- Adapt `student-learning` SKILL.md files for Russian output and examples while preserving evidence citations.
-- Add more Russian aliases/tests for curriculum, assessment, ФГОС/ФОП, ОГЭ/ЕГЭ, РКИ, ОВЗ.
-- Localize `docs/CODEX.md`, `docs/HERMES.md`, and MCP server docs after runtime behaviour stabilizes.
+- Adapt `explicit-instruction` SKILL.md files for Russian lesson-structure, modelling, guided practice, independent practice, and checking-for-understanding contexts.
+- Add QA tests for Russian `find_skills` and bundled prompt context for `explicit-instruction`.
+- Continue updating Russian docs as each domain becomes adapted.

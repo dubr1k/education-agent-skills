@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, infer from the text description.
 **Known challenges:** {{known_challenges}} — if not provided, identify the most likely challenges based on the text description and student level.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based text complexity guidance. Use natural Russian terms such as "смысловое чтение", "учебный текст", "понимание текста", "главная мысль", "инференция", "вывод", "лексика", "термины", "анализ источников" and "медиаграмотность" when relevant. For writing follow-up, map tasks to "сочинение", "эссе", "развернутый ответ" or "аргументированный абзац".
+
 Apply these evidence-based principles:
 
 1. **Three-dimensional complexity analysis (Shanahan et al., 2012):**

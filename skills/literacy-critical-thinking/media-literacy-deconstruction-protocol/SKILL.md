@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, design for a general media literacy context.
 **Learning objectives:** {{learning_objectives}} — if not provided, infer appropriate objectives from the media type and analysis focus.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based media literacy guidance. Use natural Russian terms such as "медиаграмотность", "новостной текст", "соцсети", "источник", "автор", "аудитория", "предвзятость", "факт", "мнение", "достоверность" and "проверка утверждений". When tasks connect to writing, map outputs to "сочинение", "эссе", "развернутый ответ" or "аргументированный абзац" as appropriate.
+
 Apply these evidence-based principles:
 
 1. **All media messages are constructed (Aufderheide, 1993):**

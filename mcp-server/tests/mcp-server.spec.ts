@@ -176,6 +176,21 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("inclusive-design");
     expect(text).toMatch(/UDL Barrier Anticipator|UDL Lesson Auditor|UDL Options Designer/);
   });
+
+  test("finds literacy-critical-thinking skills from Russian literacy language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "literacy-critical-thinking",
+        query:
+          "учебный текст аргументация сочинение эссе медиаграмотность анализ источников критическое мышление",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("literacy-critical-thinking");
+    expect(text).toMatch(/Argument Structure Scaffold Generator|Critical Thinking Task Designer|Media Literacy Deconstruction Protocol|Source Credibility Evaluation Protocol|Text Complexity Analyser/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -395,6 +410,25 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("ОВЗ");
     expect(text).toContain("ПМПК");
     expect(text).toContain("тьютор");
+  });
+
+  test("includes Russian literacy-critical-thinking context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "text-complexity-analyser",
+      arguments: {
+        text_description:
+          "Учебный текст по обществознанию с аргументами, статистикой и спорными источниками",
+        student_level: "8 класс",
+        reading_purpose:
+          "Проанализировать аргументацию, оценить достоверность источников и подготовить эссе",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("медиаграмотность");
+    expect(text).toContain("сочинение");
+    expect(text).toContain("8 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

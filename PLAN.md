@@ -26,17 +26,21 @@
 - Добавлены QA tests для русского `find_skills` по eal-language-development и проверки, что RU EAL-контекст попадает в bundled MCP prompts.
 - Адаптирован домен `inclusive-design`: 3 `SKILL.md` получили RU/EN runtime-контекст для ОВЗ, ИОМ, АООП/адаптированной программы, ПМПК, тьютора, специальных условий, accessibility barriers, UDL и инклюзивного classroom support без изменения YAML metadata.
 - Добавлены QA tests для русского `find_skills` по inclusive-design и проверки, что RU inclusive-контекст попадает в bundled MCP prompts.
+- Адаптирован домен `literacy-critical-thinking`: 7 `SKILL.md` получили RU/EN runtime-контекст для смыслового чтения, учебного текста, аргументации, сочинения/эссе/развернутого ответа, анализа источников, достоверности, медиаграмотности и критического мышления без изменения YAML metadata.
+- Усилен русский `find_skills` для `literacy-critical-thinking`: доменный индекс и aliases теперь покрывают учебный текст, смысловое чтение, сочинение/эссе/развернутый ответ, аргументацию, анализ источников, достоверность/надежность, медиаграмотность и критическое мышление.
+- Добавлены QA tests для русского `find_skills` по literacy-critical-thinking и проверки, что RU literacy-контекст попадает в bundled MCP prompts.
+- Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил статус адаптированных доменов и русские примеры `find_skills`/`suggest_skills`; `README.md` получил русский literacy-critical-thinking пример.
 - Последняя проверка 2026-06-16:
-  - `.venv/bin/python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `34 passed`.
+  - `/tmp/academic-skills-ru-venv/bin/python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `36 passed`.
   - `npx playwright test` — OK, root `20 passed`.
   - `npm test` — OK, root `20 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `literacy-critical-thinking`, потому что русскоязычный слой уже покрывает чтение, письмо, текст, аргументацию и критическое мышление.
-   - Следующий кандидат после него: `explicit-instruction`.
+   - Приоритет: `explicit-instruction`, потому что следующий русский слой должен покрыть структуру урока, моделирование, guided/independent practice, проверку понимания и педагогические объяснения.
+   - Следующий кандидат после него: `memory-learning-science`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
@@ -51,4 +55,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `literacy-critical-thinking`: пройти его `SKILL.md`, добавить русскоязычный слой для чтения, письма, учебного текста, аргументации, сочинения/эссе, медиаграмотности, анализа источников и критического мышления, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `explicit-instruction`: пройти его `SKILL.md`, добавить русскоязычный слой для явного обучения, структуры урока, объяснения/моделирования, guided practice, independent practice, проверки понимания и коррекции ошибок, не меняя совместимые английские идентификаторы и metadata.

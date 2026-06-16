@@ -109,6 +109,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, infer from the evaluation context.
 **Common mistakes:** {{common_mistakes}} — if not provided, include the most common source evaluation errors for this age group: trusting professional-looking design, confusing .org with automatic credibility, accepting information because it confirms what they already believe.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based source evaluation guidance. Use natural Russian terms such as "источник", "достоверность", "надежность", "автор", "издатель", "аудитория", "цель", "предвзятость", "проверка фактов", "медиаграмотность" and "анализ источников". For academic writing follow-up, map outputs to "сочинение", "эссе", "развернутый ответ" or "аргументированный абзац" as appropriate.
+
 Apply these evidence-based principles:
 
 1. **Lateral reading over vertical reading (Wineburg & McGrew, 2017, 2019):**

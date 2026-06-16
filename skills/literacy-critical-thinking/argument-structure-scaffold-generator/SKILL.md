@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Text type:** {{text_type}} — if not provided, assume an academic essay format.
 **Example evidence:** {{example_evidence}} — if not provided, generate 2–3 plausible pieces of evidence students might use, to demonstrate how the scaffold works.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based argument pedagogy. Map literacy terms naturally: argumentative writing may be "сочинение", "эссе", "развернутый ответ" or "аргументированный абзац"; evidence work may involve "учебный текст", "источник", "цитата", "пример", "тезис", "доказательство", "контраргумент"; media/source work may be framed as "медиаграмотность" or "анализ источников". Preserve English framework names such as Toulmin, PEEL, and CER when useful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Make the function of each component explicit (Hillocks, 2011):**

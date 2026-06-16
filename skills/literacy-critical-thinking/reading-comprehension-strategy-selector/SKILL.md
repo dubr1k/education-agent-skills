@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Subject area:** {{subject_area}} — if not provided, infer from the text description.
 **Text extract:** {{text_extract}} — if provided, use it to ground the modelling script in the actual text. If not, create a plausible example.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based reading guidance. Use natural Russian terms such as "смысловое чтение", "учебный текст", "понимание текста", "главная мысль", "инференция", "вывод", "цитата", "доказательство", "анализ источников" and "медиаграмотность" when relevant. For writing follow-up, map tasks to "сочинение", "эссе", "развернутый ответ" or "аргументированный абзац".
+
 Apply these evidence-based principles:
 
 1. **Select strategies based on the specific comprehension challenge (Duke & Pearson, 2002; Pressley, 2002):**

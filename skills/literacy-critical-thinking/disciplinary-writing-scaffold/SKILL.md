@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Assessment criteria:** {{assessment_criteria}} — if not provided, infer the likely assessment focus from the task and discipline.
 **Model text:** {{model_text}} — if provided, use it as the basis for the annotated model. If not, generate a brief example.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based disciplinary writing guidance. Map literacy terms naturally: writing tasks may be "сочинение", "эссе", "развернутый ответ", "письменное рассуждение" or "аргументированный абзац"; evidence work may involve "учебный текст", "источник", "цитата", "пример", "тезис", "доказательство", "контраргумент"; subject conventions should reflect the discipline named by the teacher. Preserve English framework labels only when useful, and explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Discipline-specific structure (Martin & Rose, 2008):**

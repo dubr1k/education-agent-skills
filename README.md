@@ -159,6 +159,10 @@ Install the skills in Claude, Codex, or Hermes, then tell your agent what you ne
 
 Claude runs the **Backwards Design Unit Planner**, the **Spaced Practice Scheduler**, and the **Retrieval Practice Generator** in parallel. In under 90 seconds you get a complete lesson-by-lesson plan with spaced retrieval built in, evidence-grounded sequencing, and ready-to-use formative assessment activities — all calibrated to the timeline and topic list you provided.
 
+**Русский пример:** скажите *"Ученики 8 класса читают сложный учебный текст по обществознанию, путают факт и мнение, и им нужно подготовить аргументированное сочинение с оценкой источников."*
+
+The bilingual runtime can route this to literacy and critical thinking skills such as text complexity analysis, reading comprehension support, argument scaffolding, source credibility evaluation, and media literacy. The skills keep English-compatible IDs and tool names, but Russian teacher/student-facing outputs should use natural terms such as `учебный текст`, `сочинение`, `эссе`, `развернутый ответ`, `анализ источников` and `медиаграмотность` when the input is Russian.
+
 ### Without the plugin (manual)
 
 No API key. No technical setup. No dependencies.
