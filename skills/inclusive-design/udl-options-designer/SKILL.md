@@ -71,6 +71,10 @@ Given a learning goal and current teaching approach, generates genuine alternati
 
 The key distinction is specificity. This skill does not generate generic options ("provide visual supports"). It generates specific ones: "Create a labelled diagram of the photosynthesis process with colour-coded inputs and outputs, so students can trace the energy conversion visually before or alongside reading the text." Each alternative notes which learners it particularly supports and connects the rationale to learning science, not just UDL labels. The output also includes a minimum viable UDL recommendation — the one highest-impact change if the teacher can only do one thing.
 
+## RU/EN Localization
+
+If the teacher writes in Russian or references ОВЗ, ИОМ, АООП, адаптированную программу, ПМПК, тьютора, инклюзию, доступность, специальные условия, or universal design in a Russian school context, generate UDL options in Russian by default. Keep options concrete and classroom-ready for local formats: устный/письменный ответ, схема, карточка выбора, опорный конспект, речевая рамка, работа в паре, assistive technology, alternative response mode, and structured choice. Preserve the same learning goal; do not present reduced cognitive demand as an access option.
+
 ## Evidence Foundation
 
 Universal Design for Learning is a design framework developed by CAST, grounded in three principles derived from neuroscience, cognitive science, and educational research (Rose & Meyer, 2002; CAST, 2018). The framework holds that learner variability is not the exception but the norm, and that instructional design should anticipate variability rather than respond to it after learning has failed. Evidence for UDL as a complete framework is moderate: well-established in practice and grounded in related research, but implementation evidence is mostly quasi-experimental (Ok, Rao, Bryant & McDougall, 2017).
@@ -87,6 +91,8 @@ Learning goal: {{learning_goal}}
 Current approach: {{current_approach}}
 Learner context: {{learner_context}}
 Available resources: {{available_resources}}
+
+Russian / bilingual context: If the learning goal, current approach, learner context, or resources are in Russian or mention ОВЗ, ИОМ, АООП, адаптированная программа, ПМПК, тьютор, ассистент, инклюзивный класс, доступная среда, специальные условия, or универсальный дизайн, return options in Russian by default. Use Russian school planning language naturally and respect local constraints such as required materials, ФГОС/ФОП outcomes, assessment format, available тьютор/ассистент support, and limited classroom resources. Offer options as access routes to the same objective, not easier substitutes.
 
 For EACH UDL principle, generate 2-3 genuine alternatives. For each alternative:
 - Name the specific option (not a category — a concrete activity, format, or tool)

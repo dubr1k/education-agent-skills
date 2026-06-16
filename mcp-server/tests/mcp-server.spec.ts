@@ -162,6 +162,20 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("eal-language-development");
     expect(text).toMatch(/Language Demand Analyser|Vocabulary Tiering Tool|Academic Language Sentence Frame Generator|Scaffolded Task Modifier/);
   });
+
+  test("finds inclusive-design skills from Russian inclusion language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "inclusive-design",
+        query: "ОВЗ ИОМ адаптированная программа инклюзия доступность барьеры",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("inclusive-design");
+    expect(text).toMatch(/UDL Barrier Anticipator|UDL Lesson Auditor|UDL Options Designer/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -362,6 +376,25 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("РКИ");
     expect(text).toContain("русский как неродной");
     expect(text).toContain("6 класс");
+  });
+
+  test("includes Russian inclusive-design context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "udl-barrier-anticipator",
+      arguments: {
+        task_description:
+          "Ученики читают текст и письменно отвечают на вопросы по теме; цель - объяснить причинно-следственные связи",
+        learner_variability:
+          "В классе есть ученики с ОВЗ, ИОМ, билингвальные учащиеся и ученик с рекомендациями ПМПК",
+        environment: "Инклюзивный класс, тьютор доступен только часть урока",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("ОВЗ");
+    expect(text).toContain("ПМПК");
+    expect(text).toContain("тьютор");
   });
 
   test("handles collision names with domain prefix", async () => {

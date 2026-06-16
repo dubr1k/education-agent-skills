@@ -71,6 +71,10 @@ Given a task description and a learner variability profile, predicts likely acce
 
 The skill analyses barriers across all three UDL principles, attends to environmental barriers that are easily overlooked, and flags barriers in the assessment format that are unrelated to the learning goal. Critically, it distinguishes between barriers that can be reduced through design and barriers that require specialist support beyond what universal design can provide. Honest acknowledgement of this limit matters: claiming UDL can address what it cannot address leads teachers to under-refer students who need specialist intervention.
 
+## RU/EN Localization
+
+If the teacher writes in Russian or references ОВЗ, ИОМ, АООП, адаптированную программу, ПМПК, тьютора, инклюзию, доступность, barriers, or universal design in a Russian school context, analyse access barriers in that local context and respond in Russian by default. Treat these terms as learner-variability, support-plan, or referral-context signals, not as labels that lower expectations. Preserve the UDL evidence base and the distinction between design-addressable barriers and needs requiring specialist assessment or individualised support. Use respectful, non-stigmatising language and keep the learning goal intact.
+
 ## Evidence Foundation
 
 Universal Design for Learning is a proactive design framework developed by CAST (Rose & Meyer, 2002; CAST, 2018). Its core premise — that learning environments should be designed for the full range of human variability from the start, rather than modified reactively — draws on neuroscientific evidence that learning variability is the norm, not the exception (Meyer, Rose & Gordon, 2014). Anticipatory barrier analysis is the design-thinking application of this premise: identify where the task, environment, or assessment is likely to create access problems before those problems manifest as failure.
@@ -87,6 +91,8 @@ Task description: {{task_description}}
 Learner variability: {{learner_variability}}
 Environment: {{environment}}
 Time available: {{time_available}}
+
+Russian / bilingual context: If the task, learner variability, or environment is in Russian or names ОВЗ, ИОМ, АООП, адаптированная программа, ПМПК, тьютор, ассистент, инклюзивный класс, доступная среда, специальные условия, or универсальный дизайн, return the barrier analysis in Russian by default. Interpret IEP-like support plans as ИОМ/АООП/individualised support where relevant, but do not invent diagnoses or accommodations not provided. Flag when a barrier can be reduced through lesson design and when it should be escalated to specialist review, family-school coordination, ПМПК documentation, assistive technology, or an individual accommodation plan.
 
 Analyse the task systematically for barriers across all three UDL principles. For EACH barrier you identify:
 - Name the barrier specifically (not a category — the specific design element or feature that creates the access problem)

@@ -68,6 +68,10 @@ Takes an existing lesson or unit plan and evaluates it against Universal Design 
 
 The skill is not a compliance checklist. It is a barrier analysis. The goal is to identify where design choices may unintentionally exclude learners — because of how information is presented, how students are expected to respond, or what sustains their engagement — and suggest specific, practical alternatives that maintain the same learning goal. Not everything needs to change. The output identifies the highest-impact modifications, respects constraints the teacher cannot move, and names what the lesson already does well.
 
+## RU/EN Localization
+
+If the teacher writes in Russian or references ОВЗ, ИОМ, АООП, адаптированную программу, ПМПК, тьютора, инклюзию, доступность, специальные условия, or universal design in a Russian school context, audit the lesson in Russian by default. Map UDL principles to locally familiar planning language where helpful: цель урока, планируемые результаты, способы предъявления материала, способы ответа, организация внимания, рефлексия, assessment format, and classroom environment. Do not turn the audit into compliance paperwork; keep it focused on concrete access barriers and practical design changes that preserve cognitive demand.
+
 ## Evidence Foundation
 
 Universal Design for Learning is a design framework developed by CAST (Rose & Meyer, 2002; CAST, 2018; Meyer, Rose & Gordon, 2014). It is grounded in three principles: Multiple Means of Representation (how information is presented), Multiple Means of Action and Expression (how students demonstrate understanding), and Multiple Means of Engagement (what motivates and sustains attention). The UDL Guidelines (CAST, 2018) provide specific checkpoints under each principle, derived from neuroscience, cognitive science, and educational research.
@@ -84,6 +88,8 @@ Lesson plan: {{lesson_plan}}
 Learner context: {{learner_context}}
 Specific concerns: {{specific_concerns}}
 Constraints (cannot change): {{constraints}}
+
+Russian / bilingual context: If the lesson plan, learner context, or concerns are in Russian or mention ОВЗ, ИОМ, АООП, адаптированная программа, ПМПК, тьютор, ассистент, инклюзивный класс, доступная среда, специальные условия, or universal design, respond in Russian by default. Treat these as local signals for learner variability, access barriers, and possible individual accommodations. Respect stated constraints such as ФГОС/ФОП materials, mandated assessment format, school resources, or support-plan requirements. If specialist support may be needed, name that clearly without implying that UDL alone replaces an ИОМ, АООП, ПМПК recommendation, assistive technology, or specialist intervention.
 
 Work through the three UDL principles in order. For each principle:
 1. Identify what the lesson currently does well (name specific elements, not generalities)

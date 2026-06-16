@@ -24,17 +24,19 @@
 - Добавлены QA tests для русского `find_skills` по curriculum-alignment и проверки, что RU alignment-контекст попадает в bundled MCP prompts.
 - Адаптирован домен `eal-language-development`: 5 `SKILL.md` получили RU/EN runtime-контекст для РКИ, русского как неродного/иностранного, билингвальных учащихся, детей мигрантов, academic Russian, академического словаря, языковых рамок, scaffolded task modification и sheltered instruction без изменения YAML metadata.
 - Добавлены QA tests для русского `find_skills` по eal-language-development и проверки, что RU EAL-контекст попадает в bundled MCP prompts.
+- Адаптирован домен `inclusive-design`: 3 `SKILL.md` получили RU/EN runtime-контекст для ОВЗ, ИОМ, АООП/адаптированной программы, ПМПК, тьютора, специальных условий, accessibility barriers, UDL и инклюзивного classroom support без изменения YAML metadata.
+- Добавлены QA tests для русского `find_skills` по inclusive-design и проверки, что RU inclusive-контекст попадает в bundled MCP prompts.
 - Последняя проверка 2026-06-16:
   - `.venv/bin/python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `32 passed`.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `34 passed`.
   - `npx playwright test` — OK, root `20 passed`.
   - `npm test` — OK, root `20 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `inclusive-design`, потому что уже добавлены русские aliases для ОВЗ, ИОМ, адаптированной программы, инклюзии, доступности и барьеров.
-   - Следующий кандидат после него: `literacy-critical-thinking`.
+   - Приоритет: `literacy-critical-thinking`, потому что русскоязычный слой уже покрывает чтение, письмо, текст, аргументацию и критическое мышление.
+   - Следующий кандидат после него: `explicit-instruction`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
@@ -49,4 +51,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `inclusive-design`: пройти его `SKILL.md`, добавить русскоязычный слой для ОВЗ, ИОМ, АООП/адаптированной программы, ПМПК, тьютора, универсального дизайна, accessibility barriers и инклюзивного classroom support, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `literacy-critical-thinking`: пройти его `SKILL.md`, добавить русскоязычный слой для чтения, письма, учебного текста, аргументации, сочинения/эссе, медиаграмотности, анализа источников и критического мышления, не меняя совместимые английские идентификаторы и metadata.
