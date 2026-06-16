@@ -110,6 +110,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, design for a mixed-ability class with students who perform the task mechanically without monitoring their thinking.
 **Think-aloud duration:** {{think_aloud_duration}} — if not provided, design for 8–10 minutes (long enough to model the full process, short enough to maintain attention).
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based think-aloud guidance. Use natural Russian terms such as "явное обучение", "объяснение", "моделирование", "проговаривание хода мысли", "мысль вслух", "управляемая практика", "самостоятельная практика", "проверка понимания", "коррекция ошибок" and "типичные ошибки". Preserve useful English labels such as think-aloud and cognitive apprenticeship when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Make decisions visible, not just actions (Collins et al., 1989):**

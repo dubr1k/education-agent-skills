@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, design for a mixed-ability class and include differentiation notes.
 **Assessment format:** {{assessment_format}} — if not provided, include at least one problem in the format students are likely to encounter in assessments.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based practice design guidance. Use natural Russian terms such as "явное обучение", "структура урока", "объяснение", "моделирование", "управляемая практика", "самостоятельная практика", "проверка понимания", "коррекция ошибок", "типовые ошибки", "тренировочные задания" and "самостоятельная работа". Preserve useful English labels such as guided practice, independent practice, near transfer and far transfer when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Near-to-far transfer progression (Atkinson et al., 2000):**

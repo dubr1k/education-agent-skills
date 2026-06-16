@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Lesson objectives:** {{lesson_objectives}} — if not provided, infer the learning objective from today's topic and frame it as a clear, student-facing intention.
 **Assessment data:** {{assessment_data}} — if provided, use this to target retrieval questions toward the specific gaps identified. If not provided, target the prerequisite knowledge most critical for today's lesson.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based lesson-opening guidance. Use natural Russian terms such as "явное обучение", "структура урока", "актуализация знаний", "старт урока", "повторение", "объяснение", "моделирование", "управляемая практика", "самостоятельная практика", "проверка понимания" and "коррекция ошибок". Preserve useful English labels such as retrieval starter and CFU when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Retrieval starter — not re-teaching (Rosenshine, 2012; Agarwal et al., 2012):**

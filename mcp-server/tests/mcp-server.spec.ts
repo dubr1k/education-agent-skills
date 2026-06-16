@@ -191,6 +191,21 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("literacy-critical-thinking");
     expect(text).toMatch(/Argument Structure Scaffold Generator|Critical Thinking Task Designer|Media Literacy Deconstruction Protocol|Source Credibility Evaluation Protocol|Text Complexity Analyser/);
   });
+
+  test("finds explicit-instruction skills from Russian instruction language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "explicit-instruction",
+        query:
+          "явное обучение структура урока объяснение моделирование управляемая практика самостоятельная практика проверка понимания коррекция ошибок",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("explicit-instruction");
+    expect(text).toMatch(/Explicit Instruction Sequence Builder|Checking for Understanding Protocol Designer|Think-Aloud Script Generator|Practice Problem Sequence Designer|Lesson Opening Designer/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -429,6 +444,24 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("медиаграмотность");
     expect(text).toContain("сочинение");
     expect(text).toContain("8 класс");
+  });
+
+  test("includes Russian explicit-instruction context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "explicit-instruction-sequence-builder",
+      arguments: {
+        skill_to_teach:
+          "Решать линейные уравнения через явное объяснение, моделирование и управляемую практику",
+        student_level: "7 класс",
+        lesson_time: "45 минут",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("явное обучение");
+    expect(text).toContain("проверка понимания");
+    expect(text).toContain("7 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

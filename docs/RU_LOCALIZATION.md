@@ -41,6 +41,7 @@
 Полностью адаптированные runtime-домены:
 
 - `student-learning`
+- `explicit-instruction`
 - `curriculum-assessment`
 - `curriculum-alignment`
 - `eal-language-development`
@@ -60,6 +61,13 @@
 }
 ```
 
+```json
+{
+  "domain": "explicit-instruction",
+  "query": "явное обучение структура урока объяснение моделирование управляемая практика самостоятельная практика проверка понимания коррекция ошибок"
+}
+```
+
 `suggest_skills`:
 
 ```json
@@ -70,10 +78,12 @@
 
 Ожидаемый маршрут: навыки чтения и сложности текста, аргументации, оценки достоверности источников, медиаграмотности и критического мышления.
 
+Для `explicit-instruction` ожидаемый маршрут: построение I Do / We Do / You Do последовательности, старт урока, think-aloud modelling, practice sequence и checking-for-understanding protocol.
+
 ## Проверка после изменений
 
 ```bash
-python3 scripts/generate-registry.py
+conda run -n base python scripts/generate-registry.py
 cd mcp-server && npm run bundle-skills && npm run build && npm test
 cd ..
 npx playwright test

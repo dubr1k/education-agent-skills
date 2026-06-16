@@ -163,6 +163,10 @@ Claude runs the **Backwards Design Unit Planner**, the **Spaced Practice Schedul
 
 The bilingual runtime can route this to literacy and critical thinking skills such as text complexity analysis, reading comprehension support, argument scaffolding, source credibility evaluation, and media literacy. The skills keep English-compatible IDs and tool names, but Russian teacher/student-facing outputs should use natural terms such as `учебный текст`, `сочинение`, `эссе`, `развернутый ответ`, `анализ источников` and `медиаграмотность` when the input is Russian.
 
+**Русский пример для урока:** скажите *"Нужно объяснить ученикам 7 класса линейные уравнения: короткое объяснение, моделирование решения, управляемая практика, самостоятельная практика и проверка понимания."*
+
+The bilingual runtime can route this to explicit instruction skills such as lesson opening design, I Do / We Do / You Do sequencing, think-aloud modelling, practice problem sequencing, and checking-for-understanding protocols. Russian outputs should use natural terms such as `явное обучение`, `объяснение`, `моделирование`, `управляемая практика`, `самостоятельная практика`, `проверка понимания` and `коррекция ошибок`.
+
 ### Without the plugin (manual)
 
 No API key. No technical setup. No dependencies.

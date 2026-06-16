@@ -30,24 +30,28 @@
 - Усилен русский `find_skills` для `literacy-critical-thinking`: доменный индекс и aliases теперь покрывают учебный текст, смысловое чтение, сочинение/эссе/развернутый ответ, аргументацию, анализ источников, достоверность/надежность, медиаграмотность и критическое мышление.
 - Добавлены QA tests для русского `find_skills` по literacy-critical-thinking и проверки, что RU literacy-контекст попадает в bundled MCP prompts.
 - Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил статус адаптированных доменов и русские примеры `find_skills`/`suggest_skills`; `README.md` получил русский literacy-critical-thinking пример.
+- Адаптирован домен `explicit-instruction`: 5 `SKILL.md` получили RU/EN runtime-контекст для явного обучения, структуры урока, объяснения/моделирования, guided/independent practice, проверки понимания, коррекции ошибок, lesson openings, practice design и think-aloud scripts без изменения YAML metadata.
+- Усилен русский `find_skills` для `explicit-instruction`: доменный индекс и aliases теперь покрывают явное/прямое обучение, объяснение, моделирование, структуру урока, управляемую практику, самостоятельную практику, проверку понимания, формирующую обратную связь и коррекцию ошибок.
+- Добавлены QA tests для русского `find_skills` по explicit-instruction и проверки, что RU explicit-instruction контекст попадает в bundled MCP prompts.
+- Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил explicit-instruction пример и conda-команду проверки; `README.md` получил русский explicit-instruction пример.
 - Последняя проверка 2026-06-16:
-  - `/tmp/academic-skills-ru-venv/bin/python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `36 passed`.
+  - `conda run -n base python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `38 passed`.
   - `npx playwright test` — OK, root `20 passed`.
   - `npm test` — OK, root `20 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `explicit-instruction`, потому что следующий русский слой должен покрыть структуру урока, моделирование, guided/independent practice, проверку понимания и педагогические объяснения.
-   - Следующий кандидат после него: `memory-learning-science`.
+   - Приоритет: `memory-learning-science`, потому что следующий русский слой должен покрыть retrieval practice, spaced practice, interleaving, cognitive load, dual coding, feedback и elaborative interrogation.
+   - Следующий кандидат после него: `questioning-discussion`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
 2. После каждого пакета изменений выполнять:
 
 ```bash
-.venv/bin/python scripts/generate-registry.py
+conda run -n base python scripts/generate-registry.py
 cd mcp-server && npm run bundle-skills && npm run build && npm test
 cd ..
 npx playwright test
@@ -55,4 +59,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `explicit-instruction`: пройти его `SKILL.md`, добавить русскоязычный слой для явного обучения, структуры урока, объяснения/моделирования, guided practice, independent practice, проверки понимания и коррекции ошибок, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `memory-learning-science`: пройти его `SKILL.md`, добавить русскоязычный слой для практики извлечения из памяти, интервального повторения, чередования, когнитивной нагрузки, двойного кодирования, обратной связи и объяснительных вопросов, не меняя совместимые английские идентификаторы и metadata.

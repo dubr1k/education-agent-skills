@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Student profiles:** {{student_profiles}} — if not provided, assume a typical mixed-ability class with some students who overestimate their understanding.
 **Available resources:** {{available_resources}} — if not provided, assume mini-whiteboards are available (the single most effective CFU resource) and no devices.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based explicit instruction guidance. Use natural Russian terms such as "явное обучение", "структура урока", "объяснение", "моделирование", "управляемая практика", "самостоятельная практика", "проверка понимания", "коррекция ошибок", "мини-доски", "сигнальные карточки" and "выходной билет". Preserve useful English labels such as CFU, I Do / We Do / You Do, guided practice and independent practice when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Check ALL students, not just volunteers (Rosenshine, 2012; Lemov, 2015):**
