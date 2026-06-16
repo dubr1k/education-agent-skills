@@ -167,6 +167,10 @@ The bilingual runtime can route this to literacy and critical thinking skills su
 
 The bilingual runtime can route this to explicit instruction skills such as lesson opening design, I Do / We Do / You Do sequencing, think-aloud modelling, practice problem sequencing, and checking-for-understanding protocols. Russian outputs should use natural terms such as `явное обучение`, `объяснение`, `моделирование`, `управляемая практика`, `самостоятельная практика`, `проверка понимания` and `коррекция ошибок`.
 
+**Русский пример для учебных стратегий:** скажите *"Нужно спланировать повторение по теме клетки: практика извлечения из памяти, интервальное повторение, чередование вопросов и короткая обратная связь по ошибкам."*
+
+The bilingual runtime can route this to learning science skills such as retrieval practice generation, spaced practice scheduling, interleaving, cognitive load analysis, dual coding, feedback rewriting, elaborative interrogation, and worked-example fading. Russian outputs should use natural terms such as `практика извлечения из памяти`, `интервальное повторение`, `чередование`, `когнитивная нагрузка`, `двойное кодирование`, `обратная связь` and `объяснительные вопросы`.
+
 ### Without the plugin (manual)
 
 No API key. No technical setup. No dependencies.

@@ -41,6 +41,7 @@
 Полностью адаптированные runtime-домены:
 
 - `student-learning`
+- `memory-learning-science`
 - `explicit-instruction`
 - `curriculum-assessment`
 - `curriculum-alignment`
@@ -68,6 +69,13 @@
 }
 ```
 
+```json
+{
+  "domain": "memory-learning-science",
+  "query": "практика извлечения из памяти интервальное повторение чередование когнитивная нагрузка двойное кодирование обратная связь объяснительные вопросы"
+}
+```
+
 `suggest_skills`:
 
 ```json
@@ -79,6 +87,8 @@
 Ожидаемый маршрут: навыки чтения и сложности текста, аргументации, оценки достоверности источников, медиаграмотности и критического мышления.
 
 Для `explicit-instruction` ожидаемый маршрут: построение I Do / We Do / You Do последовательности, старт урока, think-aloud modelling, practice sequence и checking-for-understanding protocol.
+
+Для `memory-learning-science` ожидаемый маршрут: retrieval practice, spaced practice schedule, interleaving plan, cognitive load analysis, dual coding design, feedback rewrite, elaborative interrogation prompts и worked example fading.
 
 ## Проверка после изменений
 

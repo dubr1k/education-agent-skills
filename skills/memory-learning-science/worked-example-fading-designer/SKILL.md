@@ -103,6 +103,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Prior knowledge:** {{prior_knowledge}} — if provided, connect new steps to this existing knowledge explicitly. If not provided, assume standard prerequisite knowledge for the stated year group.
 **Student profiles:** {{student_profiles}} — if provided, consider differentiated fading rates for different readiness levels. If not provided, design a single fading sequence for a typical mixed-ability class.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based worked example guidance. Use natural Russian terms such as "разобранный пример", "постепенное снятие поддержки", "задача с пропусками", "самостоятельная практика", "когнитивная нагрузка", "рабочая память", "практика извлечения из памяти", "интервальное повторение", "обратная связь" and "типичные ошибки". Preserve useful English labels such as worked example, completion problem, fading and expertise reversal when helpful, but explain their function in Russian.
+
 Apply these evidence-based design principles:
 
 1. **Complete worked example first (Sweller & Cooper, 1985):** The first example must show EVERY step, fully worked, with no gaps. The student's only task is to study and understand — not to solve anything.

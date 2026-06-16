@@ -206,6 +206,21 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("explicit-instruction");
     expect(text).toMatch(/Explicit Instruction Sequence Builder|Checking for Understanding Protocol Designer|Think-Aloud Script Generator|Practice Problem Sequence Designer|Lesson Opening Designer/);
   });
+
+  test("finds memory-learning-science skills from Russian learning science language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "memory-learning-science",
+        query:
+          "практика извлечения из памяти интервальное повторение чередование когнитивная нагрузка двойное кодирование обратная связь объяснительные вопросы",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("memory-learning-science");
+    expect(text).toMatch(/Retrieval Practice Generator|Spaced Practice Scheduler|Interleaving Unit Planner|Cognitive Load Analyser|Dual Coding Designer|Feedback Quality Analyser|Elaborative Interrogation Question Generator/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -462,6 +477,23 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("явное обучение");
     expect(text).toContain("проверка понимания");
     expect(text).toContain("7 класс");
+  });
+
+  test("includes Russian memory-learning-science context in bundled prompts", async () => {
+    const result = await client.callTool({
+      name: "cognitive-load-analyser",
+      arguments: {
+        task_description:
+          "Ученики 6 класса одновременно читают текст, заполняют схему и отвечают на вопросы по теме круговорота воды",
+        student_level: "6 класс, новички",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("когнитивная нагрузка");
+    expect(text).toContain("рабочая память");
+    expect(text).toContain("6 класс");
   });
 
   test("handles collision names with domain prefix", async () => {

@@ -108,6 +108,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Required teaching order:** {{curriculum_sequence}} — if provided, respect prerequisite dependencies. If not provided, assume topics can be taught in the order listed.
 **Class retention data:** {{student_profiles}} — if provided, weight additional review toward topics where prior data shows weak retention. If not provided, use standard expanding spacing intervals.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based spaced practice guidance. Use natural Russian terms such as "интервальное повторение", "распределенная практика", "практика извлечения из памяти", "повторение по расписанию", "чередование", "долговременное запоминание", "обратная связь", "когнитивная нагрузка" and "рабочая память". Preserve useful English labels such as spaced practice, expanding intervals, retrieval practice and interleaving when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **Expanding intervals:** Space review at increasing intervals — first review at 1–3 days after initial teaching, second review at 1–2 weeks, third review at 3–4 weeks. This follows Cepeda et al.'s (2006) finding that optimal spacing expands as retention strengthens.

@@ -101,6 +101,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Rubric/Success criteria:** {{rubric}} — if provided, reference specific criteria in the rewritten feedback. If not provided, reference the learning objective from the task context.
 **Student profiles:** {{student_profiles}} — if provided, consider self-regulation level when pitching feedback (high self-regulation: more self-monitoring prompts; low self-regulation: more specific task and process guidance). If not provided, pitch feedback at a general level.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based feedback guidance. Use natural Russian terms such as "обратная связь", "формирующая обратная связь", "следующий шаг", "критерии успеха", "саморегуляция", "работа ученика", "практика извлечения из памяти", "интервальное повторение", "когнитивная нагрузка" and "рабочая память" when relevant. Preserve useful English labels such as feed up, feed back and feed forward when helpful, but explain their function in Russian.
+
 Analyse the feedback using these evidence-based criteria:
 
 1. **Feedback level diagnosis (Hattie & Timperley, 2007):**

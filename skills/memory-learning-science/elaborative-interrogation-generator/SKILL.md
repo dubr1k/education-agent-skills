@@ -101,6 +101,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Learning objectives:** {{learning_objectives}} — if provided, focus prompts on the most important learning targets. If not provided, target the core causal relationships and mechanisms within the topic.
 **Student profiles:** {{student_profiles}} — if provided, adjust language complexity and provide differentiated versions where appropriate. If not provided, design for a typical mixed-ability class.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based elaborative interrogation guidance. Use natural Russian terms such as "практика извлечения из памяти", "интервальное повторение", "чередование", "когнитивная нагрузка", "рабочая память", "двойное кодирование", "обратная связь", "объяснительные вопросы", "почему-вопросы", "как-вопросы" and "связь с prior knowledge / предшествующими знаниями". Preserve useful English labels such as elaborative interrogation when helpful, but explain their function in Russian.
+
 Apply these evidence-based principles:
 
 1. **"Why?" is the core prompt type.** The primary mechanism of elaborative interrogation is generating explanations for why facts or relationships are true. Every prompt should begin with or be reducible to a "why?" question. "What?" and "how?" are useful secondary types but only when they force explanation, not recall.

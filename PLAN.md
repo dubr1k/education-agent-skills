@@ -34,17 +34,21 @@
 - Усилен русский `find_skills` для `explicit-instruction`: доменный индекс и aliases теперь покрывают явное/прямое обучение, объяснение, моделирование, структуру урока, управляемую практику, самостоятельную практику, проверку понимания, формирующую обратную связь и коррекцию ошибок.
 - Добавлены QA tests для русского `find_skills` по explicit-instruction и проверки, что RU explicit-instruction контекст попадает в bundled MCP prompts.
 - Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` получил explicit-instruction пример и conda-команду проверки; `README.md` получил русский explicit-instruction пример.
+- Адаптирован домен `memory-learning-science`: 8 `SKILL.md` получили RU/EN runtime-контекст для практики извлечения из памяти, интервального повторения, чередования, когнитивной нагрузки, рабочей памяти, двойного кодирования, обратной связи, объяснительных вопросов и worked-example fading без изменения YAML metadata.
+- Усилен русский `find_skills` для `memory-learning-science`: доменный индекс и aliases теперь покрывают retrieval practice, spaced practice, interleaving, cognitive load, working memory, dual coding, feedback, elaborative interrogation и worked examples.
+- Добавлены QA tests для русского `find_skills` по memory-learning-science и проверки, что RU memory-learning-science контекст попадает в bundled MCP prompts.
+- Обновлена русскоязычная документация: `docs/RU_LOCALIZATION.md` и `README.md` получили memory-learning-science примеры и обновленный статус адаптированных доменов.
 - Последняя проверка 2026-06-16:
   - `conda run -n base python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `38 passed`.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `40 passed`.
   - `npx playwright test` — OK, root `20 passed`.
   - `npm test` — OK, root `20 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `memory-learning-science`, потому что следующий русский слой должен покрыть retrieval practice, spaced practice, interleaving, cognitive load, dual coding, feedback и elaborative interrogation.
-   - Следующий кандидат после него: `questioning-discussion`.
+   - Приоритет: `questioning-discussion`, потому что следующий русский слой должен покрыть вопросы, обсуждение, диалог, Socratic questioning, hinge questions и classroom talk.
+   - Следующий кандидат после него: `self-regulated-learning`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
@@ -59,4 +63,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `memory-learning-science`: пройти его `SKILL.md`, добавить русскоязычный слой для практики извлечения из памяти, интервального повторения, чередования, когнитивной нагрузки, двойного кодирования, обратной связи и объяснительных вопросов, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `questioning-discussion`: пройти его `SKILL.md`, добавить русскоязычный слой для вопросов, обсуждения, диалога, сократических вопросов, hinge questions, дискуссионных протоколов и classroom talk, не меняя совместимые английские идентификаторы и metadata.

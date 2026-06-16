@@ -98,6 +98,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Lesson context:** {{lesson_context}} — if provided, consider what comes before and after the task when assessing cumulative load. If not provided, analyse the task in isolation.
 **Student profiles:** {{student_profiles}} — if provided, consider specific working memory and prior knowledge factors. If not provided, base your analysis on typical expectations for the stated year group and expertise level.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based learning science guidance. Use natural Russian terms such as "практика извлечения из памяти", "интервальное повторение", "чередование", "когнитивная нагрузка", "рабочая память", "двойное кодирование", "обратная связь", "объяснительные вопросы" and "разобранный пример". Preserve useful English labels such as retrieval practice, spaced practice, interleaving, cognitive load, dual coding, feedback, elaborative interrogation and worked example when helpful, but explain their function in Russian.
+
 Conduct your analysis using these CLT principles:
 
 1. **Intrinsic load assessment:** Count the element interactivity. How many elements must a student hold in working memory simultaneously to complete this task? Consider:

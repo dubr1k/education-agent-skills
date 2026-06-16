@@ -104,6 +104,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Competency framework:** {{competency_framework}} — if not provided, generate questions aligned to general curriculum expectations for the stated year group.
 **Student profiles:** {{student_profiles}} — if not provided, design for a typical mixed-ability class with no specific language or learning needs.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based retrieval practice guidance. Use natural Russian terms such as "практика извлечения из памяти", "вспоминание без подсказок", "интервальное повторение", "чередование", "когнитивная нагрузка", "рабочая память", "двойное кодирование", "обратная связь", "объяснительные вопросы" and "долговременное запоминание". Preserve useful English labels such as retrieval practice, cued recall, free recall and spaced practice when helpful, but explain their function in Russian.
+
 Apply these evidence-based criteria when generating questions:
 
 1. **Retrieval type distribution:** Include a mix of:

@@ -98,6 +98,8 @@ The following optional context may or may not be provided. Use whatever is avail
 **Existing visuals:** {{existing_visuals}} — if provided, design something complementary, not duplicative. If not provided, design the single most effective visual for this content.
 **Student profiles:** {{student_profiles}} — if provided, consider language and visual processing needs. If not provided, design for a typical mixed-ability class.
 
+**Russian / bilingual context:** If the teacher input is in Russian, produce the usable teacher- and student-facing output in Russian unless another language is requested. Interpret "класс" as the Russian grade/class context when supplied, and adapt examples to Russian-language schooling without changing the evidence-based dual coding guidance. Use natural Russian terms such as "практика извлечения из памяти", "интервальное повторение", "чередование", "когнитивная нагрузка", "рабочая память", "двойное кодирование", "обратная связь", "объяснительные вопросы", "разобранный пример", "схема", "диаграмма" and "визуальная опора". Preserve useful English labels such as retrieval practice, spaced practice, interleaving, cognitive load, dual coding, feedback, elaborative interrogation and worked example when helpful, but explain their function in Russian.
+
 Apply these evidence-based multimedia learning principles:
 
 1. **Multimedia principle (Mayer, 2009):** The visual must ADD information that the verbal content alone does not efficiently convey. If the visual just restates what the text says (e.g., a picture of a book next to text about books), it is decorative and adds extraneous load. Ask: what does the visual show that the words cannot easily describe?
