@@ -2,15 +2,9 @@
 
 MCP server exposing the bilingual **Educational Skills RU** library as callable tools and prompts: 165 evidence-based education skills across 20 domains, plus 4 discovery tools.
 
-Production URL:
+This fork documents local MCP usage and self-hosted deployments.
 
-```text
-https://mcp-server-sigma-sooty.vercel.app/mcp
-```
-
-This hosted endpoint is a convenience for clients that specifically need remote MCP discovery. It is not required for local Claude Code, Codex, Hermes, or manual use. For sustainable free use, prefer installing the skills locally from GitHub where possible.
-
-See [Hosted MCP access](../docs/HOSTED_MCP_ACCESS.md), [Codex setup](../docs/CODEX.md), and [Hermes setup](../docs/HERMES.md).
+See [Codex setup](../docs/CODEX.md) and [Hermes setup](../docs/HERMES.md).
 
 ## Compatibility note / Важно о совместимости
 
@@ -55,18 +49,6 @@ find_skills query="retrieval practice formative assessment rubric"
 suggest_skills task="Plan a six-week Year 9 unit with spaced retrieval and valid assessment"
 ```
 
-## Connect to Claude.ai
-
-Add this MCP server in Claude.ai settings under **Integrations > MCP Servers** if you specifically need hosted MCP access:
-
-```text
-https://mcp-server-sigma-sooty.vercel.app/mcp
-```
-
-Transport: Streamable HTTP, stateless JSON response mode.
-
-Hosted access requires an authorization token. See [Hosted MCP access](../docs/HOSTED_MCP_ACCESS.md).
-
 ## Connect to Claude Desktop
 
 Add to your `claude_desktop_config.json`:
@@ -75,11 +57,8 @@ Add to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "education-skills": {
-      "type": "streamable-http",
-      "url": "https://mcp-server-sigma-sooty.vercel.app/mcp",
-      "headers": {
-        "Authorization": "Bearer <paste access token here>"
-      }
+      "command": "node",
+      "args": ["/absolute/path/to/education-agent-skills/mcp-server/dist/index.js"]
     }
   }
 }
@@ -91,6 +70,7 @@ From this directory:
 
 ```bash
 npm install
+npm run bundle-skills
 npm run build
 node dist/index.js
 ```
@@ -114,7 +94,7 @@ For Claude Desktop local stdio config:
 npm run dev           # Run with tsx, no build step
 npm run build         # Compile TypeScript
 npm test              # Run Playwright test suite
-npm run bundle-skills # Re-generate src/skills.json for Vercel deployment
+npm run bundle-skills # Re-generate src/skills.json for MCP runtime/deployments
 ```
 
 Environment variables:
@@ -133,7 +113,7 @@ Environment variables:
 
 ## Rebuilding the bundle
 
-The hosted MCP server serves `src/skills.json`, not live `SKILL.md` files. After adding or editing any skill:
+The MCP server serves `src/skills.json`, not live `SKILL.md` files. After adding or editing any skill:
 
 ```bash
 cd ..

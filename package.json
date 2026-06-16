@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GarethManning/education-agent-skills.git"
+    "url": "git+https://github.com/dubr1k/education-agent-skills.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GarethManning/education-agent-skills/issues"
+    "url": "https://github.com/dubr1k/education-agent-skills/issues"
   },
-  "homepage": "https://github.com/GarethManning/education-agent-skills#readme",
+  "homepage": "https://github.com/dubr1k/education-agent-skills#readme",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "yaml": "^2.8.3"

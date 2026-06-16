@@ -6,6 +6,7 @@ import * as yaml from "yaml";
 const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
+const README_PATH = path.join(__dirname, "..", "README.md");
 
 // Вспомогательная функция: собрать все пути SKILL.md.
 function getAllSkillPaths(): string[] {
@@ -211,6 +212,20 @@ test.describe("Plugin Manifest Validation", () => {
 
   test("plugin.json has correct license", () => {
     expect(plugin.license).toBe("CC BY-SA 4.0");
+  });
+});
+
+test.describe("Documentation Validation", () => {
+  test("README install guide uses the fork repository", () => {
+    const readme = fs.readFileSync(README_PATH, "utf-8");
+
+    expect(readme).toContain("https://github.com/dubr1k/education-agent-skills");
+    expect(readme).toContain("git clone https://github.com/dubr1k/education-agent-skills.git");
+    expect(readme).toContain("claude plugin install https://github.com/dubr1k/education-agent-skills");
+    expect(readme).not.toContain("https://github.com/GarethManning/education-agent-skills");
+    expect(readme).not.toContain("GarethManning/education-agent-skills");
+    expect(readme).not.toContain("mcp-server-sigma-sooty.vercel.app");
+    expect(readme).not.toContain("Hosted MCP access signup");
   });
 });
 

@@ -1,57 +1,42 @@
 # Educational Skills RU
 
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-1.0-blue)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-165-blue)](https://github.com/GarethManning/education-agent-skills)
+[![Skills](https://img.shields.io/badge/skills-165-blue)](https://github.com/dubr1k/education-agent-skills)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![Last Commit](https://img.shields.io/github/last-commit/GarethManning/education-agent-skills)](https://github.com/GarethManning/education-agent-skills/commits/main)
+[![Last Commit](https://img.shields.io/github/last-commit/dubr1k/education-agent-skills)](https://github.com/dubr1k/education-agent-skills/commits/main)
 
 Русскоязычный bilingual fork библиотеки **Education Agent Skills Library**: 165 evidence-based pedagogical skills across 20 domains. Цель fork — сохранить англоязычную совместимость upstream и добавить рабочий русскоязычный контекст для Codex, Claude, Hermes и MCP.
 
 Технические `skill_id`, folder names, tags and chaining metadata intentionally stay upstream-compatible. Русский слой добавляется через runtime metadata, поиск, документацию, локализованные domain labels и постепенную адаптацию самих `SKILL.md`.
 
-> [!IMPORTANT]
-> **Hosted MCP access now requires an auth token.**
->
-> The library is still free and open source, and local/plugin/manual use remains the recommended free path. The hosted MCP server is still available for people who specifically need a remote MCP endpoint, but anonymous access is now blocked so the service stays sustainable.
->
-> **Need hosted MCP?** [Request an access token](https://docs.google.com/forms/d/e/1FAIpQLSdW1EdcmtjSPPq68Hx-bdth5hO2KNyjhAwEV9Ld0EwWL1Gr8Q/viewform) or [jump to hosted MCP setup](#mcp-server).
-
----
-
 ## Get Started
 
-Works with Claude, Codex, Hermes Agent, and any tool that supports the Agent Skills standard.
+Works locally with Claude Code, OpenAI Codex, Hermes Agent, and any tool that supports the Agent Skills standard.
 
-For sustainable free use, install or copy the skills locally from GitHub where possible. The hosted MCP server is a convenience endpoint for remote clients, not a requirement for using the library.
+Install this fork from `https://github.com/dubr1k/education-agent-skills`. The setup below is local-first and specific to **Educational Skills RU**.
 
 ### Claude
 
-**CoWork (easiest)** — go to **Customize → (+) Add Plugin** and paste:
-
-```
-https://github.com/GarethManning/education-agent-skills
-```
-
-**Claude Code CLI** — install from the repo URL:
+**Claude Code CLI** — install the fork directly from GitHub:
 
 ```bash
-claude plugin install https://github.com/GarethManning/education-agent-skills
+claude plugin install https://github.com/dubr1k/education-agent-skills
 ```
 
-**Claude.ai / Claude Desktop (hosted MCP)** — use only if your workflow specifically needs a remote MCP connector. Hosted access requires a token:
+Or install from a local clone:
 
-```text
-https://mcp-server-sigma-sooty.vercel.app/mcp
+```bash
+git clone https://github.com/dubr1k/education-agent-skills.git
+cd education-agent-skills
+claude plugin install "$PWD"
 ```
-
-Request a token here: [Hosted MCP access signup](https://docs.google.com/forms/d/e/1FAIpQLSdW1EdcmtjSPPq68Hx-bdth5hO2KNyjhAwEV9Ld0EwWL1Gr8Q/viewform). Free local and manual options remain available. See [Hosted MCP access](docs/HOSTED_MCP_ACCESS.md).
 
 ### OpenAI Codex
 
-Codex does **not** need the hosted MCP server. Recommended local setup:
+Recommended local setup:
 
 ```bash
-git clone https://github.com/GarethManning/education-agent-skills.git
+git clone https://github.com/dubr1k/education-agent-skills.git
 cd education-agent-skills
 codex plugin marketplace add "$PWD"
 ```
@@ -78,15 +63,13 @@ Full Codex guide: [docs/CODEX.md](docs/CODEX.md).
 Hermes users should keep this repository as the canonical source, then install only the skills they actually need locally.
 
 ```bash
-hermes skills tap add GarethManning/education-agent-skills
+hermes skills tap add dubr1k/education-agent-skills
 hermes skills install \
-  GarethManning/education-agent-skills/skills/original-frameworks/learning-target-authoring-guide \
+  dubr1k/education-agent-skills/skills/original-frameworks/learning-target-authoring-guide \
   --category education --yes
 ```
 
 Recommended starting point: install selected skills or a small starter pack rather than all 165 skills. That keeps your local Hermes index useful instead of noisy.
-
-If you want intelligent skill discovery and recommendation rather than local/offline installs, use the hosted MCP server's `find_skills` and `suggest_skills` tools. The MCP route and the Hermes tap serve different adopter types; a separate Hermes plugin is not currently planned.
 
 Full Hermes guide: [docs/HERMES.md](docs/HERMES.md).
 
@@ -117,7 +100,7 @@ I'd love to hear your thoughts. If you have suggestions, find bugs, or want to c
 No setup required. Use the plugin, a local skill install, or manual copy-paste and start teaching.
 
 **I'm a developer or AI builder — [start here](#architecture)**
-YAML schemas, typed inputs and outputs, chaining metadata, [live MCP server](#mcp-server).
+YAML schemas, typed inputs and outputs, chaining metadata, [local MCP server](#mcp-server).
 
 ---
 
@@ -252,25 +235,25 @@ Every skill opens with a machine-readable YAML header including skill ID, domain
 
 ### MCP Server
 
-The skill library is available as a live MCP server for clients that specifically need remote discovery or programmatic access.
+This fork includes MCP server source for local development or your own deployment.
 
-**Production URL:** `https://mcp-server-sigma-sooty.vercel.app/mcp`
+```bash
+git clone https://github.com/dubr1k/education-agent-skills.git
+cd education-agent-skills/mcp-server
+npm install
+npm run bundle-skills
+npm run build
+npm start
+```
 
-Important: the hosted MCP server is a convenience endpoint, not the only way to use the library. If you can install the skills locally, prefer the free local options in [Get Started](#get-started).
-
-Hosted MCP access now requires a unique auth token. Request one here: [Hosted MCP access signup](https://docs.google.com/forms/d/e/1FAIpQLSdW1EdcmtjSPPq68Hx-bdth5hO2KNyjhAwEV9Ld0EwWL1Gr8Q/viewform). Gareth's Agent normally emails the MCP URL, token, and short setup instructions within a few minutes. See [Hosted MCP access](docs/HOSTED_MCP_ACCESS.md) for details.
-
-Connect from Claude.ai by adding the URL under **Integrations > MCP Servers**. Connect from Claude Desktop:
+Then point an MCP-capable client at your local server according to that client's MCP configuration. A typical local configuration looks like this:
 
 ```json
 {
   "mcpServers": {
     "education-skills": {
-      "type": "streamable-http",
-      "url": "https://mcp-server-sigma-sooty.vercel.app/mcp",
-      "headers": {
-        "Authorization": "Bearer <paste access token here>"
-      }
+      "command": "node",
+      "args": ["/absolute/path/to/education-agent-skills/mcp-server/dist/index.js"]
     }
   }
 }
@@ -280,7 +263,7 @@ The server exposes:
 - **169 tools** (165 skills + 4 discovery tools: `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`)
 - **165 prompts** (for clients that surface MCP prompts)
 
-Source code, local setup, and development instructions: [`mcp-server/`](mcp-server/)
+Source code and development instructions: [`mcp-server/`](mcp-server/)
 
 ---
 
@@ -303,7 +286,7 @@ cd mcp-server && npm run bundle-skills && cd ..
 git add skills/<domain>/<skill-name>/SKILL.md registry.json mcp-server/src/skills.json
 ```
 
-**Why the bundle step matters:** the MCP server running on Vercel does not read `SKILL.md` files at deploy time. It serves a pre-built snapshot at `mcp-server/src/skills.json`. If you add or revise a skill without rebuilding the bundle and committing the result, the change will not appear in the live server — even after a Vercel redeploy. CI will catch this and fail the build.
+**Why the bundle step matters:** the MCP server does not read `SKILL.md` files at runtime. It serves a pre-built snapshot at `mcp-server/src/skills.json`. If you add or revise a skill without rebuilding the bundle and committing the result, the change will not appear in the server output. CI will catch this and fail the build.
 
 ---
 
