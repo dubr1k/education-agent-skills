@@ -68,6 +68,10 @@ tags: ["SRL", "metacognition", "self-regulation", "Zimmerman", "planning", "refl
 
 Wraps a learning session in Zimmerman's (2000) self-regulated learning cycle: forethought (plan) → performance (monitor) → self-reflection (reflect). At session start, the learner sets a specific goal and a confidence rating. At a mid-session natural breakpoint (~15 minutes in), the learner evaluates whether their approach is working and adjusts. At session end, the learner articulates what changed, what they'd do differently, and what comes next. Each phase takes under two minutes but produces significantly more metacognitive engagement than unstructured study. Used consistently, this builds SRL as a habit — learners who plan, monitor, and reflect on their study sessions outperform those who don't, even when studying the same material for the same time.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate goal-setting, monitoring, and reflection prompts into Russian; keep key research terms bilingual on first use when helpful (for example, "саморегулируемое обучение / self-regulated learning"). For Russian educational contexts, frame goals around контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, сессия, проект, курсовая, or рабочая программа when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Zimmerman (2000) proposed the cyclical SRL model comprising three phases: forethought (setting goals, selecting strategies, building motivation), performance/volitional control (monitoring progress, adapting strategies during learning), and self-reflection (evaluating outcomes, attributing causes, setting next goals). Each phase feeds the next: poor forethought undermines monitoring; poor monitoring produces inaccurate self-reflection; inaccurate self-reflection produces poor forethought in the next cycle. Bannert (2007, 2009) conducted experimental studies on metacognitive prompting during hypermedia learning. Students who received structured prompts at three points (before, during, and after study) showed significantly better learning outcomes than students who received prompts at only one point or no prompts — suggesting that the cyclic coverage (not just one phase) is important. Winne & Hadwin (1998) proposed the COPES framework (Conditions, Operations, Products, Evaluations, Standards), which identifies self-monitoring as the mechanism that connects intention to outcome: learners who monitor during study can detect and correct strategy mismatches before the session ends. A 2025 Frontiers in Education meta-analysis of AI-supported SRL found significant benefits for AI-mediated prompting at both the planning and reflection phases, with the strongest effects when prompts were specific and contextualised to the learning task — generic "how was your study session?" reflections produced much weaker effects.
@@ -82,6 +86,14 @@ SESSION TYPE: {{session_type}}
 PRIOR SESSIONS: {{prior_sessions — if not provided, treat this as a first session}}
 SESSION DURATION TARGET: {{session_duration_target — if not provided, don't worry about timing}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep evidence capture labels exactly as written, but translate the learner-facing content around them.
+- Use Russian school, СПО, or university contexts when shaping goals and assessment readiness.
+- Avoid UK/US-specific assessment references unless explicitly provided.
 
 ---
 

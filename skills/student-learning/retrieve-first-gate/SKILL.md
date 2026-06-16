@@ -62,6 +62,10 @@ tags: ["retrieval", "memory", "metacognition", "gate", "testing-effect"]
 
 Before providing any explanation, summary, or answer, requires the learner to produce a free-recall attempt on the topic along with a confidence rating (0–100). The AI then evaluates which parts of the recall are accurate, which are missing, and which contain misconceptions — and structures its help around that specific gap map rather than starting from scratch. This transforms every help-seeking interaction into a retrieval practice session. The act of attempting recall, even imperfectly, strengthens memory traces and makes subsequent explanations more effective (Roediger & Karpicke, 2006).
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate recall prompts, confidence prompts, gap maps, and feedback into Russian; keep key research terms bilingual on first use when helpful (for example, "практика извлечения / retrieval practice"). For Russian educational contexts, connect recall to контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, экзамен, project work, or university modules when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 The testing effect is one of the most robust findings in cognitive psychology. Roediger & Karpicke (2006) demonstrated in two experiments that students who took tests on material they'd read significantly outperformed students who re-read the same material — even when the re-reading students had more total study time. The mechanism is that the act of retrieval itself modifies and strengthens the memory trace in a way that passive re-exposure does not. Karpicke & Roediger (2008) extended this to show that the benefit persists over a week's delay. Rowland's (2014) meta-analysis of 159 studies found a mean effect size of d = 0.50 for testing versus restudy. Dunlosky et al. (2013), in their landmark review of ten learning techniques, rated practice testing as one of only two "high utility" strategies — noting its consistency across age groups, material types, and delay intervals. Bjork & Bjork (2011) explain the mechanism via desirable difficulties: retrieval is harder than re-reading, and that difficulty is what makes it effective. The retrieve-first pattern operationalises this by making recall the mandatory first step of every AI-assisted study session.
@@ -75,6 +79,14 @@ CONTEXT: {{context}}
 TOPIC: {{topic}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
 PRIOR SESSIONS: {{prior_sessions — if not provided, treat this as a first session on this topic}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep evidence capture labels exactly as written, but translate the learner-facing content around them.
+- Use Russian school, СПО, or university assessment contexts when useful.
+- Avoid UK/US-specific grade and exam references unless explicitly provided.
 
 ---
 
@@ -177,7 +189,7 @@ Accurate: You're right that plants use sunlight, carbon dioxide, and water. Chlo
 
 Missing: The key thing you're not sure about — what comes out — is actually two things: glucose (the food the plant makes) and oxygen (released as a byproduct). The relationship between those outputs and the inputs is where most of the exam questions live.
 
-Missing also: You haven't mentioned where the two stages happen — the light-dependent reactions (in the thylakoids) and the light-independent reactions / Calvin cycle (in the stroma). At GCSE/A-level this distinction matters.
+Missing also: You haven't mentioned where the two stages happen — the light-dependent reactions (in the thylakoids) and the light-independent reactions / Calvin cycle (in the stroma). In exam contexts such as ОГЭ/ЕГЭ or an advanced biology course, this distinction can matter.
 
 No misconceptions in what you said — your framing is correct, just incomplete.
 

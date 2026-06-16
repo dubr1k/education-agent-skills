@@ -5,14 +5,14 @@ type ToolResult = { content: Array<{ type: "text"; text: string }> };
 const DOMAIN_SEARCH_TERMS: Record<string, string> = {
   "ai-learning-science": "ии искусственный интеллект обучение тьютор подсказки feedback обратная связь",
   "ai-literacy": "ии грамотность промпт hallucination галлюцинации проверка фактов критика",
-  "curriculum-alignment": "фгос фоп программа стандарты ктп планирование соответствие аудит",
-  "curriculum-assessment": "оценивание рубрика критерии проект урок модуль программа диагностика",
+  "curriculum-alignment": "фгос фоп программа рабочая ктп планирование соответствие аудит",
+  "curriculum-assessment": "оценивание рубрика критерии проект урок модуль программа диагностика контрольная впр огэ егэ",
   "eal-language-development": "русский как неродной рки иностранный язык мигранты билингвы словарь речь",
   "environmental-experiential-learning": "практика проект среда природа исследование опыт вне класса",
   "explicit-instruction": "явное обучение объяснение моделирование практика проверка понимания урок",
   "global-cross-cultural-pedagogies": "культура межкультурный локальный контекст место сообщество",
   "historical-thinking": "история источник документ контекстуализация подтверждение чтение",
-  "inclusive-design": "инклюзия овз доступность барьеры универсальный дизайн",
+  "inclusive-design": "инклюзия овз иом адаптированная программа доступность барьеры универсальный дизайн",
   "literacy-critical-thinking": "чтение письмо текст аргументация критическое мышление медиаграмотность",
   "memory-learning-science": "память повторение retrieval извлечение интервальное когнитивная нагрузка",
   "montessori-alternative-approaches": "монтессори альтернативная школа смешанный возраст среда самостоятельность",
@@ -20,7 +20,7 @@ const DOMAIN_SEARCH_TERMS: Record<string, string> = {
   "professional-learning": "педагог учитель наставничество методическое объединение повышение квалификации",
   "questioning-discussion": "вопросы дискуссия обсуждение сократовский диалог разговор",
   "self-regulated-learning": "саморегуляция метакогниция цель ошибка стратегия учебная самостоятельность",
-  "student-learning": "ученик учащийся студент самостоятельная учеба подсказки проверка понимания",
+  "student-learning": "ученик учащийся студент самостоятельная учеба подсказки проверка понимания уверенность ошибка извлечение",
   "systems-thinking": "система причинность влияние рычаги модель айсберг",
   "wellbeing-motivation-agency": "благополучие мотивация субъектность принадлежность травма восстановительные практики",
 };
@@ -29,15 +29,18 @@ const RU_QUERY_ALIASES: Array<{ pattern: RegExp; terms: string[] }> = [
   { pattern: /^(учен|учащ|студент|школьник)/u, terms: ["student", "learner"] },
   { pattern: /^(учител|педагог|преподав)/u, terms: ["teacher", "educator"] },
   { pattern: /^(урок|заняти)/u, terms: ["lesson", "instruction", "teaching"] },
-  { pattern: /^(план|модул|раздел|ктп|программ)/u, terms: ["planning", "unit", "curriculum", "sequence"] },
-  { pattern: /^(оцен|критери|рубри|балл|егэ|огэ|впр)/u, terms: ["assessment", "rubric", "criteria", "feedback", "formative"] },
+  { pattern: /^(фгос|фоп|рабоч|план|модул|раздел|ктп|программ)/u, terms: ["planning", "unit", "curriculum", "sequence", "alignment"] },
+  { pattern: /^(оцен|критери|рубри|балл|егэ|огэ|впр|контрол|диагност)/u, terms: ["assessment", "rubric", "criteria", "feedback", "formative", "diagnostic"] },
   { pattern: /^(чтен|текст|пониман|грамотн)/u, terms: ["reading", "text", "comprehension", "literacy"] },
   { pattern: /^(письм|эссе|сочинен|аргумент)/u, terms: ["writing", "argument", "essay", "scaffold"] },
   { pattern: /^(рки|неродн|иностран|билинг|мигрант|язык|лексик|словар)/u, terms: ["eal", "language", "multilingual", "vocabulary", "sentence"] },
-  { pattern: /^(поддерж|опор|скаффолд|шаблон|рамк)/u, terms: ["scaffold", "support", "sentence-frame"] },
+  { pattern: /^(поддерж|опор|скаффолд|шаблон|рамк|подсказ)/u, terms: ["scaffold", "support", "hint", "sentence-frame"] },
   { pattern: /^(памят|повтор|запомин|извлеч|ретрив)/u, terms: ["memory", "retrieval", "practice", "spacing"] },
-  { pattern: /^(мотивац|субъект|агент|самостоятель)/u, terms: ["motivation", "agency", "self-regulated"] },
-  { pattern: /^(инклюз|овз|доступ|барьер)/u, terms: ["inclusive", "udl", "barrier"] },
+  { pattern: /^(мотивац|субъект|агент)/u, terms: ["motivation", "agency", "self-regulated"] },
+  { pattern: /^(самостоятель|независим)/u, terms: ["unassisted", "independent", "independence", "self-regulated"] },
+  { pattern: /^(уверен|калибров)/u, terms: ["confidence", "calibration", "metacognition"] },
+  { pattern: /^(провер|верифиц)/u, terms: ["check", "verification", "evidence"] },
+  { pattern: /^(инклюз|овз|иом|адаптир|доступ|барьер)/u, terms: ["inclusive", "udl", "barrier", "adapted"] },
   { pattern: /^(ии|нейросет|чатгпт|gpt|ai)/u, terms: ["ai", "prompt", "chatgpt"] },
   { pattern: /^(истори|источник|документ)/u, terms: ["history", "historical", "source", "document"] },
   { pattern: /^(дискус|обсужден|вопрос|диалог)/u, terms: ["discussion", "question", "dialogue"] },
@@ -249,7 +252,7 @@ export function handleSuggestSkills(
     const relevance = tagHits.length > 0
       ? `Совпадения: ${tagHits.join(", ")}`
       : `Подходит к описанной задаче`;
-    return `- **${s.metadata.skill_name}** (\`${s.toolName}\`)\n  ${s.description}\n  ${relevance} | Доказательность: ${s.metadata.evidence_strength}`;
+    return `- **${s.metadata.skill_name}** (\`${s.toolName}\`)\n  ${s.description}\n  ${relevance} | Доказательность: ${s.metadata.evidence_strength} | Домен: ${s.metadata.domain}`;
   });
 
   return {

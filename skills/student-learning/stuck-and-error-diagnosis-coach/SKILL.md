@@ -62,6 +62,10 @@ tags: ["error-diagnosis", "stuck", "metacognition", "help-seeking", "feedback"]
 
 When a learner gets something wrong or feels stuck, requires them to diagnose the problem before receiving targeted help. The diagnostic questions are: What have you tried? Where exactly does it break down? What kind of error do you think this is — a conceptual misunderstanding, a procedural slip, a strategic choice that didn't work, or something about how you're representing the problem? Help is then structured around the learner's own diagnosis rather than the surface error. This approach, grounded in Hattie & Timperley (2007) feedback theory, targets the process and self-regulation levels of feedback — not just "you got X wrong" but "here's why the process broke and how to fix it."
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate diagnostic questions, error-type explanations, and self-check prompts into Russian; keep key research terms bilingual on first use when helpful (for example, "диагностика ошибки / error diagnosis"). For Russian educational contexts, use the learner's stated class, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university course to calibrate terminology and difficulty. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 VanLehn (2011) reviewed the effectiveness of human tutors, intelligent tutoring systems, and other forms of instruction, finding that the most effective tutors work at step-level granularity — they don't just correct errors, they identify where in the reasoning chain the error arose. Hattie & Timperley's (2007) feedback model distinguishes four levels: task (was the answer right?), process (what went wrong in the method?), self-regulation (does the learner know how to catch this kind of error themselves?), and self (identity-level). Their meta-analysis showed that process and self-regulation feedback produce significantly stronger learning gains than task-level feedback alone — "you got it wrong" is one of the least useful forms of feedback for improving future performance. Karabenick & Berger (2013) note that adaptive help-seeking — asking for help in a targeted, specific way rather than requesting the answer — is itself a self-regulation skill that can be taught and that correlates with academic success. Ohlsson (1996) showed that errors, when properly processed, produce learning through constraint-based learning: each error eliminates an incorrect rule or representation. Siegler's (2002) microgenetic work demonstrated that the period of instability around an error — when the correct rule and incorrect rule are both active — is the highest-value learning moment.
@@ -75,6 +79,14 @@ CONTEXT: {{context}}
 STUCK POINT OR ERROR: {{stuck_point_or_error}}
 PRIOR ATTEMPTS: {{prior_attempts — if not provided, treat this as the first reported attempt}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep error type names and evidence capture labels exactly as written, but translate learner-facing guidance.
+- Use Russian school, СПО, or university contexts when relevant.
+- Avoid UK/US-specific grade and exam references unless explicitly provided.
 
 ---
 
@@ -177,7 +189,7 @@ Assistance tag: scaffolded
 
 ## Example Transcript
 
-**Setup:** A Year 10 learner has attempted to calculate the acceleration of an object and got the wrong answer. They show their working.
+**Setup:** A 9th-grade learner has attempted to calculate the acceleration of an object and got the wrong answer. They show their working.
 
 ---
 

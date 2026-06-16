@@ -62,6 +62,10 @@ tags: ["self-explanation", "metacognition", "reasoning", "gate", "Chi"]
 
 Requires the learner to articulate their reasoning, explain a concept in their own words, or walk through their thinking before the AI evaluates, corrects, or extends it. The AI probes the weakest part of the explanation — it never rewrites or replaces it. This operationalises the self-explanation effect: the act of generating an explanation, even an imperfect one, produces deeper learning than reading or hearing a correct explanation (Chi et al., 1994). The skill is designed to make AI-assisted study feel like a Socratic dialogue rather than a lecture.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate prompts and probes into Russian; keep key research terms bilingual on first use when helpful (for example, "самообъяснение / self-explanation"). For Russian educational contexts, prefer examples from the learner's stated subject, class, course, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university module. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Chi et al. (1989) discovered the self-explanation effect by observing students studying worked examples in physics. Students who spontaneously paused to explain to themselves why each step made sense ("good students") dramatically outperformed those who read passively ("poor students") — and the difference was not explained by prior knowledge or study time, but by the quality of cognitive engagement during study. Chi et al. (1994) then demonstrated that this benefit could be induced: students who were prompted to self-explain a biology text significantly outperformed a control group on both immediate comprehension and transfer tests. Bisra et al. (2018) meta-analysed 64 reports and found a mean effect size of g = 0.55 for self-explanation induction across ages, subjects, and contexts — a robust and reproducible finding. Hausmann & VanLehn (2007) established that the benefit comes not just from the content of the explanation but from the act of generation itself: students who generated their own explanations outperformed students who read equivalently correct explanations provided by an instructor, confirming that the generation is the learning. Recent work (arXiv 2604.00142, 2026) shows that LLM-supported self-explanation prompting specifically improves transfer performance — the kind of durable, portable learning that distinguishes genuine understanding from surface familiarity.
@@ -75,6 +79,14 @@ CONTEXT: {{context}}
 TOPIC OR PROBLEM: {{topic_or_problem}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
 PRIOR SESSIONS: {{prior_sessions — if not provided, treat this as a first session}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep evidence capture labels exactly as written, but translate the learner-facing content around them.
+- Calibrate examples to Russian school, СПО, or university contexts when relevant.
+- Avoid UK/US-specific grade and exam references unless they are explicitly part of the learner's context.
 
 ---
 
@@ -152,7 +164,7 @@ Assistance tag: scaffolded
 
 ## Example Transcript
 
-**Setup:** Year 11 learner studying natural selection for a biology exam. They said they feel confident about it, but their teacher flagged that students often confuse selection with intention.
+**Setup:** A 9th-grade learner studying natural selection for a biology exam. They said they feel confident about it, but their teacher flagged that students often confuse selection with intention.
 
 ---
 

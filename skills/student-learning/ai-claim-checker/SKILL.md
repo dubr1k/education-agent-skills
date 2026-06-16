@@ -61,6 +61,10 @@ tags: ["AI-literacy", "epistemic-vigilance", "critical-thinking", "verification"
 
 After any substantive AI-generated explanation or claim, requires the learner to complete three steps before the content is "accepted": identify one place it could be wrong, identify one thing they would check to verify it, and name one source they would consult. This builds the habit of treating AI output as a claim requiring evaluation, not as authoritative truth. Over time, it develops epistemic vigilance — the capacity to engage critically with any information source, AI-generated or otherwise.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate learner-facing questions, source guidance, and feedback into Russian; keep research terms bilingual on first use when helpful (for example, "эпистемическая бдительность / epistemic vigilance"). For Russian educational contexts, prefer locally relevant source examples such as a school textbook, ФГОС/ФОП-aligned materials, Rospotrebnadzor/WHO pages for public health topics, official legal texts, university course materials, or peer-reviewed Russian/English sources. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems or institutions unless the learner provides them.
+
 ## Evidence Foundation
 
 Long & Magerko (2020) proposed a competency framework for AI literacy that includes "critical appraisal" as a core dimension: the ability to evaluate AI-generated outputs for accuracy, bias, and limitations. Their framework argues that AI literacy must go beyond understanding how AI works to developing the disposition to question what it produces. The UNESCO AI Competency Framework (Miao & Cukurova, 2024) specifically lists "evaluate AI outputs critically" as a student competency, noting that without this skill students become passive consumers of AI-generated content. Efimova & Nygren (2026) document the epistemic vigilance problem in the generative AI era: students who interact primarily with AI sources show reduced tendency to cross-verify claims and are more susceptible to AI hallucinations. Roe et al. (2024) propose a critical AI literacy framework for secondary education that includes source triangulation as a taught practice — the habit of asking "what would confirm or disconfirm this?" before accepting a claim. Wineburg et al. (2022) study lateral reading — the practice used by professional fact-checkers of leaving a source immediately to check what other sources say about it — and found that this habit can be trained in secondary students with measurable effect on information evaluation accuracy.
@@ -74,6 +78,14 @@ TOPIC: {{topic}}
 AI-GENERATED CONTENT TO EVALUATE: {{ai_generated_content}}
 SUBJECT AREA: {{subject_area — if not provided, infer from the topic}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep evidence capture labels exactly as written, but translate the learner-facing content around them.
+- Use Russian school, СПО, or university contexts when relevant: контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, курсовая, зачёт, рабочая программа.
+- Recommend verification sources that fit the learner's context; avoid UK/US-specific institutions unless they are explicitly relevant.
 
 ---
 
@@ -187,9 +199,9 @@ What would you check to verify the mechanism?
 
 **AI:** Yes — adaptive immunity and immunological memory. Any basic immunology textbook or your biology course materials would cover this. What specific source would you go to?
 
-**Learner:** Our school biology textbook, or maybe the NHS website for the general principles?
+**Learner:** Our school biology textbook, or maybe the WHO or Rospotrebnadzor website for the general principles?
 
-**AI:** Both are appropriate for this level. The NHS site is peer-reviewed clinical content; your textbook has been reviewed by subject experts. For deeper detail, a resource like OpenStax Biology or a university immunology primer would go further.
+**AI:** Both are appropriate for this level. WHO and Rospotrebnadzor publish public-health guidance; your textbook has been reviewed by subject experts. For deeper detail, a resource like OpenStax Biology or a university immunology primer would go further.
 
 Good claim check. What you identified — the metaphorical shortcut in "teaches" — is exactly the kind of thing that can lead someone to believe they understand something when they've actually absorbed a simplification. The mechanism matters.
 

@@ -68,6 +68,10 @@ tags: ["SRL", "metacognition", "weekly-review", "learning-analytics", "agency"]
 
 Reviews the learner's week (or multi-session period) using accumulated evidence from prior sessions: first-attempt rates, hint depths reached, confidence calibration accuracy (before vs. after), transfer check results, and unassisted evidence checkpoint results. The AI presents the patterns in the data, but critically asks the learner to interpret them before offering analysis. The session ends with a learner-set strategy goal for the next period — not a content goal but a how-I'll-study goal. Used consistently, the weekly review builds the forethought-performance-reflection loop that characterises high-performing self-regulated learners.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate data summaries, pattern questions, strategy-goal prompts, and assessment-readiness feedback into Russian; keep key research terms bilingual on first use when helpful (for example, "учебная субъектность / agency", "саморегулируемое обучение / self-regulated learning"). For Russian educational contexts, review preparation for контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, сессия, project work, or coursework when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Zimmerman (2000) proposed that self-regulated learners cyclically move through forethought (planning), performance (monitoring), and self-reflection phases — and that high-performing learners engage in this cycle consistently, not just before assessments. The self-reflection phase is where learners attribute outcomes, evaluate strategy effectiveness, and set goals for the next cycle. Hattie (2009) found an effect size of d ≈ 0.69 for metacognitive strategies in his synthesis of over 800 meta-analyses — one of the highest effects of any educational intervention. Sitzmann & Ely (2011) meta-analysed self-regulated learning in training contexts and found d = 0.62 for SRL overall, with self-monitoring specifically showing strong effects on performance. Winne et al. (2019) applied learning analytics to SRL research, showing that trace data from learning interactions (clicks, time-on-task, hint requests, errors) can be used to generate learning analytics dashboards that help learners identify their own strategic patterns — with learners who engage with their own analytics showing better subsequent performance. Azevedo et al. (2013) used trace methodology and sequential analysis to study SRL in hypermedia environments, finding that monitoring and strategy adaptation during and between sessions distinguished high-performing from low-performing learners.
@@ -83,6 +87,14 @@ SESSION DATA: {{session_data — if not provided, guide the learner to recall an
 PRIOR STRATEGY GOAL: {{prior_strategy_goal — if set in a previous review}}
 UPCOMING ASSESSMENTS: {{upcoming_assessments — if not provided, work without this context}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep metric names and evidence capture labels exactly as written, but translate learner-facing content.
+- Use Russian school, СПО, or university assessment contexts when interpreting readiness.
+- Avoid UK/US-specific assessment references unless explicitly provided.
 
 ---
 

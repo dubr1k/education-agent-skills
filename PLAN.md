@@ -11,34 +11,25 @@
 - MCP wrapper, meta-tools, registry domain labels и поиск адаптированы под RU/EN.
 - Добавлен Unicode-aware поиск и русские query aliases.
 - Добавлен документ `docs/RU_LOCALIZATION.md`.
-- Тесты зелёные: MCP `21 passed`, root Playwright `20 passed`.
+- Адаптирован первый домен `student-learning`: 13 `SKILL.md` получили RU/EN localization слой внутри инструкций, без переименования `skill_id`, папок, tags или chaining metadata.
+- Исправлен MCP skill loader: теперь runtime bundle извлекает не только `## Prompt`, но и `## System Prompt`; иначе новые `student-learning` runtime-инструкции не попадали в `mcp-server/src/skills.json`.
+- Расширены русские search aliases: ФГОС/ФОП/рабочая программа/КТП, контрольная/диагностическая/ОГЭ/ЕГЭ/ВПР, РКИ/билингвы, ОВЗ/ИОМ/адаптированная программа/инклюзия, student-facing формулировки про уверенность, подсказки и самостоятельную проверку.
+- Добавлены bilingual QA tests для русского `find_skills`, русских `suggest_skills` сценариев и сохранения английских student-learning запросов.
+- Локализована пользовательская документация: `docs/CODEX.md`, `docs/HERMES.md`, `mcp-server/README.md`, `llms.txt` получили RU/EN quickstart, русские примеры `find_skills`/`suggest_skills` и явное описание совместимости английских `skill_id`, tool names и metadata.
+- Последняя проверка 2026-06-16:
+  - `.venv/bin/python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `26 passed`.
+  - `curl -4 -sS -m 10 -i https://mcp-server-sigma-sooty.vercel.app/mcp` — OK, endpoint отвечает ожидаемым `401 Hosted MCP access token required`.
+  - `npx playwright test` — OK, root `20 passed`.
 
 ## Ближайший фокус
 
-1. Адаптировать `student-learning` как первый домен.
-   - Сохранить evidence citations.
-   - Добавить русскоязычные инструкции ответа.
-   - Заменить UK/US examples на нейтральные или российские.
-   - Сохранить английские technical fields и tool compatibility.
+1. Начать bilingual adaptation pass для `curriculum-assessment`.
+   - Приоритет высокий: уже добавлены русские assessment aliases и QA queries.
+   - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
+   - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
-2. Расширить русские search aliases.
-   - ФГОС, ФОП, рабочая программа, КТП.
-   - ОГЭ, ЕГЭ, ВПР, контрольная, диагностическая.
-   - РКИ, русский как неродной, билингвальные учащиеся.
-   - ОВЗ, ИОМ, адаптированная программа, инклюзия.
-
-3. Локализовать пользовательскую документацию.
-   - `docs/CODEX.md`
-   - `docs/HERMES.md`
-   - `mcp-server/README.md`
-   - `llms.txt`
-
-4. Добавить bilingual QA tests.
-   - Русский `find_skills`.
-   - Русский `suggest_skills` по оцениванию, чтению, РКИ, ОВЗ.
-   - Проверка, что английские запросы продолжают работать.
-
-5. После каждого пакета изменений выполнять:
+2. После каждого пакета изменений выполнять:
 
 ```bash
 .venv/bin/python scripts/generate-registry.py
@@ -49,4 +40,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать с 13 файлов `skills/student-learning/*/SKILL.md`: сделать bilingual adaptation pass без переименования skill identifiers, затем пересобрать registry/MCP bundle и добавить тесты на русскоязычный student-facing сценарий.
+Начать адаптацию домена `curriculum-assessment`: пройти 13 `SKILL.md`, добавить русскоязычный слой для ФГОС/ФОП, рабочих программ, КТП, диагностических/контрольных работ, критериев и рубрик, не меняя совместимые английские идентификаторы и metadata.

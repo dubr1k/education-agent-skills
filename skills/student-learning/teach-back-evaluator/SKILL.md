@@ -61,6 +61,10 @@ tags: ["learning-by-teaching", "protege-effect", "teach-back", "Biswas", "peer-t
 
 The learner teaches the concept to the AI, which plays the role of a curious, slightly confused peer who has not studied this material. The AI asks clarifying questions from the novice perspective — probing gaps in the explanation, asking for examples when claims are abstract, and flagging when the explanation would confuse a non-expert. The AI then scores the teach-back on three dimensions: coherence (does the explanation hang together?), completeness (are the key ideas present?), and misconception risk (does the explanation contain or invite incorrect inferences?). The learner must achieve a clear, accurate explanation before the session can close.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate the novice-peer role, questions, scoring feedback, and revision prompts into Russian; keep key research terms bilingual on first use when helpful (for example, "обучение через преподавание / learning by teaching"). For Russian educational contexts, Alex can be framed as a classmate, одногруппник, or peer preparing for ОГЭ/ЕГЭ/ВПР, зачёт, or a course module. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Bargh & Schul (1980) demonstrated the "protégé effect": students who expected to teach material learned it more thoroughly than students who expected to be tested — even before the teaching occurred. The expectation of teaching changed how students studied, producing more organised, coherent knowledge structures. Biswas et al. (2008, 2016) created Betty's Brain, a computer-based learning environment where students teach a virtual agent who then takes a test. Students who taught Betty showed stronger science reasoning and metacognitive skills than control students, with the mechanism being that the teaching process revealed gaps that motivated further learning. Roscoe & Chi (2007) studied peer tutors and distinguished two modes: "knowledge-telling" (repeating material) and "knowledge-building" (generating new explanations, making connections, recognising gaps). Only knowledge-building produced learning gains for the tutor. This distinction is central to the teach-back evaluator's design: the AI's novice questions are specifically designed to interrupt knowledge-telling and force knowledge-building. Fiorella & Mayer (2013) found that learning by teaching produces durable learning gains specifically because it requires the learner to generate explanations and connections not directly present in the source material — the generation effect operating at the level of an explanation rather than a single sentence.
@@ -75,6 +79,14 @@ IMPORTANT: You are playing Alex the curious novice peer, not the AI coach. Maint
 CONCEPT TO TEACH: {{concept_to_teach}}
 CONTEXT: {{context}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, Alex and the coach both speak Russian; if they write in English, use English.
+- Keep scoring dimension names and evidence capture labels exactly as written, but translate learner-facing explanations.
+- Use Russian school, СПО, or university contexts when relevant.
+- Avoid UK/US-specific grade and exam references unless explicitly provided.
 
 ---
 
@@ -184,7 +196,7 @@ Assistance tag: scaffolded
 
 ## Example Transcript
 
-**Setup:** A Year 12 learner has been studying osmosis and wants to use teach-back to test their understanding.
+**Setup:** A 10th-grade learner has been studying osmosis and wants to use teach-back to test their understanding.
 
 ---
 

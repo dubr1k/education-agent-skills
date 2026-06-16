@@ -82,6 +82,46 @@ test.describe("MCP Server — list_skills", () => {
   });
 });
 
+test.describe("MCP Server — find_skills", () => {
+  let client: Client;
+
+  test.beforeEach(async () => {
+    client = await createClient();
+  });
+
+  test.afterEach(async () => {
+    await client?.close();
+  });
+
+  test("finds student-learning skills from a Russian query", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "student-learning",
+        query: "застрял ошибка диагностика",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Stuck & Error Diagnosis Coach");
+    expect(text).toContain("student-learning");
+  });
+
+  test("finds unassisted checkpoints from Russian independent-practice language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "student-learning",
+        query: "самостоятельная проверка",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Unassisted Evidence Checkpoint");
+    expect(text).toContain("student-learning");
+  });
+});
+
 test.describe("MCP Server — suggest_skills", () => {
   let client: Client;
 
@@ -123,6 +163,65 @@ test.describe("MCP Server — suggest_skills", () => {
     expect(skillMatches!.length).toBeGreaterThanOrEqual(3);
     expect(skillMatches!.length).toBeLessThanOrEqual(5);
     expect(text).toMatch(/Language|Reading|Vocabulary|Scaffold/i);
+  });
+
+  test("returns student-learning results for Russian self-study scenarios", async () => {
+    const result = await client.callTool({
+      name: "suggest_skills",
+      arguments: {
+        problem_description:
+          "Ученик завышает уверенность, просит подсказки и плохо проверяет самостоятельное понимание перед контрольной",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toMatch(/Confidence Calibration Check|Progressive Hint Ladder|Unassisted Evidence Checkpoint/);
+    expect(text).toContain("student-learning");
+  });
+
+  test("keeps English student-learning queries working", async () => {
+    const result = await client.callTool({
+      name: "suggest_skills",
+      arguments: {
+        problem_description:
+          "A student needs confidence calibration, progressive hints, and an unassisted check after AI-supported practice",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toMatch(/Confidence Calibration Check/);
+    expect(text).toMatch(/Progressive Hint Ladder|Unassisted Evidence Checkpoint/);
+  });
+
+  test("returns relevant Russian results for assessment, RKI, and inclusive scenarios", async () => {
+    const queries = [
+      {
+        problem_description: "Нужны критерии оценивания для контрольной и диагностической работы перед ОГЭ",
+        expected: /Assessment|Rubric|Feedback|Question/i,
+      },
+      {
+        problem_description: "Нужна поддержка РКИ: русский как неродной, билингвальные учащиеся, словарь",
+        expected: /Language|Vocabulary|Sentence|Reading/i,
+      },
+      {
+        problem_description: "Нужна адаптированная программа и ИОМ для ученика с ОВЗ в инклюзивном классе",
+        expected: /Inclusive|Barrier|UDL|Accessibility/i,
+      },
+    ];
+
+    for (const query of queries) {
+      const result = await client.callTool({
+        name: "suggest_skills",
+        arguments: { problem_description: query.problem_description },
+      });
+      const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+      const skillMatches = text.match(/- \*\*[^*]+\*\*/g);
+
+      expect(skillMatches).toBeTruthy();
+      expect(skillMatches!.length).toBeGreaterThanOrEqual(3);
+      expect(skillMatches!.length).toBeLessThanOrEqual(5);
+      expect(text).toMatch(query.expected);
+    }
   });
 
   test("returns domain fallback when no matches found", async () => {

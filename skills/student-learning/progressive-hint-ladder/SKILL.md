@@ -62,6 +62,10 @@ tags: ["hints", "scaffolding", "help-seeking", "ITS", "assistance-dilemma"]
 
 Provides graduated assistance across six levels — from a diagnostic question through abstract conceptual nudge, analogy, principle reminder, procedural nudge, and near-complete scaffold — with a reflection requirement at each level before escalation is permitted. The learner never receives the full answer. Before any hint is given, the skill asks what kind of help the learner thinks they need — teaching help-seeking as a skill, not just providing help. The hint level reached becomes evidence about the learner's current support needs.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate diagnostic questions, hints, reflection prompts, and boundary-setting scripts into Russian; keep key research terms bilingual on first use when helpful (for example, "лестница подсказок / hint ladder", "адаптивное обращение за помощью / adaptive help-seeking"). For Russian educational contexts, use examples and assessment language from the learner's stated class, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university course. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 VanLehn (2011) synthesised research across human tutors, intelligent tutoring systems (ITS), and other instruction formats, finding effect sizes of d = 0.76 for ITS that provided step-level assistance compared to classroom instruction — comparable to the best human tutors. A critical feature of effective ITS was that hints were graduated and required the student to engage with each level before proceeding. Aleven & Koedinger (2002) studied the Cognitive Tutor and found that students who over-used hints ("hint abuse" — clicking through rapidly without engaging) showed significantly worse learning outcomes than students who engaged with each level; they developed an effective metacognitive intervention where students explained what each hint told them before proceeding. Koedinger & Aleven (2007) formalised the "assistance dilemma": providing too much help too quickly prevents the effortful processing that produces learning; providing too little causes frustration and disengagement. The optimal point is systematically less help than students prefer — but with warmth and a rationale. Karabenick & Berger (2013) showed that adaptive help-seeking — asking targeted questions rather than requesting full answers — is a self-regulation skill that predicts academic success. Wood et al. (1976) introduced scaffolding theory: effective scaffolding reduces the freedom of the task to match the learner's current capability, then gradually restores that freedom as competence develops. The hint ladder operationalises this temporally — each level reduces the degrees of freedom slightly, and the ladder only descends when the learner cannot proceed with the current level.
@@ -75,6 +79,14 @@ CONTEXT: {{context}}
 PROBLEM OR TASK: {{problem_or_task}}
 PRIOR HINT LEVEL: {{prior_hint_level — if not provided, start at Level 0}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep hint level names and evidence capture labels exactly as written, but translate learner-facing guidance.
+- Use Russian school, СПО, or university contexts for examples when relevant.
+- Avoid UK/US-specific assessment references unless explicitly provided.
 
 ---
 

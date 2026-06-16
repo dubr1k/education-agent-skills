@@ -1,35 +1,33 @@
-# Using Education Agent Skills in OpenAI Codex
+# Using Academic Skills RU in OpenAI Codex
 
-This guide explains how to use the Education Agent Skills Library with OpenAI Codex without using the hosted MCP server.
+This guide explains how to use **Academic Skills RU**, a bilingual RU/EN fork of the Education Agent Skills Library, with OpenAI Codex without relying on the hosted MCP server.
 
-Repository: https://github.com/GarethManning/education-agent-skills
+Repository: https://github.com/dubr1k/education-agent-skills
 
 The skills can run locally from your machine. Once installed locally, Codex reads the skill files directly and does **not** call the hosted MCP server.
 
+## Compatibility note / Важно о совместимости
+
+Technical identifiers intentionally stay in English for upstream compatibility:
+
+- `skill_id`
+- folder names under `skills/<domain>/<skill-name>/`
+- tool names such as `find_skills`, `suggest_skills`, `get_skill_details`, `list_skills`
+- tags and chaining metadata
+
+Русскоязычный слой добавлен через инструкции, поиск, aliases, документацию и runtime metadata. Поэтому в запросах можно писать по-русски, но системные имена skills и tools остаются английскими.
+
 ## Recommended: install as a local Codex plugin
 
-Use this when you want the full Education Agent Skills Library available in Codex.
-
-1. Clone the repository:
+Use this when you want the full library available in Codex.
 
 ```bash
-git clone https://github.com/GarethManning/education-agent-skills.git
+git clone https://github.com/dubr1k/education-agent-skills.git
 cd education-agent-skills
-```
-
-2. Add the repository as a local Codex plugin marketplace:
-
-```bash
-codex plugin marketplace add /absolute/path/to/education-agent-skills
-```
-
-For example, if you cloned it into your current folder:
-
-```bash
 codex plugin marketplace add "$PWD"
 ```
 
-The repository includes the Codex plugin manifest:
+The repo includes the Codex plugin manifest:
 
 ```text
 .codex-plugin/plugin.json
@@ -41,36 +39,37 @@ That manifest points Codex at:
 ./skills/
 ```
 
-The repository also includes a local marketplace helper at:
+The repo also includes a local marketplace helper:
 
 ```text
 .agents/plugins/marketplace.json
 ```
 
-This is there so Codex plugin tooling can discover the repository as a single installable local plugin rather than requiring people to copy all 165 skills one by one.
+Restart Codex after installing or updating the local plugin. Codex can then discover and use the installed skills from local files.
 
-3. Restart Codex.
+## Quickstart examples / Примеры запросов
 
-After restart, Codex can discover and use the installed skills from the local plugin. You can then ask for education tasks in normal language, for example:
+You can ask Codex in English:
 
 > I am planning a Year 9 science unit on cells: 6 weeks, 3 lessons per week. Build the unit using evidence-based learning science.
 
-Codex can then use relevant skills such as backwards design, spaced practice, retrieval practice, formative assessment, and rubric design.
+Or in Russian:
+
+> Спланируй учебный модуль по клетке для 8 класса: 6 недель, 3 урока в неделю. Используй доказательные подходы, retrieval practice и формирующее оценивание.
+
+> Подбери skills для рабочей программы по ФГОС: нужно связать планируемые результаты, КТП, контрольные работы и критерии оценивания.
+
+> Я ученик, застрял на задаче по физике. Не давай сразу ответ: сначала помоги понять ошибку и дай подсказки по шагам.
+
+Codex can then use relevant skills such as backwards design, spaced practice, retrieval practice, formative assessment, rubric design, progressive hints, and stuck/error diagnosis.
 
 ## Simple option: install individual skills
 
 Use this when you only want a few skills available globally in Codex.
 
-1. Clone the repository:
-
 ```bash
-git clone https://github.com/GarethManning/education-agent-skills.git
+git clone https://github.com/dubr1k/education-agent-skills.git
 cd education-agent-skills
-```
-
-2. Copy a skill folder into your Codex skills directory:
-
-```bash
 mkdir -p ~/.codex/skills
 cp -r skills/<domain>/<skill-name> ~/.codex/skills/
 ```
@@ -81,9 +80,7 @@ Example:
 cp -r skills/memory-learning-science/spaced-practice-scheduler ~/.codex/skills/
 ```
 
-3. Restart Codex.
-
-After restart, the installed skill can trigger automatically when relevant.
+Restart Codex after copying skills.
 
 ## One-off use without installing
 
@@ -101,14 +98,31 @@ skills/memory-learning-science/spaced-practice-scheduler/SKILL.md
 
 This works well for testing, but it is not persistent. Codex will not automatically discover the skill in future sessions unless it is installed locally.
 
+## MCP discovery tools
+
+Local Codex use does not require MCP. If you are using the MCP server from another client, the discovery tools accept Russian and English search language while keeping tool names English:
+
+- `find_skills` — search by keyword, domain, evidence strength, tag, or free text.
+- `suggest_skills` — describe a teaching, curriculum, assessment, inclusion, or student-learning need.
+- `get_skill_details` — fetch full metadata and usage guidance for a specific skill.
+- `list_skills` — browse the library.
+
+Russian examples for MCP-capable clients:
+
+```text
+find_skills query="ФГОС рабочая программа КТП критерии оценивания"
+suggest_skills task="Нужно подготовить диагностическую работу и рубрику для 7 класса по теме дроби"
+suggest_skills task="Ученик просит ответ сразу, но нужно сначала проверить понимание и дать постепенные подсказки"
+```
+
 ## Which option should I choose?
 
 Use the local plugin if:
 
 - You want the full library available.
 - You want Codex to discover relevant education skills automatically.
-- You want to avoid MCP server usage and hosted costs.
-- You are comfortable cloning a GitHub repository.
+- You want RU/EN prompts without hosted MCP usage.
+- You are comfortable cloning a GitHub repo.
 
 Use individual skill installation if:
 
@@ -122,17 +136,9 @@ Use manual one-off use if:
 - You cannot install local files.
 - You only need a single prompt once.
 
-## MCP is optional
-
-The hosted MCP server is useful for remote discovery, programmatic access, and clients that prefer MCP connectors.
-
-It is not required for Codex local use.
-
-For sustainable free use, install the skills locally from GitHub rather than connecting to the hosted MCP server.
-
 ## Updating
 
-If you cloned the full repository, update it with:
+If you cloned the full repo, update it with:
 
 ```bash
 cd education-agent-skills
@@ -141,25 +147,20 @@ git pull
 
 Then restart Codex so it picks up the latest skill changes.
 
-If you copied individual skills into `~/.codex/skills/`, copy them again after updating the repository.
+If you copied individual skills into `~/.codex/skills/`, copy them again after updating the repo.
 
 ## Troubleshooting
 
 If Codex does not appear to use the skills:
 
 - Make sure each installed skill folder contains a `SKILL.md` file.
-- Make sure the `SKILL.md` file has `name` and `description` fields in the frontmatter.
+- Make sure the `SKILL.md` file has `name` and `desc` fields in the frontmatter.
 - Restart Codex after installing or updating skills.
-- For individual skills, make sure the folder was copied directly into `~/.codex/skills/`, not nested too deeply.
+- For individual skills, make sure the skill folder was copied directly into `~/.codex/skills/`, not nested too deeply.
 
-Correct:
+Expected examples:
 
 ```text
 ~/.codex/skills/spaced-practice-scheduler/SKILL.md
-```
-
-Incorrect:
-
-```text
 ~/.codex/skills/memory-learning-science/spaced-practice-scheduler/SKILL.md
 ```

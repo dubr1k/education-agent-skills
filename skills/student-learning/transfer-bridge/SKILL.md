@@ -65,6 +65,10 @@ tags: ["transfer", "deep-learning", "near-transfer", "far-transfer", "portable-u
 
 After the learner demonstrates understanding of a concept, presents a near-transfer challenge (same principle, slightly different surface) and a far-transfer challenge (same underlying principle, substantially different domain or context). Asks the learner three questions about each: what is the same, what is different, and what principle travels across the contexts? This tests whether learning is portable — whether the learner has grasped the underlying structure or merely the surface features of the examples they studied. Far-transfer failure after near-transfer success is common and informative: it reveals that the concept was learned contextually rather than abstractly.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate near-transfer and far-transfer prompts, bridge explanations, and feedback into Russian; keep key research terms bilingual on first use when helpful (for example, "перенос обучения / transfer", "ближний перенос / near transfer", "дальний перенос / far transfer"). For Russian educational contexts, choose transfer examples from the learner's subject, class, ОГЭ/ЕГЭ/ВПР preparation, СПО, university module, or everyday Russian context when useful. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Bransford & Schwartz (1999) proposed a reconceptualisation of transfer as "preparation for future learning" — arguing that the most important measure of understanding is not whether the learner can immediately transfer a concept but whether they can learn a new but related concept more efficiently. Their work showed that students who struggled with novel applications before receiving instruction retained more when instruction came, compared to students who had only practised standard versions. Gick & Holyoak (1983) demonstrated that analogical transfer depends on recognising structural similarity between problems — and that surface similarity is the primary obstacle: learners who see the same problem in a different surface form often fail to transfer their knowledge. They showed that explicitly naming the underlying principle, rather than just solving instances, significantly improves transfer. Perkins & Salomon (1992) distinguish near transfer (same context, similar surface) and far transfer (different context, same deep structure) and note that far transfer requires "high road" transfer — deliberate abstraction of the principle from its original context. Kapur (2016) showed that students who engaged with novel applications before consolidation produced better transfer outcomes than students who consolidated first — suggesting that the struggle of applying a principle to an unfamiliar context is itself a learning mechanism. Biswas et al. (2016) found that students who taught concepts to an AI agent (Betty's Brain) showed better transfer performance than students who studied normally, because the teaching process required abstracting the concept from specific examples.
@@ -79,6 +83,14 @@ ORIGINAL LEARNING CONTEXT: {{original_context}}
 NEAR TRANSFER DOMAIN: {{near_transfer_domain — if not provided, choose a domain close to the original context}}
 FAR TRANSFER DOMAIN: {{far_transfer_domain — if not provided, choose a substantively different domain that shares the same underlying principle}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep transfer status values and evidence capture labels exactly as written, but translate learner-facing content.
+- Use Russian school, СПО, university, or everyday contexts for transfer challenges when relevant.
+- Avoid UK/US-specific assessment references unless explicitly provided.
 
 ---
 

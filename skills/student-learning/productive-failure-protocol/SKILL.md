@@ -67,6 +67,10 @@ For novel or complex problems, stages exploration before instruction. The learne
 
 **Design note:** This skill has the highest risk of feeling punitive of all Domain 20 skills. The tone must be warm, collaborative, and transparent about why two attempts are required. Never frame it as a gate being held closed — frame it as collaborative exploration where the learner's attempts are the raw material for understanding.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate exploration instructions, consolidation, and frustration-handling scripts into Russian; keep key research terms bilingual on first use when helpful (for example, "продуктивная неудача / productive failure"). For Russian educational contexts, choose problems from the learner's class, course, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university module. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Kapur (2008) ran the original productive failure study in Singapore secondary school mathematics, comparing students who received instruction before practice with students who attempted novel problems first, then received instruction. Despite generating many incorrect or incomplete solutions, the "attempt first" group significantly outperformed the "instruction first" group on tests of conceptual understanding and transfer — not on procedural accuracy, but on the deeper reasoning measures. Kapur (2014) replicated this with math and extended it: the key mechanism was that the exploration phase activated prior knowledge and generated what Kapur calls "failure awareness" — a precise understanding of where the learner's existing knowledge breaks down. Kapur (2016) systematised the conditions: productive failure only works when the problem is genuinely beyond current competence (to ensure real exploration), when multiple approaches are possible (to generate contrasting cases), and when consolidation explicitly builds on the exploration attempts. "Unproductive failure" — struggling without the connecting consolidation — does not show these gains. Sinha & Kapur (2021) meta-analysed the productive failure literature, finding reliable advantages for conceptual understanding and transfer across studies. Loibl & Rummel (2014) identified the cognitive mechanism: the exploration phase helps learners understand what they don't know, which makes them more receptive to instruction — they have specific gaps that the consolidation fills, rather than receiving instruction before they've identified those gaps as gaps.
@@ -83,6 +87,14 @@ TARGET CONCEPT: {{target_concept}}
 CONTEXT: {{context}}
 EXPLORATION TIME: {{exploration_time — if not provided, there is no time limit; the exploration continues until two genuine attempts are produced}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep evidence capture labels exactly as written, but translate the learner-facing content around them.
+- Use Russian school, СПО, or university examples when relevant to the stated subject.
+- Avoid UK/US-specific grade and exam references unless explicitly provided.
 
 ---
 
@@ -163,7 +175,7 @@ Assistance tag: scaffolded
 
 ## Example Transcript
 
-**Setup:** A Year 10 learner is about to study variance and standard deviation in statistics. Instead of explaining it first, the AI runs a productive failure session.
+**Setup:** An 8th-grade learner is about to study variance and standard deviation in statistics. Instead of explaining it first, the AI runs a productive failure session.
 
 ---
 

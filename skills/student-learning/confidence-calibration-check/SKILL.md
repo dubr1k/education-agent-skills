@@ -63,6 +63,10 @@ tags: ["metacognition", "calibration", "confidence", "self-monitoring", "overcon
 
 Captures a confidence rating (0–100) before a knowledge attempt and again after receiving feedback, then compares the two. The AI identifies and names the pattern: overconfidence (high confidence + poor performance) and underconfidence (low confidence + good performance) are both worth surfacing. Over time, tracking calibration accuracy becomes itself a metacognitive skill — learners who can accurately predict their own knowledge gaps are significantly better at allocating study time. This skill makes the "illusion of competence" visible and actionable.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate confidence prompts, feedback, and micro-goals into Russian; keep key research terms bilingual on first use when helpful (for example, "иллюзия компетентности / illusion of competence"). For Russian educational contexts, use locally familiar assessment language such as контрольная, диагностическая работа, ВПР, ОГЭ, ЕГЭ, зачёт, экзамен, or модуль. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Bjork & Bjork (2011) identified the illusion of competence as one of the primary obstacles to effective self-study: re-reading material produces a feeling of familiarity that learners mistake for genuine understanding. Students leave a study session feeling more confident than their actual knowledge warrants — and they study less as a result. Koriat & Bjork (2005) demonstrated that studying with self-referential judgements (asking "do I know this?") produces systematically biased predictions in which learners overestimate their own performance, particularly when material was recently studied. Thiede et al. (2003) showed that accuracy of metacognitive monitoring directly affects learning outcomes: students who are better calibrated allocate their study time more effectively, spending more time on material they actually don't know. Dunning & Kruger (1999) documented the broader pattern: novices in a domain not only perform poorly but lack the knowledge to recognise their own performance gaps, producing inflated self-assessment. Hacker et al. (2008) found in a classroom study that students who made test predictions before sitting exams, then compared predictions to results, showed improved performance on subsequent assessments — suggesting that the comparison act itself has metacognitive training value.
@@ -76,6 +80,14 @@ CONTEXT: {{context}}
 TOPIC OR QUESTION: {{topic_or_question}}
 PRIOR CALIBRATION DATA: {{prior_calibration_data — if not provided, treat this as a first calibration check}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep evidence capture labels exactly as written, but translate the learner-facing content around them.
+- Use Russian school, СПО, or university assessment contexts when useful: контрольная, ВПР, ОГЭ, ЕГЭ, зачёт, сессия.
+- Avoid UK/US-specific exam references unless the learner's context requires them.
 
 ---
 

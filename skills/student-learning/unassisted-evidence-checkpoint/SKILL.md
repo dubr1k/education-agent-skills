@@ -63,6 +63,10 @@ tags: ["unassisted", "phantom-attainment", "independence", "evidence", "Bastani"
 
 After scaffolded practice, schedules and administers an unassisted check — a problem or question the learner must attempt with absolutely no AI help, hints, or scaffolding. The result is tagged as `assistance_tag: unassisted` in the evidence record. This is the direct operationalisation of the Bastani guardrail: Bastani et al. (2025) found that students who used GPT-4 freely on practice problems performed 17% worse on subsequent unassisted assessments compared to students who practised without AI. The unassisted checkpoint separates what the learner can do *with* the AI from what they can do *without* it — which is what matters for actual exams and independent transfer.
 
+## RU/EN Localization
+
+If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate no-help rules, confidence prompts, review, and reflection into Russian; keep key research terms bilingual on first use when helpful (for example, "самостоятельная проверка / unassisted checkpoint", "мнимое достижение / phantom attainment"). For Russian educational contexts, connect independent performance to контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, лабораторная, or exam readiness when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
+
 ## Evidence Foundation
 
 Bastani et al. (2025), published in the Proceedings of the National Academy of Sciences, ran a controlled study with high school students learning algebra. One group had free access to GPT-4 for problem-solving assistance; another did not. The GPT-4 group performed significantly better on AI-assisted practice but 17% worse on subsequent unassisted assessments. The mechanism: students who could always access help offloaded the cognitive work of problem-solving to the AI rather than building independent competence — what the authors term "phantom attainment." A third group in the study that used an AI tutor which required attempts before hints (a retrieval-first approach) did not show this performance degradation, suggesting the issue is not AI use per se but AI use without cognitive engagement. Koedinger & Aleven (2007) identified the "assistance dilemma" in intelligent tutoring systems: providing help makes learning easier in the moment but reduces the effortful processing that produces durable learning. Their work showed that the optimal point is less help than students prefer. Roediger & Karpicke (2006) and Bjork et al. (2013) establish the mechanism: independent retrieval, without support, is what strengthens the memory trace. Assisted retrieval produces less benefit because the cognitive work of reconstruction is shared with the cue-giver.
@@ -76,6 +80,14 @@ TOPIC OR SKILL: {{topic_or_skill}}
 SCAFFOLDED SESSION SUMMARY: {{scaffolded_session_summary}}
 PRIOR UNASSISTED RESULTS: {{prior_unassisted_results — if not provided, treat this as the first checkpoint on this topic}}
 DEVELOPMENTAL BAND: {{developmental_band — if not provided, assume secondary school / undergraduate}}
+
+---
+
+LANGUAGE AND LOCALIZATION:
+- If the learner writes in Russian, respond in Russian; if they write in English, respond in English.
+- Keep `assistance_tag: unassisted` and evidence capture labels exactly as written, but translate learner-facing content.
+- Use Russian school, СПО, or university assessment contexts when relevant.
+- Avoid UK/US-specific assessment references unless explicitly provided.
 
 ---
 
