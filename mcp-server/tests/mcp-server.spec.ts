@@ -148,6 +148,20 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("curriculum-alignment");
     expect(text).toMatch(/Coverage Audit|Curriculum Crosswalk|Developmental Band Translator|KUD Chart Author/);
   });
+
+  test("finds eal-language-development skills from Russian RKI language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "eal-language-development",
+        query: "РКИ русский как неродной билингвы словарь языковые рамки",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("eal-language-development");
+    expect(text).toMatch(/Language Demand Analyser|Vocabulary Tiering Tool|Academic Language Sentence Frame Generator|Scaffolded Task Modifier/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -330,6 +344,24 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("ФГОС");
     expect(text).toContain("КТП");
     expect(text).toContain("coverage_table");
+  });
+
+  test("includes Russian EAL context in bundled eal-language-development prompts", async () => {
+    const result = await client.callTool({
+      name: "vocabulary-tiering-tool",
+      arguments: {
+        text_or_topic:
+          "Текст по биологии для билингвальных учащихся: нужно выделить академический словарь и термины",
+        student_level: "6 класс",
+        subject_area: "биология",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("РКИ");
+    expect(text).toContain("русский как неродной");
+    expect(text).toContain("6 класс");
   });
 
   test("handles collision names with domain prefix", async () => {
