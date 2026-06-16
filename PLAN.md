@@ -19,17 +19,20 @@
 - Адаптирован домен `curriculum-assessment`: 13 `SKILL.md` получили RU/EN runtime-контекст для ФГОС/ФОП, рабочих программ, КТП, планируемых результатов, диагностических/контрольных работ, критериев, рубрик, проектной деятельности, ОВЗ/ИОМ и локальных assessment formats без изменения YAML metadata.
 - Усилен русский `find_skills` для `curriculum-assessment`: доменный индекс теперь покрывает ФГОС/ФОП/рабочую программу/КТП/планируемые результаты, добавлен alias для результатов/целей/задач.
 - Добавлены QA tests для русского `find_skills` по curriculum-assessment и проверки, что RU runtime-контекст попадает в bundled MCP prompts.
+- Адаптирован домен `curriculum-alignment`: 4 `SKILL.md` получили RU/EN runtime-контекст для ФГОС/ФОП, рабочих программ, КТП, учебных планов, планируемых результатов, УУД, coverage audit, crosswalk, developmental band translation и KUD chart authoring без изменения YAML metadata.
+- Усилен русский `find_skills` для `curriculum-alignment`: доменный индекс теперь покрывает планируемые результаты.
+- Добавлены QA tests для русского `find_skills` по curriculum-alignment и проверки, что RU alignment-контекст попадает в bundled MCP prompts.
 - Последняя проверка 2026-06-16:
   - `.venv/bin/python scripts/generate-registry.py` — OK, 165 skills / 20 domains.
-  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `28 passed`.
+  - `cd mcp-server && npm run bundle-skills && npm run build && npm test` — OK, MCP `30 passed`.
   - `curl -4 -sS -m 10 -i https://mcp-server-sigma-sooty.vercel.app/mcp` — OK, endpoint отвечает ожидаемым `401 Hosted MCP access token required`.
   - `npx playwright test` — OK, root `20 passed`.
 
 ## Ближайший фокус
 
 1. Начать bilingual adaptation pass для следующего домена.
-   - Приоритет: `curriculum-alignment`, потому что он напрямую связан с ФГОС/ФОП, coverage audit, KUD chart authoring, developmental band translation и scope/sequence.
-   - Следующие кандидаты после него: `eal-language-development`, `inclusive-design`.
+   - Приоритет: `eal-language-development`, потому что уже добавлены русские aliases для РКИ, русского как неродного, билингвов, мигрантов, словаря и речи.
+   - Следующий кандидат после него: `inclusive-design`.
    - Сохранять `skill_id`, folder names, tags, chaining metadata и YAML frontmatter fields.
    - Добавлять RU/EN слой в инструкции без ослабления evidence guidance.
 
@@ -44,4 +47,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать адаптацию домена `curriculum-alignment`: пройти 4 `SKILL.md`, добавить русскоязычный слой для ФГОС/ФОП, рабочих программ, КТП, coverage audit, KUD chart authoring, developmental band translation и scope/sequence, не меняя совместимые английские идентификаторы и metadata.
+Начать адаптацию домена `eal-language-development`: пройти 5 `SKILL.md`, добавить русскоязычный слой для РКИ, русского как неродного, билингвальных учащихся, мигрантов, академического словаря, языковых рамок и scaffolded task modification, не меняя совместимые английские идентификаторы и metadata.

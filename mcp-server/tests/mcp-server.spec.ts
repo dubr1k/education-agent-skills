@@ -134,6 +134,20 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toContain("curriculum-assessment");
     expect(text).toMatch(/Backwards Design Unit Planner|Scope and Sequence Designer|Competency Unpacker|Criterion-Referenced Rubric Generator/);
   });
+
+  test("finds curriculum-alignment skills from Russian alignment language", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        domain: "curriculum-alignment",
+        query: "ФГОС ФОП рабочая программа КТП соответствие планируемые результаты",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("curriculum-alignment");
+    expect(text).toMatch(/Coverage Audit|Curriculum Crosswalk|Developmental Band Translator|KUD Chart Author/);
+  });
 });
 
 test.describe("MCP Server — suggest_skills", () => {
@@ -298,6 +312,24 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("ФГОС");
     expect(text).toContain("КТП");
     expect(text).toContain("7 класс");
+  });
+
+  test("includes Russian alignment context in bundled curriculum-alignment prompts", async () => {
+    const result = await client.callTool({
+      name: "coverage-audit",
+      arguments: {
+        framework:
+          "Рабочая программа: планируемые результаты, тематическое планирование, КТП",
+        requirements:
+          "ФГОС ООО: предметные результаты и метапредметные результаты",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("Russian / bilingual context");
+    expect(text).toContain("ФГОС");
+    expect(text).toContain("КТП");
+    expect(text).toContain("coverage_table");
   });
 
   test("handles collision names with domain prefix", async () => {

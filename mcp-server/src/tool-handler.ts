@@ -5,7 +5,7 @@ type ToolResult = { content: Array<{ type: "text"; text: string }> };
 const DOMAIN_SEARCH_TERMS: Record<string, string> = {
   "ai-learning-science": "ии искусственный интеллект обучение тьютор подсказки feedback обратная связь",
   "ai-literacy": "ии грамотность промпт hallucination галлюцинации проверка фактов критика",
-  "curriculum-alignment": "фгос фоп программа рабочая ктп планирование соответствие аудит",
+  "curriculum-alignment": "фгос фоп программа рабочая ктп планирование соответствие аудит планируемые результаты",
   "curriculum-assessment": "фгос фоп рабочая программа ктп планируемые результаты оценивание рубрика критерии проект урок модуль диагностика контрольная впр огэ егэ",
   "eal-language-development": "русский как неродной рки иностранный язык мигранты билингвы словарь речь",
   "environmental-experiential-learning": "практика проект среда природа исследование опыт вне класса",
