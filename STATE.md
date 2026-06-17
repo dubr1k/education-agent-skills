@@ -12,6 +12,9 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - Added MCP QA coverage for Russian discovery and bundled prompt context for all newly adapted domains.
 - Regenerated `registry.json` and rebuilt `mcp-server/src/skills.json`.
 - Committed and pushed the completed adaptation wave as `092e008 Adapt remaining education skill domains for RU context` to `fork/main`.
+- Added post-adaptation guard coverage: every `SKILL.md` must include `Russian / bilingual context`, and planning docs must describe the adaptation as complete.
+- Added Russian end-to-end `suggest_skills` scenarios for AI literacy, wellbeing/conflict, historical thinking, ecological inquiry, and professional learning.
+- Expanded root and MCP README documentation with detailed MCP runtime flow: snapshot bundle, stdio/HTTP transports, auth, domain filtering, and model responsibility.
 
 ## What was verified
 
@@ -21,6 +24,7 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - `cd mcp-server && npm test` — 64 passed
 - `npx playwright test` — 22 passed
 - `npm test` — 22 passed
+- Targeted post-adaptation MCP/docs tests — passed
 - `git diff --check` for touched skill domains and shared files — clean
 
 ## Current library state
@@ -33,3 +37,4 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 ## What's next
 
 - Continue polishing: add regression guards, tighten Russian end-to-end `suggest_skills` scenarios, remove stale planning language, and prepare release notes / changelog for the RU fork.
+- Next concrete step: prepare release notes / changelog for the RU fork, plus an optional hosted MCP deployment checklist.

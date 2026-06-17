@@ -61,6 +61,12 @@
   - `npm test` — OK, root `22 passed`.
   - `git diff --check` по touched domains/shared files — OK.
   - Коммит `092e008 Adapt remaining education skill domains for RU context` запушен в `fork/main`.
+- Polishing pass 2026-06-17:
+  - Добавлен guard-test, что все 165 `SKILL.md` содержат `Russian / bilingual context`.
+  - Нормализованы старые `## RU/EN Localization` заголовки в ранних доменах.
+  - Добавлены русские end-to-end `suggest_skills` сценарии для AI literacy, wellbeing/conflict, historical thinking, ecological inquiry и professional learning.
+  - Расширены README/MCP docs: snapshot runtime, stdio/HTTP transports, auth, domain filtering и роль вызывающей модели.
+  - Предыдущий guard/status слой уже запушен как `11b1989 Polish RU adaptation status and guards`; MCP/docs слой готовится отдельным коммитом.
 
 ## Ближайший фокус
 
@@ -79,4 +85,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Начать polishing pass: добавить регрессионные проверки полноты RU/EN runtime-контекста, убрать устаревшие planning notes, расширить русские end-to-end `suggest_skills` сценарии и подготовить release notes для RU fork.
+Подготовить release notes / changelog для RU fork и, при необходимости, отдельный deployment checklist для hosted MCP.

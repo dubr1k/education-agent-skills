@@ -215,7 +215,15 @@ npm start
 - **169 tools**: 165 skills + `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`.
 - **165 prompts** для клиентов, которые показывают MCP prompts.
 
-Source code и инструкции разработки: [mcp-server/](mcp-server/).
+Как это устроено:
+
+- MCP-сервер читает не live `SKILL.md`, а pre-built snapshot `mcp-server/src/skills.json`.
+- Каждый skill регистрируется дважды: как callable MCP tool и как MCP prompt.
+- Skill tool не вызывает отдельную LLM: он собирает evidence-based prompt, подставляет входные параметры и возвращает instruction-framed текст вызывающей модели.
+- Русские запросы работают через Unicode-aware search, domain terms и aliases; technical IDs остаются английскими.
+- Локальный режим использует stdio transport (`dist/index.js`), hosted режим использует HTTP entrypoint (`api/mcp.ts`) с token-based access control.
+
+Source code и подробное описание runtime flow: [mcp-server/](mcp-server/).
 
 ## Участие в разработке
 

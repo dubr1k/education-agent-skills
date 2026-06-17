@@ -505,6 +505,50 @@ test.describe("MCP Server — suggest_skills", () => {
     }
   });
 
+  test("returns relevant Russian results for post-adaptation end-to-end scenarios", async () => {
+    const queries = [
+      {
+        problem_description:
+          "Ученики используют ChatGPT для доклада, но не проверяют галлюцинации, источники и надежность ответа ИИ",
+        expected: /AI Output Critical Audit|AI Hallucination Fact-Check|Prompt Literacy|AI Learning Boundary|ai-literacy/i,
+      },
+      {
+        problem_description:
+          "В классе повторяется конфликт, нужна восстановительная практика, психологическая безопасность и чувство принадлежности",
+        expected: /Restorative Practice|Trauma-Informed|Belonging|RULER|wellbeing-motivation-agency/i,
+      },
+      {
+        problem_description:
+          "На уроке истории ученики читают документ без анализа авторства, происхождения источника и сопоставления с другими источниками",
+        expected: /Sourcing Skill|Corroboration|Contextualisation|Document-Based|historical-thinking/i,
+      },
+      {
+        problem_description:
+          "Нужно исследовать школьный двор как локальную природную среду: наблюдение, fieldwork, экологическое образование и проектная деятельность",
+        expected: /Ecological Inquiry|Outdoor Learning|Experiential Learning|Service Learning|environmental-experiential-learning/i,
+      },
+      {
+        problem_description:
+          "Педагогу нужен протокол наблюдения урока для наставничества, рефлексии и методического объединения",
+        expected: /Lesson Observation|Instructional Coaching|Reflective Practice|Lesson Study|professional-learning/i,
+      },
+    ];
+
+    for (const query of queries) {
+      const result = await client.callTool({
+        name: "suggest_skills",
+        arguments: { problem_description: query.problem_description },
+      });
+      const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+      const skillMatches = text.match(/- \*\*[^*]+\*\*/g);
+
+      expect(skillMatches).toBeTruthy();
+      expect(skillMatches!.length).toBeGreaterThanOrEqual(3);
+      expect(skillMatches!.length).toBeLessThanOrEqual(5);
+      expect(text).toMatch(query.expected);
+    }
+  });
+
   test("returns domain fallback when no matches found", async () => {
     const result = await client.callTool({
       name: "suggest_skills",

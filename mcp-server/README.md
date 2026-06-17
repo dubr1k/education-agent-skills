@@ -24,6 +24,93 @@ Skills are registered twice, as both MCP tools and MCP prompts:
 - **Tools**: 169 total, including 165 skills and 4 meta-tools. The calling model receives the assembled skill prompt via instruction framing and generates the output.
 - **Prompts**: 165 prompts for clients that surface MCP prompts in their UI.
 
+## Как именно работает MCP-сервер
+
+MCP-сервер в этом repo — не отдельная LLM и не сервис, который сам пишет педагогический результат. Это runtime-слой, который превращает библиотеку `SKILL.md` в MCP tools/prompts, собирает правильный evidence-based prompt и возвращает его вызывающей модели.
+
+### Два режима запуска
+
+| Режим | Entry point | Для чего |
+|---|---|---|
+| Local stdio | `dist/index.js` после `npm run build` | Claude Desktop, Codex, Hermes и другие локальные MCP clients |
+| Hosted HTTP | `api/mcp.ts` | self-hosted/Vercel deployment с HTTP transport и access-token защитой |
+
+### Runtime pipeline
+
+1. `scripts/bundle-skills.ts` читает все `skills/<domain>/<skill-name>/SKILL.md`.
+2. Из каждого skill извлекаются YAML metadata, описание и prompt body.
+3. Snapshot записывается в `mcp-server/src/skills.json`.
+4. При запуске `loadSkills()` загружает этот snapshot; live `SKILL.md` файлы во время работы сервера не читаются.
+5. `createServer()` регистрирует каждый skill дважды:
+   - как MCP tool;
+   - как MCP prompt.
+6. Когда клиент вызывает skill tool, `assemblePrompt()` подставляет аргументы в `{{placeholder}}`, заменяет отсутствующие optional поля на `[not provided]` и добавляет блок `## Ввод пользователя / Teacher Input`.
+7. Tool возвращает instruction-framed prompt вызывающей модели.
+8. Модель клиента уже сама генерирует итоговый педагогический output.
+
+### Почему snapshot важен
+
+После изменения любого `SKILL.md` нужно пересобрать bundle. Иначе локальный файл изменится, но MCP-сервер продолжит отдавать старую версию из `mcp-server/src/skills.json`.
+
+Минимальный цикл:
+
+```bash
+cd ..
+PYTHONPATH=/tmp/educational-skills-pyyaml python3 scripts/generate-registry.py
+cd mcp-server
+npm run bundle-skills
+npm run build
+npm test
+```
+
+### Local stdio flow
+
+Локальный клиент запускает сервер как дочерний процесс:
+
+```bash
+node /absolute/path/to/education-agent-skills/mcp-server/dist/index.js
+```
+
+`src/index.ts` делает три вещи:
+
+1. находит library root;
+2. загружает bundled skills;
+3. подключает `StdioServerTransport`.
+
+Это самый простой режим: нет HTTP, нет токенов, доступ есть только у локального MCP-клиента, который запустил процесс.
+
+### Hosted HTTP flow
+
+Hosted endpoint использует `api/mcp.ts` и `StreamableHTTPServerTransport`. Этот режим нужен, если MCP должен быть доступен удаленному клиенту.
+
+Access control находится в `src/http-auth.ts`:
+
+- bearer token через `Authorization`;
+- token query parameter для клиентов, которые не умеют ставить headers;
+- signed token через shared secret;
+- pre-hashed token для emergency/manual issuance.
+
+Если auth configured, а токена нет или он неверный, endpoint отвечает `401` с token-required response и OAuth-compatible metadata.
+
+### Domain filtering
+
+Переменная `SKILLS_FILTER` ограничивает загружаемые домены:
+
+```bash
+SKILLS_FILTER=memory-learning-science,explicit-instruction node dist/index.js
+```
+
+Это полезно для маленьких deployments, специализированных клиентов или тестов, где не нужны все 165 skills.
+
+### Что видит MCP-клиент
+
+- `list_skills` — обзор по доменам.
+- `find_skills` — точный поиск по домену, тегу, evidence strength и RU/EN query.
+- `suggest_skills` — подбор 3-5 skills по описанию педагогической задачи.
+- `get_skill_details` — полные metadata и schemas конкретного skill.
+- 165 skill tools — готовят instruction-framed prompt для результата.
+- 165 prompts — тот же skill layer для клиентов, которые показывают MCP prompts отдельно.
+
 ## Meta-tools
 
 | Tool | Purpose |

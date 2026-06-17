@@ -7,6 +7,7 @@ const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
 const README_PATH = path.join(__dirname, "..", "README.md");
+const MCP_README_PATH = path.join(__dirname, "..", "mcp-server", "README.md");
 const PLAN_PATH = path.join(__dirname, "..", "PLAN.md");
 const STATE_PATH = path.join(__dirname, "..", "STATE.md");
 const RU_LOCALIZATION_PATH = path.join(__dirname, "..", "docs", "RU_LOCALIZATION.md");
@@ -291,6 +292,20 @@ test.describe("Documentation Validation", () => {
     expect(docs).not.toContain("Commit and push the completed adaptation wave");
     expect(docs).not.toContain("Довести текущую волну до конца");
     expect(docs).not.toContain("Следующий конкретный шаг\n\nНачать адаптацию");
+  });
+
+  test("MCP docs explain snapshot runtime, transports, and model responsibility", () => {
+    const rootReadme = fs.readFileSync(README_PATH, "utf-8");
+    const mcpReadme = fs.readFileSync(MCP_README_PATH, "utf-8");
+    const docs = `${rootReadme}\n${mcpReadme}`;
+
+    expect(docs).toContain("pre-built snapshot");
+    expect(docs).toContain("mcp-server/src/skills.json");
+    expect(docs).toContain("Local stdio");
+    expect(docs).toContain("Hosted HTTP");
+    expect(docs).toContain("не отдельная LLM");
+    expect(docs).toContain("165 skill tools");
+    expect(docs).toContain("165 prompts");
   });
 });
 
