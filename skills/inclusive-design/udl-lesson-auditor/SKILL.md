@@ -68,7 +68,7 @@ Takes an existing lesson or unit plan and evaluates it against Universal Design 
 
 The skill is not a compliance checklist. It is a barrier analysis. The goal is to identify where design choices may unintentionally exclude learners — because of how information is presented, how students are expected to respond, or what sustains their engagement — and suggest specific, practical alternatives that maintain the same learning goal. Not everything needs to change. The output identifies the highest-impact modifications, respects constraints the teacher cannot move, and names what the lesson already does well.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the teacher writes in Russian or references ОВЗ, ИОМ, АООП, адаптированную программу, ПМПК, тьютора, инклюзию, доступность, специальные условия, or universal design in a Russian school context, audit the lesson in Russian by default. Map UDL principles to locally familiar planning language where helpful: цель урока, планируемые результаты, способы предъявления материала, способы ответа, организация внимания, рефлексия, assessment format, and classroom environment. Do not turn the audit into compliance paperwork; keep it focused on concrete access barriers and practical design changes that preserve cognitive demand.
 

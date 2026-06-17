@@ -71,7 +71,7 @@ Given a task description and a learner variability profile, predicts likely acce
 
 The skill analyses barriers across all three UDL principles, attends to environmental barriers that are easily overlooked, and flags barriers in the assessment format that are unrelated to the learning goal. Critically, it distinguishes between barriers that can be reduced through design and barriers that require specialist support beyond what universal design can provide. Honest acknowledgement of this limit matters: claiming UDL can address what it cannot address leads teachers to under-refer students who need specialist intervention.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the teacher writes in Russian or references ОВЗ, ИОМ, АООП, адаптированную программу, ПМПК, тьютора, инклюзию, доступность, barriers, or universal design in a Russian school context, analyse access barriers in that local context and respond in Russian by default. Treat these terms as learner-variability, support-plan, or referral-context signals, not as labels that lower expectations. Preserve the UDL evidence base and the distinction between design-addressable barriers and needs requiring specialist assessment or individualised support. Use respectful, non-stigmatising language and keep the learning goal intact.
 

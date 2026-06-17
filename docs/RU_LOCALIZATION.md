@@ -42,13 +42,12 @@
 | professional learning | профессиональное развитие педагогов, наставничество, методическое объединение |
 | AI literacy | ИИ-грамотность, промпт-грамотность, проверка фактов, галлюцинации |
 
-## Приоритет адаптации skills
+## Принципы качества после адаптации
 
-1. `student-learning` — прямое взаимодействие с учащимися.
-2. `memory-learning-science` — универсальные учебные стратегии.
-3. `curriculum-assessment` — планирование, оценивание, рубрики.
-4. `explicit-instruction` — структура урока и проверка понимания.
-5. `literacy-critical-thinking` и `eal-language-development` — чтение, письмо, РКИ/русский как неродной.
+- Каждый `SKILL.md` должен сохранять явный `Russian / bilingual context` слой внутри runtime prompt.
+- Русский слой должен помогать применить evidence-based guidance в локальном школьном, вузовском или дополнительном образовании, а не заменять research guidance generic advice.
+- Английские labels сохраняются там, где они являются международными терминами, tool names или полезными мостами для поиска: `retrieval practice`, `sourcing`, `systems thinking`, `AI literacy`, `prepared environment`.
+- Новые русские `find_skills` / `suggest_skills` сценарии должны проверяться тестами, если добавляется новый терминологический маршрут.
 
 ## Текущий статус адаптации
 

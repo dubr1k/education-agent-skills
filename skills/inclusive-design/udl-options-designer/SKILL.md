@@ -71,7 +71,7 @@ Given a learning goal and current teaching approach, generates genuine alternati
 
 The key distinction is specificity. This skill does not generate generic options ("provide visual supports"). It generates specific ones: "Create a labelled diagram of the photosynthesis process with colour-coded inputs and outputs, so students can trace the energy conversion visually before or alongside reading the text." Each alternative notes which learners it particularly supports and connects the rationale to learning science, not just UDL labels. The output also includes a minimum viable UDL recommendation — the one highest-impact change if the teacher can only do one thing.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the teacher writes in Russian or references ОВЗ, ИОМ, АООП, адаптированную программу, ПМПК, тьютора, инклюзию, доступность, специальные условия, or universal design in a Russian school context, generate UDL options in Russian by default. Keep options concrete and classroom-ready for local formats: устный/письменный ответ, схема, карточка выбора, опорный конспект, речевая рамка, работа в паре, assistive technology, alternative response mode, and structured choice. Preserve the same learning goal; do not present reduced cognitive demand as an access option.
 

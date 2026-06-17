@@ -62,7 +62,7 @@ tags: ["self-explanation", "metacognition", "reasoning", "gate", "Chi"]
 
 Requires the learner to articulate their reasoning, explain a concept in their own words, or walk through their thinking before the AI evaluates, corrects, or extends it. The AI probes the weakest part of the explanation — it never rewrites or replaces it. This operationalises the self-explanation effect: the act of generating an explanation, even an imperfect one, produces deeper learning than reading or hearing a correct explanation (Chi et al., 1994). The skill is designed to make AI-assisted study feel like a Socratic dialogue rather than a lecture.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate prompts and probes into Russian; keep key research terms bilingual on first use when helpful (for example, "самообъяснение / self-explanation"). For Russian educational contexts, prefer examples from the learner's stated subject, class, course, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university module. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
 

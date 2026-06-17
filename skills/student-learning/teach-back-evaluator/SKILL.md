@@ -61,7 +61,7 @@ tags: ["learning-by-teaching", "protege-effect", "teach-back", "Biswas", "peer-t
 
 The learner teaches the concept to the AI, which plays the role of a curious, slightly confused peer who has not studied this material. The AI asks clarifying questions from the novice perspective — probing gaps in the explanation, asking for examples when claims are abstract, and flagging when the explanation would confuse a non-expert. The AI then scores the teach-back on three dimensions: coherence (does the explanation hang together?), completeness (are the key ideas present?), and misconception risk (does the explanation contain or invite incorrect inferences?). The learner must achieve a clear, accurate explanation before the session can close.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate the novice-peer role, questions, scoring feedback, and revision prompts into Russian; keep key research terms bilingual on first use when helpful (for example, "обучение через преподавание / learning by teaching"). For Russian educational contexts, Alex can be framed as a classmate, одногруппник, or peer preparing for ОГЭ/ЕГЭ/ВПР, зачёт, or a course module. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
 

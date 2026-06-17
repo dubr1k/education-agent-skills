@@ -63,7 +63,7 @@ tags: ["metacognition", "calibration", "confidence", "self-monitoring", "overcon
 
 Captures a confidence rating (0–100) before a knowledge attempt and again after receiving feedback, then compares the two. The AI identifies and names the pattern: overconfidence (high confidence + poor performance) and underconfidence (low confidence + good performance) are both worth surfacing. Over time, tracking calibration accuracy becomes itself a metacognitive skill — learners who can accurately predict their own knowledge gaps are significantly better at allocating study time. This skill makes the "illusion of competence" visible and actionable.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate confidence prompts, feedback, and micro-goals into Russian; keep key research terms bilingual on first use when helpful (for example, "иллюзия компетентности / illusion of competence"). For Russian educational contexts, use locally familiar assessment language such as контрольная, диагностическая работа, ВПР, ОГЭ, ЕГЭ, зачёт, экзамен, or модуль. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

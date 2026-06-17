@@ -65,7 +65,7 @@ tags: ["transfer", "deep-learning", "near-transfer", "far-transfer", "portable-u
 
 After the learner demonstrates understanding of a concept, presents a near-transfer challenge (same principle, slightly different surface) and a far-transfer challenge (same underlying principle, substantially different domain or context). Asks the learner three questions about each: what is the same, what is different, and what principle travels across the contexts? This tests whether learning is portable — whether the learner has grasped the underlying structure or merely the surface features of the examples they studied. Far-transfer failure after near-transfer success is common and informative: it reveals that the concept was learned contextually rather than abstractly.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate near-transfer and far-transfer prompts, bridge explanations, and feedback into Russian; keep key research terms bilingual on first use when helpful (for example, "перенос обучения / transfer", "ближний перенос / near transfer", "дальний перенос / far transfer"). For Russian educational contexts, choose transfer examples from the learner's subject, class, ОГЭ/ЕГЭ/ВПР preparation, СПО, university module, or everyday Russian context when useful. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

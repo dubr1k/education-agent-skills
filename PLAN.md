@@ -56,7 +56,11 @@
   - `PYTHONPATH=/tmp/educational-skills-pyyaml python3 scripts/generate-registry.py` — OK, `165 skills, 20 domains`.
   - `cd mcp-server && npm run bundle-skills && npm run build` — OK.
   - Targeted MCP RU tests по новой волне — OK, `20 passed`.
+  - `cd mcp-server && npm test` — OK, MCP `64 passed`.
+  - `npx playwright test` — OK, root `22 passed`.
+  - `npm test` — OK, root `22 passed`.
   - `git diff --check` по touched domains/shared files — OK.
+  - Коммит `092e008 Adapt remaining education skill domains for RU context` запушен в `fork/main`.
 
 ## Ближайший фокус
 
@@ -75,4 +79,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Довести текущую волну до конца: выполнить полный MCP/root test suite, затем закоммитить и запушить завершенную адаптацию всех доменов в `main`.
+Начать polishing pass: добавить регрессионные проверки полноты RU/EN runtime-контекста, убрать устаревшие planning notes, расширить русские end-to-end `suggest_skills` сценарии и подготовить release notes для RU fork.

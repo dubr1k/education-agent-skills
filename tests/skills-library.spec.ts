@@ -7,6 +7,9 @@ const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
 const README_PATH = path.join(__dirname, "..", "README.md");
+const PLAN_PATH = path.join(__dirname, "..", "PLAN.md");
+const STATE_PATH = path.join(__dirname, "..", "STATE.md");
+const RU_LOCALIZATION_PATH = path.join(__dirname, "..", "docs", "RU_LOCALIZATION.md");
 const REPO_ROOT = path.join(__dirname, "..");
 
 // Вспомогательная функция: собрать все пути SKILL.md.
@@ -112,6 +115,16 @@ test.describe("Skill Discovery", () => {
       for (const field of requiredFields) {
         expect(fm[field]).toBeTruthy();
       }
+    }
+  });
+
+  test("every SKILL.md includes Russian / bilingual runtime guidance", () => {
+    const paths = getAllSkillPaths();
+    expect(paths.length).toBe(165);
+
+    for (const p of paths) {
+      const content = fs.readFileSync(p, "utf-8");
+      expect(content, p).toContain("Russian / bilingual context");
     }
   });
 });
@@ -265,6 +278,19 @@ test.describe("Documentation Validation", () => {
       expect(readme).not.toContain("mcp-server-sigma-sooty.vercel.app");
       expect(readme).not.toContain("Hosted MCP access signup");
     }
+  });
+
+  test("planning docs describe adaptation as complete, not pending", () => {
+    const plan = fs.readFileSync(PLAN_PATH, "utf-8");
+    const state = fs.readFileSync(STATE_PATH, "utf-8");
+    const ruLocalization = fs.readFileSync(RU_LOCALIZATION_PATH, "utf-8");
+    const docs = [plan, state, ruLocalization].join("\n");
+
+    expect(docs).toContain("все 165 skills");
+    expect(docs).toContain("всех 20 домен");
+    expect(docs).not.toContain("Commit and push the completed adaptation wave");
+    expect(docs).not.toContain("Довести текущую волну до конца");
+    expect(docs).not.toContain("Следующий конкретный шаг\n\nНачать адаптацию");
   });
 });
 

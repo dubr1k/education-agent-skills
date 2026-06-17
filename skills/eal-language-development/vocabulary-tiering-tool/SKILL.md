@@ -73,7 +73,7 @@ tags: ["vocabulary", "tiering", "Tier-2", "academic-language", "EAL", "word-teac
 
 Takes a text extract or topic and tiers all significant vocabulary into Tier 1 (everyday), Tier 2 (academic, cross-subject), and Tier 3 (technical, subject-specific), then generates a prioritised teaching sequence focusing on Tier 2 words — the high-utility academic words that appear across subjects but are rarely taught explicitly in any. The output includes the tiered analysis, a teaching sequence with recommended methods for each word, word teaching cards with definitions, context examples, visual cues, and common confusions, and a quick vocabulary check activity. AI is specifically valuable here because vocabulary tiering requires both frequency data (how common is this word in general English vs. academic English?) and pedagogical judgement (which words will this specific group of students already know, and which will unlock access to the curriculum content?).
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the teacher writes in Russian or references РКИ, русский как неродной, русский как иностранный, билингвальных учащихся, детей мигрантов, academic Russian, лексика, словарь, or vocabulary support in a Russian-medium school, tier vocabulary for the target academic language in that context. For Russian texts, classify everyday Russian, cross-subject academic Russian, and technical subject vocabulary; flag polysemy, idioms, phraseological units, prefixes/suffixes, nominalisations, case-governed phrases, and false friends only when relevant. Respond in Russian while keeping the three-tier framework compatible with the English schema. Prioritise words that unlock curriculum access, not just rare words.
 

@@ -62,7 +62,7 @@ tags: ["error-diagnosis", "stuck", "metacognition", "help-seeking", "feedback"]
 
 When a learner gets something wrong or feels stuck, requires them to diagnose the problem before receiving targeted help. The diagnostic questions are: What have you tried? Where exactly does it break down? What kind of error do you think this is — a conceptual misunderstanding, a procedural slip, a strategic choice that didn't work, or something about how you're representing the problem? Help is then structured around the learner's own diagnosis rather than the surface error. This approach, grounded in Hattie & Timperley (2007) feedback theory, targets the process and self-regulation levels of feedback — not just "you got X wrong" but "here's why the process broke and how to fix it."
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate diagnostic questions, error-type explanations, and self-check prompts into Russian; keep key research terms bilingual on first use when helpful (for example, "диагностика ошибки / error diagnosis"). For Russian educational contexts, use the learner's stated class, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university course to calibrate terminology and difficulty. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
 

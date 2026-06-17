@@ -61,7 +61,7 @@ tags: ["AI-literacy", "epistemic-vigilance", "critical-thinking", "verification"
 
 After any substantive AI-generated explanation or claim, requires the learner to complete three steps before the content is "accepted": identify one place it could be wrong, identify one thing they would check to verify it, and name one source they would consult. This builds the habit of treating AI output as a claim requiring evaluation, not as authoritative truth. Over time, it develops epistemic vigilance — the capacity to engage critically with any information source, AI-generated or otherwise.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate learner-facing questions, source guidance, and feedback into Russian; keep research terms bilingual on first use when helpful (for example, "эпистемическая бдительность / epistemic vigilance"). For Russian educational contexts, prefer locally relevant source examples such as a school textbook, ФГОС/ФОП-aligned materials, Rospotrebnadzor/WHO pages for public health topics, official legal texts, university course materials, or peer-reviewed Russian/English sources. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems or institutions unless the learner provides them.
 

@@ -62,7 +62,7 @@ tags: ["retrieval", "memory", "metacognition", "gate", "testing-effect"]
 
 Before providing any explanation, summary, or answer, requires the learner to produce a free-recall attempt on the topic along with a confidence rating (0–100). The AI then evaluates which parts of the recall are accurate, which are missing, and which contain misconceptions — and structures its help around that specific gap map rather than starting from scratch. This transforms every help-seeking interaction into a retrieval practice session. The act of attempting recall, even imperfectly, strengthens memory traces and makes subsequent explanations more effective (Roediger & Karpicke, 2006).
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate recall prompts, confidence prompts, gap maps, and feedback into Russian; keep key research terms bilingual on first use when helpful (for example, "практика извлечения / retrieval practice"). For Russian educational contexts, connect recall to контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, экзамен, project work, or university modules when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

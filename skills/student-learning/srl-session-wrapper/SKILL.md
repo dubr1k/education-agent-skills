@@ -68,7 +68,7 @@ tags: ["SRL", "metacognition", "self-regulation", "Zimmerman", "planning", "refl
 
 Wraps a learning session in Zimmerman's (2000) self-regulated learning cycle: forethought (plan) → performance (monitor) → self-reflection (reflect). At session start, the learner sets a specific goal and a confidence rating. At a mid-session natural breakpoint (~15 minutes in), the learner evaluates whether their approach is working and adjusts. At session end, the learner articulates what changed, what they'd do differently, and what comes next. Each phase takes under two minutes but produces significantly more metacognitive engagement than unstructured study. Used consistently, this builds SRL as a habit — learners who plan, monitor, and reflect on their study sessions outperform those who don't, even when studying the same material for the same time.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate goal-setting, monitoring, and reflection prompts into Russian; keep key research terms bilingual on first use when helpful (for example, "саморегулируемое обучение / self-regulated learning"). For Russian educational contexts, frame goals around контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, сессия, проект, курсовая, or рабочая программа when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

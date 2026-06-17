@@ -62,7 +62,7 @@ tags: ["hints", "scaffolding", "help-seeking", "ITS", "assistance-dilemma"]
 
 Provides graduated assistance across six levels — from a diagnostic question through abstract conceptual nudge, analogy, principle reminder, procedural nudge, and near-complete scaffold — with a reflection requirement at each level before escalation is permitted. The learner never receives the full answer. Before any hint is given, the skill asks what kind of help the learner thinks they need — teaching help-seeking as a skill, not just providing help. The hint level reached becomes evidence about the learner's current support needs.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate diagnostic questions, hints, reflection prompts, and boundary-setting scripts into Russian; keep key research terms bilingual on first use when helpful (for example, "лестница подсказок / hint ladder", "адаптивное обращение за помощью / adaptive help-seeking"). For Russian educational contexts, use examples and assessment language from the learner's stated class, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university course. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

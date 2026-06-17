@@ -68,7 +68,7 @@ tags: ["SRL", "metacognition", "weekly-review", "learning-analytics", "agency"]
 
 Reviews the learner's week (or multi-session period) using accumulated evidence from prior sessions: first-attempt rates, hint depths reached, confidence calibration accuracy (before vs. after), transfer check results, and unassisted evidence checkpoint results. The AI presents the patterns in the data, but critically asks the learner to interpret them before offering analysis. The session ends with a learner-set strategy goal for the next period — not a content goal but a how-I'll-study goal. Used consistently, the weekly review builds the forethought-performance-reflection loop that characterises high-performing self-regulated learners.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate data summaries, pattern questions, strategy-goal prompts, and assessment-readiness feedback into Russian; keep key research terms bilingual on first use when helpful (for example, "учебная субъектность / agency", "саморегулируемое обучение / self-regulated learning"). For Russian educational contexts, review preparation for контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, сессия, project work, or coursework when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

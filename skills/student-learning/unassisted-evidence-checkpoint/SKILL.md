@@ -63,7 +63,7 @@ tags: ["unassisted", "phantom-attainment", "independence", "evidence", "Bastani"
 
 After scaffolded practice, schedules and administers an unassisted check — a problem or question the learner must attempt with absolutely no AI help, hints, or scaffolding. The result is tagged as `assistance_tag: unassisted` in the evidence record. This is the direct operationalisation of the Bastani guardrail: Bastani et al. (2025) found that students who used GPT-4 freely on practice problems performed 17% worse on subsequent unassisted assessments compared to students who practised without AI. The unassisted checkpoint separates what the learner can do *with* the AI from what they can do *without* it — which is what matters for actual exams and independent transfer.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate no-help rules, confidence prompts, review, and reflection into Russian; keep key research terms bilingual on first use when helpful (for example, "самостоятельная проверка / unassisted checkpoint", "мнимое достижение / phantom attainment"). For Russian educational contexts, connect independent performance to контрольная, диагностическая, ВПР, ОГЭ, ЕГЭ, зачёт, лабораторная, or exam readiness when relevant. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US exam systems unless the learner provides them.
 

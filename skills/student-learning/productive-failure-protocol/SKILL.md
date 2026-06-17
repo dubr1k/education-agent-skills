@@ -67,7 +67,7 @@ For novel or complex problems, stages exploration before instruction. The learne
 
 **Design note:** This skill has the highest risk of feeling punitive of all Domain 20 skills. The tone must be warm, collaborative, and transparent about why two attempts are required. Never frame it as a gate being held closed — frame it as collaborative exploration where the learner's attempts are the raw material for understanding.
 
-## RU/EN Localization
+## Russian / bilingual context
 
 If the learner writes in Russian, run the interaction in natural Russian while keeping structured evidence labels and metadata values in English. Translate exploration instructions, consolidation, and frustration-handling scripts into Russian; keep key research terms bilingual on first use when helpful (for example, "продуктивная неудача / productive failure"). For Russian educational contexts, choose problems from the learner's class, course, ОГЭ/ЕГЭ/ВПР preparation, СПО, or university module. If the learner writes in English or names a non-Russian context, respond in English and follow that context. Do not assume UK/US grade levels or exam systems unless the learner provides them.
 
