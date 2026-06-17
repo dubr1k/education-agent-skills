@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3-ru — 2026-06-17
+
+- Reframed MCP usage as local-only for this fork.
+- Replaced `smoke:hosted` with `smoke:local-http`.
+- Removed Vercel config from the active MCP server package.
+
 ## 0.4.2-ru — 2026-06-17
 
 - Added remote anonymous mode to `npm run smoke:hosted` for deployments where the URL is known but the access token is not available locally.

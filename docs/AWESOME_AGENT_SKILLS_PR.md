@@ -39,7 +39,7 @@ Adds the Education Agent Skills Library to the Community Skills → Specialized 
 
 - Public GitHub repository with working `SKILL.md` files.
 - 165 education skills across 20 domains.
-- Supports Claude Code, Codex, Hermes Agent selected installs, and a read-only hosted MCP server.
+- Supports Claude Code, Codex, Hermes Agent selected installs, and a local MCP server.
 - Includes README, evidence standards, exclusions, privacy notes, and contribution guidance.
 - Education is a specialised domain not currently represented in the list.
 

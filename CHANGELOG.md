@@ -1,5 +1,12 @@
 # Changelog
 
+## RU fork v1.0.3 — 2026-06-17
+
+- Rewrote fork setup instructions to be local-only.
+- Replaced hosted/Vercel deployment docs with `docs/LOCAL_MCP.md`.
+- Replaced `npm run smoke:hosted` with `npm run smoke:local-http`, which starts only a temporary `127.0.0.1` MCP HTTP smoke server.
+- Removed remote hosted smoke instructions and Vercel config from the active fork workflow.
+
 ## RU fork v1.0.2 — 2026-06-17
 
 - Added remote anonymous hosted smoke mode: `MCP_HTTP_URL=https://YOUR_DEPLOYMENT/mcp npm run smoke:hosted`.

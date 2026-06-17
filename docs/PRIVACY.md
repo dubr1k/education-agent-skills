@@ -1,17 +1,17 @@
-# Privacy Policy — Education Agent Skills MCP Server
+# Privacy Notes — Educational Skills RU Local MCP
 
-**Last updated: 2 April 2026**
+**Last updated: 17 June 2026**
 
 ## Overview
 
-The Education Agent Skills MCP server is a read-only service that provides access to the Education Agent Skills Library. This policy explains what data the server does and does not collect.
+Educational Skills RU is documented as a local-only fork. The MCP server runs on your machine as a local process.
 
 ## Data Collection
 
-This server collects no personal data. Specifically:
+The local MCP server collects no personal data. Specifically:
 
 - It does not require authentication or user accounts
-- It does not log requests, queries, or usage patterns
+- It does not send requests to a public hosted endpoint
 - It does not store any information about who is calling the server
 - It does not store any information about what users do with the results
 - It does not use cookies or tracking mechanisms
@@ -19,16 +19,16 @@ This server collects no personal data. Specifically:
 
 ## How the Server Works
 
-The server responds to MCP tool calls by returning skill content and metadata from the Education Agent Skills Library — a static, open-source collection of evidence-based pedagogical skills. Every tool is read-only. No user data is written, stored, or transmitted as a result of using this server.
+The server responds to MCP tool calls by returning skill prompts and metadata from the local `mcp-server/src/skills.json` snapshot. Skill tools assemble instruction-framed prompts for the calling model; they do not call a separate model themselves.
 
 ## Third-Party Services
 
-The server is hosted on Vercel. Vercel's infrastructure may retain standard server logs (IP addresses, request timestamps) in accordance with [Vercel's Privacy Policy](https://vercel.com/legal/privacy-policy). These logs are not accessible to or controlled by the server author.
+There is no supported public hosted MCP service for this fork. If you configure your own remote server, you are responsible for that infrastructure, logs, and access controls.
 
 ## Open Source
 
-The full source code for this server is available at [github.com/GarethManning/education-agent-skills](https://github.com/GarethManning/education-agent-skills). Anyone can inspect exactly what the server does.
+The full source code for this fork is available at [github.com/dubr1k/education-agent-skills](https://github.com/dubr1k/education-agent-skills). Anyone can inspect exactly what the local server does.
 
 ## Contact
 
-For questions about this privacy policy or the Education Agent Skills Library, contact gareth.manning@gmail.com.
+For setup details, see [LOCAL_MCP.md](LOCAL_MCP.md).

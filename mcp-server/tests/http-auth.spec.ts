@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 import { createHmac, createHash } from "node:crypto";
-import { HOSTED_MCP_ACCESS_SIGNUP_URL } from "../src/access.js";
 import {
   getAuthorizedTokenPrefix,
   getUnauthorizedResponse,
@@ -28,7 +27,7 @@ test.describe("HTTP MCP auth", () => {
     expect(response.status).toBe(401);
     expect(response.headers["www-authenticate"]).toContain("resource_metadata");
     expect(response.headers["content-type"]).toContain("application/json");
-    expect(response.body).toContain("OAuth authorization");
+    expect(response.body).toContain("Local MCP access token required");
   });
 
   test("accepts a signed bearer token generated from the shared signing secret", () => {
@@ -126,11 +125,11 @@ test.describe("Claude connector OAuth compatibility", () => {
     expect(verifyAuthorizationCode(code, "wrong-verifier", { MCP_TOKEN_SIGNING_SECRET: "test-secret" })).toBeNull();
   });
 
-  test("shows a signup link on the Claude authorization page for users without a token", () => {
+  test("shows local-only guidance on the Claude authorization page for users without a token", () => {
     const html = authorizationPage(new URLSearchParams());
 
-    expect(html).toContain("Don’t have an access token yet?");
-    expect(html).toContain(HOSTED_MCP_ACCESS_SIGNUP_URL);
-    expect(html).toContain("Request one using the hosted MCP access form");
+    expect(html).toContain("does not provide a hosted access signup");
+    expect(html).toContain("prefer stdio");
+    expect(html).toContain("local HTTP smoke tests");
   });
 });

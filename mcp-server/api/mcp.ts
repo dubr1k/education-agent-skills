@@ -54,7 +54,7 @@ export default async function handler(
 
   await server.connect(transport);
 
-  // Pass pre-parsed body if Vercel has already parsed it
+  // Pass pre-parsed body if a local HTTP test harness has already parsed it.
   await transport.handleRequest(req, res, req.body);
 
   // Clean up when the response finishes

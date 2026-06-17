@@ -23,7 +23,7 @@ Technical identifiers intentionally stay in English for upstream compatibility:
 |---|---|---|
 | Hermes selected installs | Local, offline, no-dependency use inside Hermes | You choose which skills to install |
 | Hermes tap | Registering this GitHub repo as a community skill source | Current Hermes tap search works best with flat skill repos, so use the full identifiers below |
-| Hosted MCP | Remote clients and intelligent skill discovery via `find_skills` / `suggest_skills` | Requires an access token |
+| Local MCP | Local intelligent skill discovery via `find_skills` / `suggest_skills` | Requires a local MCP-capable client |
 | Claude/Codex plugins | Users already working in those runtimes | Runtime-specific install path |
 | Manual copy-paste | Trying one skill with no setup | No automatic discovery or orchestration |
 
@@ -109,9 +109,9 @@ After installing selected skills locally, ask Hermes in Russian or English:
 
 ## Intelligent skill selection
 
-A Hermes plugin is not currently planned. It would duplicate the discovery layer already exposed by the hosted MCP server.
+A Hermes plugin is not currently planned. For intelligent discovery, run the MCP server locally.
 
-If you want the system to recommend skills from a teaching need, use the hosted MCP tools instead:
+If you want the system to recommend skills from a teaching need, use local MCP tools:
 
 - `find_skills` — search by keyword, domain, evidence rating, or task.
 - `suggest_skills` — describe a teaching/curriculum need and get recommended skills.
@@ -126,7 +126,7 @@ suggest_skills task="Нужно подготовить диагностичес�
 suggest_skills task="Ученик просит ответ сразу, но нужно сначала проверить понимание и дать постепенные подсказки"
 ```
 
-Use selected Hermes installs when you want local/offline skills. Use the MCP when you want intelligent remote discovery.
+Use selected Hermes installs when you want local/offline skills. Use local MCP when you want intelligent discovery through an MCP-capable client.
 
 ## Trust and licence
 

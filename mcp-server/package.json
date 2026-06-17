@@ -14,12 +14,11 @@
   ],
   "scripts": {
     "build": "tsc",
-    "vercel-build": "npm run build",
     "postbuild": "cp src/skills.json dist/skills.json",
     "bundle-skills": "tsx scripts/bundle-skills.ts",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
-    "smoke:hosted": "tsx scripts/smoke-hosted-http.ts",
+    "smoke:local-http": "tsx scripts/smoke-local-http.ts",
     "test": "playwright test"
   },
   "dependencies": {

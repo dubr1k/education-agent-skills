@@ -87,6 +87,11 @@
 - Remote anonymous smoke 2026-06-17:
   - `npm run smoke:hosted` теперь может проверять remote deployment без токена: `MCP_HTTP_URL=https://.../mcp npm run smoke:hosted`.
   - В этом режиме проверяются anonymous `401` и OAuth metadata; authenticated checks включаются при наличии `MCP_ACCESS_TOKEN`.
+- Local-only pivot 2026-06-17:
+  - Пользовательский путь fork переписан на local-only: публичный hosted/Vercel запуск больше не документируется как вариант.
+  - `docs/HOSTED_MCP_DEPLOYMENT.md` и `docs/HOSTED_MCP_ACCESS.md` заменены на `docs/LOCAL_MCP.md`.
+  - `npm run smoke:hosted` заменен на `npm run smoke:local-http`, который поднимает только временный `127.0.0.1` HTTP smoke server.
+  - Root tests больше не зависят от remote baseURL.
 
 ## Ближайший фокус
 
@@ -105,4 +110,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Выполнить full remote hosted MCP smoke test через `MCP_HTTP_URL=https://.../mcp MCP_ACCESS_TOKEN=... npm run smoke:hosted`, либо сначала настроить/link Vercel project для fork.
+Прогнать local-only docs/test suite, закоммитить и запушить переход fork на локальный MCP-only workflow.

@@ -1,5 +1,4 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
-import { HOSTED_MCP_ACCESS_SIGNUP_URL } from "./access.js";
 import { getAuthorizedTokenPrefix, type AuthEnv } from "./http-auth.js";
 
 export type OAuthEnv = AuthEnv;
@@ -33,7 +32,7 @@ export function publicBaseUrl(req?: { headers?: Record<string, string | string[]
   const proto = Array.isArray(protoHeader) ? protoHeader[0] : protoHeader;
   if (host) return `${proto || "https"}://${host}`.replace(/\/$/, "");
 
-  return "https://mcp-server-sigma-sooty.vercel.app";
+  return "http://127.0.0.1";
 }
 
 export function protectedResourceMetadata(baseUrl: string) {
@@ -148,8 +147,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 </head>
 <body><main class="card">
 <h1>Connect Education Agent Skills</h1>
-<p class="hint">Paste the access token from your email. Claude will store it for this connector after you approve.</p>
-<p class="request-access">Don’t have an access token yet? <a href="${HOSTED_MCP_ACCESS_SIGNUP_URL}" target="_blank" rel="noopener noreferrer">Request one using the hosted MCP access form</a>.</p>
+<p class="hint">Paste the local access token configured for this local MCP HTTP smoke server. For normal local MCP usage, prefer stdio and skip this OAuth flow.</p>
+<p class="request-access">This fork does not provide a hosted access signup. Run the MCP server locally and configure tokens only for local HTTP smoke tests.</p>
 ${errorHtml}
 <form method="post" action="${OAUTH_AUTHORIZE_PATH}">
 ${hidden}

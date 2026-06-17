@@ -67,13 +67,13 @@ The `chains_well_with` field in every skill's YAML header provides explicit chai
 
 ## MCP Server
 
-An MCP server exposes the full skill library as callable tools and prompts. Any MCP-compatible client can discover all 165 skills, read their input requirements, call them with structured parameters, and receive typed outputs — removing the manual copy-paste step entirely.
+The local MCP server exposes the full skill library as callable tools and prompts. Any local MCP-compatible client can discover all 165 skills, read their input requirements, call them with structured parameters, and receive typed outputs — removing the manual copy-paste step entirely.
 
-**Production URL:** `https://mcp-server-sigma-sooty.vercel.app/mcp`
+This fork does not publish a production MCP URL. Run the MCP server locally via `mcp-server/dist/index.js`.
 
 The server registers each skill twice — as an MCP tool (for Claude.ai and orchestrator use) and as an MCP prompt (for clients that surface prompts in their UI). Four meta-tools provide discovery: `list_skills`, `find_skills`, `suggest_skills`, and `get_skill_details`.
 
-Source code and setup instructions: [`mcp-server/`](mcp-server/)
+Source code and setup instructions: [`mcp-server/`](../mcp-server/) and [`LOCAL_MCP.md`](LOCAL_MCP.md).
 
 ---
 

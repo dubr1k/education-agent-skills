@@ -186,7 +186,7 @@ AI вернет план повторения с расширяющимися и
 
 ### MCP-сервер
 
-Fork включает исходники MCP-сервера для локальной разработки или собственного deployment.
+Fork использует MCP только локально. Публичный remote endpoint не является поддерживаемым способом запуска этого fork.
 
 ```bash
 git clone https://github.com/dubr1k/education-agent-skills.git
@@ -221,9 +221,9 @@ npm start
 - Каждый skill регистрируется дважды: как callable MCP tool и как MCP prompt.
 - Skill tool не вызывает отдельную LLM: он собирает evidence-based prompt, подставляет входные параметры и возвращает instruction-framed текст вызывающей модели.
 - Русские запросы работают через Unicode-aware search, domain terms и aliases; technical IDs остаются английскими.
-- Локальный режим использует stdio transport (`dist/index.js`), hosted режим использует HTTP entrypoint (`api/mcp.ts`) с token-based access control.
+- Поддерживаемый режим запуска — локальный stdio transport (`dist/index.js`).
 
-Source code и подробное описание runtime flow: [mcp-server/](mcp-server/). Hosted rollout checklist: [docs/HOSTED_MCP_DEPLOYMENT.md](docs/HOSTED_MCP_DEPLOYMENT.md).
+Source code и подробное описание runtime flow: [mcp-server/](mcp-server/). Локальная MCP-инструкция: [docs/LOCAL_MCP.md](docs/LOCAL_MCP.md).
 
 ## Участие в разработке
 

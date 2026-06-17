@@ -1,5 +1,4 @@
 import { createHash, createHmac, timingSafeEqual } from "node:crypto";
-import { HOSTED_MCP_ACCESS_SIGNUP_URL } from "./access.js";
 
 export type AuthEnv = Record<string, string | undefined>;
 
@@ -29,7 +28,7 @@ export function getUnauthorizedResponse(originUrl: string, method = "POST", meta
   const isGet = method.toUpperCase() === "GET";
   const challenge = metadataUrl
     ? `Bearer resource_metadata="${metadataUrl}"`
-    : `Bearer realm="education-agent-skills", error="invalid_token", error_description="Hosted MCP access token required"`;
+    : `Bearer realm="education-agent-skills", error="invalid_token", error_description="Local MCP access token required"`;
   return {
     status: 401,
     headers: {
@@ -39,10 +38,9 @@ export function getUnauthorizedResponse(originUrl: string, method = "POST", meta
       "x-mcp-auth": isGet ? "required-fast-fail" : "required",
     },
     body: JSON.stringify({
-      error: "Hosted MCP access token required",
+      error: "Local MCP access token required",
       message:
-        "This hosted MCP endpoint requires OAuth authorization in Claude.ai. Request an access token, then paste it into the browser authorization screen when Claude connects.",
-      requestAccess: HOSTED_MCP_ACCESS_SIGNUP_URL,
+        "This local MCP HTTP endpoint requires a local access token. Prefer stdio for normal local MCP usage; HTTP auth exists for local regression smoke.",
       resource: originUrl,
       resourceMetadata: metadataUrl,
     }),

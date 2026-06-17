@@ -1,10 +1,10 @@
 # Using Educational Skills RU in OpenAI Codex
 
-This guide explains how to use **Educational Skills RU**, a bilingual RU/EN fork of the Education Agent Skills Library, with OpenAI Codex without relying on the hosted MCP server.
+This guide explains how to use **Educational Skills RU**, a bilingual RU/EN fork of the Education Agent Skills Library, with OpenAI Codex locally.
 
 Repository: https://github.com/dubr1k/education-agent-skills
 
-The skills can run locally from your machine. Once installed locally, Codex reads the skill files directly and does **not** call the hosted MCP server.
+The skills run from your machine. Once installed locally, Codex reads the skill files directly and does not call a remote MCP service.
 
 ## Compatibility note / Важно о совместимости
 
@@ -121,7 +121,7 @@ Use the local plugin if:
 
 - You want the full library available.
 - You want Codex to discover relevant education skills automatically.
-- You want RU/EN prompts without hosted MCP usage.
+- You want RU/EN prompts without remote services.
 - You are comfortable cloning a GitHub repo.
 
 Use individual skill installation if:

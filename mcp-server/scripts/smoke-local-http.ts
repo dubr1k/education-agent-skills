@@ -3,7 +3,7 @@ import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/
 import { createServer as createHttpServer, type IncomingMessage, type ServerResponse } from "node:http";
 import type { AddressInfo } from "node:net";
 
-const DEFAULT_LOCAL_TOKEN = "local-smoke-token";
+const LOCAL_TOKEN = "local-smoke-token";
 const META_TOOLS = ["list_skills", "find_skills", "suggest_skills", "get_skill_details"];
 
 type LocalServer = {
@@ -11,16 +11,8 @@ type LocalServer = {
   close: () => Promise<void>;
 };
 
-function normalizeMcpUrl(raw: string): URL {
-  const url = new URL(raw);
-  if (!url.pathname.endsWith("/mcp")) {
-    url.pathname = `${url.pathname.replace(/\/$/, "")}/mcp`;
-  }
-  return url;
-}
-
-async function startLocalServer(token: string): Promise<LocalServer> {
-  process.env.MCP_ACCESS_TOKENS = process.env.MCP_ACCESS_TOKENS || token;
+async function startLocalServer(): Promise<LocalServer> {
+  process.env.MCP_ACCESS_TOKENS = LOCAL_TOKEN;
 
   const { default: mcpHandler } = await import("../api/mcp.js");
   const { default: protectedResourceHandler } = await import("../api/well-known/oauth-protected-resource/mcp.js");
@@ -52,7 +44,7 @@ async function startLocalServer(token: string): Promise<LocalServer> {
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const address = server.address() as AddressInfo;
   const baseUrl = `http://127.0.0.1:${address.port}`;
-  process.env.MCP_PUBLIC_BASE_URL = process.env.MCP_PUBLIC_BASE_URL || baseUrl;
+  process.env.MCP_PUBLIC_BASE_URL = baseUrl;
 
   return {
     baseUrl,
@@ -100,15 +92,15 @@ function textFromToolResult(result: Awaited<ReturnType<Client["callTool"]>>): st
   return content?.find((item) => item.type === "text")?.text || "";
 }
 
-async function expectAuthenticatedMcp(mcpUrl: URL, token: string): Promise<{ tools: number; prompts: number }> {
+async function expectAuthenticatedMcp(mcpUrl: URL): Promise<{ tools: number; prompts: number }> {
   const transport = new StreamableHTTPClientTransport(mcpUrl, {
     requestInit: {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${LOCAL_TOKEN}`,
       },
     },
   });
-  const client = new Client({ name: "educational-skills-hosted-smoke", version: "1.0.0" });
+  const client = new Client({ name: "educational-skills-local-http-smoke", version: "1.0.0" });
 
   await client.connect(transport);
   try {
@@ -151,46 +143,27 @@ async function expectAuthenticatedMcp(mcpUrl: URL, token: string): Promise<{ too
 }
 
 async function main() {
-  const providedUrl = process.env.MCP_HTTP_URL || process.env.MCP_BASE_URL || process.env.MCP_DEPLOYMENT_URL;
-  const providedToken = process.env.MCP_ACCESS_TOKEN || process.env.MCP_TOKEN;
-  const token = providedToken || DEFAULT_LOCAL_TOKEN;
-  let localServer: LocalServer | undefined;
+  const localServer = await startLocalServer();
+  const mcpUrl = new URL(`${localServer.baseUrl}/mcp`);
 
-  if (!providedUrl) {
-    localServer = await startLocalServer(token);
-  }
+  try {
+    await expectAnonymous401(mcpUrl);
+    await expectOAuthMetadata(localServer.baseUrl);
+    const authenticated = await expectAuthenticatedMcp(mcpUrl);
 
-  const baseUrl = providedUrl ? providedUrl.replace(/\/mcp\/?$/, "") : localServer!.baseUrl;
-  const mcpUrl = normalizeMcpUrl(providedUrl || localServer!.baseUrl);
-
-  await expectAnonymous401(mcpUrl);
-  await expectOAuthMetadata(baseUrl);
-
-  if (providedUrl && !providedToken) {
     console.log(JSON.stringify({
-      mode: "remote-anonymous",
+      mode: "local-http",
       mcpUrl: mcpUrl.toString(),
+      tools: authenticated.tools,
+      prompts: authenticated.prompts,
       anonymous: "401",
       oauthMetadata: "ok",
-      authenticated: "skipped; set MCP_ACCESS_TOKEN or MCP_TOKEN to run full smoke",
+      russianFindSkills: "ok",
+      russianSuggestSkills: "ok",
     }, null, 2));
-    return;
+  } finally {
+    await localServer.close();
   }
-
-  const authenticated = await expectAuthenticatedMcp(mcpUrl, token);
-
-  await localServer?.close();
-
-  console.log(JSON.stringify({
-    mode: providedUrl ? "remote" : "local",
-    mcpUrl: mcpUrl.toString(),
-    tools: authenticated.tools,
-    prompts: authenticated.prompts,
-    anonymous: "401",
-    oauthMetadata: "ok",
-    russianFindSkills: "ok",
-    russianSuggestSkills: "ok",
-  }, null, 2));
 }
 
 main().catch((error) => {

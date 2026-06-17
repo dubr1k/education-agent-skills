@@ -2,10 +2,10 @@
 
 MCP server exposing the bilingual **Educational Skills RU** library as callable tools and prompts: 165 evidence-based education skills across 20 domains, plus 4 discovery tools.
 
-This fork documents local MCP usage and self-hosted deployments.
+This fork documents local MCP usage only.
 
 See [Codex setup](../docs/CODEX.md) and [Hermes setup](../docs/HERMES.md).
-For hosted rollout steps, see the [Hosted MCP deployment checklist](../docs/HOSTED_MCP_DEPLOYMENT.md).
+For local setup and verification, see the [Local MCP setup](../docs/LOCAL_MCP.md).
 
 ## Compatibility note / Важно о совместимости
 
@@ -29,12 +29,11 @@ Skills are registered twice, as both MCP tools and MCP prompts:
 
 MCP-сервер в этом repo — не отдельная LLM и не сервис, который сам пишет педагогический результат. Это runtime-слой, который превращает библиотеку `SKILL.md` в MCP tools/prompts, собирает правильный evidence-based prompt и возвращает его вызывающей модели.
 
-### Два режима запуска
+### Режим запуска
 
 | Режим | Entry point | Для чего |
 |---|---|---|
 | Local stdio | `dist/index.js` после `npm run build` | Claude Desktop, Codex, Hermes и другие локальные MCP clients |
-| Hosted HTTP | `api/mcp.ts` | self-hosted/Vercel deployment с HTTP transport и access-token защитой |
 
 ### Runtime pipeline
 
@@ -80,18 +79,16 @@ node /absolute/path/to/education-agent-skills/mcp-server/dist/index.js
 
 Это самый простой режим: нет HTTP, нет токенов, доступ есть только у локального MCP-клиента, который запустил процесс.
 
-### Hosted HTTP flow
+### Local HTTP smoke
 
-Hosted endpoint использует `api/mcp.ts` и `StreamableHTTPServerTransport`. Этот режим нужен, если MCP должен быть доступен удаленному клиенту.
+HTTP handlers остаются в repo только для локального regression smoke. Они не являются инструкцией к публичному deployment.
 
-Access control находится в `src/http-auth.ts`:
+```bash
+npm run build
+npm run smoke:local-http
+```
 
-- bearer token через `Authorization`;
-- token query parameter для клиентов, которые не умеют ставить headers;
-- signed token через shared secret;
-- pre-hashed token для emergency/manual issuance.
-
-Если auth configured, а токена нет или он неверный, endpoint отвечает `401` с token-required response и OAuth-compatible metadata.
+Smoke поднимает временный `127.0.0.1` server, проверяет anonymous `401`, локальные OAuth metadata, 169 tools, 165 prompts и русские `find_skills` / `suggest_skills` маршруты.
 
 ### Domain filtering
 
@@ -101,7 +98,7 @@ Access control находится в `src/http-auth.ts`:
 SKILLS_FILTER=memory-learning-science,explicit-instruction node dist/index.js
 ```
 
-Это полезно для маленьких deployments, специализированных клиентов или тестов, где не нужны все 165 skills.
+Это полезно для маленьких локальных запусков, специализированных клиентов или тестов, где не нужны все 165 skills.
 
 ### Что видит MCP-клиент
 
@@ -184,7 +181,8 @@ For Claude Desktop local stdio config:
 npm run dev           # Run with tsx, no build step
 npm run build         # Compile TypeScript
 npm test              # Run Playwright test suite
-npm run bundle-skills # Re-generate src/skills.json for MCP runtime/deployments
+npm run smoke:local-http # Run local HTTP MCP smoke test
+npm run bundle-skills # Re-generate src/skills.json for local MCP runtime
 ```
 
 Environment variables:

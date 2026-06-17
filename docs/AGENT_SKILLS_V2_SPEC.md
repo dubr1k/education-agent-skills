@@ -495,7 +495,7 @@ After all phases complete, run these five tests manually and report results:
 
 4. **Registry test:** Confirm `registry.json` is valid JSON, has 106 skills, and all descriptions are ≤250 chars.
 
-5. **Backward compatibility test:** Make a test call to the existing MCP server (`mcp-server-sigma-sooty.vercel.app/mcp`) using `list_skills`. Confirm it still returns results (MCP server is a separate repo — this test just confirms the migration hasn't broken anything the MCP server expects from the repo).
+5. **Local MCP compatibility test:** Build the local MCP server and call `list_skills` via `mcp-server/dist/index.js`. Confirm it returns the expected skill count and domain list.
 
 ---
 
@@ -517,7 +517,7 @@ Phases 3–7 can run continuously once Phase 2 is approved.
 
 ## What is Out of Scope for This Session
 
-- MCP server updates (separate repo — `mcp-server-sigma-sooty.vercel.app/mcp` — separate Claude Code session)
+- Remote MCP deployment work; this fork documents local MCP only.
 - Typed chain edge values (null placeholders only — requires separate chaining design session)
 - New skills or domain additions
 - Harness templates

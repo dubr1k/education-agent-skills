@@ -73,7 +73,7 @@ teacher_time: "5 minutes"
 tags: [...]
 ```
 
-To use programmatically: navigate to the relevant domain folder, select a skill by evidence strength, tags, aliases, or task fit, extract the prompt block, and inject the typed inputs. A live MCP server is available at `https://mcp-server-sigma-sooty.vercel.app/mcp` for clients that need remote discovery.
+To use programmatically: navigate to the relevant domain folder, select a skill by evidence strength, tags, aliases, or task fit, extract the prompt block, and inject the typed inputs. For MCP discovery, build and run the local server at `mcp-server/dist/index.js`.
 
 ## Licence
 
