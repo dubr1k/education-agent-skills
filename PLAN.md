@@ -76,6 +76,10 @@
   - Локальный MCP stdio smoke через `mcp-server/dist/index.js` выявил пробел в domainless русском `find_skills` для assessment-запроса `ФГОС диагностическая работа критерии оценивания`.
   - Добавлен regression test без `domain` filter.
   - Добавлен RU alias для формулировок `диагностическая/контрольная/проверочная работа`, чтобы публичные README examples работали без ручного выбора домена.
+- Release publication 2026-06-17:
+  - Создан и запушен annotated tag `ru-v1.0.0`.
+  - Опубликован GitHub release `Educational Skills RU v1.0.0`: https://github.com/dubr1k/education-agent-skills/releases/tag/ru-v1.0.0
+  - Проверено, что локальной Vercel привязки (`.vercel`) в checkout нет; hosted smoke требует реальный deployment URL и access token либо настройку Vercel project.
 
 ## Ближайший фокус
 
@@ -94,4 +98,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Закоммитить и запушить release smoke bugfix; затем создать GitHub release/tag `ru-v1.0.0` и, при наличии deployment URL/token, выполнить hosted MCP smoke test.
+Выполнить hosted MCP smoke test против реального deployment URL и access token, либо сначала настроить/link Vercel project для fork.

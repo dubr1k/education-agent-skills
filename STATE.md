@@ -19,6 +19,7 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - Added `docs/HOSTED_MCP_DEPLOYMENT.md` with build/bundle, hosted HTTP, auth env, Vercel, smoke test, client setup, rollback, and privacy checklist.
 - Added docs guard coverage for release notes and hosted MCP deployment checklist.
 - Ran a local MCP stdio release smoke through `mcp-server/dist/index.js`; it exposed and fixed a domainless Russian `find_skills` gap for assessment queries such as `ФГОС диагностическая работа критерии оценивания`.
+- Published GitHub release `ru-v1.0.0` for `Educational Skills RU v1.0.0`.
 
 ## What was verified
 
@@ -31,6 +32,7 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - Targeted post-adaptation MCP/docs tests — passed
 - Targeted release/checklist docs tests — passed
 - Local MCP stdio release smoke — passed: 169 tools, 165 prompts, Russian `find_skills`, Russian `suggest_skills`
+- GitHub release `ru-v1.0.0` — published at https://github.com/dubr1k/education-agent-skills/releases/tag/ru-v1.0.0
 - `git diff --check` for touched skill domains and shared files — clean
 
 ## Current library state
@@ -42,5 +44,5 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 
 ## What's next
 
-- Finish the current release smoke bugfix: commit and push the domainless `find_skills` regression coverage.
-- Next concrete step after that: create the `ru-v1.0.0` GitHub release/tag, then optionally run hosted MCP smoke tests against a real deployment URL and access token.
+- Release/tag is published. No local Vercel project binding was found in this checkout.
+- Next concrete step: run hosted MCP smoke tests against a real deployment URL and access token, or configure/link a Vercel project for this fork.
