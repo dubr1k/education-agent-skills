@@ -82,6 +82,13 @@ cd mcp-server
 MCP_HTTP_URL=https://YOUR_DEPLOYMENT/mcp MCP_ACCESS_TOKEN=YOUR_TOKEN npm run smoke:hosted
 ```
 
+If you do not have a token yet, you can still verify the hosted auth boundary and OAuth metadata:
+
+```bash
+cd mcp-server
+MCP_HTTP_URL=https://YOUR_DEPLOYMENT/mcp npm run smoke:hosted
+```
+
 After deployment, verify:
 
 ```bash

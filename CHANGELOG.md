@@ -1,5 +1,10 @@
 # Changelog
 
+## RU fork v1.0.2 — 2026-06-17
+
+- Added remote anonymous hosted smoke mode: `MCP_HTTP_URL=https://YOUR_DEPLOYMENT/mcp npm run smoke:hosted`.
+- This mode verifies anonymous `401` and OAuth metadata when no access token is available, then instructs operators to set `MCP_ACCESS_TOKEN` for full authenticated smoke.
+
 ## RU fork v1.0.1 — 2026-06-17
 
 - Added automated hosted-HTTP MCP smoke testing via `cd mcp-server && npm run smoke:hosted`.

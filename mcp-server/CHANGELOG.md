@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2-ru — 2026-06-17
+
+- Added remote anonymous mode to `npm run smoke:hosted` for deployments where the URL is known but the access token is not available locally.
+- The script now verifies hosted auth rejection and OAuth metadata before requiring a token for full authenticated MCP checks.
+
 ## 0.4.1-ru — 2026-06-17
 
 - Added `npm run smoke:hosted` for hosted-HTTP MCP smoke testing.

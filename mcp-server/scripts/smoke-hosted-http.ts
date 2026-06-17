@@ -152,7 +152,8 @@ async function expectAuthenticatedMcp(mcpUrl: URL, token: string): Promise<{ too
 
 async function main() {
   const providedUrl = process.env.MCP_HTTP_URL || process.env.MCP_BASE_URL || process.env.MCP_DEPLOYMENT_URL;
-  const token = process.env.MCP_ACCESS_TOKEN || process.env.MCP_TOKEN || DEFAULT_LOCAL_TOKEN;
+  const providedToken = process.env.MCP_ACCESS_TOKEN || process.env.MCP_TOKEN;
+  const token = providedToken || DEFAULT_LOCAL_TOKEN;
   let localServer: LocalServer | undefined;
 
   if (!providedUrl) {
@@ -164,6 +165,18 @@ async function main() {
 
   await expectAnonymous401(mcpUrl);
   await expectOAuthMetadata(baseUrl);
+
+  if (providedUrl && !providedToken) {
+    console.log(JSON.stringify({
+      mode: "remote-anonymous",
+      mcpUrl: mcpUrl.toString(),
+      anonymous: "401",
+      oauthMetadata: "ok",
+      authenticated: "skipped; set MCP_ACCESS_TOKEN or MCP_TOKEN to run full smoke",
+    }, null, 2));
+    return;
+  }
+
   const authenticated = await expectAuthenticatedMcp(mcpUrl, token);
 
   await localServer?.close();

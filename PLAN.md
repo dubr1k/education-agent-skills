@@ -84,6 +84,9 @@
   - Добавлен `npm run smoke:hosted` в `mcp-server`.
   - Скрипт поднимает локальный HTTP wrapper вокруг hosted/Vercel handlers или проверяет remote endpoint через `MCP_HTTP_URL` + `MCP_ACCESS_TOKEN`.
   - Smoke проверяет anonymous `401`, OAuth metadata, authenticated `tools/list`, `prompts/list`, русский `find_skills` и русский `suggest_skills`.
+- Remote anonymous smoke 2026-06-17:
+  - `npm run smoke:hosted` теперь может проверять remote deployment без токена: `MCP_HTTP_URL=https://.../mcp npm run smoke:hosted`.
+  - В этом режиме проверяются anonymous `401` и OAuth metadata; authenticated checks включаются при наличии `MCP_ACCESS_TOKEN`.
 
 ## Ближайший фокус
 
@@ -102,4 +105,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Выполнить remote hosted MCP smoke test через `MCP_HTTP_URL=https://.../mcp MCP_ACCESS_TOKEN=... npm run smoke:hosted`, либо сначала настроить/link Vercel project для fork.
+Выполнить full remote hosted MCP smoke test через `MCP_HTTP_URL=https://.../mcp MCP_ACCESS_TOKEN=... npm run smoke:hosted`, либо сначала настроить/link Vercel project для fork.

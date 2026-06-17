@@ -21,6 +21,7 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - Ran a local MCP stdio release smoke through `mcp-server/dist/index.js`; it exposed and fixed a domainless Russian `find_skills` gap for assessment queries such as `ФГОС диагностическая работа критерии оценивания`.
 - Published GitHub release `ru-v1.0.0` for `Educational Skills RU v1.0.0`.
 - Added `npm run smoke:hosted`, an automated hosted-HTTP smoke harness that can run locally against the Vercel handlers or remotely with `MCP_HTTP_URL` and `MCP_ACCESS_TOKEN`.
+- Added remote anonymous hosted smoke mode for known deployment URLs when no access token is available locally.
 
 ## What was verified
 
@@ -34,7 +35,9 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - Targeted release/checklist docs tests — passed
 - Local MCP stdio release smoke — passed: 169 tools, 165 prompts, Russian `find_skills`, Russian `suggest_skills`
 - Local hosted HTTP smoke — passed: anonymous `401`, OAuth metadata, 169 tools, 165 prompts, Russian `find_skills`, Russian `suggest_skills`
+- Remote hosted anonymous smoke against `https://mcp-server-sigma-sooty.vercel.app/mcp` — passed: anonymous `401`, OAuth metadata
 - GitHub release `ru-v1.0.0` — published at https://github.com/dubr1k/education-agent-skills/releases/tag/ru-v1.0.0
+- GitHub release `ru-v1.0.1` — published at https://github.com/dubr1k/education-agent-skills/releases/tag/ru-v1.0.1
 - `git diff --check` for touched skill domains and shared files — clean
 
 ## Current library state
@@ -47,4 +50,4 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 ## What's next
 
 - Release/tag is published and local hosted HTTP smoke is automated.
-- Remaining external-only step: run remote hosted MCP smoke with `MCP_HTTP_URL` and `MCP_ACCESS_TOKEN`, or configure/link a Vercel project for this fork.
+- Remaining external-only step: run full remote hosted MCP smoke with `MCP_HTTP_URL` and `MCP_ACCESS_TOKEN`, or configure/link a Vercel project for this fork.
