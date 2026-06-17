@@ -80,6 +80,10 @@
   - Создан и запушен annotated tag `ru-v1.0.0`.
   - Опубликован GitHub release `Educational Skills RU v1.0.0`: https://github.com/dubr1k/education-agent-skills/releases/tag/ru-v1.0.0
   - Проверено, что локальной Vercel привязки (`.vercel`) в checkout нет; hosted smoke требует реальный deployment URL и access token либо настройку Vercel project.
+- Hosted smoke automation 2026-06-17:
+  - Добавлен `npm run smoke:hosted` в `mcp-server`.
+  - Скрипт поднимает локальный HTTP wrapper вокруг hosted/Vercel handlers или проверяет remote endpoint через `MCP_HTTP_URL` + `MCP_ACCESS_TOKEN`.
+  - Smoke проверяет anonymous `401`, OAuth metadata, authenticated `tools/list`, `prompts/list`, русский `find_skills` и русский `suggest_skills`.
 
 ## Ближайший фокус
 
@@ -98,4 +102,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Выполнить hosted MCP smoke test против реального deployment URL и access token, либо сначала настроить/link Vercel project для fork.
+Выполнить remote hosted MCP smoke test через `MCP_HTTP_URL=https://.../mcp MCP_ACCESS_TOKEN=... npm run smoke:hosted`, либо сначала настроить/link Vercel project для fork.

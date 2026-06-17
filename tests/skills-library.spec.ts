@@ -327,6 +327,7 @@ test.describe("Documentation Validation", () => {
     expect(deployment).toContain("Anonymous requests must fail with a `401`");
     expect(deployment).toContain("Use `mcp-server` as the Vercel project root");
     expect(deployment).toContain("/.well-known/oauth-protected-resource/mcp");
+    expect(deployment).toContain("npm run smoke:hosted");
     expect(deployment).toContain("Unfiltered `tools/list` exposes 169 tools");
     expect(deployment).toContain("Unfiltered `prompts/list` exposes 165 prompts");
     expect(deployment).toContain("query-token URLs can leak");

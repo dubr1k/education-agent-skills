@@ -1,5 +1,11 @@
 # Changelog
 
+## RU fork v1.0.1 — 2026-06-17
+
+- Added automated hosted-HTTP MCP smoke testing via `cd mcp-server && npm run smoke:hosted`.
+- The smoke harness can run locally against the Vercel-style handlers or remotely with `MCP_HTTP_URL` and `MCP_ACCESS_TOKEN`.
+- Smoke coverage includes anonymous `401`, OAuth metadata, authenticated `tools/list`, authenticated `prompts/list`, Russian `find_skills`, and Russian `suggest_skills`.
+
 ## RU fork — 2026-06-17
 
 - Completed the bilingual RU/EN adaptation across all 165 skills and 20 domains.

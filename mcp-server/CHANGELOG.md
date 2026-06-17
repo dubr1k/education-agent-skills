@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1-ru — 2026-06-17
+
+- Added `npm run smoke:hosted` for hosted-HTTP MCP smoke testing.
+- Local mode starts a temporary HTTP server around the hosted/Vercel handlers.
+- Remote mode checks a deployed endpoint via `MCP_HTTP_URL` and `MCP_ACCESS_TOKEN`.
+- Smoke verifies anonymous auth rejection, OAuth metadata, tool/prompt counts, and Russian discovery.
+
 ## 0.4.0-ru — 2026-06-17
 
 - Expanded the bundled MCP snapshot to 165 bilingual RU/EN skills across 20 domains.

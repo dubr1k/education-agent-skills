@@ -65,6 +65,23 @@ Prefer `Authorization: Bearer YOUR_TOKEN` when the client supports headers. Use 
 
 ## Smoke tests
 
+For a local hosted-HTTP smoke test, run:
+
+```bash
+cd mcp-server
+npm run build
+npm run smoke:hosted
+```
+
+The local smoke test starts a temporary HTTP server around the hosted handlers, verifies anonymous `401`, OAuth metadata, authenticated `tools/list`, authenticated `prompts/list`, and Russian `find_skills` / `suggest_skills`.
+
+For a real deployment, provide the hosted URL and token:
+
+```bash
+cd mcp-server
+MCP_HTTP_URL=https://YOUR_DEPLOYMENT/mcp MCP_ACCESS_TOKEN=YOUR_TOKEN npm run smoke:hosted
+```
+
 After deployment, verify:
 
 ```bash
