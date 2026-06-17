@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0-ru — 2026-06-17
+
+- Expanded the bundled MCP snapshot to 165 bilingual RU/EN skills across 20 domains.
+- Added Russian-aware discovery coverage for `find_skills` and `suggest_skills`, including post-adaptation end-to-end scenarios.
+- Documented the MCP runtime flow: `SKILL.md` files are bundled into `src/skills.json`, tools/prompts are registered from that snapshot, and the calling model generates the final output.
+- Documented local stdio and hosted HTTP transports, hosted token auth, `SKILLS_FILTER`, and snapshot rebuild requirements.
+- Added hosted deployment checklist in `../docs/HOSTED_MCP_DEPLOYMENT.md`.
+
 ## 0.3.0
 
 - **Hybrid architecture**: skills registered as both MCP tools (111 total: 107 skills + 4 meta) and MCP prompts (107). Tools work in Claude.ai and future orchestrators. Prompts ready for Claude Desktop and clients that surface them.

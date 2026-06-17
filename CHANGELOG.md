@@ -1,5 +1,17 @@
 # Changelog
 
+## RU fork — 2026-06-17
+
+- Completed the bilingual RU/EN adaptation across all 165 skills and 20 domains.
+- Added explicit `Russian / bilingual context` runtime guidance to every `SKILL.md` while preserving upstream-compatible English IDs, folder names, tool names, tags, evidence citations, schemas, and chaining metadata.
+- Expanded Russian discovery coverage for `find_skills` and `suggest_skills`, including assessment, AI literacy, historical thinking, ecological inquiry, wellbeing/conflict, professional learning, systems thinking, and student-learning scenarios.
+- Rebuilt `registry.json` and `mcp-server/src/skills.json` so local and hosted MCP clients serve the completed RU snapshot.
+- Added regression guards for complete RU context coverage, Russian MCP discovery, MCP runtime documentation, and hosted access behavior.
+- Documented how the MCP server works: pre-built snapshot runtime, local stdio transport, hosted HTTP transport, token-based access control, `SKILLS_FILTER`, and the fact that the calling model generates the final output.
+- Added hosted MCP deployment checklist in [`docs/HOSTED_MCP_DEPLOYMENT.md`](docs/HOSTED_MCP_DEPLOYMENT.md).
+- Release is based on the adaptation and polishing commits `092e008`, `11b1989`, and `5be6c24`, plus this release-note/checklist pass.
+- Migration note: after any future `SKILL.md` edit, rebuild and commit both `registry.json` and `mcp-server/src/skills.json`; otherwise MCP deployments will serve a stale snapshot.
+
 ## v3.0 — May 2026
 
 - Renamed from `claude-education-skills` to `education-agent-skills`

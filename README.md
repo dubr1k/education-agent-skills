@@ -223,7 +223,7 @@ npm start
 - Русские запросы работают через Unicode-aware search, domain terms и aliases; technical IDs остаются английскими.
 - Локальный режим использует stdio transport (`dist/index.js`), hosted режим использует HTTP entrypoint (`api/mcp.ts`) с token-based access control.
 
-Source code и подробное описание runtime flow: [mcp-server/](mcp-server/).
+Source code и подробное описание runtime flow: [mcp-server/](mcp-server/). Hosted rollout checklist: [docs/HOSTED_MCP_DEPLOYMENT.md](docs/HOSTED_MCP_DEPLOYMENT.md).
 
 ## Участие в разработке
 

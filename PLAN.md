@@ -66,7 +66,12 @@
   - Нормализованы старые `## RU/EN Localization` заголовки в ранних доменах.
   - Добавлены русские end-to-end `suggest_skills` сценарии для AI literacy, wellbeing/conflict, historical thinking, ecological inquiry и professional learning.
   - Расширены README/MCP docs: snapshot runtime, stdio/HTTP transports, auth, domain filtering и роль вызывающей модели.
-  - Предыдущий guard/status слой уже запушен как `11b1989 Polish RU adaptation status and guards`; MCP/docs слой готовится отдельным коммитом.
+  - Guard/status слой запушен как `11b1989 Polish RU adaptation status and guards`; MCP/docs слой запушен как `5be6c24 Document MCP runtime and strengthen RU suggestions`.
+- Release/deployment pass 2026-06-17:
+  - Добавлены release notes в корневой `CHANGELOG.md` для завершенного RU fork adaptation release.
+  - Добавлен MCP-focused `0.4.0-ru` блок в `mcp-server/CHANGELOG.md`.
+  - Добавлен `docs/HOSTED_MCP_DEPLOYMENT.md` с build/bundle, hosted HTTP, auth env, Vercel, smoke tests, client setup, rollback и privacy checklist.
+  - Добавлен docs guard-test, который закрепляет release notes и hosted deployment checklist.
 
 ## Ближайший фокус
 
@@ -85,4 +90,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Подготовить release notes / changelog для RU fork и, при необходимости, отдельный deployment checklist для hosted MCP.
+Прогнать полный test suite, закоммитить и запушить release/checklist слой; затем можно готовить GitHub release/tag или выполнять hosted MCP smoke test против реального deployment URL.

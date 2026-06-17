@@ -5,6 +5,7 @@ MCP server exposing the bilingual **Educational Skills RU** library as callable 
 This fork documents local MCP usage and self-hosted deployments.
 
 See [Codex setup](../docs/CODEX.md) and [Hermes setup](../docs/HERMES.md).
+For hosted rollout steps, see the [Hosted MCP deployment checklist](../docs/HOSTED_MCP_DEPLOYMENT.md).
 
 ## Compatibility note / Важно о совместимости
 

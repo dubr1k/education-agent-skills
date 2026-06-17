@@ -15,6 +15,9 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - Added post-adaptation guard coverage: every `SKILL.md` must include `Russian / bilingual context`, and planning docs must describe the adaptation as complete.
 - Added Russian end-to-end `suggest_skills` scenarios for AI literacy, wellbeing/conflict, historical thinking, ecological inquiry, and professional learning.
 - Expanded root and MCP README documentation with detailed MCP runtime flow: snapshot bundle, stdio/HTTP transports, auth, domain filtering, and model responsibility.
+- Added RU fork release notes to `CHANGELOG.md` and MCP-specific `0.4.0-ru` notes to `mcp-server/CHANGELOG.md`.
+- Added `docs/HOSTED_MCP_DEPLOYMENT.md` with build/bundle, hosted HTTP, auth env, Vercel, smoke test, client setup, rollback, and privacy checklist.
+- Added docs guard coverage for release notes and hosted MCP deployment checklist.
 
 ## What was verified
 
@@ -25,6 +28,7 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 - `npx playwright test` — 22 passed
 - `npm test` — 22 passed
 - Targeted post-adaptation MCP/docs tests — passed
+- Targeted release/checklist docs tests — passed
 - `git diff --check` for touched skill domains and shared files — clean
 
 ## Current library state
@@ -36,5 +40,5 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 
 ## What's next
 
-- Continue polishing: add regression guards, tighten Russian end-to-end `suggest_skills` scenarios, remove stale planning language, and prepare release notes / changelog for the RU fork.
-- Next concrete step: prepare release notes / changelog for the RU fork, plus an optional hosted MCP deployment checklist.
+- Finish the current release/checklist layer: run the full root and MCP test suites, commit, and push.
+- Next concrete step after that: prepare a GitHub release/tag or run hosted MCP smoke tests against a real deployment URL and access token.

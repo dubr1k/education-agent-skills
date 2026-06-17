@@ -8,9 +8,12 @@ const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
 const README_PATH = path.join(__dirname, "..", "README.md");
 const MCP_README_PATH = path.join(__dirname, "..", "mcp-server", "README.md");
+const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
+const MCP_CHANGELOG_PATH = path.join(__dirname, "..", "mcp-server", "CHANGELOG.md");
 const PLAN_PATH = path.join(__dirname, "..", "PLAN.md");
 const STATE_PATH = path.join(__dirname, "..", "STATE.md");
 const RU_LOCALIZATION_PATH = path.join(__dirname, "..", "docs", "RU_LOCALIZATION.md");
+const HOSTED_MCP_DEPLOYMENT_PATH = path.join(__dirname, "..", "docs", "HOSTED_MCP_DEPLOYMENT.md");
 const REPO_ROOT = path.join(__dirname, "..");
 
 // Вспомогательная функция: собрать все пути SKILL.md.
@@ -306,6 +309,28 @@ test.describe("Documentation Validation", () => {
     expect(docs).toContain("не отдельная LLM");
     expect(docs).toContain("165 skill tools");
     expect(docs).toContain("165 prompts");
+  });
+
+  test("release notes and hosted deployment checklist cover the RU MCP rollout", () => {
+    const changelog = fs.readFileSync(CHANGELOG_PATH, "utf-8");
+    const mcpChangelog = fs.readFileSync(MCP_CHANGELOG_PATH, "utf-8");
+    const deployment = fs.readFileSync(HOSTED_MCP_DEPLOYMENT_PATH, "utf-8");
+    const docs = `${changelog}\n${mcpChangelog}\n${deployment}`;
+
+    expect(changelog).toContain("RU fork — 2026-06-17");
+    expect(changelog).toContain("165 skills and 20 domains");
+    expect(mcpChangelog).toContain("0.4.0-ru — 2026-06-17");
+    expect(deployment).toContain("Hosted MCP deployment checklist");
+    expect(deployment).toContain("MCP_TOKEN_SIGNING_SECRET");
+    expect(deployment).toContain("MCP_ACCESS_TOKEN_HASHES");
+    expect(deployment).toContain("SKILLS_FILTER");
+    expect(deployment).toContain("Anonymous requests must fail with a `401`");
+    expect(deployment).toContain("Use `mcp-server` as the Vercel project root");
+    expect(deployment).toContain("/.well-known/oauth-protected-resource/mcp");
+    expect(deployment).toContain("Unfiltered `tools/list` exposes 169 tools");
+    expect(deployment).toContain("Unfiltered `prompts/list` exposes 165 prompts");
+    expect(deployment).toContain("query-token URLs can leak");
+    expect(docs).toContain("mcp-server/src/skills.json");
   });
 });
 
