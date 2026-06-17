@@ -72,6 +72,10 @@
   - Добавлен MCP-focused `0.4.0-ru` блок в `mcp-server/CHANGELOG.md`.
   - Добавлен `docs/HOSTED_MCP_DEPLOYMENT.md` с build/bundle, hosted HTTP, auth env, Vercel, smoke tests, client setup, rollback и privacy checklist.
   - Добавлен docs guard-test, который закрепляет release notes и hosted deployment checklist.
+- Release smoke bugfix 2026-06-17:
+  - Локальный MCP stdio smoke через `mcp-server/dist/index.js` выявил пробел в domainless русском `find_skills` для assessment-запроса `ФГОС диагностическая работа критерии оценивания`.
+  - Добавлен regression test без `domain` filter.
+  - Добавлен RU alias для формулировок `диагностическая/контрольная/проверочная работа`, чтобы публичные README examples работали без ручного выбора домена.
 
 ## Ближайший фокус
 
@@ -90,4 +94,4 @@ npx playwright test
 
 ## Следующий конкретный шаг
 
-Прогнать полный test suite, закоммитить и запушить release/checklist слой; затем можно готовить GitHub release/tag или выполнять hosted MCP smoke test против реального deployment URL.
+Закоммитить и запушить release smoke bugfix; затем создать GitHub release/tag `ru-v1.0.0` и, при наличии deployment URL/token, выполнить hosted MCP smoke test.

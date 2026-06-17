@@ -135,6 +135,19 @@ test.describe("MCP Server — find_skills", () => {
     expect(text).toMatch(/Backwards Design Unit Planner|Scope and Sequence Designer|Competency Unpacker|Criterion-Referenced Rubric Generator/);
   });
 
+  test("finds curriculum-assessment skills from Russian assessment language without a domain filter", async () => {
+    const result = await client.callTool({
+      name: "find_skills",
+      arguments: {
+        query: "ФГОС диагностическая работа критерии оценивания",
+      },
+    });
+    const text = (result.content as Array<{ type: string; text: string }>)[0].text;
+
+    expect(text).toContain("curriculum-assessment");
+    expect(text).toMatch(/Diagnostic Assessment Designer|Criterion-Referenced Rubric Generator|Assessment Blueprint Designer/);
+  });
+
   test("finds curriculum-alignment skills from Russian alignment language", async () => {
     const result = await client.callTool({
       name: "find_skills",

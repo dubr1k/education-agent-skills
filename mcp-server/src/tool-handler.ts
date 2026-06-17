@@ -35,6 +35,7 @@ const RU_QUERY_ALIASES: Array<{ pattern: RegExp; terms: string[] }> = [
   { pattern: /^(фгос|фоп|рабоч|план|модул|раздел|ктп|программ)/u, terms: ["planning", "unit", "curriculum", "sequence", "alignment"] },
   { pattern: /^(результат|цель|задач)/u, terms: ["outcome", "objective", "learning", "result"] },
   { pattern: /^(оцен|критери|рубри|балл|егэ|огэ|впр|контрол|диагност)/u, terms: ["assessment", "rubric", "criteria", "feedback", "formative", "diagnostic"] },
+  { pattern: /^(работа|работы|работу|работе|работой|проверочн)/u, terms: ["assessment", "task", "test", "practice"] },
   { pattern: /^(чтен|текст|пониман|грамотн)/u, terms: ["reading", "text", "comprehension", "literacy"] },
   { pattern: /^(учебн|смыслов)/u, terms: ["reading", "text", "comprehension", "literacy"] },
   { pattern: /^(письм|эссе|сочинен|развернут|аргумент)/u, terms: ["writing", "argument", "essay", "scaffold"] },
