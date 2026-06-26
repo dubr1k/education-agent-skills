@@ -153,7 +153,10 @@ test.describe("MCP Server — skill tools", () => {
     expect(text).toContain("Year 9 novice");
   });
 
-  test("handles collision names with domain prefix", async () => {
+  // The former slug collision (two `critical-thinking-task-designer` skills) was
+  // resolved by renaming the curriculum-assessment copy. With no duplicate slug,
+  // buildToolName exposes clean, un-prefixed tool names on both surfaces.
+  test("exposes both critical-thinking skills under distinct un-prefixed names", async () => {
     const { tools } = await client.listTools();
     const criticalThinkingTools = tools.filter((t) =>
       t.name.includes("critical-thinking-task-designer"),
@@ -161,9 +164,11 @@ test.describe("MCP Server — skill tools", () => {
 
     expect(criticalThinkingTools.length).toBe(2);
     expect(criticalThinkingTools.map((t) => t.name).sort()).toEqual([
-      "curriculum-assessment__critical-thinking-task-designer",
-      "literacy-critical-thinking__critical-thinking-task-designer",
+      "critical-thinking-task-designer",
+      "discipline-specific-critical-thinking-task-designer",
     ]);
+    // No domain-prefixed (collision) form should remain.
+    expect(tools.some((t) => t.name.includes("__"))).toBe(false);
   });
 });
 
@@ -201,7 +206,9 @@ test.describe("MCP Server — skill prompts", () => {
     expect(text.text).toContain("Year 9 novice");
   });
 
-  test("handles collision names with domain prefix", async () => {
+  // Mirror of the tools-side check: the resolved collision means both
+  // critical-thinking prompts are registered under clean, un-prefixed names.
+  test("exposes both critical-thinking prompts under distinct un-prefixed names", async () => {
     const { prompts } = await client.listPrompts();
     const criticalThinking = prompts.filter((p) =>
       p.name.includes("critical-thinking-task-designer"),
@@ -209,9 +216,11 @@ test.describe("MCP Server — skill prompts", () => {
 
     expect(criticalThinking.length).toBe(2);
     expect(criticalThinking.map((p) => p.name).sort()).toEqual([
-      "curriculum-assessment__critical-thinking-task-designer",
-      "literacy-critical-thinking__critical-thinking-task-designer",
+      "critical-thinking-task-designer",
+      "discipline-specific-critical-thinking-task-designer",
     ]);
+    // No domain-prefixed (collision) form should remain.
+    expect(prompts.some((p) => p.name.includes("__"))).toBe(false);
   });
 });
 

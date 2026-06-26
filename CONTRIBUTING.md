@@ -51,6 +51,23 @@ Every `SKILL.md` must preserve:
 - input and output schemas;
 - any existing citations and limitations.
 
+### Skill `name` must be unique across all domains
+
+A skill's `name` (and its `skill_id` slug) must be **unique across the whole library, not just within its own domain folder**. Claude Code and Codex identify a skill by its `name`; a flat, name-keyed loader cannot hold two skills with the same `name`, so one silently collides with or overwrites the other. (The MCP server tolerates duplicates by qualifying them with the domain, but the plugin surfaces do not.)
+
+If two skills would share a slug, give one a more specific name — for example `discipline-specific-critical-thinking-task-designer` rather than a second `critical-thinking-task-designer` — and update that `SKILL.md`'s frontmatter `name`, `skill_id`, and `skill_name` plus its folder name to match.
+
+### New domain folders must be added to BOTH plugin manifests
+
+The `skills` field in each plugin manifest is an **explicit array of the domain folder paths** (e.g. `"./skills/curriculum-assessment"`), because Claude Code and Codex scan only one directory level deep while this repo nests skills two levels deep (`skills/<domain>/<skill>/SKILL.md`). A bare `"./skills/"` root path makes both loaders discover zero skills.
+
+When you add a **new domain folder**, add its path to the `skills` array in **both**:
+
+- `.claude-plugin/plugin.json`
+- `.codex-plugin/plugin.json`
+
+(`.claude-plugin/marketplace.json` inherits via its `source` field and does not list skills.)
+
 ## Validation before a pull request
 
 After adding or editing skills, run:

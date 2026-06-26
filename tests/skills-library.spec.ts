@@ -6,6 +6,7 @@ import * as yaml from "yaml";
 const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
+const CODEX_PLUGIN_PATH = path.join(__dirname, "..", ".codex-plugin", "plugin.json");
 
 // Helper: collect all SKILL.md paths
 function getAllSkillPaths(): string[] {
@@ -188,7 +189,7 @@ test.describe("Plugin Manifest Validation", () => {
     name: string;
     display_name: string;
     version: string;
-    skills: string;
+    skills: string[];
     license: string;
   };
 
@@ -202,10 +203,33 @@ test.describe("Plugin Manifest Validation", () => {
     expect(plugin.version).toBe("2.1.0");
   });
 
-  test("plugin.json skills directory exists", () => {
-    const skillsDir = path.join(__dirname, "..", plugin.skills);
-    expect(fs.existsSync(skillsDir)).toBe(true);
-    expect(fs.statSync(skillsDir).isDirectory()).toBe(true);
+  // Claude Code and Codex scan only one directory level deep, while skills are
+  // nested two levels deep (skills/<domain>/<skill>/SKILL.md). The `skills`
+  // field must therefore be an explicit array of every domain folder, not the
+  // bare "./skills/" root (which would discover zero skills).
+  test("plugin.json skills field lists every domain folder", () => {
+    const domainsOnDisk = fs
+      .readdirSync(SKILLS_DIR)
+      .filter((d) => fs.statSync(path.join(SKILLS_DIR, d)).isDirectory())
+      .map((d) => `./skills/${d}`)
+      .sort();
+
+    expect(Array.isArray(plugin.skills)).toBe(true);
+    expect([...plugin.skills].sort()).toEqual(domainsOnDisk);
+
+    for (const entry of plugin.skills) {
+      const skillsDir = path.join(__dirname, "..", entry);
+      expect(fs.existsSync(skillsDir)).toBe(true);
+      expect(fs.statSync(skillsDir).isDirectory()).toBe(true);
+    }
+  });
+
+  // The Codex manifest must stay in lockstep with the Claude manifest so the
+  // same domain folders load on both surfaces (see CONTRIBUTING.md governance).
+  test("codex plugin.json skills field matches the claude manifest", () => {
+    const codex = JSON.parse(fs.readFileSync(CODEX_PLUGIN_PATH, "utf-8"));
+    expect(Array.isArray(codex.skills)).toBe(true);
+    expect([...codex.skills].sort()).toEqual([...plugin.skills].sort());
   });
 
   test("plugin.json has correct license", () => {
