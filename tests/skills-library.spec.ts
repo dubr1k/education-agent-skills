@@ -6,6 +6,7 @@ import * as yaml from "yaml";
 const SKILLS_DIR = path.join(__dirname, "..", "skills");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
+const CODEX_PLUGIN_PATH = path.join(__dirname, "..", ".codex-plugin", "plugin.json");
 const README_PATH = path.join(__dirname, "..", "README.md");
 const MCP_README_PATH = path.join(__dirname, "..", "mcp-server", "README.md");
 const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
@@ -225,7 +226,7 @@ test.describe("Plugin Manifest Validation", () => {
     name: string;
     display_name: string;
     version: string;
-    skills: string;
+    skills: string[];
     license: string;
   };
 
@@ -240,10 +241,27 @@ test.describe("Plugin Manifest Validation", () => {
     expect(plugin.version).toBe("2.2.0");
   });
 
-  test("plugin.json skills directory exists", () => {
-    const skillsDir = path.join(__dirname, "..", plugin.skills);
-    expect(fs.existsSync(skillsDir)).toBe(true);
-    expect(fs.statSync(skillsDir).isDirectory()).toBe(true);
+  test("plugin.json skills field lists every domain folder", () => {
+    const domainsOnDisk = fs
+      .readdirSync(SKILLS_DIR)
+      .filter((d) => fs.statSync(path.join(SKILLS_DIR, d)).isDirectory())
+      .map((d) => `./skills/${d}`)
+      .sort();
+
+    expect(Array.isArray(plugin.skills)).toBe(true);
+    expect([...plugin.skills].sort()).toEqual(domainsOnDisk);
+
+    for (const entry of plugin.skills) {
+      const skillsDir = path.join(__dirname, "..", entry);
+      expect(fs.existsSync(skillsDir)).toBe(true);
+      expect(fs.statSync(skillsDir).isDirectory()).toBe(true);
+    }
+  });
+
+  test("codex plugin skills match the claude manifest", () => {
+    const codex = JSON.parse(fs.readFileSync(CODEX_PLUGIN_PATH, "utf-8"));
+    expect(Array.isArray(codex.skills)).toBe(true);
+    expect([...codex.skills].sort()).toEqual([...plugin.skills].sort());
   });
 
   test("plugin.json has correct license", () => {
