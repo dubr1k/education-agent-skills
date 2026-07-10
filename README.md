@@ -254,6 +254,10 @@ git add skills/<domain>/<skill-name>/SKILL.md registry.json mcp-server/src/skill
 
 Этот repository — русскоязычный fork `dubr1k/education-agent-skills`, адаптирующий runtime, документацию и skills для RU/EN использования.
 
+### Версии компонентов
+
+Версия root package и plugin manifests описывает библиотеку skills и синхронизируется между `package.json`, `.claude-plugin/plugin.json` и `.codex-plugin/plugin.json`. MCP-сервер публикуется независимо и сохраняет собственную версию в `mcp-server/package.json`; изменение библиотечной версии само по себе не означает релиз MCP-пакета.
+
 ## Лицензия
 
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Открыто. Можно fork, адаптировать и распространять на тех же условиях.

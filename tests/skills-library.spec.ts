@@ -8,6 +8,10 @@ const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const PLUGIN_PATH = path.join(__dirname, "..", ".claude-plugin", "plugin.json");
 const CODEX_PLUGIN_PATH = path.join(__dirname, "..", ".codex-plugin", "plugin.json");
 const README_PATH = path.join(__dirname, "..", "README.md");
+const LICENSE_PATH = path.join(__dirname, "..", "LICENSE");
+const PACKAGE_PATH = path.join(__dirname, "..", "package.json");
+const PACKAGE_LOCK_PATH = path.join(__dirname, "..", "package-lock.json");
+const MCP_PACKAGE_PATH = path.join(__dirname, "..", "mcp-server", "package.json");
 const MCP_README_PATH = path.join(__dirname, "..", "mcp-server", "README.md");
 const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
 const MCP_CHANGELOG_PATH = path.join(__dirname, "..", "mcp-server", "CHANGELOG.md");
@@ -62,6 +66,28 @@ function getAllReadmePaths(dir = REPO_ROOT): string[] {
 
   return paths.sort();
 }
+
+test("license metadata is consistent across repository entry points", () => {
+  const spdxLicense = "CC-BY-SA-4.0";
+  const rootPackage = JSON.parse(fs.readFileSync(PACKAGE_PATH, "utf-8"));
+  const rootLock = JSON.parse(fs.readFileSync(PACKAGE_LOCK_PATH, "utf-8"));
+  const mcpPackage = JSON.parse(fs.readFileSync(MCP_PACKAGE_PATH, "utf-8"));
+  const claudePlugin = JSON.parse(fs.readFileSync(PLUGIN_PATH, "utf-8"));
+  const codexPlugin = JSON.parse(fs.readFileSync(CODEX_PLUGIN_PATH, "utf-8"));
+  const readme = fs.readFileSync(README_PATH, "utf-8");
+  const license = fs.readFileSync(LICENSE_PATH, "utf-8");
+
+  expect(rootPackage.license).toBe(spdxLicense);
+  expect(rootLock.packages[""].license).toBe(spdxLicense);
+  expect(mcpPackage.license).toBe(spdxLicense);
+  expect(claudePlugin.license).toBe(spdxLicense);
+  expect(codexPlugin.license).toBe(spdxLicense);
+  expect(rootPackage.version).toBe(claudePlugin.version);
+  expect(rootPackage.version).toBe(codexPlugin.version);
+  expect(readme).toContain("CC BY-SA 4.0");
+  expect(readme).toContain("MCP-сервер публикуется независимо");
+  expect(license).toContain("Attribution-ShareAlike 4.0 International");
+});
 
 test.describe("Skill Discovery", () => {
   test("finds at least the published baseline of SKILL.md files", () => {
@@ -265,7 +291,7 @@ test.describe("Plugin Manifest Validation", () => {
   });
 
   test("plugin.json has correct license", () => {
-    expect(plugin.license).toBe("CC BY-SA 4.0");
+    expect(plugin.license).toBe("CC-BY-SA-4.0");
   });
 });
 

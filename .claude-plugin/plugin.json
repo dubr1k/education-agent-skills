@@ -8,7 +8,7 @@
     "url": "https://github.com/GarethManning"
   },
   "homepage": "https://github.com/dubr1k/education-agent-skills",
-  "license": "CC BY-SA 4.0",
+  "license": "CC-BY-SA-4.0",
   "skills": [
     "./skills/ai-learning-science",
     "./skills/ai-literacy",
