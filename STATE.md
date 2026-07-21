@@ -1,6 +1,15 @@
 # State — Educational Skills RU
 
-## Last updated: 2026-06-17
+## Last updated: 2026-07-21
+
+## Upstream sync 2026-07-21
+
+- Merged `GarethManning/education-agent-skills@main` into fork `main`.
+- The four upstream-only commits were a climate-learning-lab docs addition followed by its complete revert, so the merge introduced no lasting content delta and required no new Russian localization.
+- Rebuilt `registry.json` and `mcp-server/src/skills.json`; only the registry generation timestamp changed, so generated content was restored to avoid a timestamp-only commit.
+- Verified root Playwright suite: 27 passed.
+- Verified MCP registry generation/bundle/build and MCP Playwright suite: 66 passed.
+- Current fork remains 165 skills across 20 domains with Russian/bilingual runtime guidance in every skill.
 
 ## What was done this session
 
