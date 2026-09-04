@@ -107,7 +107,7 @@ async function expectAuthenticatedMcp(mcpUrl: URL): Promise<{ tools: number; pro
     const { tools } = await client.listTools();
     const { prompts } = await client.listPrompts();
 
-    if (tools.length !== 169) throw new Error(`Expected 169 tools, got ${tools.length}`);
+    if (tools.length !== 157) throw new Error(`Expected 157 tools, got ${tools.length}`);
     if (prompts.length !== 165) throw new Error(`Expected 165 prompts, got ${prompts.length}`);
 
     for (const name of META_TOOLS) {

@@ -22,8 +22,8 @@ Technical identifiers intentionally stay in English for upstream compatibility:
 
 Skills are registered twice, as both MCP tools and MCP prompts:
 
-- **Tools**: 169 total, including 165 skills and 4 meta-tools. The calling model receives the assembled skill prompt via instruction framing and generates the output.
-- **Prompts**: 165 prompts for clients that surface MCP prompts in their UI.
+- **Tools**: 157 total, including 153 model-invocable skills and 4 meta-tools. The 12 skills marked `disable-model-invocation: true` are not exposed as tools.
+- **Prompts**: all 165 skills remain available for explicit invocation by clients that surface MCP prompts.
 
 ## Как именно работает MCP-сервер
 
@@ -88,7 +88,7 @@ npm run build
 npm run smoke:local-http
 ```
 
-Smoke поднимает временный `127.0.0.1` server, проверяет anonymous `401`, локальные OAuth metadata, 169 tools, 165 prompts и русские `find_skills` / `suggest_skills` маршруты.
+Smoke поднимает временный `127.0.0.1` server, проверяет anonymous `401`, локальные OAuth metadata, 157 tools, 165 prompts и русские `find_skills` / `suggest_skills` маршруты.
 
 ### Domain filtering
 
@@ -106,8 +106,8 @@ SKILLS_FILTER=memory-learning-science,explicit-instruction node dist/index.js
 - `find_skills` — точный поиск по домену, тегу, evidence strength и RU/EN query.
 - `suggest_skills` — подбор 3-5 skills по описанию педагогической задачи.
 - `get_skill_details` — полные metadata и schemas конкретного skill.
-- 165 skill tools — готовят instruction-framed prompt для результата.
-- 165 prompts — тот же skill layer для клиентов, которые показывают MCP prompts отдельно.
+- 153 model-invocable skill tools — готовят instruction-framed prompt для результата.
+- 165 prompts — полный skill layer для явного пользовательского вызова, включая 12 skills без model invocation.
 
 ## Meta-tools
 

@@ -1,14 +1,15 @@
 # State — Educational Skills RU
 
-## Last updated: 2026-07-21
+## Last updated: 2026-09-04
 
-## Upstream sync 2026-07-21
+## Upstream sync 2026-09-04
 
-- Merged `GarethManning/education-agent-skills@main` into fork `main`.
-- The four upstream-only commits were a climate-learning-lab docs addition followed by its complete revert, so the merge introduced no lasting content delta and required no new Russian localization.
-- Rebuilt `registry.json` and `mcp-server/src/skills.json`; only the registry generation timestamp changed, so generated content was restored to avoid a timestamp-only commit.
-- Verified root Playwright suite: 27 passed.
-- Verified MCP registry generation/bundle/build and MCP Playwright suite: 66 passed.
+- Merged `GarethManning/education-agent-skills@6bbbce418f82e11044009c9f3b7373a354de5bd0` into fork `main` (5 upstream commits after `32fce5c`).
+- Adopted the Bastani evidence-attribution and Creative Commons attribution corrections.
+- Ported the upstream bundled-skill validation and current `@modelcontextprotocol/sdk` dependency into the fork's local-only MCP architecture without reintroducing hosted OAuth/Vercel behavior.
+- Preserved Russian discovery, bilingual context, local HTTP/stdio operation, and the local authentication boundary.
+- Rebuilt `registry.json` and `mcp-server/src/skills.json`; callable MCP inventory is 153 model-invocable skill tools plus 4 meta-tools, while all 165 skill prompts remain available.
+- Verified root registry validation/generation and Playwright tests; verified MCP bundle, TypeScript build, Playwright tests, security audit, and local HTTP smoke.
 - Current fork remains 165 skills across 20 domains with Russian/bilingual runtime guidance in every skill.
 
 ## What was done this session
@@ -57,5 +58,4 @@ Completed the staged bilingual RU/EN adaptation pass across the remaining skill 
 
 ## What's next
 
-- Fork instructions are being pivoted to local-only MCP usage.
-- Next concrete step: finish tests, commit, and push the local-only documentation/runtime smoke cleanup.
+- Continue normal upstream monitoring; preserve local-only MCP and Russian/bilingual contracts during future merges.

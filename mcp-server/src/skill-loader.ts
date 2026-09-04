@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import { join, basename, dirname, resolve } from "node:path";
 import matter from "gray-matter";
+import { assertValidLoadedSkills } from "./skill-validation.js";
 import type { LoadedSkill, SkillMetadata } from "./types.js";
 
 const IGNORED_FILES = new Set([
@@ -17,16 +18,33 @@ const IGNORED_FILES = new Set([
 const IGNORED_DIRS = new Set(["schemas", "mcp-server", ".git", "node_modules"]);
 
 function extractPrompt(content: string): string {
-  // Case 1: ## Prompt followed by a fenced code block (most common)
-  const promptMatch = content.match(/## (?:System )?Prompt\s*\n+```[^\n]*\n([\s\S]*?)```/);
-  if (promptMatch) return promptMatch[1].trim();
+  // Case 1: ## Prompt followed by a fenced code block (most common).
+  // Match the opening fence length so shorter fences inside the prompt remain content.
+  const openingFence = content.match(
+    /^## (?:System )?Prompt\s*\r?\n+(?<fence>`{3,}|~{3,})[^\r\n]*\r?\n/m,
+  );
+  if (openingFence?.groups?.fence && openingFence.index !== undefined) {
+    const promptStart = openingFence.index + openingFence[0].length;
+    const fence = openingFence.groups.fence;
+    const closingFence = new RegExp(
+      `^ {0,3}${fence[0]}{${fence.length},}[ \\t]*$`,
+      "m",
+    );
+    const closingMatch = content.slice(promptStart).match(closingFence);
+    if (!closingMatch || closingMatch.index === undefined) return "";
+    return content.slice(promptStart, promptStart + closingMatch.index).trim();
+  }
 
   // Case 2: # Prompt (h1) with ## subheadings inside — stop at next h1
-  const h1Match = content.match(/^# Prompt[ \t]*\n([\s\S]*?)(?=^# [^#])/m);
+  const h1Match = content.match(
+    /^# (?:System )?Prompt[ \t]*\n([\s\S]*?)(?=^# [^#]|$(?![\s\S]))/m,
+  );
   if (h1Match) return h1Match[1].trim();
 
   // Case 3: ## Prompt without code block — stop at next ## or ---
-  const sectionMatch = content.match(/## (?:System )?Prompt\s*\n+([\s\S]*?)(?=\n## |\n---\s*$)/);
+  const sectionMatch = content.match(
+    /^## (?:System )?Prompt\s*\n+([\s\S]*?)(?=\n## |\n---[ \t]*(?:\n|$)|$(?![\s\S]))/m,
+  );
   if (sectionMatch) return sectionMatch[1].trim();
 
   return "";
@@ -129,12 +147,10 @@ export async function loadSkills(libraryRoot: string): Promise<LoadedSkill[]> {
       const { data, content } = matter(raw);
       const metadata = data as SkillMetadata;
 
-      if (!metadata.skill_id || !metadata.input_schema) {
-        console.error(`Skipping ${filePath}: missing skill_id or input_schema`);
-        continue;
-      }
+      if (!metadata.skill_id || !metadata.input_schema) throw new Error("missing skill_id or input_schema");
 
       const prompt = extractPrompt(content);
+      if (!prompt) throw new Error("missing a supported Prompt or System Prompt section");
       // Prefer v2 frontmatter description, fall back to markdown body extraction
       const description = (typeof metadata.description === "string" && metadata.description)
         ? metadata.description
@@ -143,9 +159,11 @@ export async function loadSkills(libraryRoot: string): Promise<LoadedSkill[]> {
 
       skills.push({ metadata, prompt, description, filePath, toolName });
     } catch (err) {
-      console.error(`Failed to parse ${filePath}:`, err);
+      const message = err instanceof Error ? err.message : String(err);
+      throw new Error(`Failed to load ${filePath}: ${message}`);
     }
   }
 
+  assertValidLoadedSkills(skills);
   return skills;
 }

@@ -54,7 +54,7 @@ Expected smoke result:
 
 - anonymous local HTTP requests return `401`;
 - local OAuth metadata is reachable;
-- authenticated local MCP client sees 169 tools;
+- authenticated local MCP client sees 157 tools (153 model-invocable skills and 4 discovery tools);
 - authenticated local MCP client sees 165 prompts;
 - Russian `find_skills` routes assessment language correctly;
 - Russian `suggest_skills` routes AI literacy language correctly.

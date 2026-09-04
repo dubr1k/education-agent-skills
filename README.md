@@ -212,8 +212,8 @@ npm start
 
 Сервер предоставляет:
 
-- **169 tools**: 165 skills + `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`.
-- **165 prompts** для клиентов, которые показывают MCP prompts.
+- **157 tools**: 153 model-invocable skills + `list_skills`, `find_skills`, `suggest_skills`, `get_skill_details`. Ещё 12 skills с `disable-model-invocation: true` намеренно не публикуются как tools.
+- **165 prompts** для явного пользовательского вызова, включая эти 12 skills.
 
 Как это устроено:
 

@@ -351,7 +351,7 @@ test.describe("Documentation Validation", () => {
     expect(docs).toContain("Local stdio");
     expect(docs).toContain("Local HTTP smoke");
     expect(docs).toContain("не отдельная LLM");
-    expect(docs).toContain("165 skill tools");
+    expect(docs).toContain("153 model-invocable skills");
     expect(docs).toContain("165 prompts");
   });
 
@@ -369,7 +369,7 @@ test.describe("Documentation Validation", () => {
     expect(mcpChangelog).toContain("0.4.0-ru — 2026-06-17");
     expect(localMcp).toContain("This fork is local-only");
     expect(localMcp).toContain("npm run smoke:local-http");
-    expect(localMcp).toContain("169 tools");
+    expect(localMcp).toContain("157 tools");
     expect(localMcp).toContain("165 prompts");
     expect(localMcp).toContain("not a deployment instruction");
     expect(docs).toContain("mcp-server/src/skills.json");

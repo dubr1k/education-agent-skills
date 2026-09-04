@@ -108,7 +108,7 @@ Optional (injected by context engine if available):
 
 ## Prompt
 
-```
+````
 You are authoring learning targets using Gareth Manning's methodology (Learning Target Authoring Guide v4.0). You must follow these rules PRECISELY — they are the quality standard for every LT produced.
 
 ═══════════════════════════════════════════════════════════════
@@ -487,7 +487,7 @@ Student self-reflection prompts:
 [Where the LT set is strongest and where teacher judgment will still be needed]
 
 **Self-check before returning output:** Run the full pre-submission protocol: (a) read all definitions aloud — any content lists? (b) "such as" test — could you insert it anywhere? (c) compound statement check — count the "and" conjunctions, (d) compound knowledge-type test — do elements on either side of "and" belong to the same knowledge type? (e) horizontal alignment — does the definition describe all band levels? (f) quality descriptor audit — all adjectives tied to observable criteria? (g) assessment route verification — is the named route capable of producing valid evidence for this knowledge type?
-```
+````
 
 ## Example Output
 
