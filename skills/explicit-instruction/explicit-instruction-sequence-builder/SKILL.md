@@ -202,6 +202,8 @@ Return your output in this exact format:
 ### Prerequisites
 Students should be able to: write a complete sentence, identify a quotation from a text, and understand the difference between a character's action and a writer's choice. Teacher should verify with a quick question: "What's the difference between saying 'Macbeth kills Duncan' and 'Shakespeare presents Macbeth as increasingly corrupted by ambition'?"
 
+**Cross-text transfer / перенос между произведениями:** This example deliberately moves from Macbeth in I Do to Romeo and Juliet in We Do. It requires prior knowledge of both Macbeth and Romeo and Juliet: students must already have studied Lady Macbeth's Act 1, Scene 5 speech and Romeo and Juliet's Act 3, Scene 1, with the relevant extracts available. Verify this before teaching; the lesson teaches analytical writing, not unfamiliar plot. If this prior knowledge is absent, keep all phases on Macbeth: use Macbeth's response to Lady Macbeth's persuasion in Act 1, Scene 7 for guided practice and a familiar Macbeth extract for independent practice. Use the later Of Mice and Men and 'Bayonet Charge' transfer tasks only if those texts have already been studied; otherwise substitute familiar Macbeth extracts.
+
 ### I Do — Teacher Models (10 minutes)
 
 **Setup (2 minutes):**
@@ -237,13 +239,13 @@ The shift is from CHARACTER to WRITER. From WHAT HAPPENS to WHY THE WRITER MADE 
 
 ### We Do — Guided Practice (15 minutes)
 
-**Example:** "Now let's write one together. The question is: How does Shakespeare present the theme of violence in Act 3, Scene 1?"
+**Example — explicit transfer:** "Now let's apply the same analytical-writing skill to another play we have already studied. We are moving from Macbeth to Romeo and Juliet, Act 3, Scene 1. The question is: How does Shakespeare present the theme of violence in this scene?"
 
 **Interaction plan:**
 
 *Step 1 — Teacher leads:* "What's the first thing I need in my topic sentence? I need to name the writer. So I'm starting with 'Shakespeare...' What verb comes next? Not 'writes about' — that's too vague. Give me a stronger verb." Elicit from class: presents / conveys / demonstrates / reveals / constructs. "Good — 'Shakespeare presents...' What does he present?"
 
-*Step 2 — Students contribute with support:* "Now I need a claim about violence in Act 3, Scene 1. Don't describe what happens — make an argument about what Shakespeare is DOING with violence. Write a claim on your whiteboard." Students write. Teacher scans boards. Select a strong example and a weak example (anonymised). "This one says 'violence as an inevitable consequence of unchecked masculinity.' That's a claim — someone could argue the opposite. This one says 'Tybalt and Romeo fight and Mercutio dies.' That's a description. Let's upgrade it together — what is Shakespeare saying about violence through this scene?"
+*Step 2 — Students contribute with support:* "Now I need a claim about violence in Act 3, Scene 1. Don't describe what happens — make an argument about what Shakespeare is DOING with violence. Write a claim on your whiteboard." Students write. Teacher scans boards. Select a strong example and a weak example (anonymised). "This one says 'violence as an inevitable consequence of unchecked masculinity.' That's a claim — someone could argue the opposite. This one says 'Tybalt kills Mercutio; Romeo then kills Tybalt.' That's a description. Let's upgrade it together — what is Shakespeare saying about violence through this scene?"
 
 *Step 3 — Students lead:* "Now add a reference to method. How does Shakespeare present this? What technique or structural choice? Write the complete topic sentence." Students write. Teacher circulates and reads 6–8 boards. Class shares and evaluates: does it name the writer, make a claim, and point to method?
 
@@ -258,7 +260,7 @@ The shift is from CHARACTER to WRITER. From WHAT HAPPENS to WHY THE WRITER MADE 
 
 **Practice set:**
 
-1. Write a topic sentence for: "How does Shakespeare present Mercutio as a contrast to Romeo?" *(Very close to the modelled example — same text, same skill)*
+1. Write a topic sentence for: "How does Shakespeare present Mercutio as a contrast to Romeo?" *(Same text as the guided example — Romeo and Juliet; same analytical-writing skill, not the same text as the Macbeth model)*
 2. Write a topic sentence for: "How does Steinbeck present loneliness in the opening of Of Mice and Men?" *(Same skill, different text — tests transfer)*
 3. Write a topic sentence for: "How does the poet present the experience of conflict in 'Bayonet Charge'?" *(Same skill, poetry context — further transfer)*
 4. **Challenge:** Write two alternative topic sentences for the same question. Which is stronger? Annotate why.
