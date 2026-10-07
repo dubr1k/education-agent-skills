@@ -2,7 +2,19 @@ import { test, expect } from "@playwright/test";
 import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { loadSkills } from "../src/skill-loader.js";
+import { loadSkills, parseSkillDocument } from "../src/skill-loader.js";
+
+test("YAML-only frontmatter preserves nested schemas, Unicode and CRLF", () => {
+  const parsed = parseSkillDocument('\uFEFF---\r\nname: Пример\r\ninput_schema:\r\n  required: [topic]\r\nflag: false\r\n---\r\n## Prompt\r\nbody');
+  expect(parsed.data).toEqual({ name: 'Пример', input_schema: { required: ['topic'] }, flag: false });
+  expect(parsed.content).toBe('## Prompt\r\nbody');
+});
+
+test("YAML-only frontmatter rejects missing, malformed and executable engines", () => {
+  for (const raw of ['no header', '---\nname: [\n---\nbody', '---\n[]\n---\nbody', '---js\nprocess.exit()\n---\nbody', '---\na: 1\na: 2\n---\nbody']) {
+    expect(() => parseSkillDocument(raw)).toThrow();
+  }
+});
 
 test("loads a complete prompt containing a shorter nested code fence", async () => {
   const libraryRoot = await mkdtemp(join(tmpdir(), "skill-loader-fences-"));

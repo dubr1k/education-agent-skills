@@ -1,6 +1,18 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import { join, basename, dirname, resolve } from "node:path";
-import matter from "gray-matter";
+import { parseDocument } from "yaml";
+
+// Skills use YAML frontmatter only. No executable engines or legacy YAML
+// parser chain (gray-matter -> js-yaml -> argparse -> sprintf-js).
+export function parseSkillDocument(raw: string): { data: unknown; content: string } {
+  const match = raw.match(/^\uFEFF?---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)([\s\S]*)$/);
+  if (!match) throw new Error("missing YAML frontmatter");
+  const document = parseDocument(match[1]);
+  if (document.errors.length) throw new Error(document.errors.map(e => e.message).join("; "));
+  const data: unknown = document.toJS({ maxAliasCount: 100 });
+  if (!data || typeof data !== "object" || Array.isArray(data)) throw new Error("frontmatter must be a mapping");
+  return { data, content: match[2] };
+}
 import { assertValidLoadedSkills } from "./skill-validation.js";
 import type { LoadedSkill, SkillMetadata } from "./types.js";
 
@@ -144,7 +156,7 @@ export async function loadSkills(libraryRoot: string): Promise<LoadedSkill[]> {
 
     try {
       const raw = await readFile(filePath, "utf-8");
-      const { data, content } = matter(raw);
+      const { data, content } = parseSkillDocument(raw);
       const metadata = data as SkillMetadata;
 
       if (!metadata.skill_id || !metadata.input_schema) throw new Error("missing skill_id or input_schema");
