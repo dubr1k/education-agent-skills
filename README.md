@@ -73,6 +73,18 @@ hermes skills install \
 
 Подробный гайд и стартовые наборы skills: [docs/HERMES.md](docs/HERMES.md).
 
+### DeepSeek Harness (DSH)
+
+Native-адаптер устанавливает по умолчанию только пять навыков: retrieval practice, критерии оценивания, explicit instruction, spaced practice и progressive hints. Нужны Node.js 20+ и Git checkout:
+
+```bash
+npm ci --ignore-scripts
+node scripts/install-dsh.mjs --dry-run
+node scripts/install-dsh.mjs
+```
+
+Default target — `$DSH_HOME/skills`, если `DSH_HOME` задан, иначе `~/.dsh/skills`; для безопасной проверки задайте `--skills-dir ./test-results/dsh-preview`. Существующие каталоги защищены: замена только с `--overwrite --backup`. Нет автоматических schemas, context injection, evidence persistence или learner gates. [DSH: выбор навыков, ограничения и проверки](docs/DSH.md).
+
 ### Любой Agent Skills-совместимый инструмент
 
 Скопируйте нужные папки из `skills/` в директорию skills вашего агента. Каждый skill — это обычная папка с `SKILL.md`; зависимости и build step для ручного использования не нужны.

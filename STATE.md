@@ -1,6 +1,20 @@
 # State — Educational Skills RU
 
-## Last updated: 2026-09-04
+## Last updated: 2026-10-05
+
+## DSH native integration — проверенная рабочая ветка
+
+- Ветка `dsh/native-integration`, base `origin/main@b4e9e384be5798cc4d5132b3ee795211370a8a95`; feature commit `5a62a9d320ee980db47b734bf3f60b44f85759d1`. Изменения прошли независимое read-only ревью; это отдельная ветка, не merge в main.
+- Добавлены `scripts/install-dsh.mjs`, `docs/DSH.md`, раздел README и 8 DSH regression tests. Default — только пять выбранных навыков; target: `--skills-dir`, затем `$DSH_HOME/skills`, иначе `~/.dsh/skills`.
+- Renderer сохраняет source metadata в reference-only теле, добавляет честный runtime contract и manual fallback для отсутствующего specialist rubric skill. Custom schemas/effort/evidence/chains не выдаются за DSH automation. CC BY-SA attribution, полный LICENSE и pinned/hash provenance прилагаются к каждому установленному навыку.
+- Dry-run не пишет; overwrite требует backup; backup/staging не обнаруживаются как дополнительные skills. Symlinks и неоднозначные имена отклоняются. `--all` на текущем upstream fail-closed из-за двух `critical-thinking-task-designer`, без переименования IDs.
+- Исправлен исходный literary example: явный Macbeth → Romeo and Juliet transfer, проверка prior knowledge, Macbeth-only fallback и точная последовательность гибели Mercutio/Tybalt. Frontmatter не менялся.
+- Проверено: root `npm test` — 35 passed; MCP bundle/build/tests — 70 passed; `validate-skills.py` — 165 skills, 0 errors, 4 прежних предупреждения длины; `validate-registry.py` — valid; `git diff --check` — clean.
+- Registry и MCP snapshot пересобраны. Metadata/prompt неизменны, Example Output не входит в MCP bundle; содержательного generated diff нет, timestamp-only registry churn исключён.
+- Root audit: 0 vulnerabilities. MCP `npm audit --audit-level=high` проходит, но сообщает 3 moderate vulnerabilities в существующих fast-uri, hono и ip-address; dependency updates не входят в задачу.
+- Installer tests выполнены в игнорируемых каталогах `test-results/`. Затем пять навыков установлены из feature commit в реальный DSH с резервными копиями прежних bundles. Живой каталог обновился; native skill load рубрики вернул DSH runtime contract и правильный resource base. Проверены rendered hashes всех пяти и sourceModifiedFromCommit=false; backup-каталоги не добавили discovery-дубликатов.
+- Root/MCP suites дополнительно повторены родительским агентом (35 + 70 passed), после финальной правки help — ещё 8 DSH regressions. Это проверка установки/контрактов, не доказательство педагогической эффективности LLM и не полный учебный E2E. Настройки приложения, глобальные пакеты и LeanCTX не изменялись.
+- Далее: отдельная публикация feature/STATE commits в ветку fork; при новых изменениях выполнять те же проверки. Полное поведенческое/педагогическое тестирование остаётся отдельной задачей.
 
 ## Upstream sync 2026-09-04
 
