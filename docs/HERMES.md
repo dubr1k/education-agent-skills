@@ -17,6 +17,16 @@ Technical identifiers intentionally stay in English for upstream compatibility:
 
 Русскоязычный слой добавлен через инструкции, поиск, aliases, документацию и runtime metadata. Поэтому запросы можно формулировать по-русски, а устанавливаемые идентификаторы skills остаются английскими.
 
+## Optional full-library Hermes catalog adapter
+
+For a local RU/EN catalog without injecting 165 skill descriptions into every
+conversation, see [`integrations/hermes`](../integrations/hermes/README.md).
+Its explicit installer packages one router, a lightweight Python query adapter,
+and the complete unmodified skill references. Tests install only into isolated
+temporary destinations. It does not install MCP, plugins or hooks, and it never
+falls back to another profile. Selected installs below remain available when
+only a small fixed set is wanted.
+
 ## Which route should I use?
 
 | Route | Best for | Trade-off |
