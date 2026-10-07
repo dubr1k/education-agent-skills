@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "generated": "2026-09-04T18:11:27.489111+00:00",
+  "generated": "2026-10-07T08:50:59.324423+00:00",
   "standard": "agent-skills-1.0",
   "total_skills": 165,
   "domains": [
     {
       "id": "ai-learning-science",
-      "label": "\u0418\u0418 \u0438 \u043d\u0430\u0443\u043a\u0430 \u043e learning",
+      "label": "\u0418\u0418 \u0438 \u043d\u0430\u0443\u043a\u0430 \u043e\u0431 \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u0438",
       "skill_count": 14
     },
     {
@@ -31,7 +31,7 @@
     },
     {
       "id": "environmental-experiential-learning",
-      "label": "\u0421\u0440\u0435\u0434\u043e\u0432\u043e\u0435 \u0438 experiential learning",
+      "label": "\u0421\u0440\u0435\u0434\u043e\u0432\u043e\u0435 \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u0438 \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u0447\u0435\u0440\u0435\u0437 \u043e\u043f\u044b\u0442",
       "skill_count": 6
     },
     {

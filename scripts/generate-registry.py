@@ -10,13 +10,13 @@ from collections import Counter
 
 
 DOMAIN_LABELS = {
-    "ai-learning-science": "ИИ и наука о learning",
+    "ai-learning-science": "ИИ и наука об обучении",
     "ai-literacy": "ИИ-грамотность",
     "curriculum-alignment": "Согласование учебных программ",
     "curriculum-assessment": "Учебная программа и оценивание",
     "systems-thinking": "Системное мышление",
     "eal-language-development": "Русский как неродной и языковое развитие",
-    "environmental-experiential-learning": "Средовое и experiential learning",
+    "environmental-experiential-learning": "Средовое обучение и обучение через опыт",
     "explicit-instruction": "Явное обучение",
     "global-cross-cultural-pedagogies": "Межкультурные педагогики",
     "literacy-critical-thinking": "Грамотность и критическое мышление",
