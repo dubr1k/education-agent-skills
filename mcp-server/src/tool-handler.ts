@@ -5,8 +5,8 @@ type ToolResult = { content: Array<{ type: "text"; text: string }> };
 const DOMAIN_SEARCH_TERMS: Record<string, string> = {
   "ai-learning-science": "ии искусственный интеллект обучение нейросеть chatgpt тьютор тьюторинг подсказки feedback обратная связь learning analytics данные адаптивное обучение intelligent tutoring ITS диалог",
   "ai-literacy": "ии грамотность промпт промпты hallucination галлюцинации проверка фактов надежность критическая оценка ai-output критика фактчек ChatGPT AI literacy privacy data boundaries",
-  "curriculum-alignment": "фгос фоп программа рабочая ктп планирование соответствие аудит планируемые результаты",
-  "curriculum-assessment": "фгос фоп рабочая программа ктп планируемые результаты оценивание рубрика критерии проект урок модуль диагностика контрольная впр огэ егэ",
+  "curriculum-alignment": "фгос фоп рпд спо вуз дпо компетенции индикаторы программа рабочая ктп планирование соответствие аудит планируемые результаты",
+  "curriculum-assessment": "фгос фоп рпд спо вуз дпо зачет экзамен рабочая программа ктп планируемые результаты оценивание рубрика критерии проект урок модуль диагностика контрольная впр огэ егэ",
   "eal-language-development": "русский как неродной рки иностранный язык мигранты билингвы словарь речь",
   "environmental-experiential-learning": "экологическое образование опытное обучение experiential learning outdoor learning fieldwork проектная деятельность практика проект среда локальная среда природа исследование опыт вне класса школьный двор наблюдение",
   "explicit-instruction": "явное обучение прямое обучение объяснение моделирование структура урока управляемая практика самостоятельная практика проверка понимания коррекция ошибок урок",
@@ -32,8 +32,8 @@ const RU_QUERY_ALIASES: Array<{ pattern: RegExp; terms: string[] }> = [
   { pattern: /^(явн|прям|объясн|моделир|показ|структур)/u, terms: ["explicit", "direct", "instruction", "modelling", "lesson"] },
   { pattern: /^(управляем|совместн|практик|самостоятельн|независим)/u, terms: ["guided", "independent", "practice", "gradual-release"] },
   { pattern: /^(коррекц|исправлен|ошибк)/u, terms: ["checking-understanding", "feedback", "error", "correction", "formative"] },
-  { pattern: /^(фгос|фоп|рабоч|план|модул|раздел|ктп|программ)/u, terms: ["planning", "unit", "curriculum", "sequence", "alignment"] },
-  { pattern: /^(результат|цель|задач)/u, terms: ["outcome", "objective", "learning", "result"] },
+  { pattern: /^(фгос|фоп|рпд|спо|вуз|дпо|рабоч|план|модул|раздел|ктп|программ)/u, terms: ["planning", "unit", "curriculum", "sequence", "alignment"] },
+  { pattern: /^(результат|цель|задач|компетенц|индикатор)/u, terms: ["outcome", "objective", "learning", "result"] },
   { pattern: /^(оцен|критери|рубри|балл|егэ|огэ|впр|контрол|диагност)/u, terms: ["assessment", "rubric", "criteria", "feedback", "formative", "diagnostic"] },
   { pattern: /^(работа|работы|работу|работе|работой|проверочн)/u, terms: ["assessment", "task", "test", "practice"] },
   { pattern: /^(чтен|текст|пониман|грамотн)/u, terms: ["reading", "text", "comprehension", "literacy"] },
@@ -103,20 +103,20 @@ function tokenMatchesSkill(token: string, haystack: string): boolean {
 }
 
 export function assemblePrompt(skill: LoadedSkill, args: Record<string, unknown>): string {
-  let prompt = skill.prompt;
-
-  // Заменяем {{placeholder}} на переданные значения.
+  const values = new Map<string, string>();
   for (const [key, value] of Object.entries(args)) {
-    const placeholder = new RegExp(`\\{\\{${key}\\}\\}`, "gi");
     const strValue = Array.isArray(value) ? JSON.stringify(value) : String(value);
-    prompt = prompt.replace(placeholder, strValue);
+    // Preserve the first matching case-insensitive key, as before.
+    if (!values.has(key.toLowerCase())) values.set(key.toLowerCase(), strValue);
   }
+  // Only original tokens are substituted. Callback results are literal: dollar
+  // replacement patterns and tokens inside supplied text are never re-parsed.
+  const prompt = skill.prompt.replace(/\{\{([^}]+)\}\}/g, (_token, key: string) =>
+    values.get(key.toLowerCase()) ?? "[not provided]",
+  );
 
-  // Убираем оставшиеся {{placeholders}} для optional параметров.
-  prompt = prompt.replace(/\{\{[^}]+\}\}/g, "[not provided]");
-
-  // Собираем краткий ввод для параметров, которых не было в template.
-  // Некоторые prompts используют отличающиеся соглашения по placeholders.
+  // Build an input summary for any placeholders that weren't in the template
+  // (some prompts use different placeholder conventions)
   const inputSummary = Object.entries(args)
     .map(([key, value]) => {
       const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());

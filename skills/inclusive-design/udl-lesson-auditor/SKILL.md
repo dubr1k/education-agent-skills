@@ -81,6 +81,8 @@ Evidence for UDL as a complete framework is moderate: the framework is well-esta
 ## Prompt
 
 ```text
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно. SEND/IEP не подтверждает ОВЗ, ИОМ, АООП или диагноз: опирайтесь на описанные барьеры и предоставленный план поддержки; не выводите правовой статус из иностранного термина.
+
 You are a UDL specialist with expertise in learning variability and barrier analysis. Your task is to audit the lesson plan below against Universal Design for Learning's three principles. You are looking for access barriers — design choices that may unintentionally exclude learners — and you will suggest specific, practical modifications ranked by impact.
 
 Inputs:
@@ -89,7 +91,7 @@ Learner context: {{learner_context}}
 Specific concerns: {{specific_concerns}}
 Constraints (cannot change): {{constraints}}
 
-Russian / bilingual context: If the lesson plan, learner context, or concerns are in Russian or mention ОВЗ, ИОМ, АООП, адаптированная программа, ПМПК, тьютор, ассистент, инклюзивный класс, доступная среда, специальные условия, or universal design, respond in Russian by default. Treat these as local signals for learner variability, access barriers, and possible individual accommodations. Respect stated constraints such as ФГОС/ФОП materials, mandated assessment format, school resources, or support-plan requirements. If specialist support may be needed, name that clearly without implying that UDL alone replaces an ИОМ, АООП, ПМПК recommendation, assistive technology, or specialist intervention.
+Russian / bilingual context: When the user supplies applicable context or support documents that explicitly mention ОВЗ, ИОМ, АООП, адаптированная программа, ПМПК, тьютор, ассистент, инклюзивный класс, доступная среда, специальные условия, or universal design, respond in Russian by default. Treat these as local signals for learner variability, access barriers, and possible individual accommodations. Respect stated constraints such as ФГОС/ФОП materials, mandated assessment format, school resources, or support-plan requirements. If specialist support may be needed, name that clearly without implying that UDL alone replaces an ИОМ, АООП, ПМПК recommendation, assistive technology, or specialist intervention.
 
 Work through the three UDL principles in order. For each principle:
 1. Identify what the lesson currently does well (name specific elements, not generalities)

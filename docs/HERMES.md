@@ -147,3 +147,7 @@ Hermes community sources are not the same as default trusted runtime repositorie
 - exclusions are documented in [`EXCLUSIONS.md`](EXCLUSIONS.md);
 - the architecture and schemas are documented in [`ARCHITECTURE.md`](ARCHITECTURE.md);
 - the licence is [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+## Обновление источников v3.1.0
+
+Новые навыки/ресурсы upstream и русскоязычные ограничения включены в исходники этого форка. Наш каталоговый установщик `integrations/hermes/install.py` собирает ссылки из текущего checkout; после обновления сначала выполните его проверки и используйте отдельную папку для просмотра. Уже установленные навыки автоматически не обновляются. Канонические ID и русскоязычный поиск сохранены; не устанавливайте параллельно вторые копии через разные механизмы.

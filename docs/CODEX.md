@@ -1,166 +1,65 @@
-# Using Educational Skills RU in OpenAI Codex
+# Codex: русскоязычный форк
 
-This guide explains how to use **Educational Skills RU**, a bilingual RU/EN fork of the Education Agent Skills Library, with OpenAI Codex locally.
+Используйте [наш репозиторий](https://github.com/dubr1k/education-agent-skills). Навыки содержат русскоязычные инструкции, исходные исследовательские ссылки и ограничения применимости. Для обычной задачи достаточно нескольких выбранных навыков; установка всех 165 не обязательна. MCP нужен только при выборе этого способа доступа.
 
-Repository: https://github.com/dubr1k/education-agent-skills
+## Выборочная переносимая установка
 
-The skills run from your machine. Once installed locally, Codex reads the skill files directly and does not call a remote MCP service.
-
-## Compatibility note / Важно о совместимости
-
-Technical identifiers intentionally stay in English for upstream compatibility:
-
-- `skill_id`
-- folder names under `skills/<domain>/<skill-name>/`
-- tool names such as `find_skills`, `suggest_skills`, `get_skill_details`, `list_skills`
-- tags and chaining metadata
-
-Русскоязычный слой добавлен через инструкции, поиск, aliases, документацию и runtime metadata. Поэтому в запросах можно писать по-русски, но системные имена skills и tools остаются английскими.
-
-## Recommended: install as a local Codex plugin
-
-Use this when you want the full library available in Codex.
+Из корня клона соберите переносимый профиль upstream v3.1.0 с содержимым этого форка:
 
 ```bash
-git clone https://github.com/dubr1k/education-agent-skills.git
-cd education-agent-skills
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements/standard-validation.txt
+.venv/bin/python scripts/export-standard-skills.py
+.venv/bin/python scripts/validate-standard-skills.py
+mkdir -p ~/.agents/skills
+```
+
+Перед копированием проверьте целевой каталог: если навык уже установлен, сохраните его копию и пользовательские изменения. Для нового каталога:
+
+```bash
+cp -R dist/agent-skills/spaced-practice-scheduler ~/.agents/skills/
+```
+
+После установки начните новый сеанс Codex. Результат должен лежать непосредственно в `~/.agents/skills/spaced-practice-scheduler/SKILL.md`, вместе с ресурсами навыка. Не устанавливайте одновременно вторую копию того же навыка в `~/.codex/skills` или через полный плагин.
+
+Переносимая сборка содержит только стандартные поля заголовка: `name`, `description`, `license` и строковые `metadata`. Полные схемы, ссылки и исходные поля сохраняются в `references/education.json`; текст навыка после указателя на метаданные сохраняется побайтно. Копируйте всю папку, включая `references/`, `agents/`, `scripts/` и `LICENSE`, когда они присутствуют.
+
+`dist/agent-skills` — генерируемый каталог, исключённый из Git. Отдельный архив RU-релиза этим обновлением не публикуется: сборка из исходников является воспроизводимым способом получить текущую версию.
+
+## Полный исходный плагин
+
+Если нужен весь каталог, локальный marketplace использует имя `educational-skills-ru`; манифест плагина содержит 20 каталогов доменов:
+
+```bash
 codex plugin marketplace add "$PWD"
+codex plugin add educational-skills-ru@educational-skills-ru
+codex plugin list --marketplace educational-skills-ru --json
 ```
 
-The repo includes the Codex plugin manifest:
+Регистрация marketplace и установка плагина — разные действия. Команды зависят от версии Codex; сверяйте `codex plugin --help`. Изменение клона само по себе не обновляет установленный кэш: после осознанной переустановки проверьте список плагинов и начните новый сеанс. Проверки файлов, манифестов и переносимой сборки не доказывают активацию навыка моделью в работающем приложении.
 
-```text
-.codex-plugin/plugin.json
+## Явный вызов и экономия контекста
+
+12 навыков имеют `disable-model-invocation: true` и файл `agents/openai.yaml`:
+
+```yaml
+policy:
+  allow_implicit_invocation: false
 ```
 
-That manifest points Codex at:
+Они доступны для явного запроса, например `$panel-review`, и не должны выбираться автоматически клиентом, который поддерживает эту политику. MCP также исключает их из автоматически вызываемых tools, сохраняя все 165 prompts. Остальные 153 навыка не имеют такого ограничения. В общем стандарте Agent Skills универсальной политики явного вызова нет; переносимый валидатор не подтверждает поведение каждого клиента.
 
-```text
-./skills/
-```
+## Совместимость имён в RU-форке
 
-The repo also includes a local marketplace helper:
+В исходниках сохранены два разных навыка с одинаковым `name`: дисциплинарное проектирование задания и анализ аргументов. Исходные папки, `skill_id` и MCP-имена не переименованы при синхронизации с upstream.
 
-```text
-.agents/plugins/marketplace.json
-```
+| Исходный `skill_id` | Имя папки и `name` в переносимой сборке |
+| --- | --- |
+| `curriculum-assessment/critical-thinking-task-designer` | `curriculum-assessment-critical-thinking-task-designer` |
+| `literacy-critical-thinking/critical-thinking-task-designer` | `literacy-critical-thinking-critical-thinking-task-designer` |
 
-Restart Codex after installing or updating the local plugin. Codex can then discover and use the installed skills from local files.
+Остальные переносимые имена не меняются. Поле `education.skill-id` и `references/education.json` сохраняют точное сопоставление. `chains_well_with` остаётся исходной рекомендацией, а не командой вызова; сопоставляйте её с `skill_id` и доменом, не подставляйте автоматически имя папки. Если исходная ссылка неоднозначна, выберите навык по задаче и схеме входа. Ссылки на локальные ресурсы сохраняются внутри копируемой папки.
 
-## Quickstart examples / Примеры запросов
+Экспорт отвергает повторяющиеся исходные ID, неустранимые конфликты переносимых имён, некорректный YAML, небезопасные пути и символические ссылки. Замена разрешена только для собственного неизменённого результата с контрольными суммами. Для сохранения ручных правок используйте новый `--output /path/to/new-profile`.
 
-You can ask Codex in English:
-
-> I am planning a Year 9 science unit on cells: 6 weeks, 3 lessons per week. Build the unit using evidence-based learning science.
-
-Or in Russian:
-
-> Спланируй учебный модуль по клетке для 8 класса: 6 недель, 3 урока в неделю. Используй доказательные подходы, retrieval practice и формирующее оценивание.
-
-> Подбери skills для рабочей программы по ФГОС: нужно связать планируемые результаты, КТП, контрольные работы и критерии оценивания.
-
-> Я ученик, застрял на задаче по физике. Не давай сразу ответ: сначала помоги понять ошибку и дай подсказки по шагам.
-
-Codex can then use relevant skills such as backwards design, spaced practice, retrieval practice, formative assessment, rubric design, progressive hints, and stuck/error diagnosis.
-
-## Simple option: install individual skills
-
-Use this when you only want a few skills available globally in Codex.
-
-```bash
-git clone https://github.com/dubr1k/education-agent-skills.git
-cd education-agent-skills
-mkdir -p ~/.codex/skills
-cp -r skills/<domain>/<skill-name> ~/.codex/skills/
-```
-
-Example:
-
-```bash
-cp -r skills/memory-learning-science/spaced-practice-scheduler ~/.codex/skills/
-```
-
-Restart Codex after copying skills.
-
-## One-off use without installing
-
-You can also use any skill manually without setup:
-
-1. Open a `SKILL.md` file under `skills/`.
-2. Copy the prompt or instructions.
-3. Paste them into Codex with your classroom context.
-
-Example skill:
-
-```text
-skills/memory-learning-science/spaced-practice-scheduler/SKILL.md
-```
-
-This works well for testing, but it is not persistent. Codex will not automatically discover the skill in future sessions unless it is installed locally.
-
-## MCP discovery tools
-
-Local Codex use does not require MCP. If you are using the MCP server from another client, the discovery tools accept Russian and English search language while keeping tool names English:
-
-- `find_skills` — search by keyword, domain, evidence strength, tag, or free text.
-- `suggest_skills` — describe a teaching, curriculum, assessment, inclusion, or student-learning need.
-- `get_skill_details` — fetch full metadata and usage guidance for a specific skill.
-- `list_skills` — browse the library.
-
-Russian examples for MCP-capable clients:
-
-```text
-find_skills query="ФГОС рабочая программа КТП критерии оценивания"
-suggest_skills task="Нужно подготовить диагностическую работу и рубрику для 7 класса по теме дроби"
-suggest_skills task="Ученик просит ответ сразу, но нужно сначала проверить понимание и дать постепенные подсказки"
-```
-
-## Which option should I choose?
-
-Use the local plugin if:
-
-- You want the full library available.
-- You want Codex to discover relevant education skills automatically.
-- You want RU/EN prompts without remote services.
-- You are comfortable cloning a GitHub repo.
-
-Use individual skill installation if:
-
-- You only need one or two skills.
-- You want a minimal local setup.
-- You want skills available across Codex projects without installing the whole library.
-
-Use manual one-off use if:
-
-- You are evaluating the library.
-- You cannot install local files.
-- You only need a single prompt once.
-
-## Updating
-
-If you cloned the full repo, update it with:
-
-```bash
-cd education-agent-skills
-git pull
-```
-
-Then restart Codex so it picks up the latest skill changes.
-
-If you copied individual skills into `~/.codex/skills/`, copy them again after updating the repo.
-
-## Troubleshooting
-
-If Codex does not appear to use the skills:
-
-- Make sure each installed skill folder contains a `SKILL.md` file.
-- Make sure the `SKILL.md` file has `name` and `desc` fields in the frontmatter.
-- Restart Codex after installing or updating skills.
-- For individual skills, make sure the skill folder was copied directly into `~/.codex/skills/`, not nested too deeply.
-
-Expected examples:
-
-```text
-~/.codex/skills/spaced-practice-scheduler/SKILL.md
-~/.codex/skills/memory-learning-science/spaced-practice-scheduler/SKILL.md
-```
+Проверка [skills-ref с закреплённой версией](https://github.com/agentskills/agentskills/tree/69ef37e9424c0a7ea9dd2293b559e43ec8176379/skills-ref) относится к переносимому профилю, а не к расширенным заголовкам исходников. Она подтверждает формат, не эффективность педагогики и не качество ответа модели.

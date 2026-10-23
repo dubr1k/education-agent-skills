@@ -1,0 +1,2 @@
+# Сохранять CRLF в таблицах доказательств upstream без ложных предупреждений о пробелах.
+docs/audits/*.csv whitespace=cr-at-eol

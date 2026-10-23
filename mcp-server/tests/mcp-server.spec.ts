@@ -4,7 +4,8 @@ import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
-import { createServer } from "../src/server.js";
+import { createServer, MAX_TOOL_INPUT_ELEMENTS } from "../src/server.js";
+import { MCP_REQUEST_BODY_LIMIT_BYTES } from "../src/request-body.js";
 import type { LoadedSkill } from "../src/types.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

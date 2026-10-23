@@ -7,7 +7,7 @@
 
 **Educational Skills RU** — русскоязычный RU/EN fork библиотеки Education Agent Skills Library: 165 доказательно обоснованных педагогических skills в 20 доменах. Цель fork — сохранить совместимость с upstream на уровне `skill_id`, folder names, tags и chaining metadata, но добавить рабочий русский слой для Codex, Claude, Hermes, MCP и ручного использования.
 
-Русский слой добавляется через документацию, runtime metadata, поиск, локализованные domain labels, query aliases и постепенную адаптацию самих `SKILL.md`. Технические идентификаторы остаются английскими намеренно: это сохраняет переносимость skills между агентами и совместимость с upstream-экосистемой.
+Русский слой добавляется через документацию, runtime metadata, поиск, локализованные domain labels, query aliases и адаптацию всех 165 `SKILL.md`. Технические идентификаторы остаются английскими намеренно: это сохраняет переносимость skills между агентами и совместимость с upstream-экосистемой.
 
 ## Быстрый старт
 
@@ -35,30 +35,19 @@ claude plugin install "$PWD"
 
 ### OpenAI Codex
 
-Рекомендуемый локальный вариант:
+Для выборочной установки используйте переносимую сборку upstream v3.1.0 с русскоязычным содержанием этого форка:
 
 ```bash
-git clone https://github.com/dubr1k/education-agent-skills.git
-cd education-agent-skills
-codex plugin marketplace add "$PWD"
+python3 -m venv .venv
+.venv/bin/pip install -r requirements/standard-validation.txt
+.venv/bin/python scripts/export-standard-skills.py
+.venv/bin/python scripts/validate-standard-skills.py
+mkdir -p ~/.agents/skills
+# Если каталог уже существует, сначала сохраните свою копию; не перезаписывайте его автоматически.
+cp -r dist/agent-skills/spaced-practice-scheduler ~/.agents/skills/
 ```
 
-В repo есть Codex plugin manifest `.codex-plugin/plugin.json`, который указывает на `./skills/`, и локальный marketplace helper `.agents/plugins/marketplace.json`. После установки или обновления локального plugin перезапустите Codex.
-
-Если нужны только отдельные skills:
-
-```bash
-mkdir -p ~/.codex/skills
-cp -r skills/<domain>/<skill-name> ~/.codex/skills/
-```
-
-Пример:
-
-```bash
-cp -r skills/memory-learning-science/spaced-practice-scheduler ~/.codex/skills/
-```
-
-Подробный гайд: [docs/CODEX.md](docs/CODEX.md).
+В `dist/agent-skills` используются стандартные заголовки; полные схемы и ссылки на исследования сохраняются в `references/education.json`. Выбирайте нужные навыки, чтобы не загружать весь каталог в каждый сеанс. Для plugin-варианта и ограничений клиентов см. [docs/CODEX.md](docs/CODEX.md).
 
 ### Hermes Agent
 
@@ -108,7 +97,7 @@ Default target — `$DSH_HOME/skills`, если `DSH_HOME` задан, инач�
 
 AI быстро входит в образование. Он может улучшать обучение, снижать нагрузку учителя и давать ученикам качественную поддержку — но только если в основе лежит не набор привычек, а проверенная педагогическая evidence base.
 
-Эта библиотека собирает prompts как reusable skills: каждый skill содержит named research, ограничения, typed inputs/outputs и ожидаемый формат результата. Fork добавляет русский контекст: ФГОС/ФОП-совместимые формулировки там, где это уместно, русскоязычные query aliases, естественные термины для учителя и ученика, а также примеры запросов на русском.
+Эта библиотека собирает prompts как reusable skills: каждый skill содержит named research, ограничения, typed inputs/outputs и ожидаемый формат результата. Fork добавляет русский контекст: учёт предоставленных ФГОС/ФОП и других применимых документов без автоматического заявления соответствия, русскоязычные query aliases, естественные термины для учителя и ученика, а также примеры запросов на русском.
 
 Важно: prompts сами по себе не заявляются как эмпирически валидированные AI-интервенции. Они кодируют исследовательски обоснованные педагогические подходы и должны использоваться профессионально, с проверкой результата человеком.
 

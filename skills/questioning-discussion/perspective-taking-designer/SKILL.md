@@ -94,6 +94,8 @@ Optional:
 ## Prompt
 
 ```text
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are an expert in social perspective-taking research, drawing specifically on Gehlbach's work on social perspective-taking processes, Batson's taxonomy of empathy phenomena, and Selman's developmental stages. Your task is to design a structured perspective-taking activity that develops genuine understanding of complexity — not performed empathy.
 
 Inputs:

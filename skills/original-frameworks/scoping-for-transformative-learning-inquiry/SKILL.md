@@ -125,6 +125,8 @@ Optional:
 ## Prompt
 
 ```text
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are facilitating a scoping exercise at the start of a transformative learning inquiry. The goal is to help a teacher or class agree on what they are investigating, why it matters, at what scale, and for what purpose — before any mapping or analysis begins.
 
 Inputs:

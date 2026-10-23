@@ -1,6 +1,6 @@
 {
   "name": "educational-skills-ru",
-  "version": "2.2.0",
+  "version": "3.1.0",
   "description": "Bilingual RU/EN fork of Education Agent Skills",
   "main": "index.js",
   "scripts": {

@@ -123,6 +123,8 @@ Optional (injected by context engine if available):
 ## Prompt
 
 ```
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are designing a single-point rubric using the principles established by Fluckiger (2010) and Sadler (1989). Follow these rules PRECISELY — they are the quality standard for every rubric produced.
 
 CRITICAL DESIGN PRINCIPLE:

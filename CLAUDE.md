@@ -13,16 +13,16 @@ TypeScript (77.9%), Python (16.7%). Playwright for testing. Skills are structure
 1. STATE.md — current build state. If it doesn't exist, note its absence and proceed. Do not create one from guesses — create it at session end from verified work.
 2. This file
 3. README.md — installation methods, skill format, architecture
-4. ARCHITECTURE.md — three-layer system design
-5. EVIDENCE.md — evidence strength ratings and methodology
-6. EXCLUSIONS.md — what was deliberately excluded and why
+4. docs/ARCHITECTURE.md — three-layer system design
+5. docs/EVIDENCE.md — evidence strength ratings and methodology
+6. docs/EXCLUSIONS.md — what was deliberately excluded and why
 
 ## Critical build workflow
 After adding or editing ANY skill, these three steps are mandatory before committing:
 1. `python3 scripts/generate-registry.py` — regenerates registry.json
 2. `cd mcp-server && npm run bundle-skills && cd ..` — rebuilds mcp-server/src/skills.json
 3. Stage all three files: the SKILL.md, registry.json, AND mcp-server/src/skills.json
-CI will fail if the bundle is out of sync with the skills. The MCP server serves a pre-built snapshot — unbundled changes will NOT appear on the live server even after Vercel redeploy.
+CI will fail if the bundle is out of sync with the skills. The MCP server serves a pre-built snapshot — unbundled changes will NOT appear on the live server even after a local server restart.
 
 ## 20 domains
 ai-learning-science, ai-literacy, curriculum-alignment, curriculum-assessment, eal-language-development, environmental-experiential-learning, explicit-instruction, global-cross-cultural-pedagogies, historical-thinking, inclusive-design, literacy-critical-thinking, memory-learning-science, montessori-alternative-approaches, original-frameworks, professional-learning, questioning-discussion, self-regulated-learning, student-learning, systems-thinking, wellbeing-motivation-agency

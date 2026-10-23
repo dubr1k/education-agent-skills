@@ -19,6 +19,11 @@ const ANNOTATIONS = {
   destructiveHint: false as const,
 };
 
+// The large-input fixture supports 1,000 structured records with eight fields
+// each (9,004 array elements/object keys including required arguments). Allow
+// modest headroom while bounding validation below the separate 1 MiB HTTP cap.
+export const MAX_TOOL_INPUT_ELEMENTS = 10_000;
+
 function buildToolInputSchema(field: InputSchemaField): z.ZodTypeAny {
   switch (field.type) {
     case "array":
@@ -46,7 +51,7 @@ export function createServer(skills: LoadedSkill[]): McpServer {
   const server = new McpServer({
     name: "educational-skills-ru",
     version: "0.3.0",
-  });
+  }, { maxToolInputElements: MAX_TOOL_INPUT_ELEMENTS });
 
   // Регистрируем bundled skills как prompts для пользовательского вызова.
   for (const skill of skills) {

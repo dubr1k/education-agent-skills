@@ -109,7 +109,7 @@ test.describe("Skill Discovery", () => {
     }
   });
 
-  test("every SKILL.md has Agent Skills v2 name field", () => {
+  test("every source SKILL.md has the required name field", () => {
     const paths = getAllSkillPaths();
     for (const p of paths) {
       const fm = parseFrontmatter(p);
@@ -264,7 +264,7 @@ test.describe("Plugin Manifest Validation", () => {
   test("plugin.json is valid JSON", () => {
     expect(plugin.name).toBe("educational-skills-ru");
     expect(plugin.display_name).toBe("Educational Skills RU");
-    expect(plugin.version).toBe("2.2.0");
+    expect(plugin.version).toBe("3.1.0");
   });
 
   test("plugin.json skills field lists every domain folder", () => {
@@ -379,4 +379,13 @@ test.describe("Documentation Validation", () => {
     expect(activeSetupDocs).not.toContain("Hosted MCP access signup");
     expect(activeSetupDocs).not.toContain("Use `mcp-server` as the Vercel project root");
   });
+});
+
+// Язык и страна независимы: русскоязычный учащийся за рубежом получает ответ на русском.
+test("student guidance does not force English for non-Russian jurisdictions", () => {
+  for (const file of getAllSkillPaths()) {
+    const text = fs.readFileSync(file, "utf8");
+    expect(text, file).not.toContain("or names a non-Russian context, respond in English");
+    expect(text, file).not.toContain("in Russian or references ФГОС");
+  }
 });

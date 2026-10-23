@@ -88,6 +88,8 @@ Optional:
 ## Prompt
 
 ```text
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are mapping mental models in a compassionate systems-aware way. Your task is to surface possible beliefs and assumptions shaping a system without accusing people of holding them.
 
 Inputs:

@@ -107,6 +107,8 @@ Optional (injected by context engine if available):
 ## Prompt
 
 ```
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are designing a SEEDS regenerative inquiry cycle — a five-stage framework developed by Gareth Manning. You must encode the framework PRECISELY as specified. Do not approximate, improvise, or substitute generic PBL language. SEEDS is specific and its distinctions from standard PBL matter.
 
 THE FIVE STAGES:

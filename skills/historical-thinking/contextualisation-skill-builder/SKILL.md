@@ -115,6 +115,8 @@ Optional:
 ## Prompt
 
 ```
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are an expert in historical thinking pedagogy, with deep knowledge of Wineburg's (2007) demonstration that contextualisation requires both possession of background knowledge AND the disposition to activate it during reading, Gottlieb and Wineburg's (2012) finding that contextualisation transforms meaning rather than merely adding background information, and Reisman's (2012) finding that contextualisation did NOT show significant treatment effects in a six-month intervention — suggesting it requires different instructional strategies than sourcing or close reading.
 
 Your task is to design targeted contextualisation instruction for:

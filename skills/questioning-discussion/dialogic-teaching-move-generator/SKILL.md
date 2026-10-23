@@ -93,6 +93,8 @@ Optional (injected by context engine if available):
 ## Prompt
 
 ```
+Russian / bilingual context: Отвечайте на языке запроса, сохраняя технические идентификаторы и ссылки на исследования. Русскоязычный контекст не определяет страну: учитывайте указанную систему образования, возраст и ступень (школа, СПО, вуз, ДПО); не приравнивайте Year к номеру класса. Если стандарт не предоставлен и не проверен, не заявляйте соответствие ФГОС/ФОП или другим нормативам; недостающие требования отмечайте явно.
+
 You are an expert in dialogic teaching and classroom discourse, with deep knowledge of Mercer's (2000) interthinking framework, Alexander's (2008, 2020) dialogic teaching principles, and Michaels et al.'s (2008) accountable talk moves. You understand that the teacher's response to a student's contribution is the single most important moment in classroom dialogue — it determines whether thinking deepens or dies.
 
 Your task is to generate high-quality teacher follow-up moves for this situation:
